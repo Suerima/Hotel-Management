@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7BBE866D-23AB-4716-A054-890123AEAC7D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WindowsFormsApp1</RootNamespace>
+    <AssemblyName>WindowsFormsApp1</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GumroadLicensing, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GumroadLicensing.1.0.3\lib\net40\GumroadLicensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="NavigationMenu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kimtoo.NavigationMenu.1.0.2\lib\net40\NavigationMenu.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.core, Version=2.0.7.1395, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.core.2.0.7\lib\netstandard2.0\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BUS\AccountBUS.cs" />
+    <Compile Include="BUS\BookingBUS.cs" />
+    <Compile Include="BUS\CustomerBUS.cs" />
+    <Compile Include="BUS\EmployeeBUS.cs" />
+    <Compile Include="BUS\RoomBUS.cs" />
+    <Compile Include="BUS\SelectedServiceBUS.cs" />
+    <Compile Include="BUS\ServiceBUS.cs" />
+    <Compile Include="BUS\ServiceInvoiceBUS.cs" />
+    <Compile Include="Button_WOC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DAO\AccountDAO.cs" />
+    <Compile Include="DAO\BookingDAO.cs" />
+    <Compile Include="DAO\CustomerDAO.cs" />
+    <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\EmployeeDAO.cs" />
+    <Compile Include="DAO\RoomDAO.cs" />
+    <Compile Include="DAO\SelectedServiceDAO.cs" />
+    <Compile Include="DAO\ServiceDAO.cs" />
+    <Compile Include="DAO\ServiceInvoiceDAO.cs" />
+    <Compile Include="Database.cs" />
+    <Compile Include="DTO\Account.cs" />
+    <Compile Include="DTO\Booking.cs" />
+    <Compile Include="DTO\Customer.cs" />
+    <Compile Include="DTO\Employee.cs" />
+    <Compile Include="DTO\Room.cs" />
+    <Compile Include="DTO\SelectedService.cs" />
+    <Compile Include="DTO\Service.cs" />
+    <Compile Include="DTO\ServiceInvoice.cs" />
+    <Compile Include="FormForgotPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormForgotPass.Designer.cs">
+      <DependentUpon>FormForgotPass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReport.Designer.cs">
+      <DependentUpon>FormReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReportBooking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportBooking.Designer.cs">
+      <DependentUpon>FormReportBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormResetPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResetPass.Designer.cs">
+      <DependentUpon>FormResetPass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAccount.Designer.cs">
+      <DependentUpon>FormAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCN_DichVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCN_DichVu.Designer.cs">
+      <DependentUpon>FormCN_DichVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCN_ThuePhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCN_ThuePhong.Designer.cs">
+      <DependentUpon>FormCN_ThuePhong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCN_TraPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCN_TraPhong.Designer.cs">
+      <DependentUpon>FormCN_TraPhong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDT_DichVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDT_DichVu.Designer.cs">
+      <DependentUpon>FormDT_DichVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDT_ThuePhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDT_ThuePhong.Designer.cs">
+      <DependentUpon>FormDT_ThuePhong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormQL_KhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormQL_KhachHang.Designer.cs">
+      <DependentUpon>FormQL_KhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormQL_NhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormQL_NhanVien.Designer.cs">
+      <DependentUpon>FormQL_NhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormQL_Phong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormQL_Phong.Designer.cs">
+      <DependentUpon>FormQL_Phong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTim_KhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTim_KhachHang.Designer.cs">
+      <DependentUpon>FormTim_KhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTim_Phong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTim_Phong.Designer.cs">
+      <DependentUpon>FormTim_Phong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FromMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FromMain.Designer.cs">
+      <DependentUpon>FromMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QLKSDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLKSDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLKSDataSet1.cs">
+      <DependentUpon>QLKSDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLKSDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLKSDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLKSDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLKSDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyDB.cs" />
+    <EmbeddedResource Include="FormAccount.resx">
+      <DependentUpon>FormAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCN_DichVu.resx">
+      <DependentUpon>FormCN_DichVu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCN_ThuePhong.resx">
+      <DependentUpon>FormCN_ThuePhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCN_TraPhong.resx">
+      <DependentUpon>FormCN_TraPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDT_DichVu.resx">
+      <DependentUpon>FormDT_DichVu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDT_ThuePhong.resx">
+      <DependentUpon>FormDT_ThuePhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormForgotPass.resx">
+      <DependentUpon>FormForgotPass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormQL_KhachHang.resx">
+      <DependentUpon>FormQL_KhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormQL_NhanVien.resx">
+      <DependentUpon>FormQL_NhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormQL_Phong.resx">
+      <DependentUpon>FormQL_Phong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReport.resx">
+      <DependentUpon>FormReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportBooking.resx">
+      <DependentUpon>FormReportBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResetPass.resx">
+      <DependentUpon>FormResetPass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTim_KhachHang.resx">
+      <DependentUpon>FormTim_KhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTim_Phong.resx">
+      <DependentUpon>FormTim_Phong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FromMain.resx">
+      <DependentUpon>FromMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="Report2.rdlc" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="QLKSDataSet.xsc">
+      <DependentUpon>QLKSDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLKSDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLKSDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLKSDataSet.xss">
+      <DependentUpon>QLKSDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLKSDataSet1.xsc">
+      <DependentUpon>QLKSDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QLKSDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLKSDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLKSDataSet1.xss">
+      <DependentUpon>QLKSDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QLKSDataSet2.xsc">
+      <DependentUpon>QLKSDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="QLKSDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLKSDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLKSDataSet2.xss">
+      <DependentUpon>QLKSDataSet2.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
