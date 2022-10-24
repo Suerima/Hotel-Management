@@ -41,6 +41,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnMinimize = new System.Windows.Forms.PictureBox();
             this.btnLogin = new ePOSOne.btnProduct.Button_WOC();
+            this.btSignUp = new System.Windows.Forms.LinkLabel();
+            this.label5 = new System.Windows.Forms.Label();
             this.FormPanelIcon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
@@ -49,7 +51,7 @@
             // 
             // FormPanelIcon
             // 
-            this.FormPanelIcon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(169)))), ((int)(((byte)(29)))));
+            this.FormPanelIcon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.FormPanelIcon.Controls.Add(this.pictureBox1);
             this.FormPanelIcon.Controls.Add(this.label4);
             this.FormPanelIcon.Dock = System.Windows.Forms.DockStyle.Left;
@@ -75,16 +77,16 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.label4.Location = new System.Drawing.Point(53, 265);
+            this.label4.Location = new System.Drawing.Point(45, 265);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(224, 57);
+            this.label4.Size = new System.Drawing.Size(238, 57);
             this.label4.TabIndex = 1;
-            this.label4.Text = "2T HOTEL";
+            this.label4.Text = "DE HOTEL";
             // 
             // tbUsername
             // 
-            this.tbUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.tbUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
             this.tbUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbUsername.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbUsername.ForeColor = System.Drawing.Color.DimGray;
@@ -110,7 +112,7 @@
             // 
             // tbPassword
             // 
-            this.tbPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.tbPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
             this.tbPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbPassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPassword.ForeColor = System.Drawing.Color.DimGray;
@@ -127,15 +129,16 @@
             // 
             this.linkForgotPass.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(75)))), ((int)(((byte)(13)))));
             this.linkForgotPass.AutoSize = true;
+            this.linkForgotPass.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkForgotPass.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkForgotPass.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(102)))), ((int)(((byte)(17)))));
-            this.linkForgotPass.Location = new System.Drawing.Point(607, 341);
+            this.linkForgotPass.Location = new System.Drawing.Point(825, 226);
             this.linkForgotPass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkForgotPass.Name = "linkForgotPass";
-            this.linkForgotPass.Size = new System.Drawing.Size(176, 20);
+            this.linkForgotPass.Size = new System.Drawing.Size(140, 20);
             this.linkForgotPass.TabIndex = 4;
             this.linkForgotPass.TabStop = true;
-            this.linkForgotPass.Text = "Forgot your password?";
+            this.linkForgotPass.Text = "Forgot password?";
             this.linkForgotPass.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkForgotPass_LinkClicked);
             // 
             // btnClose
@@ -186,33 +189,64 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(169)))), ((int)(((byte)(29)))));
-            this.btnLogin.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.btnLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLogin.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
+            this.btnLogin.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
             this.btnLogin.FlatAppearance.BorderSize = 0;
-            this.btnLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.btnLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Font = new System.Drawing.Font("Century Gothic", 14.25F);
             this.btnLogin.Location = new System.Drawing.Point(423, 265);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
-            this.btnLogin.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.btnLogin.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(39)))), ((int)(((byte)(46)))));
             this.btnLogin.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
-            this.btnLogin.Size = new System.Drawing.Size(544, 54);
+            this.btnLogin.Size = new System.Drawing.Size(542, 55);
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Login";
-            this.btnLogin.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(169)))), ((int)(((byte)(29)))));
+            this.btnLogin.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // btSignUp
+            // 
+            this.btSignUp.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(75)))), ((int)(((byte)(13)))));
+            this.btSignUp.AutoSize = true;
+            this.btSignUp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btSignUp.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSignUp.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(102)))), ((int)(((byte)(17)))));
+            this.btSignUp.Location = new System.Drawing.Point(664, 364);
+            this.btSignUp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.btSignUp.Name = "btSignUp";
+            this.btSignUp.Size = new System.Drawing.Size(64, 20);
+            this.btSignUp.TabIndex = 12;
+            this.btSignUp.TabStop = true;
+            this.btSignUp.Text = "SIGN UP";
+            this.btSignUp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.btSignUp_LinkClicked);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(614, 344);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(156, 20);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Have not account yet?";
             // 
             // FormLogin
             // 
             this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
             this.ClientSize = new System.Drawing.Size(1040, 406);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.btSignUp);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.btnMinimize);
             this.Controls.Add(this.label2);
@@ -229,6 +263,7 @@
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormLogin";
+            this.Opacity = 0.97D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormLogin";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormLogin_MouseDown);
@@ -256,5 +291,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private ePOSOne.btnProduct.Button_WOC btnLogin;
+        private System.Windows.Forms.LinkLabel btSignUp;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -25,7 +25,7 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                return DataProvider.Instance.ExecuteScalar("EXEC USP_Get_LastServiceInvoiceCode");
+                return DataProvider.Instance.ExecuteScalar("EXEC USP_Get_LastServiceInvoice");
             }
             catch (Exception ex)
             {
@@ -37,7 +37,19 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                return DataProvider.Instance.ExecuteQuery("SELECT * FROM FU_Get_ServiceInvoice()");
+                return DataProvider.Instance.ExecuteQuery("EXEC USP_Get_ServiceInvoice");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public DataTable GetServiceInvoiceInCheckOut()
+        {
+            try
+            {
+                return DataProvider.Instance.ExecuteQuery("EXEC USP_Get_ServiceInvoiceInCheckOut");
             }
             catch (Exception ex)
             {
@@ -49,7 +61,7 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                string query = string.Format("EXEC InsertServiceInvoice '{0}', N'{1}', '{2}', '{3}', '{4}', '{5}', N'{6}'",
+                string query = string.Format("EXEC USP_Insert_ServiceInvoice '{0}', N'{1}', '{2}', '{3}', '{4}', '{5}', N'{6}'",
                                             SI.ServiceInvoiceID, SI.CustomerID, SI.ManagerID, SI.EmployeeID, SI.DateCreated, SI.Total, SI.Status);
                 return DataProvider.Instance.ExecuteNonQuery(query);
             }

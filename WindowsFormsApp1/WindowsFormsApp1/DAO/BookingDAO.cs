@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using WindowsFormsApp1.DTO;
@@ -41,6 +42,18 @@ namespace WindowsFormsApp1.DAO
             try
             {
                 return DataProvider.Instance.ExecuteQuery("EXEC USP_Get_Booking");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public DataTable GetBookingInCheckOut()
+        {
+            try
+            {
+                return DataProvider.Instance.ExecuteQuery("EXEC USP_Get_BookingInCheckOut");
             }
             catch (Exception ex)
             {

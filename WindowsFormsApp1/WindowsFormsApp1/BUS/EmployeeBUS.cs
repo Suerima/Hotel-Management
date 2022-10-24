@@ -35,6 +35,11 @@ namespace WindowsFormsApp1.BUS
             return EmployeeDAO.Instance.GetEmployee();
         }
 
+        public DataTable GetEmployeeInService()
+        {
+            return EmployeeDAO.Instance.GetEmployeeInService();
+        }
+
         public DataTable SearchEmployee(string name)
         {
             return EmployeeDAO.Instance.SearchEmployee(name);
@@ -48,6 +53,11 @@ namespace WindowsFormsApp1.BUS
         public int UpdateEmployee(Employee Employee)
         {
             return EmployeeDAO.Instance.UpdateEmployee(Employee);
+        }
+
+        public int UpdateEmployeeStatus(string employeeID)
+        {
+            return EmployeeDAO.Instance.UpdateEmployeeStatus(employeeID);
         }
 
         public int DeleteEmployee(string employeeID)

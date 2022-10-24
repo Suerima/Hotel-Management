@@ -20,17 +20,15 @@ namespace WindowsFormsApp1
 
             InitializeComponent();
             tabControl.TabPages.Remove(tabPageEdit);
+            loadData();
         }
 
         void loadData()
         {
             dgvListCustomer.DataSource = CustomerBUS.Instance.GetCustomer();
+            lbRecord.Text = "Records: " + dgvListCustomer.RowCount.ToString();
         }
 
-        private void FormQL_KhachHang_Load(object sender, EventArgs e)
-        {
-            loadData();
-        }
 
         private void reset()
         {
@@ -46,17 +44,24 @@ namespace WindowsFormsApp1
         private void dgvListInfoCustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow r = new DataGridViewRow();
-            r = dgvListCustomer.Rows[e.RowIndex];
-            if (r != null)
+            try
             {
-                tbCustomerID.Text = r.Cells[0].Value.ToString();
-                tbName.Text = r.Cells[1].Value.ToString();
-                dtpDob.Text = r.Cells[2].Value.ToString();
-                cbGender.Text = r.Cells[3].Value.ToString();
-                tbIDCard.Text = r.Cells[4].Value.ToString();
-                tbPhone.Text = r.Cells[5].Value.ToString();
-                tbAddress.Text = r.Cells[6].Value.ToString();
+                r = dgvListCustomer.Rows[e.RowIndex];
+                if (r != null)
+                {
+                    tbCustomerID.Text = r.Cells[0].Value.ToString();
+                    tbName.Text = r.Cells[1].Value.ToString();
+                    dtpDob.Text = r.Cells[2].Value.ToString();
+                    cbGender.Text = r.Cells[3].Value.ToString();
+                    tbIDCard.Text = r.Cells[4].Value.ToString();
+                    tbPhone.Text = r.Cells[5].Value.ToString();
+                    tbAddress.Text = r.Cells[6].Value.ToString();
 
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -90,7 +95,7 @@ namespace WindowsFormsApp1
         {
             tabControl.TabPages.Remove(tabPageList);
             tabControl.TabPages.Add(tabPageEdit);
-            tabPageEdit.Text = "Add customer";
+            tabPageEdit.Text = "ADD";
             reset();
             checkButton = true;
         }
@@ -111,6 +116,10 @@ namespace WindowsFormsApp1
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DeleteCustomer();
+        }
+        public void DeleteCustomer()
         {
             try
             {
@@ -150,18 +159,17 @@ namespace WindowsFormsApp1
                     if (checkButton == true) // true = ADD
                     {
                         CustomerBUS.Instance.InsertCustomer(customer);
-                        loadData();
                         MessageBox.Show("Insert successful.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else // false = UPDATE
                     {
                         CustomerBUS.Instance.UpdateCustomer(customer);
-                        loadData();
                         MessageBox.Show("Update successful.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     tabControl.TabPages.Add(tabPageList);
                     tabControl.TabPages.Remove(tabPageEdit);
                     tbCustomerID.Text = "";
+                    loadData();
                 }
             }
             catch (Exception ex)
@@ -178,27 +186,43 @@ namespace WindowsFormsApp1
         }
 
         #region Event
+
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {
-            if (tbSearch.Text != "Search by name ")
-                dgvListCustomer.DataSource = CustomerBUS.Instance.SearchCustomer("Name", tbSearch.Text);
-            else
-                loadData();
+            if (tbSearch.Text != "Search")
+            {
+                if (cbSearch.Text == " Full Name")
+                {
+                    dgvListCustomer.DataSource = CustomerBUS.Instance.SearchCustomer("Name", tbSearch.Text);
+                }
+                else if (cbSearch.Text == " Phone Number")
+                {
+                    dgvListCustomer.DataSource = CustomerBUS.Instance.SearchCustomer("Phone", tbSearch.Text);
+
+                }
+                else if (cbSearch.Text == " ID Card")
+                {
+                    dgvListCustomer.DataSource = CustomerBUS.Instance.SearchCustomer("IDCard", tbSearch.Text);
+
+                }
+                else if (cbSearch.Text == " Customer ID")
+                {
+                    dgvListCustomer.DataSource = CustomerBUS.Instance.SearchCustomer("Customer_ID", tbSearch.Text);
+                }
+            }
         }
 
         private void tbSearch_Enter(object sender, EventArgs e)
         {
-            if (tbSearch.Text == "Search by name ")
+            if (tbSearch.Text == "Search")
                 tbSearch.Text = "";
         }
 
         private void tbSearch_Leave(object sender, EventArgs e)
         {
             if (tbSearch.Text == "")
-                tbSearch.Text = "Search by name ";
+                tbSearch.Text = "Search";
         }
         #endregion
-
-
     }
 }

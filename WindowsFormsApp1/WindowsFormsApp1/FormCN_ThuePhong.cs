@@ -26,7 +26,7 @@ namespace WindowsFormsApp1
         }
         void loadListCustomer()
         {
-            dgvListCustomer.DataSource = CustomerBUS.Instance.GetCustomerInService();
+            dgvListCustomer.DataSource = CustomerBUS.Instance.GetCustomerInBooking();
         }
 
         void loadListRoom()
@@ -43,6 +43,7 @@ namespace WindowsFormsApp1
         {
             tbBookingID.Text = GetNextBookingID();
         }
+
         public string GetNextBookingID()
         {
     
@@ -154,6 +155,11 @@ namespace WindowsFormsApp1
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            DeleteBooking();
+        }
+
+        public void DeleteBooking()
+        {
             try
             {
                 if (checkBookingID(lbBookingID.Text) == -1)
@@ -163,7 +169,7 @@ namespace WindowsFormsApp1
                     var result = MessageBox.Show("Bạn chắc chắn muốn xóa khách hàng này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (result == DialogResult.Yes)
                     {
-                        RoomBUS.Instance.UpdateStatusRoom(lbRoomID.Text, "Free");
+                        RoomBUS.Instance.UpdateStatusRoom(lbRoomID.Text, "Available");
 
                         BookingBUS.Instance.DeleteBooking(lbBookingID.Text);
 

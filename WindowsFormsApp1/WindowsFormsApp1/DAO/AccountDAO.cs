@@ -45,16 +45,16 @@ namespace WindowsFormsApp1.DAO
         public bool Login(string tbUsername, string tbPassword)
         {
 
-            string query = string.Format("USP_Login '{0}' , '{1}'", tbUsername, tbPassword);
+            string query = string.Format("USP_Login_Account '{0}' , '{1}'", tbUsername, tbPassword);
 
             DataTable result = DataProvider.Instance.ExecuteQuery(query);
 
             return result.Rows.Count > 0;
         }
 
-        public bool ForgotAccount(string email)
+        public bool ForgotAccount(string email, string username)
         {
-            string query = string.Format("EXEC USP_Forgot_Account '{0}'", email);
+            string query = string.Format("EXEC USP_Forgot_Account '{0}', {1}", email, username);
 
             DataTable result = DataProvider.Instance.ExecuteQuery(query);
 
@@ -72,8 +72,15 @@ namespace WindowsFormsApp1.DAO
 
         public int UpdatePassword(string password, string email)
         {
-            string query = string.Format("USP_Update_Account '{0}' '{1}'", password, email);
-            return DataProvider.Instance.ExecuteNonQuery(query);
+            try
+            {
+                string query = string.Format("USP_Update_Password '{0}', '{1}'", password, email);
+                return DataProvider.Instance.ExecuteNonQuery(query);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

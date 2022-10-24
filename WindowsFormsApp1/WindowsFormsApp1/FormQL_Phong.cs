@@ -20,18 +20,14 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             tabControl.TabPages.Remove(tabPageEdit);
+            loadData();
         }
 
         void loadData()
         {
             dgvListRoom.DataSource = RoomBUS.Instance.GetRoom();
+            lbRecord.Text = "Records: " + dgvListRoom.RowCount.ToString();
         }
-
-        private void FormQL_Phong_Load(object sender, EventArgs e)
-        {
-            loadData();
-        }
-
 
         private void dgvListInfo_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -82,14 +78,14 @@ namespace WindowsFormsApp1
             cbStatus.Text = "";
             tbDescription.Text = "";
         }
-
+    
         private bool checkButton;
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             tabControl.TabPages.Remove(tabPageList);
             tabControl.TabPages.Add(tabPageEdit);
-            tabPageEdit.Text = "Add room";
+            tabPageEdit.Text = "ADD";
             reset();
             checkButton = true;
         }
@@ -104,12 +100,16 @@ namespace WindowsFormsApp1
             {
                 tabControl.TabPages.Remove(tabPageList);
                 tabControl.TabPages.Add(tabPageEdit);
-                tabPageEdit.Text = "Update room";
+                tabPageEdit.Text = "UPDATE";
                 checkButton = false;
             }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DeleteRoom();
+        }
+        public void DeleteRoom()
         {
             try
             {
@@ -180,26 +180,46 @@ namespace WindowsFormsApp1
         #region Event
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {
-            if (tbSearch.Text != "Search by room type")
+            if (tbSearch.Text != "Search")
             {
-                dgvListRoom.DataSource = RoomBUS.Instance.SearchRoom("Type", tbSearch.Text);
+                if (cbSearch.Text == " Room ID")
+                {
+                    dgvListRoom.DataSource = RoomBUS.Instance.SearchRoom("Room_ID", tbSearch.Text);
+                }
+                else if (cbSearch.Text == " Type")
+                {
+                    dgvListRoom.DataSource = RoomBUS.Instance.SearchRoom("Type", tbSearch.Text);
+                }
+                else if (cbSearch.Text == " Person")
+                {
+                    dgvListRoom.DataSource = RoomBUS.Instance.SearchRoom("Person", tbSearch.Text);
+                }
+                else if (cbSearch.Text == " Price")
+                {
+                    dgvListRoom.DataSource = RoomBUS.Instance.SearchRoom("Price", tbSearch.Text);
+                }
+                else if (cbSearch.Text == " Status")
+                {
+                    dgvListRoom.DataSource = RoomBUS.Instance.SearchRoom("Status", tbSearch.Text);
+                }
+                else if (cbSearch.Text == " Description")
+                {
+                    dgvListRoom.DataSource = RoomBUS.Instance.SearchRoom("Description", tbSearch.Text);
+                }
             }
-            else
-                loadData();
         }
 
         private void tbSearch_Enter(object sender, EventArgs e)
         {
-            if (tbSearch.Text == "Search by room type")
+            if (tbSearch.Text == "Search")
                 tbSearch.Text = "";
         }
 
         private void tbSearch_Leave(object sender, EventArgs e)
         {
             if (tbSearch.Text == "")
-                tbSearch.Text = "Search by room type";
-        }        
+                tbSearch.Text = "Search";
+        }
         #endregion
-
     }
 }

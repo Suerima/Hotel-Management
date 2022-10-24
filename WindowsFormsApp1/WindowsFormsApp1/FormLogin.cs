@@ -14,6 +14,7 @@ namespace WindowsFormsApp1
 {
     public partial class FormLogin : Form
     {
+        
         public FormLogin()
         {
             InitializeComponent();
@@ -118,5 +119,17 @@ namespace WindowsFormsApp1
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
         #endregion
+
+        private void btSignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormSignUp fm = new FormSignUp();
+            this.Hide();
+            fm.Show();
+        }
+
+        private void FormLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            MessageBox.Show($"Form.KeyPress: '{e.KeyCode}' pressed.");
+        }
     }
 }

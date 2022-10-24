@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -37,9 +38,25 @@ namespace WindowsFormsApp1.BUS
         {
             return CustomerDAO.Instance.GetCustomerInService();
         }
+
+        public DataTable GetCustomerInBooking()
+        {
+            return CustomerDAO.Instance.GetCustomerInBooking();
+        }
+
         public DataTable SearchCustomer(string nameCol, string value)
         {
             return CustomerDAO.Instance.SearchCustomer(nameCol, value);
+        }
+
+        public DataTable SearchCustomerInServiceInvoiceCheckOut(string customerID)
+        {
+            return CustomerDAO.Instance.SearchCustomerInServiceInvoiceCheckOut(customerID);
+        }
+
+        public DataTable SearchCustomerInBookingCheckOut(string customerID)
+        {
+            return CustomerDAO.Instance.SearchCustomerInBookingCheckOut(customerID);
         }
 
         public int InsertCustomer(Customer customer)

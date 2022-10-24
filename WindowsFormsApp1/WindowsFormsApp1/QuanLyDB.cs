@@ -428,7 +428,7 @@ namespace WindowsFormsApp1
             db.ExecuteNonQuery(sql);
            // sql = "UPDATE ServiceInvoice SET Status = 'PAID' WHERE Customer_ID = '" + cusID + "'";
            // db.ExecuteNonQuery(sql);
-            sql = "UPDATE Room SET Status = 'Free' " +
+            sql = "UPDATE Room SET Status = 'Available' " +
                   "FROM Room AS R INNER JOIN(SELECT Room.Room_ID, Room.Status " +
                                             "FROM Room, Booking " +
                                             "WHERE Room.Room_ID = Booking.Room_ID AND Booking.Room_ID = '" + roomid + "') as R1 " +

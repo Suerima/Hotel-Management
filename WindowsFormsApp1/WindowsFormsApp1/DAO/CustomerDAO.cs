@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -58,6 +59,43 @@ namespace WindowsFormsApp1.DAO
             }
         }
 
+        public DataTable GetCustomerInBooking()
+        {
+            try
+            {
+                return DataProvider.Instance.ExecuteQuery("EXEC USP_Get_CustomerInBooking");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public DataTable SearchCustomerInServiceInvoiceCheckOut(string customerID)
+        {
+            try
+            {
+                string query = string.Format("EXEC USP_Search_CustomerInServiceInvoice_CheckOut '{0}'", customerID);
+                return DataProvider.Instance.ExecuteQuery(query);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public DataTable SearchCustomerInBookingCheckOut(string customerID)
+        {
+            try
+            {
+                string query = string.Format("EXEC USP_Search_CustomerInBooking_CheckOut '{0}'", customerID);
+                return DataProvider.Instance.ExecuteQuery(query);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         public DataTable SearchCustomer(string nameCol, string value)
         {

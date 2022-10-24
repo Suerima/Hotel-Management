@@ -13,23 +13,13 @@ namespace WindowsFormsApp1
 {
     public partial class FormMain : Form
     {
-/*        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);*/
-
 
         public FormMain()
         {
             InitializeComponent();
             customizeDesigning();
-
-
-           // this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
-            //Form
-           // this.Text = String.Empty;
-           // this.ControlBox = false;
-           // this.DoubleBuffered = true;
+            openChildForm(new FormAccount());
+            this.KeyPreview = true;
         }
 
         Color gray = Color.FromArgb(80, 72, 89);
@@ -39,7 +29,6 @@ namespace WindowsFormsApp1
         {
             panelQuanLySubMenu.Visible = false; // không hiện thị
             panelChucNangSubMenu.Visible = false;
-            panelTimKiemSubMenu.Visible = false;
             panelThongKeSubMenu.Visible = false;
         }
 
@@ -49,8 +38,6 @@ namespace WindowsFormsApp1
                 panelQuanLySubMenu.Visible = false;
             if (panelChucNangSubMenu.Visible == true)
                 panelChucNangSubMenu.Visible = false;
-            if (panelTimKiemSubMenu.Visible == true)
-                panelTimKiemSubMenu.Visible = false;
             if (panelThongKeSubMenu.Visible == true)
                 panelThongKeSubMenu.Visible = false;
         }
@@ -156,28 +143,6 @@ namespace WindowsFormsApp1
             btnCN_DichVu.BackColor = gray;
         }
 
-
-        private void btnTimKiem_Click(object sender, EventArgs e)
-        {
-            showSubMenu(panelTimKiemSubMenu);
-            btnTim_Phong.BackColor = dark;
-            btnTim_KhachHang.BackColor = dark;
-        }
-
-        private void btnTim_Phong_Click(object sender, EventArgs e)
-        {
-            openChildForm(new FormTim_Phong());
-            btnTim_Phong.BackColor = gray;
-            btnTim_KhachHang.BackColor = dark;
-        }
-
-        private void btnTim_KhachHang_Click(object sender, EventArgs e)
-        {
-            openChildForm(new FormTim_KhachHang());
-            btnTim_KhachHang.BackColor = gray;
-            btnTim_Phong.BackColor = dark;
-        }
-
         private void btnThongke_Click(object sender, EventArgs e)
         {
             showSubMenu(panelThongKeSubMenu);
@@ -202,6 +167,29 @@ namespace WindowsFormsApp1
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FormMain_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (ActivForm.Name)
+            {
+                case "FormQL_NhanVien":
+                    if (e.KeyCode == Keys.Delete)
+                        ((FormQL_NhanVien)ActivForm).DeleteEmployee();
+                    break;
+                case "FormQL_KhachHang":
+                    if (e.KeyCode == Keys.Delete)
+                        ((FormQL_KhachHang)ActivForm).DeleteCustomer();
+                    break;
+                case "FormQL_Phong":
+                    if (e.KeyCode == Keys.Delete)
+                        ((FormQL_Phong)ActivForm).DeleteRoom();
+                    break;
+                case "FormCN_ThuePhong":
+                    if (e.KeyCode == Keys.Delete)
+                        ((FormCN_ThuePhong)ActivForm).DeleteBooking();
+                    break;
+            }
         }
     }
 }

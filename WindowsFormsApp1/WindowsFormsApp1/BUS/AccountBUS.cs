@@ -31,9 +31,9 @@ namespace WindowsFormsApp1.BUS
             return AccountDAO.Instance.Login(tbUsername, tbPassword);
         }
 
-        public bool ForgotAccount(string email)
+        public bool ForgotAccount(string email, string username)
         {
-            return AccountDAO.Instance.ForgotAccount(email);
+            return AccountDAO.Instance.ForgotAccount(email, username);
         }
 
         public DataTable GetAccount(string username)

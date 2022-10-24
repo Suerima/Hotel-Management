@@ -34,11 +34,15 @@ namespace WindowsFormsApp1.BUS
         {
             return ServiceInvoiceDAO.Instance.GetServiceInvoice();
         }
+
+        public DataTable GetServiceInvoiceInCheckOut()
+        {
+            return ServiceInvoiceDAO.Instance.GetServiceInvoiceInCheckOut();
+        }
         public int InsertServiceInvoice(ServiceInvoice SI)
         {
 
             return ServiceInvoiceDAO.Instance.InsertServiceInvoice(SI);
-
         }
 
         public int UpdateServiceInvoice(string sic)

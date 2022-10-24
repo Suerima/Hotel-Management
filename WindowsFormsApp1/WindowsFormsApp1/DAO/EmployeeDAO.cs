@@ -47,6 +47,20 @@ namespace WindowsFormsApp1.DAO
                 throw ex;
             }
         }
+
+        public DataTable GetEmployeeInService()
+        {
+            try
+            {
+                DataTable dt = DataProvider.Instance.ExecuteQuery("EXEC USP_Get_EmployeeInService");
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public DataTable SearchEmployee(string name)
         {
             try
@@ -81,6 +95,19 @@ namespace WindowsFormsApp1.DAO
             {
                 string query = string.Format("EXEC USP_Update_Employee '{0}', '{1}', '{2}', '{3}', '{4}', '{5}', N{6}",
                                              employee.EmployeeID, employee.Name, employee.Dob, employee.Gender, employee.IDCard, employee.Phone, employee.Address);
+                return DataProvider.Instance.ExecuteNonQuery(query);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public int UpdateEmployeeStatus(string employeeID)
+        {
+            try
+            {
+                string query = string.Format("EXEC USP_Update_EmployeeStatus {0}", employeeID);
                 return DataProvider.Instance.ExecuteNonQuery(query);
             }
             catch (Exception ex)

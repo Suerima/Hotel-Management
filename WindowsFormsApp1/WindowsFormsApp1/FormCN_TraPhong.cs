@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.BUS;
 
 namespace WindowsFormsApp1
 {
@@ -15,34 +16,37 @@ namespace WindowsFormsApp1
         public FormCN_TraPhong()
         {
             InitializeComponent();
-            loadListBooking();
-            loadListServiceInvoice();
+            loadListTable();
+            lbDeparture.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
 
-        private void loadListBooking()
+        private void loadListTable()
         {
-            QuanLyDB db = new QuanLyDB();
-            DataTable dt = db.GetAllListBooking();
-            dgvListBooking.DataSource = dt;
+            dgvListBooking.DataSource = BookingBUS.Instance.GetBookingInCheckOut();
+            dgvListServiceInvoice.DataSource = ServiceInvoiceBUS.Instance.GetServiceInvoiceInCheckOut();
         }
 
-        private void loadListServiceInvoice()
-        {
-            QuanLyDB db = new QuanLyDB();
-            DataTable dt = db.GetAllListServiceInvoice();
-            dgvListServiceInvoice.DataSource = dt;
-        }
-
-        DateTime arrive;
-        string roomid;
-        int price = 0;
+        private DateTime arrive;
+        private int price = 0;
 
         private string ServiceTotal()
         {
             int sum = 0;
             for (int i = 0; i < dgvListServiceInvoice.Rows.Count; i++)
-                sum += int.Parse(dgvListServiceInvoice.Rows[i].Cells[3].Value.ToString());
+                sum += int.Parse(dgvListServiceInvoice.Rows[i].Cells["Total"].Value.ToString());
             return sum.ToString();
+        }
+
+        private string BookingTotal()
+        {
+
+            DateTime departure = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd"));
+            int days = (departure.Date - arrive.Date).Days;
+
+            if (days == 0)
+                days = 1;
+
+            return (days * price).ToString();
         }
 
         private void dgvListBooking_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -52,26 +56,15 @@ namespace WindowsFormsApp1
                 DataGridViewRow r = new DataGridViewRow();
                 r = dgvListBooking.Rows[e.RowIndex];
 
-                //txtCustomerID.Text = r.Cells[2].Value.ToString();
+                price = Convert.ToInt32(r.Cells["Pricee"].Value.ToString());
 
-                roomid = r.Cells[2].Value.ToString();
-                price = Convert.ToInt32(r.Cells[3].Value.ToString());
-
-                string x = r.Cells[4].Value.ToString();
-                arrive = DateTime.Parse(x);
+              //  string x = r.Cells["Arrival"].Value.ToString();
+                arrive = DateTime.Parse(r.Cells["Arrival"].Value.ToString());
+                
+                tbCustomerID.Text = r.Cells["Customer_ID"].Value.ToString();
                 lbArrival.Text = arrive.ToString("yyyy-MM-dd");
+                lbTotalBooking.Text = BookingTotal();
 
-                if (r.Cells[5].Value.ToString() == "")
-                    lbDeparture.Text = "None";
-                else
-                {
-                    string y = r.Cells[5].Value.ToString();
-                    DateTime departure = DateTime.Parse(y);
-                    lbDeparture.Text = departure.ToString("yyyy-MM-dd");
-                }
-               
-                lbTotalBooking.Text = r.Cells[6].Value.ToString();
-              //  lbTotalCost.Text = (int.Parse(lbTotalBooking.Text) + int.Parse(lbTotalService.Text)).ToString();
             }
             catch (Exception ex)
             {
@@ -81,45 +74,41 @@ namespace WindowsFormsApp1
 
         private void dgvListServiceInvoice_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            lbTotalService.Text = dgvListServiceInvoice.Rows[e.RowIndex].Cells[3].Value.ToString();
+            lbTotalService.Text = dgvListServiceInvoice.Rows[e.RowIndex].Cells["Total"].Value.ToString();
         }
 
-        private int checkCustomer(string cusID)
+        private bool checkCustomer(string customerID)
         {
             for (int i = 0; i < dgvListBooking.Rows.Count; i++)
-                if (dgvListBooking.Rows[i].Cells[1].Value != null && dgvListBooking.Rows[i].Cells[1].Value.ToString() == cusID)
-                    return i;
-            return -1;
+                if (dgvListBooking.Rows[i].Cells[1].Value != null && dgvListBooking.Rows[i].Cells[1].Value.ToString() == customerID)
+                    return true;
+            return false;
         }
 
         private void btnPay_Click(object sender, EventArgs e)
         {
-            if (checkCustomer(txtCustomerID.Text) == -1)
+            if (!checkCustomer(tbCustomerID.Text))
             {
                 MessageBox.Show("Invalid Customer ID.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if(lbTotalBooking.Text == "")
+            else if(lbTotalCost.Text == "0")
             {
-                //DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd"));
                 DateTime departure = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd"));
                 int days = (departure.Date - arrive.Date).Days;
+
                 if (days == 0)
                     days = 1;
 
-                lbDeparture.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 lbTotalBooking.Text = (days * price).ToString();
                 lbTotalCost.Text = (int.Parse(lbTotalBooking.Text) + int.Parse(lbTotalService.Text)).ToString();
 
-                // Update
-                QuanLyDB bill = new QuanLyDB();
-                bill.UpdateListBooking(departure, txtCustomerID.Text, roomid);
-
-
                 // Insert Into Report
+                QuanLyDB bill = new QuanLyDB();
+
                 for (int i = 0; i < dgvListServiceInvoice.Rows.Count; i++)
                 {
-                    DateTime dateT = DateTime.Parse(dgvListServiceInvoice.Rows[i].Cells[2].Value.ToString());
-                    int total = int.Parse(dgvListServiceInvoice.Rows[i].Cells[3].Value.ToString());
+                    DateTime dateT = DateTime.Parse(dgvListServiceInvoice.Rows[i].Cells["Date_Created"].Value.ToString());
+                    int total = int.Parse(dgvListServiceInvoice.Rows[i].Cells["Total"].Value.ToString());
 
                     bill.InsertListServiceReport(dateT, departure, total);
                 }
@@ -127,66 +116,63 @@ namespace WindowsFormsApp1
                 bill.InsertListListBookingReport(arrive, departure, int.Parse(lbTotalBooking.Text));
 
                 // Delete Customer
-                bill.DeleteCustomer(txtCustomerID.Text);
+                CustomerBUS.Instance.DeleteCustomer(tbCustomerID.Text);
 
-                loadListBooking();
-                loadListServiceInvoice();
-
-
+                loadListTable();
                 MessageBox.Show("Bill payment successful.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                reset();
             }
-            else
+/*            else
             {
                 MessageBox.Show("This bill has been paid.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            }*/
 
+        }
+
+        private void reset()
+        {
+            tbCustomerID.Text = "None";
+            lbArrival.Text = "None";
+            lbTotalBooking.Text = "0";
+            lbTotalService.Text = "0";
+            lbTotalCost.Text = "0";
         }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            txtCustomerID.Text = "None";
-            lbArrival.Text = "None";
-            lbDeparture.Text = "None";
-            lbTotalBooking.Text = "0";
-            lbTotalService.Text = "0";
-            lbTotalCost.Text = "0";
-            loadListBooking();
-            loadListServiceInvoice();
+            reset();
+            loadListTable();
         }
-        private void txtCustomerID_TextChanged(object sender, EventArgs e)
+
+        private void tbCustomerID_TextChanged(object sender, EventArgs e)
         {
-            if (checkCustomer(txtCustomerID.Text) != -1)
+            if (checkCustomer(tbCustomerID.Text))
             {
-                QuanLyDB db = new QuanLyDB();
-                DataTable dt;
+                dgvListBooking.DataSource = CustomerBUS.Instance.SearchCustomerInBookingCheckOut(tbCustomerID.Text);
 
-                dt = db.SearchCustomerInBooking(txtCustomerID.Text);
-                dgvListBooking.DataSource = dt;
-
-                dt = db.SearchCustomerInSI(txtCustomerID.Text);
-                dgvListServiceInvoice.DataSource = dt;
+                dgvListServiceInvoice.DataSource = CustomerBUS.Instance.SearchCustomerInServiceInvoiceCheckOut(tbCustomerID.Text);
 
                 lbTotalService.Text = ServiceTotal();
-
+                lbTotalBooking.Text = BookingTotal();
             }
-            else 
+            else
             {
                 lbTotalService.Text = "0";
-                loadListBooking();
-                loadListServiceInvoice();
+                lbTotalService.Text = "0";
+                loadListTable();
             }
         }
 
-        private void txtCustomerID_Enter(object sender, EventArgs e)
+        private void tbCustomerID_Enter(object sender, EventArgs e)
         {
-            if (txtCustomerID.Text == "None")
-                txtCustomerID.Text = "";
+            if (tbCustomerID.Text == "None")
+                tbCustomerID.Text = "";
         }
 
-        private void txtCustomerID_Leave(object sender, EventArgs e)
+        private void tbCustomerID_Leave(object sender, EventArgs e)
         {
-            if (txtCustomerID.Text == "")
-                txtCustomerID.Text = "None";
+            if (tbCustomerID.Text == "")
+                tbCustomerID.Text = "None";
         }
     }
 }

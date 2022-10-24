@@ -29,17 +29,20 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCN_TraPhong));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.dgvListBooking = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Booking_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Customer_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Room_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pricee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Arrival = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lbTotalService = new System.Windows.Forms.Label();
             this.lbTotalBooking = new System.Windows.Forms.Label();
@@ -48,7 +51,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtCustomerID = new System.Windows.Forms.TextBox();
+            this.tbCustomerID = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -60,11 +63,11 @@
             this.btnReset = new ePOSOne.btnProduct.Button_WOC();
             this.btnPay = new ePOSOne.btnProduct.Button_WOC();
             this.dgvListServiceInvoice = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Service_Invoice_Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date_Created = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListBooking)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -73,11 +76,11 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(169)))), ((int)(((byte)(29)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.panel1.Controls.Add(this.label4);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1073, 57);
             this.panel1.TabIndex = 19;
@@ -87,7 +90,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(31, 11);
+            this.label4.Location = new System.Drawing.Point(31, 15);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(179, 29);
@@ -98,96 +101,107 @@
             // dgvListBooking
             // 
             this.dgvListBooking.AllowUserToAddRows = false;
+            this.dgvListBooking.AllowUserToDeleteRows = false;
+            this.dgvListBooking.AllowUserToOrderColumns = true;
+            this.dgvListBooking.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
+            this.dgvListBooking.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvListBooking.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvListBooking.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            this.dgvListBooking.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvListBooking.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListBooking.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvListBooking.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.dgvListBooking.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvListBooking.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvListBooking.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(131)))), ((int)(((byte)(7)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListBooking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvListBooking.ColumnHeadersHeight = 30;
+            this.dgvListBooking.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvListBooking.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.Column7,
-            this.dataGridViewTextBoxColumn2,
-            this.Column1,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.Column2});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListBooking.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Booking_ID,
+            this.Customer_ID,
+            this.Room_ID,
+            this.Pricee,
+            this.Arrival});
+            this.dgvListBooking.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListBooking.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvListBooking.EnableHeadersVisualStyles = false;
+            this.dgvListBooking.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvListBooking.Location = new System.Drawing.Point(16, 85);
-            this.dgvListBooking.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvListBooking.Margin = new System.Windows.Forms.Padding(4);
             this.dgvListBooking.Name = "dgvListBooking";
+            this.dgvListBooking.ReadOnly = true;
             this.dgvListBooking.RowHeadersVisible = false;
             this.dgvListBooking.RowHeadersWidth = 51;
+            this.dgvListBooking.RowTemplate.Height = 35;
+            this.dgvListBooking.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListBooking.Size = new System.Drawing.Size(619, 254);
             this.dgvListBooking.TabIndex = 41;
             this.dgvListBooking.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListBooking_CellContentClick);
             // 
-            // dataGridViewTextBoxColumn1
+            // Booking_ID
             // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Booking_ID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Booking ID";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.Booking_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Booking_ID.DataPropertyName = "Booking_ID";
+            this.Booking_ID.HeaderText = "Booking ID";
+            this.Booking_ID.MinimumWidth = 6;
+            this.Booking_ID.Name = "Booking_ID";
+            this.Booking_ID.ReadOnly = true;
             // 
-            // Column7
+            // Customer_ID
             // 
-            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column7.DataPropertyName = "Customer_ID";
-            this.Column7.HeaderText = "Customer ID";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
+            this.Customer_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Customer_ID.DataPropertyName = "Customer_ID";
+            this.Customer_ID.HeaderText = "Customer ID";
+            this.Customer_ID.MinimumWidth = 6;
+            this.Customer_ID.Name = "Customer_ID";
+            this.Customer_ID.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn2
+            // Room_ID
             // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Room_ID";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Room ID";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.Room_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Room_ID.DataPropertyName = "Room_ID";
+            this.Room_ID.HeaderText = "Room ID";
+            this.Room_ID.MinimumWidth = 6;
+            this.Room_ID.Name = "Room_ID";
+            this.Room_ID.ReadOnly = true;
             // 
-            // Column1
+            // Pricee
             // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.DataPropertyName = "Price";
-            this.Column1.HeaderText = "Price";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
+            this.Pricee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Pricee.DataPropertyName = "Price";
+            this.Pricee.HeaderText = "Price";
+            this.Pricee.MinimumWidth = 6;
+            this.Pricee.Name = "Pricee";
+            this.Pricee.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn3
+            // Arrival
             // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Arrival";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Arrival";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Departure";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Departure";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.DataPropertyName = "Total";
-            this.Column2.HeaderText = "Total";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
+            this.Arrival.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Arrival.DataPropertyName = "Arrival";
+            this.Arrival.HeaderText = "Arrival";
+            this.Arrival.MinimumWidth = 6;
+            this.Arrival.Name = "Arrival";
+            this.Arrival.ReadOnly = true;
             // 
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
             this.groupBox2.Controls.Add(this.lbTotalService);
             this.groupBox2.Controls.Add(this.lbTotalBooking);
             this.groupBox2.Controls.Add(this.lbArrival);
@@ -195,7 +209,7 @@
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.txtCustomerID);
+            this.groupBox2.Controls.Add(this.tbCustomerID);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
@@ -206,9 +220,9 @@
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.ForeColor = System.Drawing.SystemColors.Control;
             this.groupBox2.Location = new System.Drawing.Point(655, 85);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(403, 332);
             this.groupBox2.TabIndex = 51;
             this.groupBox2.TabStop = false;
@@ -292,21 +306,21 @@
             this.label3.TabIndex = 43;
             this.label3.Text = "Total of all costs:";
             // 
-            // txtCustomerID
+            // tbCustomerID
             // 
-            this.txtCustomerID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.txtCustomerID.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCustomerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.txtCustomerID.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.txtCustomerID.Location = new System.Drawing.Point(249, 37);
-            this.txtCustomerID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtCustomerID.Name = "txtCustomerID";
-            this.txtCustomerID.Size = new System.Drawing.Size(85, 19);
-            this.txtCustomerID.TabIndex = 40;
-            this.txtCustomerID.Text = "None";
-            this.txtCustomerID.TextChanged += new System.EventHandler(this.txtCustomerID_TextChanged);
-            this.txtCustomerID.Enter += new System.EventHandler(this.txtCustomerID_Enter);
-            this.txtCustomerID.Leave += new System.EventHandler(this.txtCustomerID_Leave);
+            this.tbCustomerID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.tbCustomerID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbCustomerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.tbCustomerID.ForeColor = System.Drawing.Color.Yellow;
+            this.tbCustomerID.Location = new System.Drawing.Point(249, 37);
+            this.tbCustomerID.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCustomerID.Name = "tbCustomerID";
+            this.tbCustomerID.Size = new System.Drawing.Size(85, 19);
+            this.tbCustomerID.TabIndex = 40;
+            this.tbCustomerID.Text = "None";
+            this.tbCustomerID.TextChanged += new System.EventHandler(this.tbCustomerID_TextChanged);
+            this.tbCustomerID.Enter += new System.EventHandler(this.tbCustomerID_Enter);
+            this.tbCustomerID.Leave += new System.EventHandler(this.tbCustomerID_Leave);
             // 
             // label8
             // 
@@ -402,8 +416,8 @@
             // btnReset
             // 
             this.btnReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnReset.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(169)))), ((int)(((byte)(29)))));
-            this.btnReset.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(19)))), ((int)(((byte)(30)))));
+            this.btnReset.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
+            this.btnReset.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
             this.btnReset.FlatAppearance.BorderSize = 0;
             this.btnReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
@@ -411,7 +425,7 @@
             this.btnReset.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReset.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnReset.Location = new System.Drawing.Point(677, 540);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(4);
             this.btnReset.Name = "btnReset";
             this.btnReset.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
             this.btnReset.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
@@ -419,15 +433,15 @@
             this.btnReset.Size = new System.Drawing.Size(349, 64);
             this.btnReset.TabIndex = 49;
             this.btnReset.Text = "Reset";
-            this.btnReset.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(169)))), ((int)(((byte)(29)))));
+            this.btnReset.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnPay
             // 
             this.btnPay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPay.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(169)))), ((int)(((byte)(29)))));
-            this.btnPay.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(19)))), ((int)(((byte)(30)))));
+            this.btnPay.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
+            this.btnPay.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
             this.btnPay.FlatAppearance.BorderSize = 0;
             this.btnPay.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.btnPay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
@@ -435,7 +449,7 @@
             this.btnPay.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPay.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnPay.Location = new System.Drawing.Point(677, 455);
-            this.btnPay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPay.Margin = new System.Windows.Forms.Padding(4);
             this.btnPay.Name = "btnPay";
             this.btnPay.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
             this.btnPay.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
@@ -443,79 +457,114 @@
             this.btnPay.Size = new System.Drawing.Size(349, 62);
             this.btnPay.TabIndex = 47;
             this.btnPay.Text = "Pay";
-            this.btnPay.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(169)))), ((int)(((byte)(29)))));
+            this.btnPay.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.btnPay.UseVisualStyleBackColor = true;
             this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
             // dgvListServiceInvoice
             // 
             this.dgvListServiceInvoice.AllowUserToAddRows = false;
+            this.dgvListServiceInvoice.AllowUserToDeleteRows = false;
+            this.dgvListServiceInvoice.AllowUserToOrderColumns = true;
+            this.dgvListServiceInvoice.AllowUserToResizeRows = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
+            this.dgvListServiceInvoice.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvListServiceInvoice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvListServiceInvoice.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            this.dgvListServiceInvoice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListServiceInvoice.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvListServiceInvoice.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.dgvListServiceInvoice.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvListServiceInvoice.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvListServiceInvoice.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(131)))), ((int)(((byte)(7)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListServiceInvoice.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvListServiceInvoice.ColumnHeadersHeight = 30;
+            this.dgvListServiceInvoice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvListServiceInvoice.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.Column6,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10});
-            this.dgvListServiceInvoice.Location = new System.Drawing.Point(16, 357);
-            this.dgvListServiceInvoice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Service_Invoice_Code,
+            this.CustomerID,
+            this.Date_Created,
+            this.Total,
+            this.Status});
+            this.dgvListServiceInvoice.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListServiceInvoice.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvListServiceInvoice.EnableHeadersVisualStyles = false;
+            this.dgvListServiceInvoice.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dgvListServiceInvoice.Location = new System.Drawing.Point(16, 359);
+            this.dgvListServiceInvoice.Margin = new System.Windows.Forms.Padding(4);
             this.dgvListServiceInvoice.Name = "dgvListServiceInvoice";
+            this.dgvListServiceInvoice.ReadOnly = true;
             this.dgvListServiceInvoice.RowHeadersVisible = false;
             this.dgvListServiceInvoice.RowHeadersWidth = 51;
-            this.dgvListServiceInvoice.RowTemplate.Height = 20;
+            this.dgvListServiceInvoice.RowTemplate.Height = 35;
             this.dgvListServiceInvoice.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListServiceInvoice.Size = new System.Drawing.Size(619, 262);
             this.dgvListServiceInvoice.TabIndex = 49;
             this.dgvListServiceInvoice.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListServiceInvoice_CellContentClick);
             // 
-            // dataGridViewTextBoxColumn5
+            // Service_Invoice_Code
             // 
-            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Service_Invoice_Code";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Service Invoice Code";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.Service_Invoice_Code.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Service_Invoice_Code.DataPropertyName = "Service_Invoice_Code";
+            this.Service_Invoice_Code.HeaderText = "Service Invoice Code";
+            this.Service_Invoice_Code.MinimumWidth = 6;
+            this.Service_Invoice_Code.Name = "Service_Invoice_Code";
+            this.Service_Invoice_Code.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn6
+            // CustomerID
             // 
-            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Customer_ID";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Customer ID";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.CustomerID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CustomerID.DataPropertyName = "Customer_ID";
+            this.CustomerID.HeaderText = "Customer ID";
+            this.CustomerID.MinimumWidth = 6;
+            this.CustomerID.Name = "CustomerID";
+            this.CustomerID.ReadOnly = true;
             // 
-            // Column6
+            // Date_Created
             // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column6.DataPropertyName = "Date_Created";
-            this.Column6.HeaderText = "Date Created";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
+            this.Date_Created.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Date_Created.DataPropertyName = "Date_Created";
+            this.Date_Created.HeaderText = "Date Created";
+            this.Date_Created.MinimumWidth = 6;
+            this.Date_Created.Name = "Date_Created";
+            this.Date_Created.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn9
+            // Total
             // 
-            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "Total";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Total";
-            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.Total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Total.DataPropertyName = "Total";
+            this.Total.HeaderText = "Total";
+            this.Total.MinimumWidth = 6;
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn10
+            // Status
             // 
-            this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "Status";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Status";
-            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Status";
+            this.Status.MinimumWidth = 6;
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
             // 
             // FormCN_TraPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
             this.ClientSize = new System.Drawing.Size(1073, 634);
             this.Controls.Add(this.dgvListServiceInvoice);
             this.Controls.Add(this.groupBox2);
@@ -525,7 +574,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormCN_TraPhong";
             this.Text = "\\\\\\";
             this.panel1.ResumeLayout(false);
@@ -546,7 +595,7 @@
         private ePOSOne.btnProduct.Button_WOC btnPay;
         private ePOSOne.btnProduct.Button_WOC btnReset;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox txtCustomerID;
+        private System.Windows.Forms.TextBox tbCustomerID;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -563,17 +612,15 @@
         private System.Windows.Forms.Label lbArrival;
         private System.Windows.Forms.Label lbTotalBooking;
         private System.Windows.Forms.Label lbTotalService;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Service_Invoice_Code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date_Created;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Booking_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Customer_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Room_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pricee;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Arrival;
     }
 }

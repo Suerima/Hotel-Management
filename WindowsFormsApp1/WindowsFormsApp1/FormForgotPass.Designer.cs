@@ -63,6 +63,7 @@
             // 
             // btnBack
             // 
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBack.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnBack.FlatAppearance.BorderSize = 0;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -72,14 +73,14 @@
             this.btnBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(159, 28);
-            this.btnBack.TabIndex = 3;
+            this.btnBack.TabIndex = 4;
             this.btnBack.Text = "BACK TO LOGIN";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btBack_Click);
             // 
             // panelForgotPass
             // 
-            this.panelForgotPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(169)))), ((int)(((byte)(29)))));
+            this.panelForgotPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.panelForgotPass.Controls.Add(this.label1);
             this.panelForgotPass.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelForgotPass.Location = new System.Drawing.Point(0, 0);
@@ -93,8 +94,8 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label1.Location = new System.Drawing.Point(100, 30);
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label1.Location = new System.Drawing.Point(110, 30);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(450, 40);
@@ -116,7 +117,7 @@
             // 
             // tbEmail
             // 
-            this.tbEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.tbEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
             this.tbEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbEmail.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbEmail.ForeColor = System.Drawing.Color.DimGray;
@@ -124,7 +125,7 @@
             this.tbEmail.Margin = new System.Windows.Forms.Padding(4);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(471, 25);
-            this.tbEmail.TabIndex = 1;
+            this.tbEmail.TabIndex = 2;
             this.tbEmail.Text = "Enter your email address";
             this.tbEmail.Enter += new System.EventHandler(this.tbEmail_Enter);
             this.tbEmail.Leave += new System.EventHandler(this.tbEmail_Leave);
@@ -152,8 +153,9 @@
             // 
             // btnContinue
             // 
-            this.btnContinue.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(169)))), ((int)(((byte)(29)))));
-            this.btnContinue.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.btnContinue.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
+            this.btnContinue.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.btnContinue.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnContinue.FlatAppearance.BorderSize = 0;
             this.btnContinue.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.btnContinue.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
@@ -166,9 +168,9 @@
             this.btnContinue.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.btnContinue.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
             this.btnContinue.Size = new System.Drawing.Size(509, 54);
-            this.btnContinue.TabIndex = 2;
+            this.btnContinue.TabIndex = 3;
             this.btnContinue.Text = "Continue";
-            this.btnContinue.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(169)))), ((int)(((byte)(29)))));
+            this.btnContinue.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.btnContinue.UseVisualStyleBackColor = true;
             this.btnContinue.Click += new System.EventHandler(this.btContinue_Click);
             // 
@@ -190,12 +192,13 @@
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(32, 30);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 17;
             this.pictureBox2.TabStop = false;
             // 
             // tbUsername
             // 
-            this.tbUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.tbUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
             this.tbUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbUsername.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbUsername.ForeColor = System.Drawing.Color.DimGray;
@@ -205,6 +208,8 @@
             this.tbUsername.Size = new System.Drawing.Size(471, 25);
             this.tbUsername.TabIndex = 1;
             this.tbUsername.Text = "Enter your username";
+            this.tbUsername.Enter += new System.EventHandler(this.tbUsername_Enter);
+            this.tbUsername.Leave += new System.EventHandler(this.tbUsername_Leave);
             // 
             // label3
             // 
@@ -223,7 +228,7 @@
             this.AcceptButton = this.btnContinue;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
             this.CancelButton = this.btnBack;
             this.ClientSize = new System.Drawing.Size(680, 516);
             this.Controls.Add(this.label3);

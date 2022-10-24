@@ -17,19 +17,19 @@ namespace WindowsFormsApp1
     {
         public FormQL_NhanVien()
         {
+            this.KeyPreview = true;
             InitializeComponent(); 
             tabControl.TabPages.Remove(tabPageEdit);
+            loadData();
 
         }
         void loadData()
         {
             dgvListEmployee.DataSource = EmployeeBUS.Instance.GetEmployee();
+            lbRecord.Text = "Records: " + dgvListEmployee.RowCount.ToString();
+
         }
 
-        private void FormQL_NhanVien_Load(object sender, EventArgs e)
-        {
-            loadData();
-        }
         private void dgvListInfo_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow r = new DataGridViewRow();
@@ -71,6 +71,7 @@ namespace WindowsFormsApp1
             }
             return "NV" + nextID;
         }
+      
         private void reset()
         {
             tbEmployeeID.Text = GetNextEmployeeID();
@@ -104,33 +105,14 @@ namespace WindowsFormsApp1
             {
                 tabControl.TabPages.Remove(tabPageList);
                 tabControl.TabPages.Add(tabPageEdit);
-                tabPageEdit.Text = "Update employee";
+                tabPageEdit.Text = "UPDATE";
                 checkButton = false;
             }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (tbEmployeeID.Text == "")
-                    MessageBox.Show("Please select the employee you want to delete!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                else
-                {
-                    var result = MessageBox.Show("Are you sure you want to delete this employee?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (result == DialogResult.Yes)
-                    {
-                        EmployeeBUS.Instance.DeleteEmployee(tbEmployeeID.Text);
-                        loadData();
-                        MessageBox.Show("Delete successfully.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        tbEmployeeID.Text = "";
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            DeleteEmployee();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -179,7 +161,7 @@ namespace WindowsFormsApp1
         #region Event
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {
-            if (tbSearch.Text != "Search by name")
+            if (tbSearch.Text != "Search")
                 dgvListEmployee.DataSource = EmployeeBUS.Instance.SearchEmployee(tbSearch.Text);
             else
                 loadData();
@@ -187,15 +169,39 @@ namespace WindowsFormsApp1
 
         private void tbSearch_Enter(object sender, EventArgs e)
         {
-            if (tbSearch.Text == "Search by name")
+            if (tbSearch.Text == "Search")
                 tbSearch.Text = "";
         }
 
         private void tbSearch_Leave(object sender, EventArgs e)
         {
             if (tbSearch.Text == "")
-                tbSearch.Text = "Search by name";
+                tbSearch.Text = "Search";
         }
         #endregion
+
+        public void DeleteEmployee()
+        {
+            try
+            {
+                if (tbEmployeeID.Text == "")
+                    MessageBox.Show("Please select the employee you want to delete!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else
+                {
+                    var result = MessageBox.Show("Are you sure you want to delete this employee?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
+                        EmployeeBUS.Instance.DeleteEmployee(tbEmployeeID.Text);
+                        loadData();
+                        MessageBox.Show("Delete successfully.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        tbEmployeeID.Text = "";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

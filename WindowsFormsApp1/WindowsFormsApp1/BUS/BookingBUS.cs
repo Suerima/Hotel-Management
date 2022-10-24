@@ -34,7 +34,10 @@ namespace WindowsFormsApp1.BUS
         {
             return BookingDAO.Instance.GetBooking();
         }
-
+        public DataTable GetBookingInCheckOut()
+        {
+            return BookingDAO.Instance.GetBookingInCheckOut();
+        }
         public DataTable SearchBooking(string bookingID)
         {
             return BookingDAO.Instance.SearchBooking(bookingID);

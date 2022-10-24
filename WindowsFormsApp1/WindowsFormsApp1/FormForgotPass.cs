@@ -37,7 +37,7 @@ namespace WindowsFormsApp1
             }
             else
             {
-                if (AccountBUS.Instance.ForgotAccount(tbEmail.Text))
+                if (AccountBUS.Instance.ForgotAccount(tbEmail.Text, tbUsername.Text))
                 {
                     email = tbEmail.Text;
                     FormResetPass fm = new FormResetPass();
@@ -50,6 +50,7 @@ namespace WindowsFormsApp1
                 }
             }
         }
+
         #region Event
         private void tbEmail_Enter(object sender, EventArgs e)
         {
@@ -66,6 +67,24 @@ namespace WindowsFormsApp1
             {
                 tbEmail.Text = "Enter your email address";
                 tbEmail.ForeColor = Color.DimGray;
+            }
+        }
+
+        private void tbUsername_Enter(object sender, EventArgs e)
+        {
+            if (tbUsername.Text == "Enter your username")
+            {
+                tbUsername.Text = "";
+                tbUsername.ForeColor = Color.Gainsboro;
+            }
+        }
+
+        private void tbUsername_Leave(object sender, EventArgs e)
+        {
+            if (tbUsername.Text == "")
+            {
+                tbUsername.Text = "Enter your username";
+                tbUsername.ForeColor = Color.DimGray;
             }
         }
 

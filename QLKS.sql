@@ -13,10 +13,11 @@ CREATE TABLE Account
 (
 	Username varchar(10) PRIMARY KEY,
 	Password varchar(20) not null,
-	Email varchar(20),
+	Email varchar(20) not null,
 	Name nvarchar(50) not null,
 	Phone varchar(10) not null,
 	Avatar IMAGE,
+	Position VARCHAR(20) NOT NULL,
 )
 GO
 
@@ -41,6 +42,7 @@ CREATE TABLE Employee
 	IDCard varchar(10) not null,
     Phone varchar(10) not null,
 	Address nvarchar(50) not null,
+	Status NVARCHAR(5) NOT NULL,
 )
 GO
 
@@ -76,10 +78,9 @@ CREATE TABLE ServiceInvoice
 	Status nvarchar(20) not null,
 )
 GO
-
 CREATE TABLE SelectedService
 (	
-	No INT PRIMARY KEY,
+	No INT,
 	Service_Invoice_Code varchar(10) FOREIGN KEY REFERENCES ServiceInvoice(Service_Invoice_Code) ON DELETE CASCADE,
 	Service_Code varchar(10) FOREIGN KEY REFERENCES Service(Service_Code),
 	Price int,
@@ -87,7 +88,9 @@ CREATE TABLE SelectedService
 )
 GO
 
-
+SELECT * FROM dbo.ServiceInvoice
+DELETE FROM dbo.ServiceInvoice
+WHERE Customer_ID = 'KH001'
 CREATE TABLE Booking
 (
 	Booking_ID varchar(10) PRIMARY KEY,
@@ -95,8 +98,6 @@ CREATE TABLE Booking
 	Customer_ID varchar(10) FOREIGN KEY REFERENCES Customer(Customer_ID) ON DELETE CASCADE,
 	Room_ID varchar(10) FOREIGN KEY REFERENCES Room(Room_ID),
 	Arrival date not null,
-	Departure date,
-    check (Arrival <= Departure)
 )
 
 CREATE TABLE ServiceReport
@@ -121,7 +122,7 @@ CREATE TABLE BookingReport
 ------- Account -------
 
 INSERT INTO Account
-SELECT 'QL01', '1', N'20133098@gmail.com', N'Nguyễn Văn Trường Tốt', '0824520364', BULKCOLUMN 
+SELECT 'QL01', '1', N'20133062@gmail.com', N'Nguyễn Văn Trường Tốt', '0824520364', BULKCOLUMN 
 FROM OPENROWSET (BULK 'D:\QuanLyKhachSan\Avatar\Manager\AvatarTot.jpg', SINGLE_BLOB) AS Picture
 GO
 
@@ -156,39 +157,38 @@ GO
 SELECT * FROM dbo.Customer
 ------- EMPLOYEE -------
 INSERT INTO Employee 
-VALUES('NV001', 'Jisoo', '1995-09-11', 'Female', '34512125', '0928474747', 'Korea')
+VALUES('NV001', 'Jisoo', '1995-09-11', 'Female', '34512125', '0928474747', 'Korea', 'Free')
 
 INSERT INTO Employee 
-VALUES('NV002', 'Lisa', '1994-03-25', 'Female', '23775858', '0917483727', 'Korea')
+VALUES('NV002', 'Lisa', '1994-03-25', 'Female', '23775858', '0917483727', 'Korea', 'Free')
 
 INSERT INTO Employee 
-VALUES('NV003', 'Roses', '1996-03-07', 'Female', '24563737', '0928474722', 'Korea')
+VALUES('NV003', 'Roses', '1996-03-07', 'Female', '24563737', '0928474722', 'Korea', 'Free')
 
 INSERT INTO Employee 
-VALUES('NV004', 'Jennie', '1996-05-17', 'Female', '80167839', '0927819444', 'Korea')
+VALUES('NV004', 'Jennie', '1996-05-17', 'Female', '80167839', '0927819444', 'Korea', 'Free')
 
 INSERT INTO Employee 
-VALUES('NV005', 'Momo', '1995-12-04', 'Female', '29347102', '0918489222', 'Korea')
+VALUES('NV005', 'Momo', '1995-12-04', 'Female', '29347102', '0918489222', 'Korea', 'Free')
 
 INSERT INTO Employee 
-VALUES('NV006', 'Mina', '1996-01-21', 'Female', '90127492', '0916748022', 'Korea')
+VALUES('NV006', 'Mina', '1996-01-21', 'Female', '90127492', '0916748022', 'Korea', 'Free')
 
 INSERT INTO Employee 
-VALUES('NV007', 'Sana', '1997-03-16', 'Female', '67259186', '0916481225', 'Korea')
+VALUES('NV007', 'Sana', '1997-03-16', 'Female', '67259186', '0916481225', 'Korea', 'Free')
 
-SELECT * FROM dbo.Employee
 
 ------- ROOM -------
-INSERT INTO Room VALUES('Room001', 'Standard', 2, 300000, 'Free', '1 TV, 1 Bed')
-INSERT INTO Room VALUES('Room002', 'Standard', 2, 300000, 'Free', '1 TV, 1 Bed')
-INSERT INTO Room VALUES('Room003', 'Standard', 2, 300000, 'Free', '1 TV, 1 Bed')
-INSERT INTO Room VALUES('Room004', 'Superior', 2, 400000, 'Free', '1 TV, 1 Bed, Sea View')
-INSERT INTO Room VALUES('Room005', 'Superior', 2, 400000, 'Free', '1 TV, 1 Bed, Sea View')
-INSERT INTO Room VALUES('Room006', 'Superior', 2, 400000, 'Free', '1 TV, 1 Bed, Sea View')
-INSERT INTO Room VALUES('Room007', 'Deluxe', 4, 500000, 'Free', '1 TV, 2 Bed, Sea View')
-INSERT INTO Room VALUES('Room008', 'Deluxe', 4, 500000, 'Free', '1 TV, 2 Bed, Sea View')
-INSERT INTO Room VALUES('Room009', 'Deluxe', 4, 500000, 'Free', '1 TV, 2 Bed, Sea View')
-INSERT INTO Room VALUES('Room010', 'Deluxe', 4, 500000, 'Free', '1 TV, 2 Bed, Sea View')
+INSERT INTO Room VALUES('Room001', 'Standard', 2, 300000, 'Available', '1 TV, 1 Bed')
+INSERT INTO Room VALUES('Room002', 'Standard', 2, 300000, 'Available', '1 TV, 1 Bed')
+INSERT INTO Room VALUES('Room003', 'Standard', 2, 300000, 'Available', '1 TV, 1 Bed')
+INSERT INTO Room VALUES('Room004', 'Superior', 2, 400000, 'Available', '1 TV, 1 Bed')
+INSERT INTO Room VALUES('Room005', 'Superior', 2, 400000, 'Available', '1 TV, 1 Bed')
+INSERT INTO Room VALUES('Room006', 'Superior', 2, 400000, 'Available', '1 TV, 1 Bed')
+INSERT INTO Room VALUES('Room007', 'Deluxe', 4, 500000, 'Available', '1 TV, 2 Bed')
+INSERT INTO Room VALUES('Room008', 'Deluxe', 4, 500000, 'Available', '1 TV, 2 Bed')
+INSERT INTO Room VALUES('Room009', 'Deluxe', 4, 500000, 'Available', '1 TV, 2 Bed')
+INSERT INTO Room VALUES('Room010', 'Deluxe', 4, 500000, 'Available', '1 TV, 2 Bed')
 GO
 
 SELECT * FROM dbo.Room
@@ -233,14 +233,14 @@ EXEC USP_Login 'QL01', '1'
 
 ---- FORGOT 
 CREATE PROCEDURE USP_Forgot_Account
-(@Email varchar(20))
+(@Email varchar(20), @Username  VARCHAR(10))
 AS 
 BEGIN
      SELECT * FROM Account 
-	 WHERE Email = @Email
+	 WHERE Email = @Email AND Username = @Username
 END
 
-EXEC USP_Forgot_Account '20133098@gmail.com'
+EXEC USP_Forgot_Account '1', 'QL01'
 
 ---- UPDATE 
 DROP PROC USP_Update_Account
@@ -271,7 +271,7 @@ BEGIN
 	WHERE Email = @Email
 END
 
-
+USP_Update_Password '1', '1'
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 ---------- CUSTOMER ----------
 ------------------------------
@@ -292,17 +292,26 @@ AS SELECT  * FROM Customer
 
 EXEC USP_Get_Customer
 
+
 ---- GET CUSTOMER IN SERVICE
 CREATE PROC USP_Get_CustomerInService 
 AS
 BEGIN
 	SELECT Booking.Customer_ID, Name, IDCard, Phone
     FROM dbo.Customer, dbo.Booking
-    WHERE Booking.Customer_ID = Customer.Customer_ID AND Booking.Departure IS NULL
+    WHERE Booking.Customer_ID = Customer.Customer_ID
 END
 
- 
-
+---- GET CUSTOMER IN BOOKING
+CREATE PROC USP_Get_CustomerInBooking
+AS
+BEGIN
+	SELECT Customer.Customer_ID, Name, IDCard, Phone 
+							 FROM Customer, (SELECT Customer_ID FROM Customer 
+											 EXCEPT 
+											 SELECT Customer_ID FROM Booking) AS Customer_N 
+							 WHERE Customer.Customer_ID = Customer_N.Customer_ID
+END
 ---- SEARCH
 CREATE PROC USP_Search_Customer
 (@nameCol VARCHAR(30), @value VARCHAR(30))
@@ -330,8 +339,27 @@ ELSE IF(@nameCol LIKE 'Phone')
 
 EXEC USP_Search_Customer 'Customer_ID', 'KH001'
 EXEC USP_Search_Customer 'FullName', 'Neymar'
-EXEC USP_Search_Customer 'ID_Card', '6389251074'
-EXEC USP_Search_Customer 'PhoneNumber', '0972018647'
+EXEC USP_Search_Customer 'IDCard', '6389251074'
+EXEC USP_Search_Customer 'Phone', '0972018647'
+
+---- SEARCH CUSTOMER IN CHECK-OUT 
+CREATE PROC USP_Search_CustomerInServiceInvoice_CheckOut
+@Customer_ID VARCHAR(10)
+AS
+BEGIN
+	SELECT SI.Service_Invoice_Code, SI.Customer_ID, SI.Date_Created, SI.Total, SI.Status 
+    FROM ServiceInvoice AS SI
+    WHERE SI.Customer_ID LIKE N'%' + @Customer_ID + '%'
+END
+
+CREATE PROC USP_Search_CustomerInBooking_CheckOut
+@Customer_ID VARCHAR(10)
+AS
+BEGIN
+	SELECT B.Booking_ID, B.Customer_ID, B.Room_ID,  R.Price, B.Arrival
+    FROM Booking AS B, Room AS R
+    WHERE B.Room_ID = R.Room_ID and B.Customer_ID LIKE N'%' + @Customer_ID + '%'
+END
 
 ---- INSERT
 CREATE PROC USP_Insert_Customer
@@ -371,10 +399,11 @@ EXEC USP_Update_Customer 'KH09','Messi','1989-10-21','Male','6129610294','099992
 ---- DELETE
 CREATE PROC USP_Delete_Customer(@Customer_ID VARCHAR(10))
 AS
+BEGIN
 	DELETE
 	FROM dbo.Customer
 	WHERE Customer_ID = @Customer_ID
-
+END
 EXEC USP_Delete_Customer 'KH01'
 
 
@@ -397,14 +426,23 @@ EXEC USP_Get_LastEmployeeID
 CREATE PROC USP_Get_Employee
 AS SELECT * FROM dbo.Employee
 
-EXEC USP_Get_Customer
+EXEC USP_Get_Employee
+
+---- GET EMPLOYEE IN SERVICE
+CREATE PROC USP_Get_EmployeeInService
+AS
+BEGIN
+	SELECT Employee_ID 
+	FROM dbo.Employee
+	WHERE dbo.Employee.Status = 'Free'
+END
 
 ---- SEARCH BY NAME
 CREATE PROC USP_Search_Employee(@name NVARCHAR(50))
 AS
 BEGIN
 	SELECT * FROM dbo.Employee
-	WHERE Name LIKE @name
+	WHERE Name LIKE N'%' + @name + '%'
 END
 
 EXEC USP_Search_Employee 'Lisa'
@@ -417,13 +455,13 @@ CREATE PROC USP_Insert_Employee
 @Gender NVARCHAR(10),
 @IDCard VARCHAR(10),
 @Phone VARCHAR(10),
-@Address NVARCHAR(50)
+@Address NVARCHAR(50),
+@Status NVARCHAR(5)
 AS
 BEGIN
-	IF EXISTS (SELECT * FROM dbo.Employee WHERE Employee_ID = @EmployeeID)
-		RETURN 0
+
 	INSERT INTO dbo.Employee
-	VALUES(@EmployeeID, @Name, @Dob, @Gender, @IDCard, @Phone, @Address)
+	VALUES(@EmployeeID, @Name, @Dob, @Gender, @IDCard, @Phone, @Address, @Status)
 END
 
 EXEC USP_Insert_Employee 'NV09','Shizuka','1995-10-21','Female','6926108294','0916928927','Korea'
@@ -436,19 +474,31 @@ CREATE PROC USP_Update_Employee
 @Gender NVARCHAR(10),
 @IDCard VARCHAR(10),
 @Phone VARCHAR(10),
-@Address NVARCHAR(50)
+@Address NVARCHAR(50),
+@Status NVARCHAR(5)
 AS
 BEGIN
 	UPDATE dbo.Employee
-	SET Name = @Name, Dob = @Dob, Gender = @Gender, IDCard = @IDCard, Phone = @Phone, Address = @Address
+	SET Name = @Name, Dob = @Dob, Gender = @Gender, IDCard = @IDCard, Phone = @Phone, Address = @Address, Status = @Status
 	WHERE Employee_ID = @Employee_ID
 END
 
 EXEC USP_Update_Employee '8','Anna','1996-01-27','Female','6926967294','0916991927','Korea'
 
+
+---- UPDATE STATUS EMPLOYEE
+CREATE PROC USP_Update_EmployeeStatus
+@Employee_ID NVARCHAR(10)
+AS
+BEGIN
+	UPDATE dbo.Employee
+	SET Status = 'Busy'
+	WHERE Employee_ID = @Employee_ID
+END
+
 ---- DELETE
-DROP PROC dbo.USP_Delete_Employee
-CREATE PROC USP_Delete_Employee(@Employee_ID VARCHAR(10))
+CREATE PROC USP_Delete_Employee
+(@Employee_ID VARCHAR(10))
 AS 
 BEGIN
 	DELETE
@@ -459,9 +509,10 @@ GO
 
 EXEC USP_Delete_Employee 'NV007' 
 
+SELECT * FROM dbo.ServiceInvoice
 
-Maxium stored PROCEDURE nesting LEVEL exceeded
-
+DELETE FROM dbo.ServiceInvoice
+WHERE Customer_ID = 'KH001'
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 ---------- ROOM ----------
@@ -475,15 +526,16 @@ BEGIN
 	ORDER BY Room_ID  DESC
 END
 
+EXEC USP_Get_LastRoomID
+
 ---- GET ROOM IN BOOKING
 CREATE PROC USP_Get_RoomInBooking
 AS
 BEGIN 
 	SELECT Room_ID, Type, Person, Price, Status
 	FROM Room
+	WHERE Status = 'Available'
 END
-
-EXEC USP_Get_LastRoomID
 
 ---- GET
 CREATE PROC USP_Get_Room
@@ -541,7 +593,7 @@ BEGIN
 	VALUES(@Room_ID, @Type, @Person, @Price, @Status, @Description)
 END
 
-EXEC USP_Insert_Room 'Room011','Superior',2,350000,'Free','1 TV, 1 Bed, Sea View'
+EXEC USP_Insert_Room 'Room011','Superior',2,350000,'Available','1 TV, 1 Bed, Sea View'
 
 ---- UPDATE
 CREATE PROC USP_Update_Room
@@ -558,7 +610,7 @@ BEGIN
 	WHERE Room_ID = @Room_ID
 END
 
-EXEC USP_Update_Room 'Room001','Superior',2,350000,'Free','1 TV, 1 Bed, Sea View'
+EXEC USP_Update_Room 'Room001','Superior',2,350000,'Available','1 TV, 1 Bed, Sea View'
 
 ---- UPDATE STATUS
 CREATE PROC USP_Update_RoomStatus
@@ -570,6 +622,7 @@ BEGIN
 END
 
 EXEC USP_Update_RoomStatus
+
 ---- DELETE
 CREATE PROC USP_Delete_Room
 (@Room_ID VARCHAR(10))
@@ -581,7 +634,7 @@ BEGIN
 END
 GO
 
-EXEC USP_Delete_Room 'Room005'
+EXEC USP_Delete_Room 'Room001'
 
 
 
@@ -600,14 +653,31 @@ SELECT * FROM FU_Get_Service()
 ---------- SERVICE INVOICE ----------
 -------------------------------------
 ---- GET 
-CREATE FUNCTION FU_Get_ServiceInvoice()
-RETURNS TABLE
+CREATE PROC USP_Get_ServiceInvoice
 AS
-	RETURN (SELECT * FROM ServiceInvoice 
-            WHERE ServiceInvoice.Status = 'UNPAID')
+BEGIN
+	SELECT * FROM ServiceInvoice 
+	WHERE ServiceInvoice.Status = 'UNPAID'
+END
 
-SELECT * FROM FU_Get_ServiceInvoice()   ---Câu query
+---- GET LAST SERVICE INVOICE
+CREATE PROC USP_Get_LastServiceInvoice
+AS
+BEGIN
+	SELECT TOP(1) Service_Invoice_Code 
+	FROM dbo.ServiceInvoice
+	ORDER BY Service_Invoice_Code DESC
+END
 
+
+---- GET SERVICE INVOICE IN CHECKOUT
+CREATE PROC USP_Get_ServiceInvoiceInCheckOut
+AS
+BEGIN
+	SELECT SI.Service_Invoice_Code, SI.Customer_ID, SI.Date_Created, SI.Total, SI.Status 
+    FROM ServiceInvoice AS SI 
+    WHERE SI.Status = 'UNPAID'
+END
 ---- INSERT
 CREATE PROC USP_Insert_ServiceInvoice
 @Service_Invoice_Code NVARCHAR(10),
@@ -623,10 +693,11 @@ BEGIN
 	VALUES(@Service_Invoice_Code, @Customer_ID, @Manager_ID, @Employee_ID, @Date_Created, @Total, @Status)
 END
  
-EXEC InsertServiceInvoice '15','KH01','QL01','NV01','2022-10-10',100000,'UNPAID'
+EXEC USP_Insert_ServiceInvoice '15','KH01','QL01','NV01','2022-10-10',100000,'UNPAID'
 
 ---- UPDATE
-CREATE PROC USP_Update_ServiceInvoice(@SIC NVARCHAR(10))
+CREATE PROC USP_Update_ServiceInvoice
+(@SIC NVARCHAR(10))
 AS
 BEGIN 
 	UPDATE dbo.ServiceInvoice 
@@ -646,17 +717,20 @@ EXEC USP_Update_ServiceInvoice '11'
 ---------- SELECTED SERVICE ----------
 -------------------------------------
 ---- GET
-CREATE FUNCTION FU_Get_SelectedService
-(@SIC VARCHAR(10)) RETURNS TABLE
+CREATE PROC USP_Get_SelectedService
+(@SIC VARCHAR(10))
 AS
-	RETURN (SELECT *, (Price * Quantity) as Total 
-            FROM SelectedService  
-            WHERE SelectedService.Service_Invoice_Code = @SIC)
- 
-SELECT * FROM FU_Get_SelectedService('SIC001')
+BEGIN
+	SELECT *, (Price * Quantity) as Total 
+    FROM SelectedService  
+    WHERE SelectedService.Service_Invoice_Code = @SIC
+END
+
+
 
 ---- INSERT
 CREATE PROC USP_Insert_SelectedService
+@No NVARCHAR(5),
 @Service_Invoice_Code NVARCHAR(10),
 @Service_Code NVARCHAR(10),
 @Price INT,
@@ -664,9 +738,10 @@ CREATE PROC USP_Insert_SelectedService
 AS
 BEGIN
 	INSERT INTO dbo.SelectedService
-	VALUES (@Service_Invoice_Code, @Service_Code, @Price, @Quantity)
+	VALUES (@No, @Service_Invoice_Code, @Service_Code, @Price, @Quantity)
 END
 
+USP_Insert_SelectedService '1', 'SIC003', 'DV001', 2000, 2
 ---- DELETE
 CREATE PROC USP_Delete_SelectedService
 (@No INT)
@@ -688,6 +763,7 @@ BEGIN
 	SET No = @No
     WHERE No = @No + 1
 END
+
 EXEC UpdateNo '1'
 
 
@@ -713,6 +789,13 @@ BEGIN
 END
 
 ---- GET LIST BOOK
+CREATE PROC USP_Get_BookingInCheckOut
+AS
+BEGIN
+	SELECT Booking_ID, Customer_ID, dbo.Booking.Room_ID, Price, Arrival                        
+    FROM Booking, Room 
+    WHERE dbo.Booking.Room_ID = dbo.Room.Room_ID
+END
 
 ---- INSERT BOOKING
 CREATE PROC USP_Insert_Booking

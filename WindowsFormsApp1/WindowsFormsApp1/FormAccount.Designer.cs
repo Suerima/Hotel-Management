@@ -47,7 +47,9 @@
             this.linkEdit = new System.Windows.Forms.LinkLabel();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.txtCurrentPassword = new System.Windows.Forms.Panel();
+            this.btnReset = new ePOSOne.btnProduct.Button_WOC();
             this.tbConfirmPassword = new System.Windows.Forms.TextBox();
+            this.btnSave = new ePOSOne.btnProduct.Button_WOC();
             this.tbCurrentPassword = new System.Windows.Forms.TextBox();
             this.tbNewPassword = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -59,8 +61,6 @@
             this.tbName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnReset = new ePOSOne.btnProduct.Button_WOC();
-            this.btnSave = new ePOSOne.btnProduct.Button_WOC();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -69,11 +69,11 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(169)))), ((int)(((byte)(29)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.panel1.Controls.Add(this.label4);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1073, 57);
             this.panel1.TabIndex = 18;
@@ -83,7 +83,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(31, 11);
+            this.label4.Location = new System.Drawing.Point(31, 15);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(139, 29);
@@ -93,7 +93,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(51)))), ((int)(((byte)(77)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.label12);
@@ -111,7 +111,7 @@
             this.panel2.Controls.Add(this.txtCurrentPassword);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 57);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1073, 577);
             this.panel2.TabIndex = 19;
@@ -121,7 +121,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
             this.label13.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label13.Location = new System.Drawing.Point(337, 299);
+            this.label13.Location = new System.Drawing.Point(358, 297);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(70, 23);
@@ -133,7 +133,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label11.Location = new System.Drawing.Point(337, 137);
+            this.label11.Location = new System.Drawing.Point(358, 135);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(110, 23);
@@ -145,7 +145,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
             this.label12.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label12.Location = new System.Drawing.Point(337, 54);
+            this.label12.Location = new System.Drawing.Point(358, 52);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(112, 23);
@@ -154,110 +154,110 @@
             // 
             // tbEmail_in
             // 
-            this.tbEmail_in.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(51)))), ((int)(((byte)(77)))));
+            this.tbEmail_in.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
             this.tbEmail_in.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbEmail_in.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbEmail_in.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.tbEmail_in.Location = new System.Drawing.Point(344, 331);
-            this.tbEmail_in.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbEmail_in.Location = new System.Drawing.Point(365, 329);
+            this.tbEmail_in.Margin = new System.Windows.Forms.Padding(4);
             this.tbEmail_in.Multiline = true;
             this.tbEmail_in.Name = "tbEmail_in";
             this.tbEmail_in.ReadOnly = true;
-            this.tbEmail_in.Size = new System.Drawing.Size(288, 23);
+            this.tbEmail_in.Size = new System.Drawing.Size(280, 23);
             this.tbEmail_in.TabIndex = 23;
             // 
             // tbName_in
             // 
-            this.tbName_in.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(51)))), ((int)(((byte)(77)))));
+            this.tbName_in.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
             this.tbName_in.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbName_in.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbName_in.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.tbName_in.Location = new System.Drawing.Point(344, 169);
-            this.tbName_in.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbName_in.Location = new System.Drawing.Point(365, 167);
+            this.tbName_in.Margin = new System.Windows.Forms.Padding(4);
             this.tbName_in.Multiline = true;
             this.tbName_in.Name = "tbName_in";
             this.tbName_in.ReadOnly = true;
-            this.tbName_in.Size = new System.Drawing.Size(291, 23);
+            this.tbName_in.Size = new System.Drawing.Size(280, 23);
             this.tbName_in.TabIndex = 21;
             // 
             // tbPhone_in
             // 
-            this.tbPhone_in.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(51)))), ((int)(((byte)(77)))));
+            this.tbPhone_in.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
             this.tbPhone_in.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbPhone_in.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPhone_in.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.tbPhone_in.Location = new System.Drawing.Point(344, 249);
-            this.tbPhone_in.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPhone_in.Location = new System.Drawing.Point(365, 247);
+            this.tbPhone_in.Margin = new System.Windows.Forms.Padding(4);
             this.tbPhone_in.Multiline = true;
             this.tbPhone_in.Name = "tbPhone_in";
             this.tbPhone_in.ReadOnly = true;
-            this.tbPhone_in.Size = new System.Drawing.Size(291, 23);
+            this.tbPhone_in.Size = new System.Drawing.Size(280, 23);
             this.tbPhone_in.TabIndex = 22;
             // 
             // tbUsername_in
             // 
-            this.tbUsername_in.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(51)))), ((int)(((byte)(77)))));
+            this.tbUsername_in.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
             this.tbUsername_in.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbUsername_in.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbUsername_in.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.tbUsername_in.Location = new System.Drawing.Point(344, 85);
-            this.tbUsername_in.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbUsername_in.Location = new System.Drawing.Point(365, 83);
+            this.tbUsername_in.Margin = new System.Windows.Forms.Padding(4);
             this.tbUsername_in.Multiline = true;
             this.tbUsername_in.Name = "tbUsername_in";
             this.tbUsername_in.ReadOnly = true;
-            this.tbUsername_in.Size = new System.Drawing.Size(288, 23);
+            this.tbUsername_in.Size = new System.Drawing.Size(280, 23);
             this.tbUsername_in.TabIndex = 20;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label19.Location = new System.Drawing.Point(337, 351);
+            this.label19.Location = new System.Drawing.Point(358, 350);
             this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(223, 16);
+            this.label19.Size = new System.Drawing.Size(214, 16);
             this.label19.TabIndex = 19;
-            this.label19.Text = "⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺";
+            this.label19.Text = "⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label18.Location = new System.Drawing.Point(335, 268);
+            this.label18.Location = new System.Drawing.Point(356, 268);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(223, 16);
+            this.label18.Size = new System.Drawing.Size(214, 16);
             this.label18.TabIndex = 18;
-            this.label18.Text = "⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺";
+            this.label18.Text = "⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label17.Location = new System.Drawing.Point(337, 188);
+            this.label17.Location = new System.Drawing.Point(358, 188);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(223, 16);
+            this.label17.Size = new System.Drawing.Size(214, 16);
             this.label17.TabIndex = 17;
-            this.label17.Text = "⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺";
+            this.label17.Text = "⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label16.Location = new System.Drawing.Point(335, 106);
+            this.label16.Location = new System.Drawing.Point(356, 104);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(223, 16);
+            this.label16.Size = new System.Drawing.Size(214, 16);
             this.label16.TabIndex = 16;
-            this.label16.Text = "⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺";
+            this.label16.Text = "⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label8.Location = new System.Drawing.Point(337, 217);
+            this.label8.Location = new System.Drawing.Point(358, 215);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(155, 23);
@@ -266,10 +266,10 @@
             // 
             // linkEdit
             // 
-            this.linkEdit.ActiveLinkColor = System.Drawing.Color.RoyalBlue;
+            this.linkEdit.ActiveLinkColor = System.Drawing.Color.Orange;
             this.linkEdit.AutoSize = true;
             this.linkEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.linkEdit.LinkColor = System.Drawing.Color.Black;
+            this.linkEdit.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.linkEdit.Location = new System.Drawing.Point(225, 370);
             this.linkEdit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkEdit.Name = "linkEdit";
@@ -282,10 +282,10 @@
             // pictureBox
             // 
             this.pictureBox.BackColor = System.Drawing.Color.DarkGray;
-            this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox.Image")));
-            this.pictureBox.Location = new System.Drawing.Point(16, 33);
-            this.pictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox.Location = new System.Drawing.Point(22, 33);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(305, 333);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -294,7 +294,7 @@
             // 
             // txtCurrentPassword
             // 
-            this.txtCurrentPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.txtCurrentPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(37)))));
             this.txtCurrentPassword.Controls.Add(this.btnReset);
             this.txtCurrentPassword.Controls.Add(this.tbConfirmPassword);
             this.txtCurrentPassword.Controls.Add(this.btnSave);
@@ -311,23 +311,67 @@
             this.txtCurrentPassword.Controls.Add(this.label1);
             this.txtCurrentPassword.Dock = System.Windows.Forms.DockStyle.Right;
             this.txtCurrentPassword.Location = new System.Drawing.Point(669, 0);
-            this.txtCurrentPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCurrentPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtCurrentPassword.Name = "txtCurrentPassword";
             this.txtCurrentPassword.Size = new System.Drawing.Size(404, 577);
             this.txtCurrentPassword.TabIndex = 0;
             // 
+            // btnReset
+            // 
+            this.btnReset.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
+            this.btnReset.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(37)))));
+            this.btnReset.FlatAppearance.BorderSize = 0;
+            this.btnReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReset.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.Location = new System.Drawing.Point(60, 484);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(4);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
+            this.btnReset.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.btnReset.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
+            this.btnReset.Size = new System.Drawing.Size(284, 54);
+            this.btnReset.TabIndex = 27;
+            this.btnReset.Text = "Reset";
+            this.btnReset.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // tbConfirmPassword
             // 
             this.tbConfirmPassword.Location = new System.Drawing.Point(36, 361);
-            this.tbConfirmPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbConfirmPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tbConfirmPassword.Name = "tbConfirmPassword";
             this.tbConfirmPassword.Size = new System.Drawing.Size(331, 22);
             this.tbConfirmPassword.TabIndex = 14;
             // 
+            // btnSave
+            // 
+            this.btnSave.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
+            this.btnSave.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(37)))));
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(60, 422);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
+            this.btnSave.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.btnSave.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
+            this.btnSave.Size = new System.Drawing.Size(284, 54);
+            this.btnSave.TabIndex = 27;
+            this.btnSave.Text = "Save";
+            this.btnSave.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // tbCurrentPassword
             // 
             this.tbCurrentPassword.Location = new System.Drawing.Point(36, 236);
-            this.tbCurrentPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCurrentPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tbCurrentPassword.Name = "tbCurrentPassword";
             this.tbCurrentPassword.Size = new System.Drawing.Size(331, 22);
             this.tbCurrentPassword.TabIndex = 10;
@@ -335,7 +379,7 @@
             // tbNewPassword
             // 
             this.tbNewPassword.Location = new System.Drawing.Point(36, 300);
-            this.tbNewPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbNewPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tbNewPassword.Name = "tbNewPassword";
             this.tbNewPassword.Size = new System.Drawing.Size(331, 22);
             this.tbNewPassword.TabIndex = 13;
@@ -355,7 +399,7 @@
             // tbEmail
             // 
             this.tbEmail.Location = new System.Drawing.Point(36, 176);
-            this.tbEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbEmail.Margin = new System.Windows.Forms.Padding(4);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(331, 22);
             this.tbEmail.TabIndex = 9;
@@ -399,7 +443,7 @@
             // tbPhone
             // 
             this.tbPhone.Location = new System.Drawing.Point(36, 112);
-            this.tbPhone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPhone.Margin = new System.Windows.Forms.Padding(4);
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(331, 22);
             this.tbPhone.TabIndex = 6;
@@ -407,7 +451,7 @@
             // tbName
             // 
             this.tbName.Location = new System.Drawing.Point(36, 52);
-            this.tbName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbName.Margin = new System.Windows.Forms.Padding(4);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(331, 22);
             this.tbName.TabIndex = 5;
@@ -436,50 +480,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Full name";
             // 
-            // btnReset
-            // 
-            this.btnReset.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(169)))), ((int)(((byte)(29)))));
-            this.btnReset.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.btnReset.FlatAppearance.BorderSize = 0;
-            this.btnReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReset.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReset.Location = new System.Drawing.Point(60, 484);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(4);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
-            this.btnReset.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.btnReset.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
-            this.btnReset.Size = new System.Drawing.Size(284, 54);
-            this.btnReset.TabIndex = 27;
-            this.btnReset.Text = "Reset";
-            this.btnReset.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(169)))), ((int)(((byte)(29)))));
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(169)))), ((int)(((byte)(29)))));
-            this.btnSave.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(60, 422);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
-            this.btnSave.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.btnSave.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
-            this.btnSave.Size = new System.Drawing.Size(284, 54);
-            this.btnSave.TabIndex = 27;
-            this.btnSave.Text = "Save";
-            this.btnSave.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(169)))), ((int)(((byte)(29)))));
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
             // FormAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -490,7 +490,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormAccount";
             this.Text = "FormAccount";
             this.panel1.ResumeLayout(false);

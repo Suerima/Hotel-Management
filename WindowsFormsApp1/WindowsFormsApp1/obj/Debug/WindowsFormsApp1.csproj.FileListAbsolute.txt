@@ -268,8 +268,6 @@ D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.F
 D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormReport.resources
 D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormReportBooking.resources
 D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormResetPass.resources
-D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormTim_KhachHang.resources
-D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormTim_Phong.resources
 D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormMain.resources
 D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
 D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
@@ -277,3 +275,5 @@ D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.c
 D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CopyComplete
 D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Siticone.Desktop.UI.dll
+D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormSignUp.resources

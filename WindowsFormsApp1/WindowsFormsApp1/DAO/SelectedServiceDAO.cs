@@ -25,7 +25,7 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                string query = "SELECT * FROM FU_Get_SelectedService('" + sic + "') ";
+                string query = string.Format("EXEC USP_Get_SelectedService '{0}'", sic);
                 return DataProvider.Instance.ExecuteQuery(query);
             }
             catch (Exception ex)
@@ -64,7 +64,7 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                string query = string.Format("USP_Update_No '{0}'", no);
+                string query = string.Format("EXEC USP_Update_No '{0}'", no);
                 return DataProvider.Instance.ExecuteNonQuery(query);
             }
             catch (Exception ex)
