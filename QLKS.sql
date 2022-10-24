@@ -17,7 +17,7 @@ CREATE TABLE Account
 	Name nvarchar(50) not null,
 	Phone varchar(10) not null,
 	Avatar IMAGE,
-	Position VARCHAR(20) NOT NULL,
+	--Position VARCHAR(20) NOT NULL,
 )
 GO
 
