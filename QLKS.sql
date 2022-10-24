@@ -26,7 +26,7 @@ CREATE TABLE Customer
 	Customer_ID varchar(10) PRIMARY KEY,
 	Name nvarchar(50) not null,
 	Dob date not null,
-	GEND GOer nvarchar(10) not null,
+	Gender nvarchar(10) not null,
 	IDCard varchar(10) not null,
 	Phone varchar(10) not null,
 	Address nvarchar(50) not null,
@@ -38,7 +38,7 @@ CREATE TABLE Employee
 	Employee_ID varchar(10) PRIMARY KEY,
 	Name nvarchar(50) not null,
 	Dob date not null,
-	GEND GOer nvarchar(10) not null,
+	Gender nvarchar(10) not null,
 	IDCard varchar(10) not null,
     Phone varchar(10) not null,
 	Address nvarchar(50) not null,
@@ -363,14 +363,14 @@ CREATE PROC USP_Insert_Customer
 @Customer_ID VARCHAR(10),
 @Name NVARCHAR(50),
 @Dob DATE,
-@GEND GOer NVARCHAR(10),
+@Gender NVARCHAR(10),
 @IDCard VARCHAR(10),
 @Phone VARCHAR(10),
 @Address NVARCHAR(50)
 AS
 BEGIN
 	INSERT INTO dbo.Customer
-	VALUES(@Customer_ID, @Name, @Dob, @GEND GOer, @IDCard, @Phone, @Address)
+	VALUES(@Customer_ID, @Name, @Dob, @Gender, @IDCard, @Phone, @Address)
 END GO
 
 --EXEC USP_Insert_Customer 'KH08','Messi','1987-10-21','Male','6129638294','0916482927','Argentina'
@@ -380,14 +380,14 @@ CREATE PROC USP_Update_Customer
 @Customer_ID VARCHAR(10),
 @Name NVARCHAR(50),
 @Dob DATE,
-@GEND GOer NVARCHAR(10),
+@Gender NVARCHAR(10),
 @IDCard VARCHAR(10),
 @Phone VARCHAR(10),
 @Address NVARCHAR(50)
 AS
 BEGIN
 	UPDATE dbo.Customer
-	SET Name = @Name, Dob = @Dob, GEND GOer = @GEND GOer, IDCard = @IDCard, Phone = @Phone, Address = @Address
+	SET Name = @Name, Dob = @Dob, Gender = @Gender, IDCard = @IDCard, Phone = @Phone, Address = @Address
 	WHERE Customer_ID = @Customer_ID
 END GO
 
@@ -450,7 +450,7 @@ CREATE PROC USP_Insert_Employee
 @EmployeeID VARCHAR(10),
 @Name NVARCHAR(50),
 @Dob DATE,
-@GEND GOer NVARCHAR(10),
+@Gender NVARCHAR(10),
 @IDCard VARCHAR(10),
 @Phone VARCHAR(10),
 @Address NVARCHAR(50),
@@ -459,7 +459,7 @@ AS
 BEGIN
 
 	INSERT INTO dbo.Employee
-	VALUES(@EmployeeID, @Name, @Dob, @GEND GOer, @IDCard, @Phone, @Address, @Status)
+	VALUES(@EmployeeID, @Name, @Dob, @Gender, @IDCard, @Phone, @Address, @Status)
 END GO
 
 --EXEC USP_Insert_Employee 'NV09','Shizuka','1995-10-21','Female','6926108294','0916928927','Korea'
@@ -469,7 +469,7 @@ CREATE PROC USP_Update_Employee
 @Employee_ID VARCHAR(10),
 @Name NVARCHAR(50),
 @Dob DATE,
-@GEND GOer NVARCHAR(10),
+@Gender NVARCHAR(10),
 @IDCard VARCHAR(10),
 @Phone VARCHAR(10),
 @Address NVARCHAR(50),
@@ -477,7 +477,7 @@ CREATE PROC USP_Update_Employee
 AS
 BEGIN
 	UPDATE dbo.Employee
-	SET Name = @Name, Dob = @Dob, GEND GOer = @GEND GOer, IDCard = @IDCard, Phone = @Phone, Address = @Address, Status = @Status
+	SET Name = @Name, Dob = @Dob, Gender = @Gender, IDCard = @IDCard, Phone = @Phone, Address = @Address, Status = @Status
 	WHERE Employee_ID = @Employee_ID
 END GO
 
