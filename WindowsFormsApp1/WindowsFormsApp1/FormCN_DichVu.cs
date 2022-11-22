@@ -27,30 +27,30 @@ namespace WindowsFormsApp1
             tabControl.TabPages.Remove(tabPageDetail);
         }
 
-        void loadComboBox()
+        void loadComboBox() // done
         {
             cbEmployeeID.DataSource = EmployeeBUS.Instance.GetEmployeeInService();
-            cbEmployeeID.ValueMember = "Employee_ID";
-           // cbEmployeeID.DisplayMember = "Name";
+            cbEmployeeID.ValueMember = "EmployeeID";
         }
 
-        void loadListCustomer()
+        void loadListCustomer() // done
         {
             dgvListCustomer.DataSource = CustomerBUS.Instance.GetCustomerInService();
         }
 
-        void loadListServiceInvoice()
+        void loadListServiceInvoice() // done
         {
             dgvListServiceInvoice.DataSource = ServiceInvoiceBUS.Instance.GetServiceInvoice(); ;
         }
 
-        void loadListService()
+        void loadListService() // DONE
         {
 
             dgvListService.DataSource = ServiceBUS.Instance.GetService();
         }
 
-        void loadListSelectedService(string sic)
+
+        void loadListSelectedService(string sic)        // done
         {
             dgvListSelectedService.DataSource = SelectedServiceBUS.Instance.GetSelectedService(sic);
         }
@@ -107,85 +107,65 @@ namespace WindowsFormsApp1
         }
 
 
-        private void dgvListCustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvListCustomer_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
+            if (e.RowIndex != -1)
                 tbCustomerID.Text = dgvListCustomer.Rows[e.RowIndex].Cells[0].Value.ToString();
-            }
-            catch(Exception ex)
+        }
+
+        private void dgvListServiceInvoice_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
             {
-                MessageBox.Show(ex.Message);
+                DataGridViewRow r = new DataGridViewRow();
+                r = dgvListServiceInvoice.Rows[e.RowIndex];
+                if (r != null)
+                    tbServiceInvoiceCode.Text = r.Cells[0].Value.ToString();
             }
         }
 
-        private void dgvListService_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvListService_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
+            if (e.RowIndex != -1)
             {
-                DataGridViewRow r = new DataGridViewRow();
-                r = dgvListService.Rows[e.RowIndex];
+                DataGridViewRow r = dgvListService.Rows[e.RowIndex];
                 if (r != null)
                 {
                     lbServiceCode.Text = r.Cells[0].Value.ToString();
                     lbPrice.Text = r.Cells[3].Value.ToString();
                 }
             }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
 
-        private void dgvListSelectedService_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvListSelectedService_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
+            if (e.RowIndex != -1)
             {
-                DataGridViewRow r = new DataGridViewRow();
-                r = dgvListSelectedService.Rows[e.RowIndex];
+                DataGridViewRow r = dgvListSelectedService.Rows[e.RowIndex];
                 if (r != null)
-                {
                     no_seleted = int.Parse(r.Cells[0].Value.ToString());
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void dgvListServiceInvoice_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                DataGridViewRow r = new DataGridViewRow();
-                r = dgvListServiceInvoice.Rows[e.RowIndex];
-                if (r != null)
-                {
-                    tbServiceInvoiceCode.Text = r.Cells[0].Value.ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
             }
         }
 
         // DONE
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            if (tbCustomerID.Text == "None" || cbEmployeeID.Text == "None" || tbServiceInvoiceCode.Text == "None")
+            if (CustomerBUS.Instance.GetCustomerID(tbCustomerID.Text) == null)
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin trước khi thực hiện dịch vụ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Invalid CustomerID", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if (checkServiceInvoiceCode(tbServiceInvoiceCode.Text) == -1 && checkCustomerID(tbCustomerID.Text) != -1)
+            else if(cbEmployeeID.Text == "")
+            {
+                MessageBox.Show("Invalid EmployeeID", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
             {
                 SetButton(true);
                 string dateCreated = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd")).ToString();
 
                 ServiceInvoice SI = new ServiceInvoice(tbServiceInvoiceCode.Text, tbCustomerID.Text, FormLogin.username, cbEmployeeID.Text, dateCreated, 0, "UNPAID");
                 ServiceInvoiceBUS.Instance.InsertServiceInvoice(SI);
-                loadListServiceInvoice();
+                //loadListServiceInvoice();
                 loadListSelectedService(tbServiceInvoiceCode.Text);
 
                 tabControl.TabPages.Remove(tabPageList);
@@ -195,9 +175,6 @@ namespace WindowsFormsApp1
                 lbCustomerID.Text = tbCustomerID.Text;
 
             }
-            else
-                MessageBox.Show("Nhập thông tin không chính xác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
         }
 
         private void btnDetail_Click(object sender, EventArgs e)
@@ -215,16 +192,14 @@ namespace WindowsFormsApp1
             try
             {
                 int no = dgvListSelectedService.Rows.Count;
-                SelectedService ss = new SelectedService(no, lbSIC.Text, lbServiceCode.Text, int.Parse(lbPrice.Text), int.Parse(tbQuantity.Text));
+                SelectedService ss = new SelectedService(no, lbSIC.Text, lbServiceCode.Text, int.Parse(nudQuantity.Text));
                 SelectedServiceBUS.Instance.InsertSelectedService(ss);
                 loadListSelectedService(lbSIC.Text);
-                MessageBox.Show("Thêm thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Inserted Successfully.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch(Exception ex)
             {
-                throw new Exception("Error " + ex.ToString());
-                //MessageBox.Show(ex.Message);
-               // MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message);
             }
         }
         int no_seleted;
@@ -240,12 +215,12 @@ namespace WindowsFormsApp1
         {
             try
             {
-                var result = MessageBox.Show("Bạn chắc chắn muốn xóa item này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                var result = MessageBox.Show("Are you sure you want to delete this item?", "Notification", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (result == DialogResult.Yes)
                 {
                     SelectedServiceBUS.Instance.DeleteSelectedService(no_seleted);
                     UpdateNo();
-                    MessageBox.Show("Xóa thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Deleted Successfully.", "Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -257,23 +232,30 @@ namespace WindowsFormsApp1
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            ServiceInvoiceBUS.Instance.UpdateServiceInvoice(tbServiceInvoiceCode.Text);
+            ServiceInvoiceBUS.Instance.UpdateServiceInvoice(tbServiceInvoiceCode.Text, cbEmployeeID.Text).ToString();
+            if (EmployeeBUS.Instance.GetStatusEmployee(cbEmployeeID.Text) == "Busy")
+                ServiceReportBUS.Instance.InsertServiceReport(lbSIC.Text);
             loadListServiceInvoice();
             loadIDServiceInvoice();
-            EmployeeBUS.Instance.UpdateEmployeeStatus(cbEmployeeID.Text);
+            //
+            //EmployeeBUS.Instance.UpdateEmployeeStatus(cbEmployeeID.Text);
             loadComboBox();
-            MessageBox.Show("Save successfully.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+            MessageBox.Show("Saved successfully.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            tabControl.TabPages.Remove(tabPageDetail);
+            tabControl.TabPages.Add(tabPageList);
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
+
             tabControl.TabPages.Remove(tabPageDetail);
-            tabControl.TabPages.Add(tabPageList); 
-/*            if (db.CheckTotalServiceInvoice(lbSIC.Text) == lbSIC.Text)
-            {
-                db.DeleteServiceInvoice(lbSIC.Text);
-            }
-*/
+            tabControl.TabPages.Add(tabPageList);
+            ServiceInvoiceBUS.Instance.DeleteServiceInvoice(lbSIC.Text);
+            /*            if (db.CheckTotalServiceInvoice(lbSIC.Text) == lbSIC.Text)
+                        {
+                            db.DeleteServiceInvoice(lbSIC.Text);
+                        }
+            */
+            loadListServiceInvoice();
             loadIDServiceInvoice();
         }
 
@@ -282,9 +264,7 @@ namespace WindowsFormsApp1
         {
             if (tbSearch.Text != "Name of Customer")
             {
-                QuanLyDB db = new QuanLyDB();
-                DataTable dt = db.SearchCustomer_(tbSearch.Text);
-                dgvListCustomer.DataSource = dt;
+                dgvListCustomer.DataSource = CustomerBUS.Instance.SearchCustomerInService(tbSearch.Text);
             }
         }
         private void txtCustomerID_Enter(object sender, EventArgs e)
@@ -362,24 +342,6 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void txtQuantity_Enter(object sender, EventArgs e)
-        {
-            if (tbQuantity.Text == "0")
-            {
-                tbQuantity.Text = "";
-                tbQuantity.ForeColor = Color.White;
-            }
-        }
-
-        private void txtQuantity_Leave(object sender, EventArgs e)
-        {
-            if (tbServiceInvoiceCode.Text == "")
-            {
-                tbQuantity.Text = "0";
-                tbQuantity.ForeColor = Color.Gray;
-            }
-        }
-
         private void txtSearch_Enter(object sender, EventArgs e)
         {
             if (tbSearch.Text == "Name of Customer")
@@ -398,5 +360,6 @@ namespace WindowsFormsApp1
             }
         }
         #endregion
+
     }
 }

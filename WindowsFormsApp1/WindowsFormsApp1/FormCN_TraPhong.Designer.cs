@@ -38,11 +38,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.dgvListBooking = new System.Windows.Forms.DataGridView();
-            this.Booking_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Customer_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Room_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pricee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Arrival = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lbTotalService = new System.Windows.Forms.Label();
             this.lbTotalBooking = new System.Windows.Forms.Label();
@@ -67,7 +62,11 @@
             this.CustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date_Created = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Booking_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Customer_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pricee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Arrival = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListBooking)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -127,7 +126,7 @@
             this.dgvListBooking.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Booking_ID,
             this.Customer_ID,
-            this.Room_ID,
+            this.RoomID,
             this.Pricee,
             this.Arrival});
             this.dgvListBooking.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -151,52 +150,7 @@
             this.dgvListBooking.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListBooking.Size = new System.Drawing.Size(619, 254);
             this.dgvListBooking.TabIndex = 41;
-            this.dgvListBooking.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListBooking_CellContentClick);
-            // 
-            // Booking_ID
-            // 
-            this.Booking_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Booking_ID.DataPropertyName = "Booking_ID";
-            this.Booking_ID.HeaderText = "Booking ID";
-            this.Booking_ID.MinimumWidth = 6;
-            this.Booking_ID.Name = "Booking_ID";
-            this.Booking_ID.ReadOnly = true;
-            // 
-            // Customer_ID
-            // 
-            this.Customer_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Customer_ID.DataPropertyName = "Customer_ID";
-            this.Customer_ID.HeaderText = "Customer ID";
-            this.Customer_ID.MinimumWidth = 6;
-            this.Customer_ID.Name = "Customer_ID";
-            this.Customer_ID.ReadOnly = true;
-            // 
-            // Room_ID
-            // 
-            this.Room_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Room_ID.DataPropertyName = "Room_ID";
-            this.Room_ID.HeaderText = "Room ID";
-            this.Room_ID.MinimumWidth = 6;
-            this.Room_ID.Name = "Room_ID";
-            this.Room_ID.ReadOnly = true;
-            // 
-            // Pricee
-            // 
-            this.Pricee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Pricee.DataPropertyName = "Price";
-            this.Pricee.HeaderText = "Price";
-            this.Pricee.MinimumWidth = 6;
-            this.Pricee.Name = "Pricee";
-            this.Pricee.ReadOnly = true;
-            // 
-            // Arrival
-            // 
-            this.Arrival.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Arrival.DataPropertyName = "Arrival";
-            this.Arrival.HeaderText = "Arrival";
-            this.Arrival.MinimumWidth = 6;
-            this.Arrival.Name = "Arrival";
-            this.Arrival.ReadOnly = true;
+            this.dgvListBooking.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListBooking_CellClick);
             // 
             // groupBox2
             // 
@@ -490,8 +444,7 @@
             this.Service_Invoice_Code,
             this.CustomerID,
             this.Date_Created,
-            this.Total,
-            this.Status});
+            this.Total});
             this.dgvListServiceInvoice.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
@@ -513,7 +466,7 @@
             this.dgvListServiceInvoice.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListServiceInvoice.Size = new System.Drawing.Size(619, 262);
             this.dgvListServiceInvoice.TabIndex = 49;
-            this.dgvListServiceInvoice.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListServiceInvoice_CellContentClick);
+            this.dgvListServiceInvoice.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListServiceInvoice_CellClick);
             // 
             // Service_Invoice_Code
             // 
@@ -527,7 +480,7 @@
             // CustomerID
             // 
             this.CustomerID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CustomerID.DataPropertyName = "Customer_ID";
+            this.CustomerID.DataPropertyName = "CustomerID";
             this.CustomerID.HeaderText = "Customer ID";
             this.CustomerID.MinimumWidth = 6;
             this.CustomerID.Name = "CustomerID";
@@ -551,14 +504,50 @@
             this.Total.Name = "Total";
             this.Total.ReadOnly = true;
             // 
-            // Status
+            // Booking_ID
             // 
-            this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Status.DataPropertyName = "Status";
-            this.Status.HeaderText = "Status";
-            this.Status.MinimumWidth = 6;
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
+            this.Booking_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Booking_ID.DataPropertyName = "BookingID";
+            this.Booking_ID.HeaderText = "Booking ID";
+            this.Booking_ID.MinimumWidth = 6;
+            this.Booking_ID.Name = "Booking_ID";
+            this.Booking_ID.ReadOnly = true;
+            // 
+            // Customer_ID
+            // 
+            this.Customer_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Customer_ID.DataPropertyName = "CustomerID";
+            this.Customer_ID.HeaderText = "Customer ID";
+            this.Customer_ID.MinimumWidth = 6;
+            this.Customer_ID.Name = "Customer_ID";
+            this.Customer_ID.ReadOnly = true;
+            // 
+            // RoomID
+            // 
+            this.RoomID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.RoomID.DataPropertyName = "RoomID";
+            this.RoomID.HeaderText = "Room ID";
+            this.RoomID.MinimumWidth = 6;
+            this.RoomID.Name = "RoomID";
+            this.RoomID.ReadOnly = true;
+            // 
+            // Pricee
+            // 
+            this.Pricee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Pricee.DataPropertyName = "Price";
+            this.Pricee.HeaderText = "Price";
+            this.Pricee.MinimumWidth = 6;
+            this.Pricee.Name = "Pricee";
+            this.Pricee.ReadOnly = true;
+            // 
+            // Arrival
+            // 
+            this.Arrival.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Arrival.DataPropertyName = "Arrival";
+            this.Arrival.HeaderText = "Arrival";
+            this.Arrival.MinimumWidth = 6;
+            this.Arrival.Name = "Arrival";
+            this.Arrival.ReadOnly = true;
             // 
             // FormCN_TraPhong
             // 
@@ -616,10 +605,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CustomerID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date_Created;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn Booking_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Customer_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Room_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoomID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pricee;
         private System.Windows.Forms.DataGridViewTextBoxColumn Arrival;
     }

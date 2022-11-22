@@ -25,7 +25,7 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                return DataProvider.Instance.ExecuteScalar("EXEC USP_Get_LastServiceInvoice");
+                return DataProvider.Instance.ExecuteScalar("USP_Get_LastServiceInvoice"); //
             }
             catch (Exception ex)
             {
@@ -37,7 +37,7 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                return DataProvider.Instance.ExecuteQuery("EXEC USP_Get_ServiceInvoice");
+                return DataProvider.Instance.ExecuteQuery("USP_Get_ServiceInvoice"); //
             }
             catch (Exception ex)
             {
@@ -49,7 +49,7 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                return DataProvider.Instance.ExecuteQuery("EXEC USP_Get_ServiceInvoiceInCheckOut");
+                return DataProvider.Instance.ExecuteQuery("USP_Get_ServiceInvoice_CheckOut"); //
             }
             catch (Exception ex)
             {
@@ -61,21 +61,32 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                string query = string.Format("EXEC USP_Insert_ServiceInvoice '{0}', N'{1}', '{2}', '{3}', '{4}', '{5}', N'{6}'",
-                                            SI.ServiceInvoiceID, SI.CustomerID, SI.ManagerID, SI.EmployeeID, SI.DateCreated, SI.Total, SI.Status);
-                return DataProvider.Instance.ExecuteNonQuery(query);
+                string query = "USP_Insert_ServiceInvoice @ServiceInvoiceCode , @CustomerID , @MangerID , @EmployeeID , @DateCreate , @Total , @Status"; //
+                return DataProvider.Instance.ExecuteNonQuery(query, new object[] { SI.ServiceInvoiceID, SI.CustomerID, SI.ManagerID, SI.EmployeeID, SI.DateCreated, SI.Total, SI.Status });
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-        public int UpdateServiceInvoice(string sic)
+        public int UpdateServiceInvoice(string sic, string employeeID)
         {
             try
             {
-                string query = string.Format("EXEC USP_Update_ServiceInvoice '{0}'", sic);
-                return DataProvider.Instance.ExecuteNonQuery(query);
+                string query = "USP_Update_ServiceInvoice @SIC , @EmployeeID "; //
+                return DataProvider.Instance.ExecuteNonQuery(query, new object[] { sic, employeeID });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public int DeleteServiceInvoice(string sic)
+        {
+            try
+            {
+                string query = "USP_Delete_ServiceInvoice @SIC"; //
+                return DataProvider.Instance.ExecuteNonQuery(query, new object[] { sic});
             }
             catch (Exception ex)
             {

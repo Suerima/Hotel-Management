@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using WindowsFormsApp1.DAO;
@@ -36,13 +38,48 @@ namespace WindowsFormsApp1.BUS
             return AccountDAO.Instance.ForgotAccount(email, username);
         }
 
+        public bool SearchEmail(string email)
+        {
+            return AccountDAO.Instance.SearchEmail(email);
+        }
+
+        public DataTable GetListAccount()
+        {
+            return AccountDAO.Instance.GetListAccount();
+        }
+
         public DataTable GetAccount(string username)
         {
             return AccountDAO.Instance.GetAccount(username);
         }
-        public int UpdateAccount(Account account, string path)
+
+        public string GetAuthority(string username)
         {
-            return AccountDAO.Instance.UpdateAccount(account, path);
+            return AccountDAO.Instance.GetAuthority(username);
+
+        }
+
+        public string GetPassword(string username)
+        {
+            return AccountDAO.Instance.GetPassword(username);
+        }
+        public DataTable SearchAccount(string nameCol, string value)
+        {
+            return AccountDAO.Instance.SearchAccount(nameCol, value);
+        }
+        public int InsertAccount(Account account, PersonalInfo perInfo)
+        {
+            return AccountDAO.Instance.InsertAccount(account, perInfo);
+        }
+
+        public int UpdateImage(string username, string filename)
+        {
+             return AccountDAO.Instance.UpdateImage(username, filename);
+        }
+
+        public int ChangePassword(string username, string password)
+        {
+            return AccountDAO.Instance.ChangePassword(username, password);
         }
 
         public int UpdatePassword(string password, string email)

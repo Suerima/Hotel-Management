@@ -94,17 +94,25 @@
   <ItemGroup>
     <Compile Include="BUS\AccountBUS.cs" />
     <Compile Include="BUS\BookingBUS.cs" />
+    <Compile Include="BUS\BookingReportBUS.cs" />
     <Compile Include="BUS\CustomerBUS.cs" />
     <Compile Include="BUS\EmployeeBUS.cs" />
+    <Compile Include="BUS\PersonalInfoBUS.cs" />
     <Compile Include="BUS\RoomBUS.cs" />
     <Compile Include="BUS\SelectedServiceBUS.cs" />
     <Compile Include="BUS\ServiceBUS.cs" />
     <Compile Include="BUS\ServiceInvoiceBUS.cs" />
-    <Compile Include="Button_WOC.cs">
+    <Compile Include="BUS\ServiceReportBUS.cs" />
+    <Compile Include="CustomControls\RJDatePicker.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CustomCombox.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="DAO\BookingReportDAO.cs" />
+    <Compile Include="DAO\PersonalInfoDAO.cs" />
+    <Compile Include="DAO\ServiceReportDAO.cs" />
+    <Compile Include="DTO\BookingReport.cs" />
+    <Compile Include="DTO\PersonalInfo.cs" />
+    <Compile Include="CustomControls\Button_WOC.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\BookingDAO.cs" />
@@ -115,7 +123,6 @@
     <Compile Include="DAO\SelectedServiceDAO.cs" />
     <Compile Include="DAO\ServiceDAO.cs" />
     <Compile Include="DAO\ServiceInvoiceDAO.cs" />
-    <Compile Include="Database.cs" />
     <Compile Include="DTO\Account.cs" />
     <Compile Include="DTO\Booking.cs" />
     <Compile Include="DTO\Customer.cs" />
@@ -124,20 +131,36 @@
     <Compile Include="DTO\SelectedService.cs" />
     <Compile Include="DTO\Service.cs" />
     <Compile Include="DTO\ServiceInvoice.cs" />
-    <Compile Include="FlatCombobox.cs">
+    <Compile Include="CustomControls\CustomPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="FormForgotPass.cs">
+    <Compile Include="CustomControls\FlatCombobox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DTO\ServiceReport.cs" />
+    <Compile Include="FormAcc_TaoAccount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormForgotPass.Designer.cs">
-      <DependentUpon>FormForgotPass.cs</DependentUpon>
+    <Compile Include="FormAcc_TaoAccount.Designer.cs">
+      <DependentUpon>FormAcc_TaoAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormReport.cs">
+    <Compile Include="FormAcc_ThongTin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormReport.Designer.cs">
-      <DependentUpon>FormReport.cs</DependentUpon>
+    <Compile Include="FormAcc_ThongTin.Designer.cs">
+      <DependentUpon>FormAcc_ThongTin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBooking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBooking.Designer.cs">
+      <DependentUpon>FormBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDetailRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDetailRoom.Designer.cs">
+      <DependentUpon>FormDetailRoom.cs</DependentUpon>
     </Compile>
     <Compile Include="FormReportBooking.cs">
       <SubType>Form</SubType>
@@ -145,17 +168,17 @@
     <Compile Include="FormReportBooking.Designer.cs">
       <DependentUpon>FormReportBooking.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormReportService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportService.Designer.cs">
+      <DependentUpon>FormReportService.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormResetPass.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormResetPass.Designer.cs">
       <DependentUpon>FormResetPass.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormAccount.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormAccount.Designer.cs">
-      <DependentUpon>FormAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="FormCN_DichVu.cs">
       <SubType>Form</SubType>
@@ -211,36 +234,47 @@
     <Compile Include="FormQL_Phong.Designer.cs">
       <DependentUpon>FormQL_Phong.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSignUp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSignUp.Designer.cs">
-      <DependentUpon>FormSignUp.cs</DependentUpon>
-    </Compile>
     <Compile Include="FromMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FromMain.Designer.cs">
       <DependentUpon>FromMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListRoom.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ListRoom.Designer.cs">
+      <DependentUpon>ListRoom.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QLKSDataSet1.cs">
-      <DependentUpon>QLKSDataSet1.xsd</DependentUpon>
+    <Compile Include="CustomControls\RJTextBox.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="QLKSDataSet1.Designer.cs">
+    <Compile Include="CustomControls\RJTextBox.Designer.cs">
+      <DependentUpon>RJTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\SPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="QLKS1DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QLKSDataSet1.xsd</DependentUpon>
+      <DependentUpon>QLKS1DataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="QLKSDataSet2.Designer.cs">
+    <Compile Include="QLKS1DataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QLKSDataSet2.xsd</DependentUpon>
+      <DependentUpon>QLKS1DataSet2.xsd</DependentUpon>
     </Compile>
-    <Compile Include="QuanLyDB.cs" />
-    <EmbeddedResource Include="FormAccount.resx">
-      <DependentUpon>FormAccount.cs</DependentUpon>
+    <EmbeddedResource Include="FormAcc_TaoAccount.resx">
+      <DependentUpon>FormAcc_TaoAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAcc_ThongTin.resx">
+      <DependentUpon>FormAcc_ThongTin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBooking.resx">
+      <DependentUpon>FormBooking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCN_DichVu.resx">
       <DependentUpon>FormCN_DichVu.cs</DependentUpon>
@@ -251,14 +285,14 @@
     <EmbeddedResource Include="FormCN_TraPhong.resx">
       <DependentUpon>FormCN_TraPhong.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDetailRoom.resx">
+      <DependentUpon>FormDetailRoom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDT_DichVu.resx">
       <DependentUpon>FormDT_DichVu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDT_ThuePhong.resx">
       <DependentUpon>FormDT_ThuePhong.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormForgotPass.resx">
-      <DependentUpon>FormForgotPass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
@@ -272,20 +306,20 @@
     <EmbeddedResource Include="FormQL_Phong.resx">
       <DependentUpon>FormQL_Phong.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormReport.resx">
-      <DependentUpon>FormReport.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormReportBooking.resx">
       <DependentUpon>FormReportBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportService.resx">
+      <DependentUpon>FormReportService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormResetPass.resx">
       <DependentUpon>FormResetPass.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSignUp.resx">
-      <DependentUpon>FormSignUp.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FromMain.resx">
       <DependentUpon>FromMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListRoom.resx">
+      <DependentUpon>ListRoom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -295,9 +329,13 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Report1.rdlc" />
-    <EmbeddedResource Include="Report2.rdlc" />
+    <EmbeddedResource Include="CustomControls\RJTextBox.resx">
+      <DependentUpon>RJTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportBooking.rdlc" />
+    <EmbeddedResource Include="ReportService.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -308,32 +346,42 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="QLKSDataSet1.xsc">
-      <DependentUpon>QLKSDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="QLKSDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QLKSDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QLKSDataSet1.xss">
-      <DependentUpon>QLKSDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="QLKSDataSet2.xsc">
-      <DependentUpon>QLKSDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="QLKSDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QLKSDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QLKSDataSet2.xss">
-      <DependentUpon>QLKSDataSet2.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Images\hide1.png" />
+    <Content Include="Images\jin1.png" />
+    <Content Include="Images\view1.png" />
+    <None Include="Resources\DefaultAvatar.jpg" />
+    <None Include="QLKS1DataSet.xsc">
+      <DependentUpon>QLKS1DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLKS1DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLKS1DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLKS1DataSet.xss">
+      <DependentUpon>QLKS1DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLKS1DataSet2.xsc">
+      <DependentUpon>QLKS1DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="QLKS1DataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLKS1DataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLKS1DataSet2.xss">
+      <DependentUpon>QLKS1DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\calendarWhite.png" />
+    <None Include="Resources\calendarDark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

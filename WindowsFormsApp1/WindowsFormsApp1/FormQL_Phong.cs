@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -15,12 +16,22 @@ namespace WindowsFormsApp1
 {
     public partial class FormQL_Phong : Form
     {
+        private bool checkButton = false;
+        Color yellow = Color.FromArgb(247, 206, 69);
 
+        private string status;
         public FormQL_Phong()
         {
             InitializeComponent();
             tabControl.TabPages.Remove(tabPageEdit);
+
             loadData();
+            if (FormLogin.authority == "Cashier")
+            {
+                btnAdd.Visible = false;
+                btnDelete.Visible = false;
+                btnUpdate.Visible = false; 
+            }
         }
 
         void loadData()
@@ -29,18 +40,37 @@ namespace WindowsFormsApp1
             lbRecord.Text = "Records: " + dgvListRoom.RowCount.ToString();
         }
 
-        private void dgvListInfo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        static public bool checkPrice(string price)
         {
-            DataGridViewRow r = new DataGridViewRow();
-            r = dgvListRoom.Rows[e.RowIndex];
-            if (r != null)
+            Regex isValidInput = new Regex(@"^[0-9]*$");
+            if (isValidInput.IsMatch(price))
+                return true;
+            return false;
+        }
+
+        private void reset()
+        {
+            tbRoomID.Texts = GetNextRoomID();
+            cbType.Text = "Standard";
+            cbPerson.Text = "2";
+            tbPrice.Texts = "Price";
+            tbDescription.Texts = "Description";
+        }
+
+        private void dgvListRoom_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
             {
-                tbRoomID.Text = r.Cells[0].Value.ToString();
-                cbType.Text = r.Cells[1].Value.ToString();
-                tbPerson.Text = r.Cells[2].Value.ToString();
-                tbPrice.Text = r.Cells[3].Value.ToString();
-                cbStatus.Text = r.Cells[4].Value.ToString();
-                tbDescription.Text = r.Cells[5].Value.ToString();
+                DataGridViewRow r = dgvListRoom.Rows[e.RowIndex];
+                if (r != null)
+                {
+                    tbRoomID.Texts = r.Cells[0].Value.ToString();
+                    cbType.Text = r.Cells[1].Value.ToString();
+                    cbPerson.Text = r.Cells[2].Value.ToString();
+                    tbPrice.Texts = r.Cells[3].Value.ToString();
+                    status = r.Cells[4].Value.ToString();
+                    tbDescription.Texts = r.Cells[5].Value.ToString();
+                }
             }
         }
 
@@ -69,18 +99,6 @@ namespace WindowsFormsApp1
             return "Room" + nextID;
         }
 
-        private void reset()
-        {
-            tbRoomID.Text = GetNextRoomID();
-            cbType.Text = "";
-            tbPerson.Text = "";
-            tbPrice.Text = "";
-            cbStatus.Text = "";
-            tbDescription.Text = "";
-        }
-    
-        private bool checkButton;
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
             tabControl.TabPages.Remove(tabPageList);
@@ -92,9 +110,9 @@ namespace WindowsFormsApp1
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (tbRoomID.Text == "")
+            if (tbRoomID.Texts == "")
             {
-                MessageBox.Show("Please select the room you want to delete!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select the room you want to update!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -104,26 +122,21 @@ namespace WindowsFormsApp1
                 checkButton = false;
             }
         }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            DeleteRoom();
-        }
         public void DeleteRoom()
         {
             try
             {
-                if (tbRoomID.Text == "")
+                if (tbRoomID.Texts == "")
                     MessageBox.Show("Please select the room you want to delete!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
                 {
                     var result = MessageBox.Show("Are you sure you want to delete this room?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (result == DialogResult.Yes)
                     {
-                        RoomBUS.Instance.DeleteRoom(tbRoomID.Text);
+                        RoomBUS.Instance.DeleteRoom(tbRoomID.Texts);
                         loadData();
                         MessageBox.Show("Delete successfully.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        tbRoomID.Text = "";
+                        tbRoomID.Texts = "";
                     }
                 }
             }
@@ -132,36 +145,44 @@ namespace WindowsFormsApp1
                 MessageBox.Show(ex.Message);
             }
         }
-    
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DeleteRoom();
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
-                if (cbType.Text == "" || tbPerson.Text == "" || tbPrice.Text == "" || cbStatus.Text == "" || tbDescription.Text == "")
-                {
-                    MessageBox.Show("Enter missing room information!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
+                if (!checkPrice(tbPrice.Texts))
+                {
+                    MessageBox.Show("Invalid price.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (tbDescription.Texts == "Description")
+                {
+                    MessageBox.Show("Description cannot be left blank.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    Room room = new Room(tbRoomID.Text, cbType.Text, int.Parse(tbPerson.Text), int.Parse(tbPrice.Text), cbStatus.Text, tbDescription.Text);
+                    Room room = new Room(tbRoomID.Texts, cbType.Text, int.Parse(cbPerson.Text), int.Parse(tbPrice.Texts), status, tbDescription.Texts);
 
-                    if (checkButton)
+                    if (checkButton == true)
                     {
                         RoomBUS.Instance.InsertRoom(room);
-                        loadData();
                         MessageBox.Show("Insert successful!.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
                         RoomBUS.Instance.UpdateRoom(room);
-                        loadData();
                         MessageBox.Show("Update successful!.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
                     tabControl.TabPages.Add(tabPageList);
                     tabControl.TabPages.Remove(tabPageEdit);
-                    tbRoomID.Text = "";
+                    tbRoomID.Texts = "";
+                    loadData();
                 }
             }
             catch (Exception ex)
@@ -173,8 +194,8 @@ namespace WindowsFormsApp1
         private void btnCancel_Click(object sender, EventArgs e)
         {
             tabControl.TabPages.Remove(tabPageEdit);
-            tabControl.TabPages.Add(tabPageList); 
-            tbRoomID.Text = "";
+            tabControl.TabPages.Add(tabPageList);
+            tbRoomID.Texts = "";
         }
 
         #region Event
@@ -182,9 +203,9 @@ namespace WindowsFormsApp1
         {
             if (tbSearch.Text != "Search")
             {
-                if (cbSearch.Text == " Room ID")
+                if (cbSearch.Text == " RoomID")
                 {
-                    dgvListRoom.DataSource = RoomBUS.Instance.SearchRoom("Room_ID", tbSearch.Text);
+                    dgvListRoom.DataSource = RoomBUS.Instance.SearchRoom("RoomID", tbSearch.Text);
                 }
                 else if (cbSearch.Text == " Type")
                 {
@@ -202,10 +223,6 @@ namespace WindowsFormsApp1
                 {
                     dgvListRoom.DataSource = RoomBUS.Instance.SearchRoom("Status", tbSearch.Text);
                 }
-                else if (cbSearch.Text == " Description")
-                {
-                    dgvListRoom.DataSource = RoomBUS.Instance.SearchRoom("Description", tbSearch.Text);
-                }
             }
         }
 
@@ -220,6 +237,84 @@ namespace WindowsFormsApp1
             if (tbSearch.Text == "")
                 tbSearch.Text = "Search";
         }
+
+        private void tbPrice_Enter(object sender, EventArgs e)
+        {
+            tbPrice.BorderSize = 2;
+            tbPrice.BorderColor = yellow;
+            lbPrice.Text = "Price";
+            lbPrice.ForeColor = yellow;
+
+            if (tbPrice.Texts == "Price")
+                tbPrice.Texts = "";
+            tbPrice.ForeColor = Color.WhiteSmoke;
+        }
+
+        private void tbPrice_Leave(object sender, EventArgs e)
+        {
+            tbPrice.BorderSize = 1;
+            tbPrice.BorderColor = Color.DimGray;
+            lbPrice.ForeColor = Color.DarkGray;
+
+            if (tbPrice.Texts == "")
+            {
+                tbPrice.Texts = "Price";
+                tbPrice.ForeColor = Color.DimGray;
+                lbPrice.Text = "";
+            }
+        }
+        private void tbDescription_Enter(object sender, EventArgs e)
+        {
+            tbDescription.BorderSize = 2;
+            tbDescription.BorderColor = yellow;
+            lbDescription.Text = "Description";
+            lbDescription.ForeColor = yellow;
+
+            if (tbDescription.Texts == "Description")
+                tbDescription.Texts = "";
+            tbDescription.ForeColor = Color.WhiteSmoke;
+        }
+
+        private void tbDescription_Leave(object sender, EventArgs e)
+        {
+            tbDescription.BorderSize = 1;
+            tbDescription.BorderColor = Color.DimGray;
+            lbDescription.ForeColor = Color.DarkGray;
+
+            if (tbDescription.Texts == "")
+            {
+                tbDescription.Texts = "Description";
+                tbDescription.ForeColor = Color.DimGray;
+                lbDescription.Text = "";
+            }
+        }
+
+        private void cbType_Enter(object sender, EventArgs e)
+        {
+            tbType.BorderSize = 2;
+            tbType.BorderColor = yellow;
+            lbType.ForeColor = yellow;
+        }
+
+        private void cbType_Leave(object sender, EventArgs e)
+        {
+            tbType.BorderSize = 1;
+            tbType.BorderColor = Color.DimGray;
+            lbType.ForeColor = Color.DarkGray;
+        }
+        private void cbPerson_Enter(object sender, EventArgs e)
+        {
+            tbPerson.BorderSize = 2;
+            tbPerson.BorderColor = yellow;
+            lbPerson.ForeColor = yellow;
+        }
+        private void cbPerson_Leave(object sender, EventArgs e)
+        {
+            tbPerson.BorderSize = 1;
+            tbPerson.BorderColor = Color.DimGray;
+            lbPerson.ForeColor = Color.DarkGray;
+        }
         #endregion
+
     }
 }

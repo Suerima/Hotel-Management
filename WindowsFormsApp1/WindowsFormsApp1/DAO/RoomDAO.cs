@@ -21,11 +21,26 @@ namespace WindowsFormsApp1.DAO
             private set { instance = value; }
         }
         private RoomDAO() { }
+
+        public List<Room> LoadRoomList()
+        {
+            List<Room> roomList = new List<Room>();
+
+            DataTable data = DataProvider.Instance.ExecuteQuery("USP_Get_Room");
+
+            foreach(DataRow item in data.Rows)
+            {
+                Room room = new Room(item);
+                roomList.Add(room);
+            }
+
+            return roomList;
+        }    
         public string GetLastRoomID()
         {
             try
             {
-                return DataProvider.Instance.ExecuteScalar("EXEC USP_Get_LastRoomID");
+                return DataProvider.Instance.ExecuteScalar("USP_Get_LastRoomID"); //
             }
             catch (Exception ex)
             {
@@ -37,7 +52,7 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                return DataProvider.Instance.ExecuteQuery("EXEC USP_Get_RoomInBooking");
+                return DataProvider.Instance.ExecuteQuery("USP_Get_Room_Booking"); //
             }
             catch (Exception ex)
             {
@@ -49,7 +64,7 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                return DataProvider.Instance.ExecuteQuery("EXEC USP_Get_Room");
+                return DataProvider.Instance.ExecuteQuery("USP_Get_Room"); //
             }
             catch (Exception ex)
             {
@@ -61,9 +76,8 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                string query = string.Format("EXEC USP_Search_Room '{0}', '{1}'", nameCol, value);
-                DataTable dt = DataProvider.Instance.ExecuteQuery(query);
-                return dt;
+                string query = "USP_Search_Room @nameCol , @value"; //
+                return DataProvider.Instance.ExecuteQuery(query, new object[] { nameCol, value }); ;
             }
             catch (Exception ex)
             {
@@ -75,9 +89,8 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                string query = string.Format("EXEC USP_Insert_Room '{0}', N'{1}', '{2}', '{3}', '{4}', N'{5}'",
-                                            room.RoomID, room.Type, room.Person, room.Price, room.Status, room.Description);
-                return DataProvider.Instance.ExecuteNonQuery(query);
+                string query = "USP_Insert_Room @RoomID , @Type , @Person , @Price , @Status , @Description"; //
+                return DataProvider.Instance.ExecuteNonQuery(query, new object[] {room.RoomID, room.Type, room.Person, room.Price, room.Status, room.Description});
             }
             catch (Exception ex)
             {
@@ -89,23 +102,8 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                string query = string.Format("EXEC USP_Update_Room '{0}', '{1}', '{2}', '{3}', '{4}', N'{5}'",
-                                             room.RoomID, room.Type, room.Person, room.Price, room.Status, room.Description);
-                return DataProvider.Instance.ExecuteNonQuery(query);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public int UpdateStatusRoom(string roomID, string status)
-        {
-            try
-            {
-                string query = string.Format("EXEC USP_Update_RoomStatus '{0}', '{1}'",
-                                             roomID , status);
-                return DataProvider.Instance.ExecuteNonQuery(query);
+                string query = "USP_Update_Room @RoomID , @Type , @Person , @Price , @Status , @Description"; //
+                return DataProvider.Instance.ExecuteNonQuery(query, new object[] { room.RoomID, room.Type, room.Person, room.Price, room.Status, room.Description });
             }
             catch (Exception ex)
             {
@@ -117,8 +115,8 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                string query = string.Format("EXEC USP_Delete_Room '{0}'", roomID);
-                return DataProvider.Instance.ExecuteNonQuery(query);
+                string query = "USP_Delete_Room @RoomID";//
+                return DataProvider.Instance.ExecuteNonQuery(query, new object[] {roomID});
             }
             catch (Exception ex)
             {

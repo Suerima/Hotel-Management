@@ -45,10 +45,15 @@ namespace WindowsFormsApp1.BUS
             return ServiceInvoiceDAO.Instance.InsertServiceInvoice(SI);
         }
 
-        public int UpdateServiceInvoice(string sic)
+        public int UpdateServiceInvoice(string sic, string employeeID)
         {
 
-            return ServiceInvoiceDAO.Instance.UpdateServiceInvoice(sic);
+            return ServiceInvoiceDAO.Instance.UpdateServiceInvoice(sic, employeeID);
+        }
+        public int DeleteServiceInvoice(string sic)
+        {
+            return ServiceInvoiceDAO.Instance.DeleteServiceInvoice(sic);
+
         }
     }
 }

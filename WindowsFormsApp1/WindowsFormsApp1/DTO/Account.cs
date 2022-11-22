@@ -12,26 +12,27 @@ namespace WindowsFormsApp1.DTO
         private string username;
         private string password;
         private string email;
-        private string name;
-        private string phone;
+        private string authority;
+        private byte[] image;
 
         public string Username { get => username; set => username = value; }
         public string Password { get => password; set => password = value; }
         public string Email { get => email; set => email = value; }
-        public string Name { get => name; set => name = value; }
-        public string Phone { get => phone; set => phone = value; }
-
+        public string Authority { get => authority; set => authority = value; }
+        public byte[] Image { get => image; set => image = value; }
 
         public Account() { }
 
+
         //, string email, string name, string phone
-        public Account(string username, string password, string email, string name, string phone)
+
+        public Account(string username, string password, string email, string authority, byte[] image)
         {
             this.Username = username;
             this.Password = password;
             this.Email = email;
-            this.Name = name;
-            this.Phone = phone;
+            this.Authority = authority;
+            this.Image = image;
         }
     }
 }

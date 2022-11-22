@@ -44,11 +44,31 @@ namespace WindowsFormsApp1.BUS
             return CustomerDAO.Instance.GetCustomerInBooking();
         }
 
+        public string GetCustomerID(string customerID)
+        {
+            return CustomerDAO.Instance.GetCustomerID(customerID);
+
+        }
+
+        public string GetCustomerIDInBooking(string customerID)
+        {
+            return CustomerDAO.Instance.GetCustomerIDInBooking(customerID);
+        }
         public DataTable SearchCustomer(string nameCol, string value)
         {
             return CustomerDAO.Instance.SearchCustomer(nameCol, value);
         }
-
+        public DataTable SearchCustomerInService(string name)
+        {
+            try
+            {
+                return CustomerDAO.Instance.SearchCustomerInService(name);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public DataTable SearchCustomerInServiceInvoiceCheckOut(string customerID)
         {
             return CustomerDAO.Instance.SearchCustomerInServiceInvoiceCheckOut(customerID);
@@ -59,19 +79,15 @@ namespace WindowsFormsApp1.BUS
             return CustomerDAO.Instance.SearchCustomerInBookingCheckOut(customerID);
         }
 
-        public int InsertCustomer(Customer customer)
+        public int InsertCustomer(PersonalInfo person)
         {
-            return CustomerDAO.Instance.InsertCustomer(customer);
+            return CustomerDAO.Instance.InsertCustomer(person);
         }
 
-        public int UpdateCustomer(Customer customer)
+        public int UpdateCustomer(PersonalInfo person)
         {
-            return CustomerDAO.Instance.UpdateCustomer(customer);
+            return CustomerDAO.Instance.UpdateCustomer(person);
         }
 
-        public int DeleteCustomer(string customerID)
-        {
-            return CustomerDAO.Instance.DeleteCustomer(customerID);
-        }
     }
 }

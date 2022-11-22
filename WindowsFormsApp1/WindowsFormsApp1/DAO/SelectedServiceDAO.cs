@@ -25,8 +25,8 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                string query = string.Format("EXEC USP_Get_SelectedService '{0}'", sic);
-                return DataProvider.Instance.ExecuteQuery(query);
+                string query = "USP_Get_SelectedService @SIC"; //
+                return DataProvider.Instance.ExecuteQuery(query, new object[] {sic});
             }
             catch (Exception ex)
             {
@@ -38,8 +38,8 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                string query = string.Format("USP_Insert_SelectedService '{0}', '{1}', '{2}', '{3}', '{4}'", ss.No, ss.ServiceInvoiceID, ss.ServiceID, ss.Price, ss.Quantity);
-                return DataProvider.Instance.ExecuteNonQuery(query);
+                string query = "USP_Insert_SelectedService @No , @ServiceInvoiceCode , @ServiceCode , @Quantity"; //
+                return DataProvider.Instance.ExecuteNonQuery(query, new object[] {ss.No, ss.ServiceInvoiceID, ss.ServiceID, ss.Quantity});
             }
             catch (Exception ex)
             {
@@ -51,8 +51,8 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                string query = string.Format("USP_Delete_SelectedService '{0}'", no);
-                return DataProvider.Instance.ExecuteNonQuery(query);
+                string query = "USP_Delete_SelectedService @No"; //
+                return DataProvider.Instance.ExecuteNonQuery(query, new object[] {no});
             }
             catch (Exception ex)
             {
@@ -64,8 +64,8 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                string query = string.Format("EXEC USP_Update_No '{0}'", no);
-                return DataProvider.Instance.ExecuteNonQuery(query);
+                string query = "USP_Update_No @No"; //
+                return DataProvider.Instance.ExecuteNonQuery(query, new object[] {no});
             }
             catch (Exception ex)
             {

@@ -21,11 +21,12 @@ namespace WindowsFormsApp1.DAO
             private set { instance = value; }
         }
         private ServiceDAO() { }
+
         public DataTable GetService()
         {
             try
             {
-                return DataProvider.Instance.ExecuteQuery("SELECT * FROM FU_Get_Service() ");
+                return DataProvider.Instance.ExecuteQuery("USP_Get_Service"); //
             }
             catch (Exception ex)
             {

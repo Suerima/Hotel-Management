@@ -68,42 +68,48 @@ namespace WindowsFormsApp1
             return "BK" + nextID;
         }
 
-        private void dgvListCustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvListCustomer_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow r = new DataGridViewRow();
-            r = dgvListCustomer.Rows[e.RowIndex];
-            if (r != null)
+
+            if (e.RowIndex != -1)
             {
-                tbCustomerID.Text = r.Cells[0].Value.ToString();
-                tbName.Text = r.Cells[1].Value.ToString();
+                DataGridViewRow r = dgvListCustomer.Rows[e.RowIndex];
+                if (r != null)
+                {
+                    tbCustomerID.Text = r.Cells[0].Value.ToString();
+                    tbName.Text = r.Cells[1].Value.ToString();
+                }
+            }         
+        }
+        private void dgvListBooking_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                DataGridViewRow r = dgvListBooking.Rows[e.RowIndex];
+                if (r != null)
+                {
+                    lbBookingID.Text = r.Cells[0].Value.ToString();
+                    lbManagerID.Text = r.Cells[1].Value.ToString();
+                    lbCustomerID.Text = r.Cells[2].Value.ToString();
+                    lbRoomID.Text = r.Cells[3].Value.ToString();
+
+                    string x = r.Cells[4].Value.ToString();
+                    DateTime arrive = DateTime.Parse(x);
+                    lbArrival.Text = arrive.ToString("yyyy-MM-dd");
+                }
             }
         }
 
-        private void dgvListRoom_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvListRoom_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow r = new DataGridViewRow();
-            r = dgvListRoom.Rows[e.RowIndex];
-            if (r != null)
+            if (e.RowIndex != -1)
             {
-                tbRoomID.Text = r.Cells[0].Value.ToString();
-                tbType.Text = r.Cells[1].Value.ToString();
-            }
-        }
-
-        private void dgvListBooking_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            DataGridViewRow r = new DataGridViewRow();
-            r = dgvListBooking.Rows[e.RowIndex];
-            if (r != null)
-            {
-                lbBookingID.Text = r.Cells[0].Value.ToString();
-                lbManagerID.Text = r.Cells[1].Value.ToString();
-                lbCustomerID.Text = r.Cells[2].Value.ToString();
-                lbRoomID.Text = r.Cells[3].Value.ToString();
-
-                string x = r.Cells[4].Value.ToString();
-                DateTime arrive = DateTime.Parse(x);
-                lbArrival.Text =  arrive.ToString("yyyy-MM-dd");
+                DataGridViewRow r = dgvListRoom.Rows[e.RowIndex];
+                if (r != null)
+                {
+                    tbRoomID.Text = r.Cells[0].Value.ToString();
+                    tbType.Text = r.Cells[1].Value.ToString();
+                }
             }
         }
 
@@ -121,21 +127,22 @@ namespace WindowsFormsApp1
             {
                 DateTime arrival = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd"));
              
-                if (tbBookingID.Text == "None" || tbCustomerID.Text == "None" || tbRoomID.Text == "None")
-                    MessageBox.Show("Nhập đầy đủ thông tin cần thiết trước khi đặt phòng!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (CustomerBUS.Instance.GetCustomerIDInBooking(tbCustomerID.Text) == null) 
+                    MessageBox.Show("Invalid CustomerID", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (tbRoomID.Text == "None")
+                    MessageBox.Show("Invalid RoomID", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
                 {
-                    Booking booking = new Booking(tbBookingID.Text, FormLogin.username, tbCustomerID.Text, tbRoomID.Text, arrival, null);
+                    Booking booking = new Booking(tbBookingID.Text, FormLogin.username, tbCustomerID.Text, tbRoomID.Text, arrival);
                     
                     BookingBUS.Instance.InsertBooking(booking);
-                    
-                    RoomBUS.Instance.UpdateStatusRoom(tbRoomID.Text, "Full");
+                    BookingBUS.Instance.UpdateStatusRoom(tbRoomID.Text, "Full");
                     
                     loadListCustomer();
                     loadListRoom();
                     loadBookingID();
                     
-                    MessageBox.Show("Thêm thành công!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Inserted successfully!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -169,7 +176,7 @@ namespace WindowsFormsApp1
                     var result = MessageBox.Show("Bạn chắc chắn muốn xóa khách hàng này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (result == DialogResult.Yes)
                     {
-                        RoomBUS.Instance.UpdateStatusRoom(lbRoomID.Text, "Available");
+                        BookingBUS.Instance.UpdateStatusRoom(lbRoomID.Text, "Available");
 
                         BookingBUS.Instance.DeleteBooking(lbBookingID.Text);
 

@@ -46,28 +46,34 @@
             this.dgvListEmployee = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPageEdit = new System.Windows.Forms.TabPage();
+            this.lbStatus = new System.Windows.Forms.Label();
+            this.cbStatus = new NoteWrapper.FlatCombobox();
+            this.tbStatus = new WindowsFormsApp1.Resources.RJTextBox();
+            this.lbAddress = new System.Windows.Forms.Label();
+            this.tbAddress = new WindowsFormsApp1.Resources.RJTextBox();
+            this.lbPhone = new System.Windows.Forms.Label();
+            this.tbPhone = new WindowsFormsApp1.Resources.RJTextBox();
+            this.lbIDCard = new System.Windows.Forms.Label();
+            this.tbIDCard = new WindowsFormsApp1.Resources.RJTextBox();
+            this.lbGender = new System.Windows.Forms.Label();
+            this.cbGender = new NoteWrapper.FlatCombobox();
+            this.tbGender = new WindowsFormsApp1.Resources.RJTextBox();
+            this.dtpDob = new WindowsFormsApp1.CustomControls.RJDatePicker();
+            this.lbDob = new System.Windows.Forms.Label();
+            this.tbDob = new WindowsFormsApp1.Resources.RJTextBox();
+            this.lbName = new System.Windows.Forms.Label();
+            this.tbName = new WindowsFormsApp1.Resources.RJTextBox();
+            this.lbCustomerID = new System.Windows.Forms.Label();
+            this.tbEmployeeID = new WindowsFormsApp1.Resources.RJTextBox();
             this.btnCancel = new ePOSOne.btnProduct.Button_WOC();
             this.btnSave = new ePOSOne.btnProduct.Button_WOC();
-            this.cbGender = new System.Windows.Forms.ComboBox();
-            this.dtpDob = new System.Windows.Forms.DateTimePicker();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbAddress = new System.Windows.Forms.TextBox();
-            this.tbEmployeeID = new System.Windows.Forms.TextBox();
-            this.tbIDCard = new System.Windows.Forms.TextBox();
-            this.tbPhone = new System.Windows.Forms.TextBox();
-            this.tbName = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageList.SuspendLayout();
@@ -135,19 +141,19 @@
             this.cbSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
             this.cbSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.cbSearch.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.cbSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSearch.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.cbSearch.FormattingEnabled = true;
             this.cbSearch.Items.AddRange(new object[] {
-            " Customer ID",
-            " Full Name",
-            " ID Card",
-            " Number Phone"});
+            " EmployeeID",
+            " Fullname",
+            " IDCard",
+            " Phone"});
             this.cbSearch.Location = new System.Drawing.Point(23, 16);
             this.cbSearch.Name = "cbSearch";
             this.cbSearch.Size = new System.Drawing.Size(195, 31);
             this.cbSearch.TabIndex = 16;
-            this.cbSearch.Text = "      Option";
             // 
             // label9
             // 
@@ -230,7 +236,7 @@
             this.btnUpdate.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
             this.btnUpdate.Size = new System.Drawing.Size(124, 41);
             this.btnUpdate.TabIndex = 3;
-            this.btnUpdate.Text = "Update";
+            this.btnUpdate.Text = "Change";
             this.btnUpdate.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -287,11 +293,12 @@
             this.dgvListEmployee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
-            this.Column3,
             this.Column4,
-            this.Column5,
+            this.Column3,
+            this.Column7,
             this.Column6,
-            this.Column7});
+            this.Column5,
+            this.Status});
             this.dgvListEmployee.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
@@ -313,12 +320,12 @@
             this.dgvListEmployee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListEmployee.Size = new System.Drawing.Size(883, 460);
             this.dgvListEmployee.TabIndex = 1;
-            this.dgvListEmployee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListInfo_CellContentClick);
+            this.dgvListEmployee.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListEmployee_CellClick);
             // 
             // Column1
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.DataPropertyName = "Employee_ID";
+            this.Column1.DataPropertyName = "PersonID";
             this.Column1.HeaderText = "Employee ID";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
@@ -328,19 +335,10 @@
             // 
             this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column2.DataPropertyName = "Name";
-            this.Column2.HeaderText = "Full Name";
+            this.Column2.HeaderText = "Fullname";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.DataPropertyName = "Dob";
-            this.Column3.HeaderText = "BirthDate";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
@@ -351,23 +349,14 @@
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
-            // Column5
+            // Column3
             // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column5.DataPropertyName = "IDCard";
-            this.Column5.HeaderText = "IDCard";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column6.DataPropertyName = "Phone";
-            this.Column6.HeaderText = "Phone";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.DataPropertyName = "Dob";
+            this.Column3.HeaderText = "BirthDate";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Column7
             // 
@@ -378,25 +367,57 @@
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
+            // Column6
+            // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column6.DataPropertyName = "Phone";
+            this.Column6.HeaderText = "Phone";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column5.DataPropertyName = "IDCard";
+            this.Column5.HeaderText = "IDCard";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Status
+            // 
+            this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Status";
+            this.Status.MinimumWidth = 6;
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            // 
             // tabPageEdit
             // 
             this.tabPageEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.tabPageEdit.Controls.Add(this.lbStatus);
+            this.tabPageEdit.Controls.Add(this.cbStatus);
+            this.tabPageEdit.Controls.Add(this.tbStatus);
+            this.tabPageEdit.Controls.Add(this.lbAddress);
+            this.tabPageEdit.Controls.Add(this.tbAddress);
+            this.tabPageEdit.Controls.Add(this.lbPhone);
+            this.tabPageEdit.Controls.Add(this.tbPhone);
+            this.tabPageEdit.Controls.Add(this.lbIDCard);
+            this.tabPageEdit.Controls.Add(this.tbIDCard);
+            this.tabPageEdit.Controls.Add(this.lbGender);
+            this.tabPageEdit.Controls.Add(this.cbGender);
+            this.tabPageEdit.Controls.Add(this.tbGender);
+            this.tabPageEdit.Controls.Add(this.dtpDob);
+            this.tabPageEdit.Controls.Add(this.lbDob);
+            this.tabPageEdit.Controls.Add(this.tbDob);
+            this.tabPageEdit.Controls.Add(this.lbName);
+            this.tabPageEdit.Controls.Add(this.tbName);
+            this.tabPageEdit.Controls.Add(this.lbCustomerID);
+            this.tabPageEdit.Controls.Add(this.tbEmployeeID);
             this.tabPageEdit.Controls.Add(this.btnCancel);
             this.tabPageEdit.Controls.Add(this.btnSave);
-            this.tabPageEdit.Controls.Add(this.cbGender);
-            this.tabPageEdit.Controls.Add(this.dtpDob);
-            this.tabPageEdit.Controls.Add(this.label8);
-            this.tabPageEdit.Controls.Add(this.label7);
-            this.tabPageEdit.Controls.Add(this.label6);
-            this.tabPageEdit.Controls.Add(this.label5);
-            this.tabPageEdit.Controls.Add(this.label3);
-            this.tabPageEdit.Controls.Add(this.label2);
-            this.tabPageEdit.Controls.Add(this.label1);
-            this.tabPageEdit.Controls.Add(this.tbAddress);
-            this.tabPageEdit.Controls.Add(this.tbEmployeeID);
-            this.tabPageEdit.Controls.Add(this.tbIDCard);
-            this.tabPageEdit.Controls.Add(this.tbPhone);
-            this.tabPageEdit.Controls.Add(this.tbName);
             this.tabPageEdit.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.tabPageEdit.Location = new System.Drawing.Point(4, 25);
             this.tabPageEdit.Margin = new System.Windows.Forms.Padding(4);
@@ -405,6 +426,325 @@
             this.tabPageEdit.Size = new System.Drawing.Size(1065, 548);
             this.tabPageEdit.TabIndex = 1;
             this.tabPageEdit.Text = "EDIT";
+            // 
+            // lbStatus
+            // 
+            this.lbStatus.AutoSize = true;
+            this.lbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.lbStatus.ForeColor = System.Drawing.Color.DarkGray;
+            this.lbStatus.Location = new System.Drawing.Point(612, 107);
+            this.lbStatus.Name = "lbStatus";
+            this.lbStatus.Size = new System.Drawing.Size(44, 16);
+            this.lbStatus.TabIndex = 149;
+            this.lbStatus.Text = "Status";
+            // 
+            // cbStatus
+            // 
+            this.cbStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.cbStatus.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.cbStatus.ButtonColor = System.Drawing.Color.Silver;
+            this.cbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cbStatus.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.cbStatus.FormattingEnabled = true;
+            this.cbStatus.Items.AddRange(new object[] {
+            "Free",
+            "Busy"});
+            this.cbStatus.Location = new System.Drawing.Point(617, 126);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.Size = new System.Drawing.Size(360, 33);
+            this.cbStatus.TabIndex = 147;
+            this.cbStatus.Enter += new System.EventHandler(this.cbStatus_Enter);
+            this.cbStatus.Leave += new System.EventHandler(this.cbStatus_Leave);
+            // 
+            // tbStatus
+            // 
+            this.tbStatus.BorderColor = System.Drawing.Color.DimGray;
+            this.tbStatus.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbStatus.BorderRadius = 6;
+            this.tbStatus.BorderSize = 1;
+            this.tbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbStatus.ForeColor = System.Drawing.Color.DarkGray;
+            this.tbStatus.Location = new System.Drawing.Point(601, 118);
+            this.tbStatus.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tbStatus.Multiline = false;
+            this.tbStatus.Name = "tbStatus";
+            this.tbStatus.Padding = new System.Windows.Forms.Padding(15, 11, 15, 11);
+            this.tbStatus.PasswordChar = false;
+            this.tbStatus.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbStatus.PlaceholderText = "";
+            this.tbStatus.Size = new System.Drawing.Size(390, 48);
+            this.tbStatus.TabIndex = 148;
+            this.tbStatus.Texts = "";
+            this.tbStatus.UnderlinedStyle = false;
+            // 
+            // lbAddress
+            // 
+            this.lbAddress.AutoSize = true;
+            this.lbAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.lbAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.lbAddress.Location = new System.Drawing.Point(70, 372);
+            this.lbAddress.Name = "lbAddress";
+            this.lbAddress.Size = new System.Drawing.Size(0, 16);
+            this.lbAddress.TabIndex = 146;
+            // 
+            // tbAddress
+            // 
+            this.tbAddress.BorderColor = System.Drawing.Color.DimGray;
+            this.tbAddress.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbAddress.BorderRadius = 6;
+            this.tbAddress.BorderSize = 1;
+            this.tbAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbAddress.ForeColor = System.Drawing.Color.DimGray;
+            this.tbAddress.Location = new System.Drawing.Point(59, 383);
+            this.tbAddress.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tbAddress.Multiline = false;
+            this.tbAddress.Name = "tbAddress";
+            this.tbAddress.Padding = new System.Windows.Forms.Padding(15, 11, 15, 11);
+            this.tbAddress.PasswordChar = false;
+            this.tbAddress.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbAddress.PlaceholderText = "";
+            this.tbAddress.Size = new System.Drawing.Size(390, 48);
+            this.tbAddress.TabIndex = 145;
+            this.tbAddress.Texts = "Address";
+            this.tbAddress.UnderlinedStyle = false;
+            this.tbAddress.Enter += new System.EventHandler(this.tbAddress_Enter);
+            this.tbAddress.Leave += new System.EventHandler(this.tbAddress_Leave);
+            // 
+            // lbPhone
+            // 
+            this.lbPhone.AutoSize = true;
+            this.lbPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.lbPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.lbPhone.Location = new System.Drawing.Point(614, 17);
+            this.lbPhone.Name = "lbPhone";
+            this.lbPhone.Size = new System.Drawing.Size(0, 16);
+            this.lbPhone.TabIndex = 144;
+            // 
+            // tbPhone
+            // 
+            this.tbPhone.BorderColor = System.Drawing.Color.DimGray;
+            this.tbPhone.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbPhone.BorderRadius = 6;
+            this.tbPhone.BorderSize = 1;
+            this.tbPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbPhone.ForeColor = System.Drawing.Color.DimGray;
+            this.tbPhone.Location = new System.Drawing.Point(603, 28);
+            this.tbPhone.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tbPhone.Multiline = false;
+            this.tbPhone.Name = "tbPhone";
+            this.tbPhone.Padding = new System.Windows.Forms.Padding(15, 11, 15, 11);
+            this.tbPhone.PasswordChar = false;
+            this.tbPhone.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbPhone.PlaceholderText = "";
+            this.tbPhone.Size = new System.Drawing.Size(390, 48);
+            this.tbPhone.TabIndex = 143;
+            this.tbPhone.Texts = "Phone";
+            this.tbPhone.UnderlinedStyle = false;
+            this.tbPhone.Enter += new System.EventHandler(this.tbPhone_Enter);
+            this.tbPhone.Leave += new System.EventHandler(this.tbPhone_Leave);
+            // 
+            // lbIDCard
+            // 
+            this.lbIDCard.AutoSize = true;
+            this.lbIDCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.lbIDCard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.lbIDCard.Location = new System.Drawing.Point(70, 463);
+            this.lbIDCard.Name = "lbIDCard";
+            this.lbIDCard.Size = new System.Drawing.Size(0, 16);
+            this.lbIDCard.TabIndex = 142;
+            // 
+            // tbIDCard
+            // 
+            this.tbIDCard.BorderColor = System.Drawing.Color.DimGray;
+            this.tbIDCard.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbIDCard.BorderRadius = 6;
+            this.tbIDCard.BorderSize = 1;
+            this.tbIDCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbIDCard.ForeColor = System.Drawing.Color.DimGray;
+            this.tbIDCard.Location = new System.Drawing.Point(59, 474);
+            this.tbIDCard.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tbIDCard.Multiline = false;
+            this.tbIDCard.Name = "tbIDCard";
+            this.tbIDCard.Padding = new System.Windows.Forms.Padding(15, 11, 15, 11);
+            this.tbIDCard.PasswordChar = false;
+            this.tbIDCard.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbIDCard.PlaceholderText = "";
+            this.tbIDCard.Size = new System.Drawing.Size(390, 48);
+            this.tbIDCard.TabIndex = 141;
+            this.tbIDCard.Texts = "IDCard";
+            this.tbIDCard.UnderlinedStyle = false;
+            this.tbIDCard.Enter += new System.EventHandler(this.tbIDCard_Enter);
+            this.tbIDCard.Leave += new System.EventHandler(this.tbIDCard_Leave);
+            // 
+            // lbGender
+            // 
+            this.lbGender.AutoSize = true;
+            this.lbGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.lbGender.ForeColor = System.Drawing.Color.DarkGray;
+            this.lbGender.Location = new System.Drawing.Point(69, 190);
+            this.lbGender.Name = "lbGender";
+            this.lbGender.Size = new System.Drawing.Size(52, 16);
+            this.lbGender.TabIndex = 140;
+            this.lbGender.Text = "Gender";
+            // 
+            // cbGender
+            // 
+            this.cbGender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.cbGender.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.cbGender.ButtonColor = System.Drawing.Color.Silver;
+            this.cbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cbGender.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.cbGender.FormattingEnabled = true;
+            this.cbGender.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.cbGender.Location = new System.Drawing.Point(73, 209);
+            this.cbGender.Name = "cbGender";
+            this.cbGender.Size = new System.Drawing.Size(360, 33);
+            this.cbGender.TabIndex = 138;
+            this.cbGender.Enter += new System.EventHandler(this.cbGender_Enter);
+            this.cbGender.Leave += new System.EventHandler(this.cbGender_Leave);
+            // 
+            // tbGender
+            // 
+            this.tbGender.BorderColor = System.Drawing.Color.DimGray;
+            this.tbGender.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbGender.BorderRadius = 6;
+            this.tbGender.BorderSize = 1;
+            this.tbGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbGender.ForeColor = System.Drawing.Color.DarkGray;
+            this.tbGender.Location = new System.Drawing.Point(58, 201);
+            this.tbGender.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tbGender.Multiline = false;
+            this.tbGender.Name = "tbGender";
+            this.tbGender.Padding = new System.Windows.Forms.Padding(15, 11, 15, 11);
+            this.tbGender.PasswordChar = false;
+            this.tbGender.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbGender.PlaceholderText = "";
+            this.tbGender.Size = new System.Drawing.Size(390, 48);
+            this.tbGender.TabIndex = 139;
+            this.tbGender.Texts = "";
+            this.tbGender.UnderlinedStyle = false;
+            // 
+            // dtpDob
+            // 
+            this.dtpDob.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.dtpDob.BorderSize = 0;
+            this.dtpDob.CustomFormat = "dd/MM/yyyy";
+            this.dtpDob.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dtpDob.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDob.Location = new System.Drawing.Point(65, 299);
+            this.dtpDob.MaxDate = new System.DateTime(2003, 1, 1, 0, 0, 0, 0);
+            this.dtpDob.MinDate = new System.DateTime(1950, 1, 1, 0, 0, 0, 0);
+            this.dtpDob.MinimumSize = new System.Drawing.Size(4, 20);
+            this.dtpDob.Name = "dtpDob";
+            this.dtpDob.Size = new System.Drawing.Size(376, 30);
+            this.dtpDob.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.dtpDob.TabIndex = 135;
+            this.dtpDob.TextColor = System.Drawing.Color.WhiteSmoke;
+            this.dtpDob.Value = new System.DateTime(1950, 1, 25, 0, 0, 0, 0);
+            this.dtpDob.Enter += new System.EventHandler(this.dtpDob_Enter);
+            this.dtpDob.Leave += new System.EventHandler(this.dtpDob_Leave);
+            // 
+            // lbDob
+            // 
+            this.lbDob.AutoSize = true;
+            this.lbDob.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.lbDob.ForeColor = System.Drawing.Color.DarkGray;
+            this.lbDob.Location = new System.Drawing.Point(70, 280);
+            this.lbDob.Name = "lbDob";
+            this.lbDob.Size = new System.Drawing.Size(56, 16);
+            this.lbDob.TabIndex = 137;
+            this.lbDob.Text = "Birthday";
+            // 
+            // tbDob
+            // 
+            this.tbDob.BorderColor = System.Drawing.Color.DimGray;
+            this.tbDob.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbDob.BorderRadius = 6;
+            this.tbDob.BorderSize = 1;
+            this.tbDob.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbDob.ForeColor = System.Drawing.Color.DarkGray;
+            this.tbDob.Location = new System.Drawing.Point(59, 291);
+            this.tbDob.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tbDob.Multiline = false;
+            this.tbDob.Name = "tbDob";
+            this.tbDob.Padding = new System.Windows.Forms.Padding(15, 11, 15, 11);
+            this.tbDob.PasswordChar = false;
+            this.tbDob.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbDob.PlaceholderText = "";
+            this.tbDob.Size = new System.Drawing.Size(390, 48);
+            this.tbDob.TabIndex = 136;
+            this.tbDob.Texts = "";
+            this.tbDob.UnderlinedStyle = false;
+            // 
+            // lbName
+            // 
+            this.lbName.AutoSize = true;
+            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.lbName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.lbName.Location = new System.Drawing.Point(70, 100);
+            this.lbName.Name = "lbName";
+            this.lbName.Size = new System.Drawing.Size(0, 16);
+            this.lbName.TabIndex = 124;
+            // 
+            // tbName
+            // 
+            this.tbName.BorderColor = System.Drawing.Color.DimGray;
+            this.tbName.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbName.BorderRadius = 6;
+            this.tbName.BorderSize = 1;
+            this.tbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbName.ForeColor = System.Drawing.Color.DimGray;
+            this.tbName.Location = new System.Drawing.Point(59, 111);
+            this.tbName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tbName.Multiline = false;
+            this.tbName.Name = "tbName";
+            this.tbName.Padding = new System.Windows.Forms.Padding(15, 11, 15, 11);
+            this.tbName.PasswordChar = false;
+            this.tbName.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbName.PlaceholderText = "";
+            this.tbName.Size = new System.Drawing.Size(390, 48);
+            this.tbName.TabIndex = 123;
+            this.tbName.Texts = "Fullname";
+            this.tbName.UnderlinedStyle = false;
+            this.tbName.Enter += new System.EventHandler(this.tbName_Enter);
+            this.tbName.Leave += new System.EventHandler(this.tbName_Leave);
+            // 
+            // lbCustomerID
+            // 
+            this.lbCustomerID.AutoSize = true;
+            this.lbCustomerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.lbCustomerID.ForeColor = System.Drawing.Color.Silver;
+            this.lbCustomerID.Location = new System.Drawing.Point(70, 11);
+            this.lbCustomerID.Name = "lbCustomerID";
+            this.lbCustomerID.Size = new System.Drawing.Size(82, 16);
+            this.lbCustomerID.TabIndex = 122;
+            this.lbCustomerID.Text = "EmployeeID";
+            // 
+            // tbEmployeeID
+            // 
+            this.tbEmployeeID.BorderColor = System.Drawing.Color.DimGray;
+            this.tbEmployeeID.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbEmployeeID.BorderRadius = 6;
+            this.tbEmployeeID.BorderSize = 1;
+            this.tbEmployeeID.Enabled = false;
+            this.tbEmployeeID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbEmployeeID.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.tbEmployeeID.Location = new System.Drawing.Point(59, 22);
+            this.tbEmployeeID.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tbEmployeeID.Multiline = false;
+            this.tbEmployeeID.Name = "tbEmployeeID";
+            this.tbEmployeeID.Padding = new System.Windows.Forms.Padding(15, 11, 15, 11);
+            this.tbEmployeeID.PasswordChar = false;
+            this.tbEmployeeID.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbEmployeeID.PlaceholderText = "";
+            this.tbEmployeeID.Size = new System.Drawing.Size(390, 48);
+            this.tbEmployeeID.TabIndex = 121;
+            this.tbEmployeeID.Texts = "EmployeeID";
+            this.tbEmployeeID.UnderlinedStyle = false;
             // 
             // btnCancel
             // 
@@ -450,152 +790,6 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // cbGender
-            // 
-            this.cbGender.FormattingEnabled = true;
-            this.cbGender.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-            this.cbGender.Location = new System.Drawing.Point(41, 251);
-            this.cbGender.Margin = new System.Windows.Forms.Padding(4);
-            this.cbGender.Name = "cbGender";
-            this.cbGender.Size = new System.Drawing.Size(423, 31);
-            this.cbGender.TabIndex = 4;
-            // 
-            // dtpDob
-            // 
-            this.dtpDob.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDob.Location = new System.Drawing.Point(41, 186);
-            this.dtpDob.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpDob.Name = "dtpDob";
-            this.dtpDob.Size = new System.Drawing.Size(421, 30);
-            this.dtpDob.TabIndex = 3;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label8.Location = new System.Drawing.Point(40, 225);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(80, 23);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "Gender";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label7.Location = new System.Drawing.Point(40, 409);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(84, 23);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Address";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(40, 350);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(143, 23);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Phone number";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(40, 288);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 23);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "ID card";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label3.Location = new System.Drawing.Point(40, 160);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 23);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Birth date";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label2.Location = new System.Drawing.Point(40, 100);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 23);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Full name";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(40, 39);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 23);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Employee ID";
-            // 
-            // tbAddress
-            // 
-            this.tbAddress.Location = new System.Drawing.Point(41, 434);
-            this.tbAddress.Margin = new System.Windows.Forms.Padding(4);
-            this.tbAddress.Name = "tbAddress";
-            this.tbAddress.Size = new System.Drawing.Size(421, 30);
-            this.tbAddress.TabIndex = 7;
-            // 
-            // tbEmployeeID
-            // 
-            this.tbEmployeeID.Location = new System.Drawing.Point(41, 65);
-            this.tbEmployeeID.Margin = new System.Windows.Forms.Padding(4);
-            this.tbEmployeeID.Name = "tbEmployeeID";
-            this.tbEmployeeID.ReadOnly = true;
-            this.tbEmployeeID.Size = new System.Drawing.Size(421, 30);
-            this.tbEmployeeID.TabIndex = 1;
-            // 
-            // tbIDCard
-            // 
-            this.tbIDCard.Location = new System.Drawing.Point(43, 314);
-            this.tbIDCard.Margin = new System.Windows.Forms.Padding(4);
-            this.tbIDCard.Name = "tbIDCard";
-            this.tbIDCard.Size = new System.Drawing.Size(421, 30);
-            this.tbIDCard.TabIndex = 5;
-            // 
-            // tbPhone
-            // 
-            this.tbPhone.Location = new System.Drawing.Point(41, 375);
-            this.tbPhone.Margin = new System.Windows.Forms.Padding(4);
-            this.tbPhone.Name = "tbPhone";
-            this.tbPhone.Size = new System.Drawing.Size(421, 30);
-            this.tbPhone.TabIndex = 6;
-            // 
-            // tbName
-            // 
-            this.tbName.Location = new System.Drawing.Point(43, 126);
-            this.tbName.Margin = new System.Windows.Forms.Padding(4);
-            this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(421, 30);
-            this.tbName.TabIndex = 2;
-            // 
             // FormQL_NhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -627,36 +821,42 @@
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPageList;
         private System.Windows.Forms.TabPage tabPageEdit;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbAddress;
-        private System.Windows.Forms.TextBox tbEmployeeID;
-        private System.Windows.Forms.TextBox tbIDCard;
-        private System.Windows.Forms.TextBox tbPhone;
-        private System.Windows.Forms.TextBox tbName;
-        private System.Windows.Forms.ComboBox cbGender;
-        private System.Windows.Forms.DateTimePicker dtpDob;
         private System.Windows.Forms.DataGridView dgvListEmployee;
         private ePOSOne.btnProduct.Button_WOC btnDelete;
         private ePOSOne.btnProduct.Button_WOC btnUpdate;
         private ePOSOne.btnProduct.Button_WOC btnAdd;
         private ePOSOne.btnProduct.Button_WOC btnCancel;
         private ePOSOne.btnProduct.Button_WOC btnSave;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Label lbRecord;
         private System.Windows.Forms.Label label9;
         private NoteWrapper.FlatCombobox cbSearch;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.Label lbCustomerID;
+        private Resources.RJTextBox tbEmployeeID;
+        private System.Windows.Forms.Label lbName;
+        private Resources.RJTextBox tbName;
+        private CustomControls.RJDatePicker dtpDob;
+        private System.Windows.Forms.Label lbDob;
+        private Resources.RJTextBox tbDob;
+        private System.Windows.Forms.Label lbGender;
+        private NoteWrapper.FlatCombobox cbGender;
+        private Resources.RJTextBox tbGender;
+        private System.Windows.Forms.Label lbIDCard;
+        private Resources.RJTextBox tbIDCard;
+        private System.Windows.Forms.Label lbPhone;
+        private Resources.RJTextBox tbPhone;
+        private System.Windows.Forms.Label lbAddress;
+        private Resources.RJTextBox tbAddress;
+        private System.Windows.Forms.Label lbStatus;
+        private NoteWrapper.FlatCombobox cbStatus;
+        private Resources.RJTextBox tbStatus;
     }
 }

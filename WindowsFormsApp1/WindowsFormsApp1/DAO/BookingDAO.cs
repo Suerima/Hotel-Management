@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using WindowsFormsApp1.DTO;
 
 namespace WindowsFormsApp1.DAO
@@ -30,7 +31,8 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                return DataProvider.Instance.ExecuteScalar("EXEC USP_Get_LastBookingID");
+                string query = "USP_Get_LastBookingID"; //
+                return DataProvider.Instance.ExecuteScalar(query);
             }
             catch (Exception ex)
             {
@@ -41,7 +43,8 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                return DataProvider.Instance.ExecuteQuery("EXEC USP_Get_Booking");
+                string query = "USP_Get_Booking"; //
+                return DataProvider.Instance.ExecuteQuery(query);
             }
             catch (Exception ex)
             {
@@ -53,7 +56,7 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                return DataProvider.Instance.ExecuteQuery("EXEC USP_Get_BookingInCheckOut");
+                return DataProvider.Instance.ExecuteQuery("USP_Get_Booking_CheckOut"); //
             }
             catch (Exception ex)
             {
@@ -65,8 +68,8 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                string query = string.Format("EXEC USP_Search_Booking '{0}'", bookingID);
-                return DataProvider.Instance.ExecuteQuery(query);
+                string query = "USP_Search_Booking @BookingID "; //
+                return DataProvider.Instance.ExecuteQuery(query, new object[] {bookingID});
             }
             catch (Exception ex)
             {
@@ -78,9 +81,8 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                string query = string.Format("EXEC USP_Insert_Booking '{0}', N'{1}', '{2}', '{3}', '{4}'",
-                                            booking.BookingID, booking.ManagerID, booking.CustomerID, booking.RoomID, booking.Arrival);
-                return DataProvider.Instance.ExecuteNonQuery(query);
+                string query = "USP_Insert_Booking @BookingID , @ManagerID , @CustomerID , @RoomID , @Arrival "; //
+                return DataProvider.Instance.ExecuteNonQuery(query, new object[] {booking.BookingID, booking.ManagerID, booking.CustomerID, booking.RoomID, booking.Arrival});
             }
             catch(Exception ex)
             {
@@ -92,8 +94,21 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                string query = string.Format("EXEC USP_Delete_Booking '{0}'", bookingID);
-                return DataProvider.Instance.ExecuteNonQuery(query);
+                string query = "USP_Delete_Booking @Booking "; //
+                return DataProvider.Instance.ExecuteNonQuery(query, new object[] {bookingID});
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public int UpdateStatusRoom(string roomID, string status)
+        {
+            try
+            {
+                string query = "USP_Update_Status_Room @RoomID , @Status"; //
+                return DataProvider.Instance.ExecuteNonQuery(query, new object[] {roomID, status});
             }
             catch (Exception ex)
             {

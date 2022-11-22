@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.BUS;
 
 namespace WindowsFormsApp1
 {
@@ -15,10 +16,7 @@ namespace WindowsFormsApp1
         public FormDT_DichVu()
         {
             InitializeComponent();
-            DateTime from = DateTime.Today;
-            DateTime to = DateTime.Today;
-
-            loadListServiceReport(from, to);
+            loadListServiceReport(DateTime.Today, DateTime.Today);
         }
 
         int numbers = 0;
@@ -27,16 +25,14 @@ namespace WindowsFormsApp1
             int sum = 0;
             int i = 0;
             for (; i < dgvListServiceInvoice.Rows.Count; i++)
-                sum += int.Parse(dgvListServiceInvoice.Rows[i].Cells[3].Value.ToString());
+                sum += int.Parse(dgvListServiceInvoice.Rows[i].Cells["Total1"].Value.ToString());
             numbers = i;
             return sum.ToString();
         }
 
         void loadListServiceReport(DateTime dateFrom, DateTime dateTo)
         {
-            QuanLyDB db = new QuanLyDB();
-            DataTable dt = db.GetAllListServiceReport(dateFrom, dateTo);
-            dgvListServiceInvoice.DataSource = dt;
+            dgvListServiceInvoice.DataSource = ServiceReportBUS.Instance.GetServiceReport(dateFrom, dateTo);
             txtTotal.Text = Total();
             lbNumbers.Text = numbers.ToString();
         }
@@ -45,6 +41,7 @@ namespace WindowsFormsApp1
             static public DateTime dateF;
             static public DateTime dateT;
         }
+
         private void btnSeen_Click(object sender, EventArgs e)
         {
             Date.dateF = DateTime.Parse(dateFrom.Value.ToString("yyyy-MM-dd"));
@@ -54,7 +51,7 @@ namespace WindowsFormsApp1
 
         private void btnReport_Click(object sender, EventArgs e)
         {
-            FormReport formReport = new FormReport();
+            FormReportService formReport = new FormReportService();
             formReport.ShowDialog();
         }
     }

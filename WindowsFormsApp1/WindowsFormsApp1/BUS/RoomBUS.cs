@@ -54,10 +54,6 @@ namespace WindowsFormsApp1.BUS
             return RoomDAO.Instance.UpdateRoom(room);
         }
 
-        public int UpdateStatusRoom(string roomID, string status)
-        {
-            return RoomDAO.Instance.UpdateStatusRoom(roomID, status);
-        }
 
         public int DeleteRoom(string roomID)
         {

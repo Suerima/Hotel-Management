@@ -23,11 +23,11 @@ namespace WindowsFormsApp1.DAO
         }
         private CustomerDAO() { }
 
-        public string GetLastCustomerID()
+        public string GetLastCustomerID() 
         {
             try
             {
-                return DataProvider.Instance.ExecuteScalar("EXEC USP_Get_LastCustomerID");
+                return DataProvider.Instance.ExecuteScalar("USP_Get_LastCustomerID"); //
             }
             catch(Exception ex)
             {
@@ -39,7 +39,7 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                return DataProvider.Instance.ExecuteQuery("EXEC USP_Get_Customer"); 
+                return DataProvider.Instance.ExecuteQuery("USP_Get_Customer"); //
             }
             catch (Exception ex)
             {
@@ -51,7 +51,7 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                return DataProvider.Instance.ExecuteQuery("EXEC USP_Get_CustomerInService ");
+                return DataProvider.Instance.ExecuteQuery("USP_Get_Customer_Service"); //
             }
             catch(Exception ex)
             {
@@ -63,7 +63,33 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                return DataProvider.Instance.ExecuteQuery("EXEC USP_Get_CustomerInBooking");
+                return DataProvider.Instance.ExecuteQuery("USP_Get_Customer_Booking"); //
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public string GetCustomerID(string customerID)
+        {
+            try
+            {
+                string query = "USP_Get_CustomerID @CustomerID";//
+                return DataProvider.Instance.ExecuteScalar(query, new object[] {customerID}); 
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public string GetCustomerIDInBooking(string customerID)
+        {
+            try
+            {
+                string query = "USP_Get_CustomerID_Booking @CustomerID";//
+                return DataProvider.Instance.ExecuteScalar(query, new object[] { customerID });
             }
             catch (Exception ex)
             {
@@ -75,8 +101,8 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                string query = string.Format("EXEC USP_Search_CustomerInServiceInvoice_CheckOut '{0}'", customerID);
-                return DataProvider.Instance.ExecuteQuery(query);
+                string query = "USP_Search_Customer_ServiceInvoice_CheckOut @CustomerID";//
+                return DataProvider.Instance.ExecuteQuery(query, new object[] {customerID});
             }
             catch (Exception ex)
             {
@@ -84,12 +110,25 @@ namespace WindowsFormsApp1.DAO
             }
         }
 
-        public DataTable SearchCustomerInBookingCheckOut(string customerID)
+        public DataTable SearchCustomerInBookingCheckOut(string customerID) 
         {
             try
             {
-                string query = string.Format("EXEC USP_Search_CustomerInBooking_CheckOut '{0}'", customerID);
-                return DataProvider.Instance.ExecuteQuery(query);
+                string query = "USP_Search_Customer_Booking_CheckOut @CustomerID";//
+                return DataProvider.Instance.ExecuteQuery(query, new object[] { customerID });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public DataTable SearchCustomerInService(string name)
+        {
+            try
+            {
+                string query = "USP_Search_Customer_Service @Name"; //
+                return DataProvider.Instance.ExecuteQuery(query, new object[] { name });
             }
             catch (Exception ex)
             {
@@ -101,8 +140,8 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                string query = string.Format("EXEC USP_Search_Customer '{0}' , '{1}'", nameCol, value);
-                return DataProvider.Instance.ExecuteQuery(query);
+                string query = "USP_Search_Customer @nameCol , @value"; //
+                return DataProvider.Instance.ExecuteQuery(query, new object[] {nameCol, value });
             }
             catch (Exception ex)
             {
@@ -110,13 +149,25 @@ namespace WindowsFormsApp1.DAO
             }
         }
 
-        public int InsertCustomer(Customer customer)
+        public int InsertCustomer(PersonalInfo per)
         {
             try
             {
-                string query = string.Format("EXEC USP_Insert_Customer '{0}', N'{1}', '{2}', '{3}', '{4}', '{5}', N'{6}'",
-                                            customer.CustomerID, customer.Name, customer.Dob, customer.Gender, customer.IDCard, customer.Phone, customer.Address);
-                return DataProvider.Instance.ExecuteNonQuery(query);
+                string query = "USP_Insert_Customer @CustomerID , @Name ,  @Gender , @Dob , @Address , @Phone , @IDCard "; //
+                return DataProvider.Instance.ExecuteNonQuery(query, new object[] { per.PersonID, per.Name, per.Gender, per.Dob, per.Address, per.Phone, per.Idcard });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+      
+        public int UpdateCustomer(PersonalInfo per)
+        {
+            try
+            {
+                string query = "USP_Update_Customer @CustomerID , @Name ,  @Gender , @Dob , @Address , @Phone , @IDCard "; //
+                return DataProvider.Instance.ExecuteNonQuery(query, new object[] { per.PersonID, per.Name, per.Gender, per.Dob, per.Address, per.Phone, per.Idcard });
             }
             catch (Exception ex)
             {
@@ -124,32 +175,6 @@ namespace WindowsFormsApp1.DAO
             }
         }
 
-        public int UpdateCustomer(Customer customer)
-        {
-            try
-            {
-                string query = string.Format("EXEC USP_Update_Customer '{0}', '{1}', '{2}', '{3}', '{4}', '{5}', N{6}",
-                                             customer.CustomerID, customer.Name, customer.Dob, customer.Gender, customer.IDCard, customer.Phone, customer.Address);
-                return DataProvider.Instance.ExecuteNonQuery(query);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public int DeleteCustomer(string customerID)
-        {
-            try
-            {
-                string query = string.Format("EXEC USP_Delete_Customer '{0}'", customerID);
-                return DataProvider.Instance.ExecuteNonQuery(query);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
 
     }
 }

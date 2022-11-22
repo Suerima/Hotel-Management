@@ -32,17 +32,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormQL_Phong));
-            this.cbStatus = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbRoomID = new System.Windows.Forms.TextBox();
-            this.tbPerson = new System.Windows.Forms.TextBox();
-            this.tbPrice = new System.Windows.Forms.TextBox();
             this.tabPageList = new System.Windows.Forms.TabPage();
+            this.cbSearch = new NoteWrapper.FlatCombobox();
             this.label9 = new System.Windows.Forms.Label();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.lbRecord = new System.Windows.Forms.Label();
@@ -57,125 +48,29 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPageEdit = new System.Windows.Forms.TabPage();
-            this.cbType = new System.Windows.Forms.ComboBox();
-            this.tbDescription = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbDescription = new System.Windows.Forms.Label();
+            this.lbPrice = new System.Windows.Forms.Label();
+            this.lbPerson = new System.Windows.Forms.Label();
+            this.lbType = new System.Windows.Forms.Label();
+            this.tbRoomID = new WindowsFormsApp1.Resources.RJTextBox();
+            this.tbDescription = new WindowsFormsApp1.Resources.RJTextBox();
+            this.tbPrice = new WindowsFormsApp1.Resources.RJTextBox();
+            this.cbPerson = new NoteWrapper.FlatCombobox();
+            this.tbPerson = new WindowsFormsApp1.Resources.RJTextBox();
+            this.cbType = new NoteWrapper.FlatCombobox();
+            this.tbType = new WindowsFormsApp1.Resources.RJTextBox();
             this.btnCancel = new ePOSOne.btnProduct.Button_WOC();
             this.btnSave = new ePOSOne.btnProduct.Button_WOC();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.cbSearch = new NoteWrapper.FlatCombobox();
             this.tabPageList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListRoom)).BeginInit();
             this.tabPageEdit.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // cbStatus
-            // 
-            this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Location = new System.Drawing.Point(41, 316);
-            this.cbStatus.Margin = new System.Windows.Forms.Padding(4);
-            this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(421, 31);
-            this.cbStatus.TabIndex = 18;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label8.Location = new System.Drawing.Point(39, 164);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(70, 23);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "Person";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(39, 226);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 23);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Price";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label5.Location = new System.Drawing.Point(39, 290);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(66, 24);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Status";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label3.Location = new System.Drawing.Point(37, 353);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(115, 24);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Description";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(39, 100);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 23);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Type";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(37, 42);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 23);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Room ID";
-            // 
-            // tbRoomID
-            // 
-            this.tbRoomID.Location = new System.Drawing.Point(41, 65);
-            this.tbRoomID.Margin = new System.Windows.Forms.Padding(4);
-            this.tbRoomID.Name = "tbRoomID";
-            this.tbRoomID.Size = new System.Drawing.Size(421, 30);
-            this.tbRoomID.TabIndex = 5;
-            // 
-            // tbPerson
-            // 
-            this.tbPerson.Location = new System.Drawing.Point(41, 190);
-            this.tbPerson.Margin = new System.Windows.Forms.Padding(4);
-            this.tbPerson.Name = "tbPerson";
-            this.tbPerson.Size = new System.Drawing.Size(421, 30);
-            this.tbPerson.TabIndex = 4;
-            // 
-            // tbPrice
-            // 
-            this.tbPrice.Location = new System.Drawing.Point(41, 252);
-            this.tbPrice.Margin = new System.Windows.Forms.Padding(4);
-            this.tbPrice.Name = "tbPrice";
-            this.tbPrice.Size = new System.Drawing.Size(421, 30);
-            this.tbPrice.TabIndex = 3;
             // 
             // tabPageList
             // 
@@ -196,6 +91,26 @@
             this.tabPageList.Size = new System.Drawing.Size(1065, 548);
             this.tabPageList.TabIndex = 0;
             this.tabPageList.Text = "LIST";
+            // 
+            // cbSearch
+            // 
+            this.cbSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.cbSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
+            this.cbSearch.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.cbSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSearch.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
+            this.cbSearch.FormattingEnabled = true;
+            this.cbSearch.Items.AddRange(new object[] {
+            " RoomID",
+            " Type",
+            " Person",
+            " Price",
+            " Status"});
+            this.cbSearch.Location = new System.Drawing.Point(23, 16);
+            this.cbSearch.Name = "cbSearch";
+            this.cbSearch.Size = new System.Drawing.Size(195, 31);
+            this.cbSearch.TabIndex = 81;
             // 
             // label9
             // 
@@ -301,7 +216,7 @@
             this.btnUpdate.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
             this.btnUpdate.Size = new System.Drawing.Size(124, 41);
             this.btnUpdate.TabIndex = 75;
-            this.btnUpdate.Text = "Update";
+            this.btnUpdate.Text = "Change";
             this.btnUpdate.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -361,13 +276,13 @@
             this.dgvListRoom.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListRoom.Size = new System.Drawing.Size(883, 460);
             this.dgvListRoom.TabIndex = 1;
-            this.dgvListRoom.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListInfo_CellContentClick);
+            this.dgvListRoom.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListRoom_CellClick);
             // 
             // Column1
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.DataPropertyName = "Room_ID";
-            this.Column1.HeaderText = "Room ID";
+            this.Column1.DataPropertyName = "RoomID";
+            this.Column1.HeaderText = "RoomID";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
@@ -420,18 +335,18 @@
             // tabPageEdit
             // 
             this.tabPageEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
-            this.tabPageEdit.Controls.Add(this.cbType);
-            this.tabPageEdit.Controls.Add(this.tbDescription);
-            this.tabPageEdit.Controls.Add(this.cbStatus);
-            this.tabPageEdit.Controls.Add(this.label8);
-            this.tabPageEdit.Controls.Add(this.label6);
-            this.tabPageEdit.Controls.Add(this.label5);
-            this.tabPageEdit.Controls.Add(this.label3);
             this.tabPageEdit.Controls.Add(this.label2);
-            this.tabPageEdit.Controls.Add(this.label1);
+            this.tabPageEdit.Controls.Add(this.lbDescription);
+            this.tabPageEdit.Controls.Add(this.lbPrice);
+            this.tabPageEdit.Controls.Add(this.lbPerson);
+            this.tabPageEdit.Controls.Add(this.lbType);
             this.tabPageEdit.Controls.Add(this.tbRoomID);
-            this.tabPageEdit.Controls.Add(this.tbPerson);
+            this.tabPageEdit.Controls.Add(this.tbDescription);
             this.tabPageEdit.Controls.Add(this.tbPrice);
+            this.tabPageEdit.Controls.Add(this.cbPerson);
+            this.tabPageEdit.Controls.Add(this.tbPerson);
+            this.tabPageEdit.Controls.Add(this.cbType);
+            this.tabPageEdit.Controls.Add(this.tbType);
             this.tabPageEdit.Controls.Add(this.btnCancel);
             this.tabPageEdit.Controls.Add(this.btnSave);
             this.tabPageEdit.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
@@ -443,27 +358,207 @@
             this.tabPageEdit.TabIndex = 1;
             this.tabPageEdit.Text = "EDIT";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.label2.ForeColor = System.Drawing.Color.DarkGray;
+            this.label2.Location = new System.Drawing.Point(51, 59);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(57, 16);
+            this.label2.TabIndex = 161;
+            this.label2.Text = "RoomID";
+            // 
+            // lbDescription
+            // 
+            this.lbDescription.AutoSize = true;
+            this.lbDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.lbDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.lbDescription.Location = new System.Drawing.Point(53, 433);
+            this.lbDescription.Name = "lbDescription";
+            this.lbDescription.Size = new System.Drawing.Size(0, 16);
+            this.lbDescription.TabIndex = 159;
+            // 
+            // lbPrice
+            // 
+            this.lbPrice.AutoSize = true;
+            this.lbPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.lbPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.lbPrice.Location = new System.Drawing.Point(53, 340);
+            this.lbPrice.Name = "lbPrice";
+            this.lbPrice.Size = new System.Drawing.Size(0, 16);
+            this.lbPrice.TabIndex = 157;
+            // 
+            // lbPerson
+            // 
+            this.lbPerson.AutoSize = true;
+            this.lbPerson.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.lbPerson.ForeColor = System.Drawing.Color.DarkGray;
+            this.lbPerson.Location = new System.Drawing.Point(51, 243);
+            this.lbPerson.Name = "lbPerson";
+            this.lbPerson.Size = new System.Drawing.Size(50, 16);
+            this.lbPerson.TabIndex = 155;
+            this.lbPerson.Text = "Person";
+            // 
+            // lbType
+            // 
+            this.lbType.AutoSize = true;
+            this.lbType.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.lbType.ForeColor = System.Drawing.Color.DarkGray;
+            this.lbType.Location = new System.Drawing.Point(51, 154);
+            this.lbType.Name = "lbType";
+            this.lbType.Size = new System.Drawing.Size(39, 16);
+            this.lbType.TabIndex = 152;
+            this.lbType.Text = "Type";
+            // 
+            // tbRoomID
+            // 
+            this.tbRoomID.BorderColor = System.Drawing.Color.DimGray;
+            this.tbRoomID.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbRoomID.BorderRadius = 6;
+            this.tbRoomID.BorderSize = 1;
+            this.tbRoomID.Enabled = false;
+            this.tbRoomID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbRoomID.ForeColor = System.Drawing.Color.DimGray;
+            this.tbRoomID.Location = new System.Drawing.Point(40, 70);
+            this.tbRoomID.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tbRoomID.Multiline = true;
+            this.tbRoomID.Name = "tbRoomID";
+            this.tbRoomID.Padding = new System.Windows.Forms.Padding(15, 11, 15, 11);
+            this.tbRoomID.PasswordChar = false;
+            this.tbRoomID.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbRoomID.PlaceholderText = "";
+            this.tbRoomID.Size = new System.Drawing.Size(390, 48);
+            this.tbRoomID.TabIndex = 160;
+            this.tbRoomID.Texts = "";
+            this.tbRoomID.UnderlinedStyle = false;
+            // 
+            // tbDescription
+            // 
+            this.tbDescription.BorderColor = System.Drawing.Color.DimGray;
+            this.tbDescription.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbDescription.BorderRadius = 6;
+            this.tbDescription.BorderSize = 1;
+            this.tbDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbDescription.ForeColor = System.Drawing.Color.DimGray;
+            this.tbDescription.Location = new System.Drawing.Point(42, 444);
+            this.tbDescription.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tbDescription.Multiline = true;
+            this.tbDescription.Name = "tbDescription";
+            this.tbDescription.Padding = new System.Windows.Forms.Padding(15, 11, 15, 11);
+            this.tbDescription.PasswordChar = false;
+            this.tbDescription.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbDescription.PlaceholderText = "";
+            this.tbDescription.Size = new System.Drawing.Size(390, 48);
+            this.tbDescription.TabIndex = 158;
+            this.tbDescription.Texts = "Description";
+            this.tbDescription.UnderlinedStyle = false;
+            this.tbDescription.Enter += new System.EventHandler(this.tbDescription_Enter);
+            this.tbDescription.Leave += new System.EventHandler(this.tbDescription_Leave);
+            // 
+            // tbPrice
+            // 
+            this.tbPrice.BorderColor = System.Drawing.Color.DimGray;
+            this.tbPrice.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbPrice.BorderRadius = 6;
+            this.tbPrice.BorderSize = 1;
+            this.tbPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbPrice.ForeColor = System.Drawing.Color.DimGray;
+            this.tbPrice.Location = new System.Drawing.Point(42, 351);
+            this.tbPrice.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tbPrice.Multiline = true;
+            this.tbPrice.Name = "tbPrice";
+            this.tbPrice.Padding = new System.Windows.Forms.Padding(15, 11, 15, 11);
+            this.tbPrice.PasswordChar = false;
+            this.tbPrice.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbPrice.PlaceholderText = "";
+            this.tbPrice.Size = new System.Drawing.Size(390, 48);
+            this.tbPrice.TabIndex = 156;
+            this.tbPrice.Texts = "Price";
+            this.tbPrice.UnderlinedStyle = false;
+            this.tbPrice.Enter += new System.EventHandler(this.tbPrice_Enter);
+            this.tbPrice.Leave += new System.EventHandler(this.tbPrice_Leave);
+            // 
+            // cbPerson
+            // 
+            this.cbPerson.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.cbPerson.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.cbPerson.ButtonColor = System.Drawing.Color.Silver;
+            this.cbPerson.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPerson.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cbPerson.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.cbPerson.FormattingEnabled = true;
+            this.cbPerson.Items.AddRange(new object[] {
+            "2",
+            "4"});
+            this.cbPerson.Location = new System.Drawing.Point(56, 262);
+            this.cbPerson.Name = "cbPerson";
+            this.cbPerson.Size = new System.Drawing.Size(360, 33);
+            this.cbPerson.TabIndex = 153;
+            this.cbPerson.Enter += new System.EventHandler(this.cbPerson_Enter);
+            this.cbPerson.Leave += new System.EventHandler(this.cbPerson_Leave);
+            // 
+            // tbPerson
+            // 
+            this.tbPerson.BorderColor = System.Drawing.Color.DimGray;
+            this.tbPerson.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbPerson.BorderRadius = 6;
+            this.tbPerson.BorderSize = 1;
+            this.tbPerson.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbPerson.ForeColor = System.Drawing.Color.DarkGray;
+            this.tbPerson.Location = new System.Drawing.Point(40, 254);
+            this.tbPerson.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tbPerson.Multiline = false;
+            this.tbPerson.Name = "tbPerson";
+            this.tbPerson.Padding = new System.Windows.Forms.Padding(15, 11, 15, 11);
+            this.tbPerson.PasswordChar = false;
+            this.tbPerson.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbPerson.PlaceholderText = "";
+            this.tbPerson.Size = new System.Drawing.Size(390, 48);
+            this.tbPerson.TabIndex = 154;
+            this.tbPerson.Texts = "";
+            this.tbPerson.UnderlinedStyle = false;
+            // 
             // cbType
             // 
+            this.cbType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.cbType.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.cbType.ButtonColor = System.Drawing.Color.Silver;
+            this.cbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cbType.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.cbType.FormattingEnabled = true;
             this.cbType.Items.AddRange(new object[] {
             "Standard",
             "Superior",
             "Deluxe"});
-            this.cbType.Location = new System.Drawing.Point(41, 127);
-            this.cbType.Margin = new System.Windows.Forms.Padding(4);
+            this.cbType.Location = new System.Drawing.Point(56, 173);
             this.cbType.Name = "cbType";
-            this.cbType.Size = new System.Drawing.Size(421, 31);
-            this.cbType.TabIndex = 78;
-            this.cbType.Text = "Standard";
+            this.cbType.Size = new System.Drawing.Size(360, 33);
+            this.cbType.TabIndex = 150;
+            this.cbType.Enter += new System.EventHandler(this.cbType_Enter);
+            this.cbType.Leave += new System.EventHandler(this.cbType_Leave);
             // 
-            // tbDescription
+            // tbType
             // 
-            this.tbDescription.Location = new System.Drawing.Point(41, 379);
-            this.tbDescription.Margin = new System.Windows.Forms.Padding(4);
-            this.tbDescription.Name = "tbDescription";
-            this.tbDescription.Size = new System.Drawing.Size(421, 30);
-            this.tbDescription.TabIndex = 19;
+            this.tbType.BorderColor = System.Drawing.Color.DimGray;
+            this.tbType.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbType.BorderRadius = 6;
+            this.tbType.BorderSize = 1;
+            this.tbType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbType.ForeColor = System.Drawing.Color.DarkGray;
+            this.tbType.Location = new System.Drawing.Point(40, 165);
+            this.tbType.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tbType.Multiline = false;
+            this.tbType.Name = "tbType";
+            this.tbType.Padding = new System.Windows.Forms.Padding(15, 11, 15, 11);
+            this.tbType.PasswordChar = false;
+            this.tbType.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbType.PlaceholderText = "";
+            this.tbType.Size = new System.Drawing.Size(390, 48);
+            this.tbType.TabIndex = 151;
+            this.tbType.Texts = "";
+            this.tbType.UnderlinedStyle = false;
             // 
             // btnCancel
             // 
@@ -545,27 +640,6 @@
             this.panel1.Size = new System.Drawing.Size(1073, 57);
             this.panel1.TabIndex = 17;
             // 
-            // cbSearch
-            // 
-            this.cbSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
-            this.cbSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
-            this.cbSearch.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
-            this.cbSearch.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
-            this.cbSearch.FormattingEnabled = true;
-            this.cbSearch.Items.AddRange(new object[] {
-            " Room ID",
-            " Type",
-            " Person",
-            " Price",
-            " Status",
-            " Description"});
-            this.cbSearch.Location = new System.Drawing.Point(23, 16);
-            this.cbSearch.Name = "cbSearch";
-            this.cbSearch.Size = new System.Drawing.Size(195, 31);
-            this.cbSearch.TabIndex = 81;
-            this.cbSearch.Text = "      Option";
-            // 
             // FormQL_Phong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -592,39 +666,38 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox cbStatus;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbRoomID;
-        private System.Windows.Forms.TextBox tbPerson;
-        private System.Windows.Forms.TextBox tbPrice;
         private System.Windows.Forms.TabPage tabPageList;
         private System.Windows.Forms.TabPage tabPageEdit;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox tbDescription;
         private System.Windows.Forms.DataGridView dgvListRoom;
         private ePOSOne.btnProduct.Button_WOC btnUpdate;
         private ePOSOne.btnProduct.Button_WOC btnDelete;
         private ePOSOne.btnProduct.Button_WOC btnCancel;
         private ePOSOne.btnProduct.Button_WOC btnSave;
         private ePOSOne.btnProduct.Button_WOC btnAdd;
-        private System.Windows.Forms.ComboBox cbType;
+        private System.Windows.Forms.Label lbRecord;
+        private System.Windows.Forms.TextBox tbSearch;
+        private System.Windows.Forms.Label label9;
+        private NoteWrapper.FlatCombobox cbSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.Label lbRecord;
-        private System.Windows.Forms.TextBox tbSearch;
-        private System.Windows.Forms.Label label9;
-        private NoteWrapper.FlatCombobox cbSearch;
+        private System.Windows.Forms.Label lbType;
+        private NoteWrapper.FlatCombobox cbType;
+        private Resources.RJTextBox tbType;
+        private System.Windows.Forms.Label lbPerson;
+        private NoteWrapper.FlatCombobox cbPerson;
+        private Resources.RJTextBox tbPerson;
+        private System.Windows.Forms.Label lbPrice;
+        private Resources.RJTextBox tbPrice;
+        private System.Windows.Forms.Label lbDescription;
+        private Resources.RJTextBox tbDescription;
+        private System.Windows.Forms.Label label2;
+        private Resources.RJTextBox tbRoomID;
     }
 }

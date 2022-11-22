@@ -27,7 +27,7 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                return DataProvider.Instance.ExecuteScalar("EXEC USP_Get_LastEmployeeID");
+                return DataProvider.Instance.ExecuteScalar("USP_Get_LastEmployeeID"); //
             }
             catch (Exception ex)
             {
@@ -39,10 +39,22 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                DataTable dt = DataProvider.Instance.ExecuteQuery("EXEC USP_Get_Employee");
-                return dt;
+                return DataProvider.Instance.ExecuteQuery("USP_Get_Employee"); // 
             }
             catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public string GetStatusEmployee(string employeeID)
+        {
+            try
+            {
+                string query = "USP_Get_Status_Employee @EmployeeID "; // 
+                return DataProvider.Instance.ExecuteScalar(query, new object[] {employeeID});
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -52,8 +64,7 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                DataTable dt = DataProvider.Instance.ExecuteQuery("EXEC USP_Get_EmployeeInService");
-                return dt;
+                return DataProvider.Instance.ExecuteQuery("USP_Get_Employee_Service"); //
             }
             catch (Exception ex)
             {
@@ -61,13 +72,12 @@ namespace WindowsFormsApp1.DAO
             }
         }
 
-        public DataTable SearchEmployee(string name)
+        public DataTable SearchEmployee(string nameCol, string value)
         {
             try
             {
-                string query = string.Format("EXEC USP_Search_Employee N'{0}'", name);
-                DataTable dt = DataProvider.Instance.ExecuteQuery(query);
-                return dt;
+                string query = "USP_Search_Employee @nameCol , @value"; //
+                return DataProvider.Instance.ExecuteQuery(query, new object[] {nameCol, value});
             }
             catch (Exception ex)
             {
@@ -75,13 +85,12 @@ namespace WindowsFormsApp1.DAO
             }
         }
 
-        public int InsertEmployee(Employee employee)
+        public int InsertEmployee(PersonalInfo per)
         {
             try
             {
-                string query = string.Format("EXEC USP_Insert_Employee '{0}', N'{1}', '{2}', '{3}', '{4}', '{5}', N'{6}'",
-                                            employee.EmployeeID, employee.Name, employee.Dob, employee.Gender, employee.IDCard, employee.Phone, employee.Address);
-                return DataProvider.Instance.ExecuteNonQuery(query);
+                string query = "USP_Insert_Employee @PersonID , @Name , @Gender , @Dob , @Phone , @Address , @IDCard "; //
+                return DataProvider.Instance.ExecuteNonQuery(query, new object[] {per.PersonID, per.Name, per.Gender, per.Dob, per.Phone, per.Address, per.Idcard});
             }
             catch (Exception ex)
             {
@@ -89,13 +98,13 @@ namespace WindowsFormsApp1.DAO
             }
         }
 
-        public int UpdateEmployee(Employee employee)
+        public int UpdateEmployee(PersonalInfo per, string status)
         {
             try
             {
-                string query = string.Format("EXEC USP_Update_Employee '{0}', '{1}', '{2}', '{3}', '{4}', '{5}', N{6}",
-                                             employee.EmployeeID, employee.Name, employee.Dob, employee.Gender, employee.IDCard, employee.Phone, employee.Address);
-                return DataProvider.Instance.ExecuteNonQuery(query);
+                string query = "USP_Update_Employee @PersonID , @Name , @Gender , @Dob , @Phone , @Address , @IDCard , @Status"; //
+
+                return DataProvider.Instance.ExecuteNonQuery(query, new object[] { per.PersonID, per.Name, per.Gender, per.Dob, per.Phone, per.Address, per.Idcard, status });
             }
             catch (Exception ex)
             {
@@ -107,8 +116,8 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                string query = string.Format("EXEC USP_Update_EmployeeStatus {0}", employeeID);
-                return DataProvider.Instance.ExecuteNonQuery(query);
+                string query = "USP_Update_Status_Employee @EmployeeID"; //
+                return DataProvider.Instance.ExecuteNonQuery(query, new object[] { employeeID });
             }
             catch (Exception ex)
             {
@@ -120,8 +129,8 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                string query = string.Format("EXEC USP_Delete_Employee '{0}'", employeeID);
-                return DataProvider.Instance.ExecuteNonQuery(query);
+                string query = "USP_Delete_Person @EmployeeID"; //
+                return DataProvider.Instance.ExecuteNonQuery(query, new object[] { employeeID });
             }
             catch (Exception ex)
             {

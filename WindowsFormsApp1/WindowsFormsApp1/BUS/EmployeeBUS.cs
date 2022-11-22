@@ -34,25 +34,28 @@ namespace WindowsFormsApp1.BUS
         {
             return EmployeeDAO.Instance.GetEmployee();
         }
-
+        public string GetStatusEmployee(string employeeID)
+        {
+            return EmployeeDAO.Instance.GetStatusEmployee(employeeID);
+        }
         public DataTable GetEmployeeInService()
         {
             return EmployeeDAO.Instance.GetEmployeeInService();
         }
 
-        public DataTable SearchEmployee(string name)
+        public DataTable SearchEmployee(string nameCol, string value)
         {
-            return EmployeeDAO.Instance.SearchEmployee(name);
+            return EmployeeDAO.Instance.SearchEmployee(nameCol, value);
         }
 
-        public int InsertEmployee(Employee Employee)
+        public int InsertEmployee(PersonalInfo person)
         {
-            return EmployeeDAO.Instance.InsertEmployee(Employee);
+            return EmployeeDAO.Instance.InsertEmployee(person);
         }
 
-        public int UpdateEmployee(Employee Employee)
+        public int UpdateEmployee(PersonalInfo person, string status)
         {
-            return EmployeeDAO.Instance.UpdateEmployee(Employee);
+            return EmployeeDAO.Instance.UpdateEmployee(person, status);
         }
 
         public int UpdateEmployeeStatus(string employeeID)

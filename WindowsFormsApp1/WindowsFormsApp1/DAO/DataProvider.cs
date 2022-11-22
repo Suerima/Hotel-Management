@@ -13,6 +13,7 @@ namespace WindowsFormsApp1.DAO
     public class DataProvider
     {
         private static DataProvider instance; // Ctrl + R + E đóng gói
+        private DataProvider() { } // để đảm bảo bên ngoài ko tác động được chỉ lấy ra thôi
 
         public static DataProvider Instance
         {
@@ -26,11 +27,10 @@ namespace WindowsFormsApp1.DAO
             private set { instance = value; }  // chỉ nội bộ trong class này set dc data
         }
 
-        private DataProvider() { } // để đảm bảo bên ngoài ko tác động được chỉ lấy ra thôi
         // -> kiến trúc design patern singleton
 
 
-        private string connectionSTR = "Data Source=.\\SQLEXPRESS;Initial Catalog=QLKS2;Integrated Security=True";
+        private string connectionSTR = "Data Source=.\\SQLEXPRESS;Initial Catalog=QLKS1;Integrated Security=True";
 
         //nếu nhiều paramater thuộc nhiều kiểu dữ liệu thì cho 1 mảng object 
         // Trả ra  các dòng kết quả
@@ -45,21 +45,21 @@ namespace WindowsFormsApp1.DAO
                     connection.Open();
 
                     SqlCommand command = new SqlCommand(query, connection); // cau truy van se thuc thi
-
+                
                     if (parameter != null)
                     {
                         string[] listPara = query.Split(' ');
                         int i = 0;
                         foreach (string item in listPara)
                         {
-                            if (item.Contains('@'))
+                            if(item.Contains('@'))
                             {
-                                // command.Parameters.AddWithValue("@userName", id); gán @uer = id
                                 command.Parameters.AddWithValue(item, parameter[i]);
                                 i++;
-                            }
-                        }
+                            }    
+                        }    
                     }
+
                     SqlDataAdapter adapter = new SqlDataAdapter(command); // trung gian lay du lieu 
 
                     adapter.Fill(dt); // do du lieu vao data
@@ -76,11 +76,9 @@ namespace WindowsFormsApp1.DAO
 
         // using Insert, Update, Delete
         // Trả về số dòng được thực thi
-        public int ExecuteNonQuery(string query) // Trả về số dòng thành công
+        public int ExecuteNonQuery(string query, object[] parameter = null) // Trả về số dòng thành công
         {
-
             int data = 0;
-
             using (SqlConnection connection = new SqlConnection(connectionSTR))
             {
 
@@ -89,6 +87,19 @@ namespace WindowsFormsApp1.DAO
                 SqlCommand command = new SqlCommand(query, connection); // cau truy van se thuc thi query tại conn này
 
                 // command.Parameters.AddWithValue("@userName", id);
+                if (parameter != null)
+                {                                           // USP_Insert_Customer 'KH01' , 'KHOI' ,  @Gender , @Dob , @Address , @Phone , @IDCard 
+                    string[] listPara = query.Split(' ');//  listPara['USP_Insert_Customer', 'kh001', '@CustomerID']
+                    int i = 0;
+                    foreach (string item in listPara)
+                    {
+                        if (item.Contains('@'))
+                        {
+                            command.Parameters.AddWithValue(item, parameter[i]);                 // command.Parameters.AddWithValue("@userName", id);
+                            i++;
+                        }
+                    }
+                }
 
                 data = command.ExecuteNonQuery(); // trả về số dòng thành công
 
@@ -98,7 +109,7 @@ namespace WindowsFormsApp1.DAO
         }
 
         // Trả ra số dòng kết quả nhứ select count(*)
-        public string ExecuteScalar(string query) // Đếm số lượng
+        public string ExecuteScalar(string query, object[] parameter = null) // Đếm số lượng
         {
             string data;
             
@@ -108,6 +119,21 @@ namespace WindowsFormsApp1.DAO
                 connection.Open();
 
                 SqlCommand command = new SqlCommand(query, connection); // cau truy van se thuc thi
+
+                if (parameter != null)
+                {
+                    string[] listPara = query.Split(' ');
+                    int i = 0;
+                    foreach (string item in listPara)
+                    {
+                        if (item.Contains('@'))
+                        {
+                            command.Parameters.AddWithValue(item, parameter[i]);                 // command.Parameters.AddWithValue("@userName", id);
+
+                            i++;
+                        }
+                    }
+                }
 
                 data = (string)command.ExecuteScalar();
 

@@ -21,20 +21,19 @@ namespace WindowsFormsApp1
         }
 
         static public string username;
-  
+        static public string authority;
+
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
             if (tbUsername.Text == "Username" || tbPassword.Text == "Password")
-            {
-                MessageBox.Show("Invalid username or password.");
-                return;
-            }
+                MessageBox.Show("Invalid username or password.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
                 if (AccountBUS.Instance.Login(tbUsername.Text, tbPassword.Text))
                 {
                     username = tbUsername.Text;
+                    authority = AccountBUS.Instance.GetAuthority(username);
                     FormMain fm = new FormMain();
                     this.Hide();
                     fm.ShowDialog();
@@ -42,17 +41,19 @@ namespace WindowsFormsApp1
                 }
                 else
                 {
-                    MessageBox.Show("Your username or passward is incorrect.");
+                    MessageBox.Show("Your username or passward is incorrect.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
 
         private void linkForgotPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormForgotPass fm = new FormForgotPass();
+            FormResetPass fm = new FormResetPass();
             this.Hide();
             fm.Show();
         }
+
+        #region Event
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -62,7 +63,7 @@ namespace WindowsFormsApp1
         {
             this.WindowState = FormWindowState.Minimized;
         }
-        #region Event
+
         private void tbUsername_Enter(object sender, EventArgs e)
         {
             if (tbUsername.Text == "Username")
@@ -118,18 +119,21 @@ namespace WindowsFormsApp1
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
+        private void btnHide_Click(object sender, EventArgs e)
+        {
+            btnView.Visible = true;
+            btnHide.Visible = false;
+            tbPassword.UseSystemPasswordChar = false;
+
+        }
+
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            btnHide.Visible = true;
+            btnView.Visible = false;
+            tbPassword.UseSystemPasswordChar = true;
+        }
         #endregion
-
-        private void btSignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            FormSignUp fm = new FormSignUp();
-            this.Hide();
-            fm.Show();
-        }
-
-        private void FormLogin_KeyDown(object sender, KeyEventArgs e)
-        {
-            MessageBox.Show($"Form.KeyPress: '{e.KeyCode}' pressed.");
-        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,16 @@ namespace WindowsFormsApp1.DTO
         public string Description { get => description; set => description = value; }
 
         public Room() { }
+
+        public Room(DataRow row)
+        {
+            this.RoomID = row["RoomID"].ToString();
+            this.Type = row["Type"].ToString();
+            this.Person = (int)row["Person"];
+            this.Price = (int)row["Price"];
+            this.Status = row["Status"].ToString();
+            this.Description = row["Description"].ToString();
+        }   
 
         public Room(string roomID, string type, int person, int price, string status, string description)
         {
