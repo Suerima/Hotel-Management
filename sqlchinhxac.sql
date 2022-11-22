@@ -578,7 +578,7 @@ GO
 
 ---- INSERT ROOM ---- DONE
 CREATE PROC USP_Insert_Room
-@Room_ID VARCHAR(50),
+@RoomID VARCHAR(50),
 @Type NVARCHAR(50),
 @Person INT,
 @Price INT,
@@ -586,8 +586,8 @@ CREATE PROC USP_Insert_Room
 @Description NVARCHAR(50)
 AS
 BEGIN
-	INSERT INTO dbo.Room
-	VALUES(@Room_ID, @Type, @Person, @Price, @Status, @Description)
+	INSERT INTO dbo.Room VALUES(@RoomID, @Type, @Person, @Price, @Status, @Description)
+	INSERT INTO Images(RoomID) VALUES(@RoomID)
 END
 GO
 
@@ -958,16 +958,20 @@ CREATE TABLE Detail
 
 CREATE Table DetailRoom
 (
-	DetailID nvarchar(50) FOREIGN KEY REFERENCES Detail(DetailID),
-	RoomID  varchar(50) FOREIGN KEY REFERENCES Room(RoomID),
+	DetailID nvarchar(70) FOREIGN KEY REFERENCES Detail(DetailID),
+	RoomID  varchar(15) FOREIGN KEY REFERENCES Room(RoomID),
 )
 
 CREATE TABLE Images
 (
-	RoomID varchar(50) FOREIGN KEY REFERENCES Room(RoomID),
+	RoomID varchar(15) FOREIGN KEY REFERENCES Room(RoomID),
 	Images image
 )
 
 USE QLKS1
 
-USP_Get_Room
+USP_Get_Room\
+
+SELECT * From Room
+INSERT INTO Images
+VALUES(Room,
