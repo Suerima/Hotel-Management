@@ -964,12 +964,9 @@ CREATE Table DetailRoom
 CREATE TABLE Images
 (
 	RoomID varchar(15) FOREIGN KEY REFERENCES Room(RoomID) ON DELETE CASCADE,
-	Images image
+	Images image,
+	Path varchar(255),
 )
-
-ALTER TABLE Images 
-ADD Path VARCHAR (255)
-go
 
 CREATE PROC USP_Insert_Images_Room
 (@RoomID nvarchar(15),
@@ -981,11 +978,6 @@ begin
 		VALUES(@RoomID, @Image, @Path)
 end
 
-USE QLKS1
-
-SELECT * FROM SelectedService
-SELECT * FROM ServiceInvoice
-select * from Images
 
 CREATE PROC USP_Get_Path
 @RoomID varchar(15)
@@ -995,3 +987,13 @@ BEGIN
 	from Images
 	WHERE RoomID = 'Room101'
 end
+
+USE QLKS1
+
+SELECT * FROM SelectedService
+SELECT * FROM Detail
+select * from Images
+
+UPDATE Detail
+SET Detail = N'1 Giường lớn'
+WHERE DetailID = 'DT010'
