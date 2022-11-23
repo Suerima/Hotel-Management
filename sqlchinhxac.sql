@@ -587,10 +587,9 @@ CREATE PROC USP_Insert_Room
 AS
 BEGIN
 	INSERT INTO dbo.Room VALUES(@RoomID, @Type, @Person, @Price, @Status, @Description)
-	INSERT INTO Images(RoomID) VALUES(@RoomID)
 END
 GO
-
+select * from Images
 ---- UPDATE ROOM ---- DONE
 CREATE PROC USP_Update_Room
 @RoomID VARCHAR(50),
@@ -964,14 +963,35 @@ CREATE Table DetailRoom
 
 CREATE TABLE Images
 (
-	RoomID varchar(15) FOREIGN KEY REFERENCES Room(RoomID),
+	RoomID varchar(15) FOREIGN KEY REFERENCES Room(RoomID) ON DELETE CASCADE,
 	Images image
 )
 
+ALTER TABLE Images 
+ADD Path VARCHAR (255)
+go
+
+CREATE PROC USP_Insert_Images_Room
+(@RoomID nvarchar(15),
+@Image image,
+@Path  VARCHAR (255))
+as
+begin
+		INSERT INTO dbo.Images
+		VALUES(@RoomID, @Image, @Path)
+end
+
 USE QLKS1
 
-USP_Get_Room\
+SELECT * FROM SelectedService
+SELECT * FROM ServiceInvoice
+select * from Images
 
-SELECT * From Room
-INSERT INTO Images
-VALUES(Room,
+CREATE PROC USP_Get_Path
+@RoomID varchar(15)
+AS
+BEGIN
+	select Path
+	from Images
+	WHERE RoomID = 'Room101'
+end

@@ -166,15 +166,19 @@ namespace WindowsFormsApp1
                 }
                 else
                 {
-                    Room room = new Room(tbRoomID.Texts, cbType.Text, int.Parse(cbPerson.Text), int.Parse(tbPrice.Texts), status, tbDescription.Texts);
+                  //  Room room = new Room(tbRoomID.Texts, cbType.Text, int.Parse(cbPerson.Text), int.Parse(tbPrice.Texts), status, tbDescription.Texts);
 
                     if (checkButton == true)
                     {
+                        Room room = new Room(tbRoomID.Texts, cbType.Text, int.Parse(cbPerson.Text), int.Parse(tbPrice.Texts), "Free", tbDescription.Texts);
+
                         RoomBUS.Instance.InsertRoom(room);
                         MessageBox.Show("Insert successful!.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
+                        Room room = new Room(tbRoomID.Texts, cbType.Text, int.Parse(cbPerson.Text), int.Parse(tbPrice.Texts), status, tbDescription.Texts);
+
                         RoomBUS.Instance.UpdateRoom(room);
                         MessageBox.Show("Update successful!.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }

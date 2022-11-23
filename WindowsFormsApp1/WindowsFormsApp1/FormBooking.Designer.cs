@@ -38,6 +38,15 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.flpRoom = new System.Windows.Forms.FlowLayoutPanel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.btnCreate = new ePOSOne.btnProduct.Button_WOC();
+            this.sPanel2 = new WindowsFormsApp1.Resources.SPanel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.flatCombobox1 = new NoteWrapper.FlatCombobox();
+            this.sPanel1 = new WindowsFormsApp1.Resources.SPanel();
+            this.rjDatePicker1 = new WindowsFormsApp1.CustomControls.RJDatePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dtpDob = new WindowsFormsApp1.CustomControls.RJDatePicker();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.checkedListBox4 = new System.Windows.Forms.CheckedListBox();
@@ -49,6 +58,7 @@
             this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnSave = new ePOSOne.btnProduct.Button_WOC();
             this.tabPageDetail = new System.Windows.Forms.TabPage();
             this.label18 = new System.Windows.Forms.Label();
             this.tbSearch = new System.Windows.Forms.TextBox();
@@ -71,23 +81,18 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnCreate = new ePOSOne.btnProduct.Button_WOC();
-            this.sPanel2 = new WindowsFormsApp1.Resources.SPanel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.flatCombobox1 = new NoteWrapper.FlatCombobox();
-            this.sPanel1 = new WindowsFormsApp1.Resources.SPanel();
-            this.rjDatePicker1 = new WindowsFormsApp1.CustomControls.RJDatePicker();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.dtpDob = new WindowsFormsApp1.CustomControls.RJDatePicker();
-            this.btnSave = new ePOSOne.btnProduct.Button_WOC();
             this.btnCancel = new ePOSOne.btnProduct.Button_WOC();
             this.btnDelete = new ePOSOne.btnProduct.Button_WOC();
+            this.sPanel3 = new WindowsFormsApp1.Resources.SPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.flatCombobox2 = new NoteWrapper.FlatCombobox();
             this.panel1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageBooking.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.sPanel2.SuspendLayout();
+            this.sPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -96,8 +101,7 @@
             this.tabPageDetail.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListBooking)).BeginInit();
-            this.sPanel2.SuspendLayout();
-            this.sPanel1.SuspendLayout();
+            this.sPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -161,6 +165,7 @@
             // 
             // flpRoom
             // 
+            this.flpRoom.AutoScroll = true;
             this.flpRoom.BackColor = System.Drawing.Color.DarkGray;
             this.flpRoom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpRoom.Location = new System.Drawing.Point(0, 104);
@@ -180,9 +185,137 @@
             this.panel7.Size = new System.Drawing.Size(1163, 104);
             this.panel7.TabIndex = 7;
             // 
+            // btnCreate
+            // 
+            this.btnCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCreate.BorderColor = System.Drawing.Color.White;
+            this.btnCreate.ButtonColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnCreate.FlatAppearance.BorderSize = 0;
+            this.btnCreate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.btnCreate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreate.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnCreate.Location = new System.Drawing.Point(1119, -660);
+            this.btnCreate.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
+            this.btnCreate.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.btnCreate.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
+            this.btnCreate.Size = new System.Drawing.Size(135, 59);
+            this.btnCreate.TabIndex = 41;
+            this.btnCreate.Text = "Search";
+            this.btnCreate.TextColor = System.Drawing.Color.White;
+            this.btnCreate.UseVisualStyleBackColor = true;
+            // 
+            // sPanel2
+            // 
+            this.sPanel2.BackColor = System.Drawing.Color.White;
+            this.sPanel2.BorderColor = System.Drawing.Color.White;
+            this.sPanel2.Controls.Add(this.label5);
+            this.sPanel2.Controls.Add(this.flatCombobox1);
+            this.sPanel2.Edge = 20;
+            this.sPanel2.Location = new System.Drawing.Point(368, 20);
+            this.sPanel2.Name = "sPanel2";
+            this.sPanel2.Size = new System.Drawing.Size(273, 66);
+            this.sPanel2.TabIndex = 8;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(16, 17);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(74, 25);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Person";
+            // 
+            // flatCombobox1
+            // 
+            this.flatCombobox1.FormattingEnabled = true;
+            this.flatCombobox1.Items.AddRange(new object[] {
+            "2 Person",
+            "4 Person"});
+            this.flatCombobox1.Location = new System.Drawing.Point(122, 17);
+            this.flatCombobox1.Name = "flatCombobox1";
+            this.flatCombobox1.Size = new System.Drawing.Size(126, 24);
+            this.flatCombobox1.TabIndex = 0;
+            // 
+            // sPanel1
+            // 
+            this.sPanel1.BackColor = System.Drawing.Color.White;
+            this.sPanel1.BorderColor = System.Drawing.Color.White;
+            this.sPanel1.Controls.Add(this.rjDatePicker1);
+            this.sPanel1.Controls.Add(this.label7);
+            this.sPanel1.Controls.Add(this.label6);
+            this.sPanel1.Controls.Add(this.dtpDob);
+            this.sPanel1.Edge = 20;
+            this.sPanel1.Location = new System.Drawing.Point(44, 17);
+            this.sPanel1.Name = "sPanel1";
+            this.sPanel1.Size = new System.Drawing.Size(280, 69);
+            this.sPanel1.TabIndex = 7;
+            // 
+            // rjDatePicker1
+            // 
+            this.rjDatePicker1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjDatePicker1.BorderSize = 0;
+            this.rjDatePicker1.CustomFormat = "dd/MM/yyyy";
+            this.rjDatePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.rjDatePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.rjDatePicker1.Location = new System.Drawing.Point(98, 36);
+            this.rjDatePicker1.MaxDate = new System.DateTime(2022, 12, 31, 0, 0, 0, 0);
+            this.rjDatePicker1.MinDate = new System.DateTime(2022, 11, 22, 0, 0, 0, 0);
+            this.rjDatePicker1.MinimumSize = new System.Drawing.Size(4, 20);
+            this.rjDatePicker1.Name = "rjDatePicker1";
+            this.rjDatePicker1.Size = new System.Drawing.Size(163, 30);
+            this.rjDatePicker1.SkinColor = System.Drawing.Color.White;
+            this.rjDatePicker1.TabIndex = 9;
+            this.rjDatePicker1.TextColor = System.Drawing.Color.Black;
+            this.rjDatePicker1.Value = new System.DateTime(2022, 11, 22, 0, 0, 0, 0);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label7.Location = new System.Drawing.Point(15, 36);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(42, 25);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "To:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label6.Location = new System.Drawing.Point(15, 10);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(63, 25);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "From:";
+            // 
+            // dtpDob
+            // 
+            this.dtpDob.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.dtpDob.BorderSize = 0;
+            this.dtpDob.CustomFormat = "dd/MM/yyyy";
+            this.dtpDob.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dtpDob.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDob.Location = new System.Drawing.Point(98, 6);
+            this.dtpDob.MaxDate = new System.DateTime(2022, 12, 31, 0, 0, 0, 0);
+            this.dtpDob.MinDate = new System.DateTime(2022, 11, 22, 0, 0, 0, 0);
+            this.dtpDob.MinimumSize = new System.Drawing.Size(4, 20);
+            this.dtpDob.Name = "dtpDob";
+            this.dtpDob.Size = new System.Drawing.Size(163, 30);
+            this.dtpDob.SkinColor = System.Drawing.Color.White;
+            this.dtpDob.TabIndex = 5;
+            this.dtpDob.TextColor = System.Drawing.Color.Black;
+            this.dtpDob.Value = new System.DateTime(2022, 11, 22, 0, 0, 0, 0);
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.sPanel3);
             this.panel3.Controls.Add(this.panel8);
             this.panel3.Controls.Add(this.panel6);
             this.panel3.Controls.Add(this.panel5);
@@ -200,9 +333,9 @@
             this.panel8.Controls.Add(this.checkedListBox4);
             this.panel8.Controls.Add(this.label8);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(0, 384);
+            this.panel8.Location = new System.Drawing.Point(0, 364);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(186, 153);
+            this.panel8.Size = new System.Drawing.Size(186, 108);
             this.panel8.TabIndex = 3;
             // 
             // checkedListBox4
@@ -210,10 +343,10 @@
             this.checkedListBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkedListBox4.FormattingEnabled = true;
             this.checkedListBox4.Items.AddRange(new object[] {
-            "0 - 200000",
+            "0 - 300000",
             "200000 - 400000",
             "400000 - 600000"});
-            this.checkedListBox4.Location = new System.Drawing.Point(0, 60);
+            this.checkedListBox4.Location = new System.Drawing.Point(0, 31);
             this.checkedListBox4.Name = "checkedListBox4";
             this.checkedListBox4.Size = new System.Drawing.Size(184, 70);
             this.checkedListBox4.TabIndex = 3;
@@ -223,11 +356,12 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label8.Location = new System.Drawing.Point(19, 22);
+            this.label8.Location = new System.Drawing.Point(40, 3);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(56, 25);
+            this.label8.Size = new System.Drawing.Size(109, 25);
             this.label8.TabIndex = 2;
-            this.label8.Text = "Price";
+            this.label8.Tag = "";
+            this.label8.Text = "Loại phòng";
             // 
             // panel6
             // 
@@ -235,9 +369,9 @@
             this.panel6.Controls.Add(this.checkedListBox3);
             this.panel6.Controls.Add(this.label3);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 231);
+            this.panel6.Location = new System.Drawing.Point(0, 234);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(186, 153);
+            this.panel6.Size = new System.Drawing.Size(186, 130);
             this.panel6.TabIndex = 2;
             // 
             // checkedListBox3
@@ -245,11 +379,13 @@
             this.checkedListBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkedListBox3.FormattingEnabled = true;
             this.checkedListBox3.Items.AddRange(new object[] {
-            "Twin beds",
-            "Double bed"});
-            this.checkedListBox3.Location = new System.Drawing.Point(0, 72);
+            "1 Giường đơn",
+            "2 Giường đơn",
+            "1 Giường lớn",
+            "2 Giường lớn"});
+            this.checkedListBox3.Location = new System.Drawing.Point(0, 31);
             this.checkedListBox3.Name = "checkedListBox3";
-            this.checkedListBox3.Size = new System.Drawing.Size(184, 48);
+            this.checkedListBox3.Size = new System.Drawing.Size(184, 92);
             this.checkedListBox3.TabIndex = 3;
             // 
             // label3
@@ -257,11 +393,11 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(19, 33);
+            this.label3.Location = new System.Drawing.Point(19, 3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(147, 25);
+            this.label3.Size = new System.Drawing.Size(113, 25);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Bed Preference";
+            this.label3.Text = "Loại giường";
             // 
             // panel5
             // 
@@ -271,7 +407,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 104);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(186, 127);
+            this.panel5.Size = new System.Drawing.Size(186, 130);
             this.panel5.TabIndex = 1;
             // 
             // checkedListBox2
@@ -280,10 +416,12 @@
             this.checkedListBox2.FormattingEnabled = true;
             this.checkedListBox2.Items.AddRange(new object[] {
             "View biển",
-            "Ban công"});
-            this.checkedListBox2.Location = new System.Drawing.Point(-1, 58);
+            "Ban công",
+            "Hồ bơi",
+            "Hệ thống sưởi"});
+            this.checkedListBox2.Location = new System.Drawing.Point(0, 31);
             this.checkedListBox2.Name = "checkedListBox2";
-            this.checkedListBox2.Size = new System.Drawing.Size(184, 48);
+            this.checkedListBox2.Size = new System.Drawing.Size(184, 92);
             this.checkedListBox2.TabIndex = 5;
             // 
             // label2
@@ -291,7 +429,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(19, 20);
+            this.label2.Location = new System.Drawing.Point(19, 3);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(153, 25);
             this.label2.TabIndex = 4;
@@ -306,6 +444,27 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(186, 104);
             this.panel4.TabIndex = 0;
+            // 
+            // btnSave
+            // 
+            this.btnSave.BorderColor = System.Drawing.Color.White;
+            this.btnSave.ButtonColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(4, 8);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
+            this.btnSave.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.btnSave.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
+            this.btnSave.Size = new System.Drawing.Size(175, 78);
+            this.btnSave.TabIndex = 9;
+            this.btnSave.Text = "Search";
+            this.btnSave.TextColor = System.Drawing.Color.White;
+            this.btnSave.UseVisualStyleBackColor = true;
             // 
             // tabPageDetail
             // 
@@ -608,153 +767,6 @@
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
-            // btnCreate
-            // 
-            this.btnCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCreate.BorderColor = System.Drawing.Color.White;
-            this.btnCreate.ButtonColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnCreate.FlatAppearance.BorderSize = 0;
-            this.btnCreate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.btnCreate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreate.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnCreate.Location = new System.Drawing.Point(1119, -660);
-            this.btnCreate.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
-            this.btnCreate.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.btnCreate.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
-            this.btnCreate.Size = new System.Drawing.Size(135, 59);
-            this.btnCreate.TabIndex = 41;
-            this.btnCreate.Text = "Search";
-            this.btnCreate.TextColor = System.Drawing.Color.White;
-            this.btnCreate.UseVisualStyleBackColor = true;
-            // 
-            // sPanel2
-            // 
-            this.sPanel2.BackColor = System.Drawing.Color.White;
-            this.sPanel2.BorderColor = System.Drawing.Color.White;
-            this.sPanel2.Controls.Add(this.label5);
-            this.sPanel2.Controls.Add(this.flatCombobox1);
-            this.sPanel2.Edge = 20;
-            this.sPanel2.Location = new System.Drawing.Point(368, 20);
-            this.sPanel2.Name = "sPanel2";
-            this.sPanel2.Size = new System.Drawing.Size(273, 66);
-            this.sPanel2.TabIndex = 8;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(16, 17);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 25);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Person";
-            // 
-            // flatCombobox1
-            // 
-            this.flatCombobox1.FormattingEnabled = true;
-            this.flatCombobox1.Items.AddRange(new object[] {
-            "2 Person",
-            "4 Person"});
-            this.flatCombobox1.Location = new System.Drawing.Point(122, 17);
-            this.flatCombobox1.Name = "flatCombobox1";
-            this.flatCombobox1.Size = new System.Drawing.Size(126, 24);
-            this.flatCombobox1.TabIndex = 0;
-            // 
-            // sPanel1
-            // 
-            this.sPanel1.BackColor = System.Drawing.Color.White;
-            this.sPanel1.BorderColor = System.Drawing.Color.White;
-            this.sPanel1.Controls.Add(this.rjDatePicker1);
-            this.sPanel1.Controls.Add(this.label7);
-            this.sPanel1.Controls.Add(this.label6);
-            this.sPanel1.Controls.Add(this.dtpDob);
-            this.sPanel1.Edge = 20;
-            this.sPanel1.Location = new System.Drawing.Point(44, 17);
-            this.sPanel1.Name = "sPanel1";
-            this.sPanel1.Size = new System.Drawing.Size(280, 69);
-            this.sPanel1.TabIndex = 7;
-            // 
-            // rjDatePicker1
-            // 
-            this.rjDatePicker1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjDatePicker1.BorderSize = 0;
-            this.rjDatePicker1.CustomFormat = "dd/MM/yyyy";
-            this.rjDatePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.rjDatePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.rjDatePicker1.Location = new System.Drawing.Point(98, 36);
-            this.rjDatePicker1.MaxDate = new System.DateTime(2022, 12, 31, 0, 0, 0, 0);
-            this.rjDatePicker1.MinDate = new System.DateTime(2022, 11, 22, 0, 0, 0, 0);
-            this.rjDatePicker1.MinimumSize = new System.Drawing.Size(4, 20);
-            this.rjDatePicker1.Name = "rjDatePicker1";
-            this.rjDatePicker1.Size = new System.Drawing.Size(163, 30);
-            this.rjDatePicker1.SkinColor = System.Drawing.Color.White;
-            this.rjDatePicker1.TabIndex = 9;
-            this.rjDatePicker1.TextColor = System.Drawing.Color.Black;
-            this.rjDatePicker1.Value = new System.DateTime(2022, 11, 22, 0, 0, 0, 0);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label7.Location = new System.Drawing.Point(15, 36);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(42, 25);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "To:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label6.Location = new System.Drawing.Point(15, 10);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 25);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "From:";
-            // 
-            // dtpDob
-            // 
-            this.dtpDob.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.dtpDob.BorderSize = 0;
-            this.dtpDob.CustomFormat = "dd/MM/yyyy";
-            this.dtpDob.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dtpDob.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDob.Location = new System.Drawing.Point(98, 6);
-            this.dtpDob.MaxDate = new System.DateTime(2022, 12, 31, 0, 0, 0, 0);
-            this.dtpDob.MinDate = new System.DateTime(2022, 11, 22, 0, 0, 0, 0);
-            this.dtpDob.MinimumSize = new System.Drawing.Size(4, 20);
-            this.dtpDob.Name = "dtpDob";
-            this.dtpDob.Size = new System.Drawing.Size(163, 30);
-            this.dtpDob.SkinColor = System.Drawing.Color.White;
-            this.dtpDob.TabIndex = 5;
-            this.dtpDob.TextColor = System.Drawing.Color.Black;
-            this.dtpDob.Value = new System.DateTime(2022, 11, 22, 0, 0, 0, 0);
-            // 
-            // btnSave
-            // 
-            this.btnSave.BorderColor = System.Drawing.Color.White;
-            this.btnSave.ButtonColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(4, 8);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
-            this.btnSave.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.btnSave.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
-            this.btnSave.Size = new System.Drawing.Size(175, 78);
-            this.btnSave.TabIndex = 9;
-            this.btnSave.Text = "Search";
-            this.btnSave.TextColor = System.Drawing.Color.White;
-            this.btnSave.UseVisualStyleBackColor = true;
-            // 
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -801,6 +813,38 @@
             this.btnDelete.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.btnDelete.UseVisualStyleBackColor = true;
             // 
+            // sPanel3
+            // 
+            this.sPanel3.BackColor = System.Drawing.Color.White;
+            this.sPanel3.BorderColor = System.Drawing.Color.White;
+            this.sPanel3.Controls.Add(this.flatCombobox2);
+            this.sPanel3.Edge = 20;
+            this.sPanel3.Location = new System.Drawing.Point(4, 513);
+            this.sPanel3.Name = "sPanel3";
+            this.sPanel3.Size = new System.Drawing.Size(168, 36);
+            this.sPanel3.TabIndex = 9;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(40, 475);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 25);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Person";
+            // 
+            // flatCombobox2
+            // 
+            this.flatCombobox2.FormattingEnabled = true;
+            this.flatCombobox2.Items.AddRange(new object[] {
+            "2 Person",
+            "4 Person"});
+            this.flatCombobox2.Location = new System.Drawing.Point(19, 3);
+            this.flatCombobox2.Name = "flatCombobox2";
+            this.flatCombobox2.Size = new System.Drawing.Size(126, 24);
+            this.flatCombobox2.TabIndex = 0;
+            // 
             // FormBooking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -816,7 +860,12 @@
             this.tabPageBooking.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
+            this.sPanel2.ResumeLayout(false);
+            this.sPanel2.PerformLayout();
+            this.sPanel1.ResumeLayout(false);
+            this.sPanel1.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -829,10 +878,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListBooking)).EndInit();
-            this.sPanel2.ResumeLayout(false);
-            this.sPanel2.PerformLayout();
-            this.sPanel1.ResumeLayout(false);
-            this.sPanel1.PerformLayout();
+            this.sPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -891,5 +937,8 @@
         private System.Windows.Forms.CheckedListBox checkedListBox2;
         private System.Windows.Forms.Label label2;
         private CustomControls.RJDatePicker rjDatePicker1;
+        private System.Windows.Forms.Label label1;
+        private Resources.SPanel sPanel3;
+        private NoteWrapper.FlatCombobox flatCombobox2;
     }
 }

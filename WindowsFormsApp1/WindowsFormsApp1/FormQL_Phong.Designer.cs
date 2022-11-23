@@ -417,7 +417,6 @@
             this.tbRoomID.BorderFocusColor = System.Drawing.Color.HotPink;
             this.tbRoomID.BorderRadius = 6;
             this.tbRoomID.BorderSize = 1;
-            this.tbRoomID.Enabled = false;
             this.tbRoomID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.tbRoomID.ForeColor = System.Drawing.Color.DimGray;
             this.tbRoomID.Location = new System.Drawing.Point(40, 70);

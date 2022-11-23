@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -28,14 +29,31 @@ namespace WindowsFormsApp1.DAO
 
             DataTable data = DataProvider.Instance.ExecuteQuery("USP_Get_Room");
 
-            foreach(DataRow item in data.Rows)
+            foreach (DataRow item in data.Rows)
             {
                 Room room = new Room(item);
                 roomList.Add(room);
             }
 
             return roomList;
-        }    
+        }
+
+        public ArrayList LoadListImages(string roomID)
+        {
+          //  List<Image> imageList = new List<Image>();
+            ArrayList alist = new ArrayList();
+
+            DataTable data = DataProvider.Instance.ExecuteQuery("USP_Get_Path @RoomID", new object[] {roomID});
+
+            foreach (DataRow item in data.Rows)
+            {
+                Image path = new Image(item);
+                alist.Add(path.Path);
+            }
+
+            return alist;
+        }
+  
         public string GetLastRoomID()
         {
             try

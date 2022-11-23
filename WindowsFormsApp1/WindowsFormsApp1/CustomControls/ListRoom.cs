@@ -54,7 +54,7 @@ namespace WindowsFormsApp1
 
         public void pictureBox1_Click(object sender, EventArgs e)
         {
-            FormDetailRoom f = new FormDetailRoom();
+            FormDetailRoom f = new FormDetailRoom(this.IdRoom);
             f.Show();
         }
     }
