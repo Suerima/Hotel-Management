@@ -54,6 +54,17 @@ namespace WindowsFormsApp1.DAO
             return alist;
         }
   
+        public string GetFirstPath(string roomid)
+        {
+            try
+            {
+                return DataProvider.Instance.ExecuteScalar("USP_Get_FirstPath @RoomID", new object[] {roomid}); //
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public string GetLastRoomID()
         {
             try

@@ -29,44 +29,48 @@ namespace WindowsFormsApp1
             alist = RoomDAO.Instance.LoadListImages(roomID); pictureBox1.Image.Dispose();
             pictureBox1.Image = Image.FromFile(alist[0].ToString());  //Display intially first image in picture box as sero index file path
 
-            label1.Text = alist[1].ToString();
-        }
-        bool IsValidImg(string filename)
-        {
-            try
-            {
-                using (Image newImg = Image.FromFile(filename))
-                { }
-            }
-            catch (OutOfMemoryException ex)
-            {
-                MessageBox.Show("Lỗi");
-                return false;
-            }
-            return true;
         }
 
         private void btnRight_Click(object sender, EventArgs e)
         {
-            if (IsValidImg(alist[i + 1].ToString()) && (i + 1 < alist.Count))
+            try 
             {
-
-                pictureBox1.Image = Image.FromFile(alist[i + 1].ToString());
-                i = i + 1;
+                if (i + 1 < alist.Count)
+                {
+                    pictureBox1.Image = Image.FromFile(alist[i + 1].ToString());
+                    i = i + 1;
+                }
+                else
+                    btnLeft_Click(sender, e);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void btnLeft_Click(object sender, EventArgs e)
         {
-            if (i - 1 >= 0 && IsValidImg(alist[i].ToString()))
-
+            try
             {
-
-                pictureBox1.Image = Image.FromFile(alist[i - 1].ToString());
-
-                i = i - 1;
-
+                if (i - 1 >= 0)
+                {
+                    pictureBox1.Image = Image.FromFile(alist[i - 1].ToString());
+                    i = i - 1;
+                    //label1.Text = i.ToString();
+                }
+                else 
+                    btnRight_Click(sender, e);
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnBooking_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

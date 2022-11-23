@@ -994,6 +994,10 @@ SELECT * FROM SelectedService
 SELECT * FROM Detail
 select * from Images
 
+DELETE FROM Images
+
 UPDATE Detail
 SET Detail = N'1 Giường lớn'
 WHERE DetailID = 'DT010'
+
+select * from Account
