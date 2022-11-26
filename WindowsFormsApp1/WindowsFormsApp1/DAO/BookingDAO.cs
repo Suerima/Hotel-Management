@@ -66,7 +66,7 @@ namespace WindowsFormsApp1.DAO
 
         public DataTable SearchBooking(string bookingID)
         {
-            try
+            try 
             {
                 string query = "USP_Search_Booking @BookingID "; //
                 return DataProvider.Instance.ExecuteQuery(query, new object[] {bookingID});

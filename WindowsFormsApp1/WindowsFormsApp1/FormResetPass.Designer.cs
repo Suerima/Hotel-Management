@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormResetPass));
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tbUsername = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -58,23 +57,11 @@
             this.label1.Text = "RESET PASSWORD";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label3.Location = new System.Drawing.Point(59, 201);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(511, 25);
-            this.label3.TabIndex = 27;
-            this.label3.Text = "Please enter your email and we\'ll send your new pasword.";
-            // 
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.tbUsername);
-            this.panel3.Location = new System.Drawing.Point(55, 244);
+            this.panel3.Location = new System.Drawing.Point(55, 217);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(543, 61);
@@ -99,7 +86,7 @@
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.tbEmail);
-            this.panel1.Location = new System.Drawing.Point(55, 328);
+            this.panel1.Location = new System.Drawing.Point(55, 302);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(543, 61);
@@ -131,7 +118,7 @@
             this.btnResetPass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResetPass.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResetPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
-            this.btnResetPass.Location = new System.Drawing.Point(75, 418);
+            this.btnResetPass.Location = new System.Drawing.Point(75, 395);
             this.btnResetPass.Margin = new System.Windows.Forms.Padding(4);
             this.btnResetPass.Name = "btnResetPass";
             this.btnResetPass.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
@@ -149,7 +136,7 @@
             this.btnLogin.AutoSize = true;
             this.btnLogin.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnLogin.LinkColor = System.Drawing.Color.DimGray;
-            this.btnLogin.Location = new System.Drawing.Point(337, 494);
+            this.btnLogin.Location = new System.Drawing.Point(340, 476);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(48, 20);
             this.btnLogin.TabIndex = 31;
@@ -185,7 +172,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(242, 494);
+            this.label2.Location = new System.Drawing.Point(245, 476);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 20);
             this.label2.TabIndex = 34;
@@ -197,7 +184,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
-            this.ClientSize = new System.Drawing.Size(659, 557);
+            this.ClientSize = new System.Drawing.Size(659, 527);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -206,7 +193,6 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.btnResetPass);
-            this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -227,7 +213,6 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
         private ePOSOne.btnProduct.Button_WOC btnResetPass;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox tbUsername;

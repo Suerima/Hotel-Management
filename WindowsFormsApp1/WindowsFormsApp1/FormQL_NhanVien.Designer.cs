@@ -89,9 +89,9 @@
             this.label4.Location = new System.Drawing.Point(31, 15);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(340, 29);
+            this.label4.Size = new System.Drawing.Size(301, 29);
             this.label4.TabIndex = 7;
-            this.label4.Text = "INFORMATION EMPLOYEE";
+            this.label4.Text = "THÔNG TIN NHÂN VIÊN";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // panel1
@@ -448,12 +448,12 @@
             this.cbStatus.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Items.AddRange(new object[] {
-            "Free",
-            "Busy"});
+            "Đang rảnh",
+            "Đang bận"});
             this.cbStatus.Location = new System.Drawing.Point(617, 126);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(360, 33);
-            this.cbStatus.TabIndex = 147;
+            this.cbStatus.TabIndex = 8;
             this.cbStatus.Enter += new System.EventHandler(this.cbStatus_Enter);
             this.cbStatus.Leave += new System.EventHandler(this.cbStatus_Leave);
             // 
@@ -505,7 +505,7 @@
             this.tbAddress.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbAddress.PlaceholderText = "";
             this.tbAddress.Size = new System.Drawing.Size(390, 48);
-            this.tbAddress.TabIndex = 145;
+            this.tbAddress.TabIndex = 5;
             this.tbAddress.Texts = "Address";
             this.tbAddress.UnderlinedStyle = false;
             this.tbAddress.Enter += new System.EventHandler(this.tbAddress_Enter);
@@ -538,7 +538,7 @@
             this.tbPhone.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbPhone.PlaceholderText = "";
             this.tbPhone.Size = new System.Drawing.Size(390, 48);
-            this.tbPhone.TabIndex = 143;
+            this.tbPhone.TabIndex = 7;
             this.tbPhone.Texts = "Phone";
             this.tbPhone.UnderlinedStyle = false;
             this.tbPhone.Enter += new System.EventHandler(this.tbPhone_Enter);
@@ -571,7 +571,7 @@
             this.tbIDCard.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbIDCard.PlaceholderText = "";
             this.tbIDCard.Size = new System.Drawing.Size(390, 48);
-            this.tbIDCard.TabIndex = 141;
+            this.tbIDCard.TabIndex = 6;
             this.tbIDCard.Texts = "IDCard";
             this.tbIDCard.UnderlinedStyle = false;
             this.tbIDCard.Enter += new System.EventHandler(this.tbIDCard_Enter);
@@ -598,12 +598,12 @@
             this.cbGender.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.cbGender.FormattingEnabled = true;
             this.cbGender.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
+            "Nam",
+            "Nữ"});
             this.cbGender.Location = new System.Drawing.Point(73, 209);
             this.cbGender.Name = "cbGender";
             this.cbGender.Size = new System.Drawing.Size(360, 33);
-            this.cbGender.TabIndex = 138;
+            this.cbGender.TabIndex = 3;
             this.cbGender.Enter += new System.EventHandler(this.cbGender_Enter);
             this.cbGender.Leave += new System.EventHandler(this.cbGender_Leave);
             // 
@@ -642,7 +642,7 @@
             this.dtpDob.Name = "dtpDob";
             this.dtpDob.Size = new System.Drawing.Size(376, 30);
             this.dtpDob.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
-            this.dtpDob.TabIndex = 135;
+            this.dtpDob.TabIndex = 4;
             this.dtpDob.TextColor = System.Drawing.Color.WhiteSmoke;
             this.dtpDob.Value = new System.DateTime(1950, 1, 25, 0, 0, 0, 0);
             this.dtpDob.Enter += new System.EventHandler(this.dtpDob_Enter);
@@ -707,7 +707,7 @@
             this.tbName.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbName.PlaceholderText = "";
             this.tbName.Size = new System.Drawing.Size(390, 48);
-            this.tbName.TabIndex = 123;
+            this.tbName.TabIndex = 2;
             this.tbName.Texts = "Fullname";
             this.tbName.UnderlinedStyle = false;
             this.tbName.Enter += new System.EventHandler(this.tbName_Enter);
@@ -742,7 +742,7 @@
             this.tbEmployeeID.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbEmployeeID.PlaceholderText = "";
             this.tbEmployeeID.Size = new System.Drawing.Size(390, 48);
-            this.tbEmployeeID.TabIndex = 121;
+            this.tbEmployeeID.TabIndex = 1;
             this.tbEmployeeID.Texts = "EmployeeID";
             this.tbEmployeeID.UnderlinedStyle = false;
             // 
@@ -762,8 +762,8 @@
             this.btnCancel.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
             this.btnCancel.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
             this.btnCancel.Size = new System.Drawing.Size(201, 70);
-            this.btnCancel.TabIndex = 9;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.TabIndex = 10;
+            this.btnCancel.Text = "Thoát";
             this.btnCancel.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -784,8 +784,8 @@
             this.btnSave.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
             this.btnSave.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
             this.btnSave.Size = new System.Drawing.Size(200, 70);
-            this.btnSave.TabIndex = 8;
-            this.btnSave.Text = "Save";
+            this.btnSave.TabIndex = 9;
+            this.btnSave.Text = "Lưu";
             this.btnSave.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);

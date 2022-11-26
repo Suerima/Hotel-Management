@@ -2,10 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using WindowsFormsApp1.DTO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace WindowsFormsApp1.DAO
 {
@@ -38,6 +41,29 @@ namespace WindowsFormsApp1.DAO
             return roomList;
         }
 
+        public List<Room> LoadAmenitiesRoomList(string result, int length, string type, string person)
+        {
+            List<Room> roomList = new List<Room>();
+
+            string query = "SELECT Room.* " +
+                           "FROM Room, (SELECT RoomID " +
+                                       "FROM (SELECT * FROM DetailRoom WHERE " + result + " ) AS A " +
+                                       "GROUP BY RoomID " +
+                                       "HAVING COUNT(DetailID) = " + length.ToString() + ") B " +
+                           "WHERE Room.RoomID = B.RoomID AND (Type = '" + type + "' ) AND Person = '" + person + "' ";
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+
+            foreach (DataRow item in data.Rows)
+            {
+                Room room = new Room(item);
+                roomList.Add(room);
+            }
+
+            return roomList;
+        }
+
+
         public ArrayList LoadListImages(string roomID)
         {
           //  List<Image> imageList = new List<Image>();
@@ -53,12 +79,33 @@ namespace WindowsFormsApp1.DAO
 
             return alist;
         }
-  
+        public string GetPersonRoom(string roomid)
+        {
+            try
+            {
+                return DataProvider.Instance.ExecuteScalar("USP_Get_Person_Room @RoomID", new object[] { roomid }); //
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public string GetTypeRoom(string roomid)
+        {
+            try
+            {
+                return DataProvider.Instance.ExecuteScalar("USP_Get_Type_Room @RoomID", new object[] { roomid }); //
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public string GetFirstPath(string roomid)
         {
             try
             {
-                return DataProvider.Instance.ExecuteScalar("USP_Get_FirstPath @RoomID", new object[] {roomid}); //
+                return DataProvider.Instance.ExecuteScalar("USP_Get_Path @RoomID", new object[] {roomid}); //
             }
             catch (Exception ex)
             {
@@ -114,6 +161,57 @@ namespace WindowsFormsApp1.DAO
             }
         }
 
+        public void InsertListImageRoom(string roomid, ArrayList lstPath, int count)
+        {
+            try
+            {
+               
+
+                string query = "USP_Insert_Images_Room @RoomID , @Path";
+                for (int i = 0; i < count; i++)
+                    DataProvider.Instance.ExecuteNonQuery(query, new object[] { roomid, lstPath[i] });
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void InsertImageRoom(string roomid, string filename)
+        {
+            try
+            {
+                /*byte[] imageData = null;
+                // Read the file into a byte array
+                using (FileStream fs = new FileStream(filename, FileMode.Open, FileAccess.Read))
+                {
+                    imageData = new Byte[fs.Length];
+                    fs.Read(imageData, 0, (int)fs.Length);
+                }*/
+
+                string query = "USP_Insert_Images_Room @RoomID , @Path"; //
+                DataProvider.Instance.ExecuteNonQuery(query, new object[] { roomid, filename });
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void InsertDetailRoom(string[] lstDetails, string roomid)
+        {
+            try
+            {
+                string query = "USP_Insert_DetailRoom @DetailID , @RoomID"; //
+                for(int i = 0; i < lstDetails.Length; i++)
+                     DataProvider.Instance.ExecuteQuery(query, new object[] { lstDetails[i], roomid });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public int InsertRoom(Room room)
         {
             try
@@ -133,6 +231,19 @@ namespace WindowsFormsApp1.DAO
             {
                 string query = "USP_Update_Room @RoomID , @Type , @Person , @Price , @Status , @Description"; //
                 return DataProvider.Instance.ExecuteNonQuery(query, new object[] { room.RoomID, room.Type, room.Person, room.Price, room.Status, room.Description });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void DeleteDetailRoom(string roomID)
+        {
+            try
+            {
+                string query = "USP_Delete_DetailRoom @RoomID";//
+                DataProvider.Instance.ExecuteNonQuery(query, new object[] { roomID });
             }
             catch (Exception ex)
             {

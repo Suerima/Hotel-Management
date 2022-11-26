@@ -42,18 +42,18 @@
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.btnReport = new System.Windows.Forms.Button();
             this.dgvListServiceInvoice = new System.Windows.Forms.DataGridView();
-            this.sPanel1 = new WindowsFormsApp1.Resources.SPanel();
-            this.dateFrom = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnSeen = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dateTo = new System.Windows.Forms.DateTimePicker();
             this.ServiceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ManagerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sPanel1 = new WindowsFormsApp1.Resources.SPanel();
+            this.dateFrom = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnSeen = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dateTo = new System.Windows.Forms.DateTimePicker();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListServiceInvoice)).BeginInit();
             this.sPanel1.SuspendLayout();
@@ -78,9 +78,9 @@
             this.label5.Location = new System.Drawing.Point(31, 15);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(237, 29);
+            this.label5.Size = new System.Drawing.Size(256, 29);
             this.label5.TabIndex = 7;
-            this.label5.Text = "SERVICE REPORT";
+            this.label5.Text = "THỐNG KÊ DỊCH VỤ";
             this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label4
@@ -194,6 +194,62 @@
             this.dgvListServiceInvoice.Size = new System.Drawing.Size(1031, 421);
             this.dgvListServiceInvoice.TabIndex = 91;
             // 
+            // ServiceName
+            // 
+            this.ServiceName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ServiceName.DataPropertyName = "Service_Name";
+            this.ServiceName.HeaderText = "Service Name";
+            this.ServiceName.MinimumWidth = 6;
+            this.ServiceName.Name = "ServiceName";
+            this.ServiceName.ReadOnly = true;
+            // 
+            // ManagerID
+            // 
+            this.ManagerID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ManagerID.DataPropertyName = "ManagerID";
+            this.ManagerID.HeaderText = "ManagerID";
+            this.ManagerID.MinimumWidth = 6;
+            this.ManagerID.Name = "ManagerID";
+            this.ManagerID.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Date_Create";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Date Create";
+            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // Quantity
+            // 
+            this.Quantity.DataPropertyName = "Quantity";
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.MinimumWidth = 6;
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            // 
+            // Price
+            // 
+            this.Price.DataPropertyName = "Price";
+            dataGridViewCellStyle3.Format = "N0";
+            dataGridViewCellStyle3.NullValue = null;
+            this.Price.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Price.HeaderText = "Price";
+            this.Price.MinimumWidth = 6;
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
+            // Total1
+            // 
+            this.Total1.DataPropertyName = "Total";
+            dataGridViewCellStyle4.Format = "N0";
+            this.Total1.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Total1.HeaderText = "Total";
+            this.Total1.MinimumWidth = 6;
+            this.Total1.Name = "Total1";
+            this.Total1.ReadOnly = true;
+            // 
             // sPanel1
             // 
             this.sPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
@@ -264,62 +320,6 @@
             this.dateTo.Name = "dateTo";
             this.dateTo.Size = new System.Drawing.Size(265, 22);
             this.dateTo.TabIndex = 1;
-            // 
-            // ServiceName
-            // 
-            this.ServiceName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ServiceName.DataPropertyName = "Service_Name";
-            this.ServiceName.HeaderText = "Service Name";
-            this.ServiceName.MinimumWidth = 6;
-            this.ServiceName.Name = "ServiceName";
-            this.ServiceName.ReadOnly = true;
-            // 
-            // ManagerID
-            // 
-            this.ManagerID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ManagerID.DataPropertyName = "ManagerID";
-            this.ManagerID.HeaderText = "ManagerID";
-            this.ManagerID.MinimumWidth = 6;
-            this.ManagerID.Name = "ManagerID";
-            this.ManagerID.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "Date_Create";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Date Create";
-            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            // 
-            // Quantity
-            // 
-            this.Quantity.DataPropertyName = "Quantity";
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.MinimumWidth = 6;
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
-            // 
-            // Price
-            // 
-            this.Price.DataPropertyName = "Price";
-            dataGridViewCellStyle3.Format = "N0";
-            dataGridViewCellStyle3.NullValue = null;
-            this.Price.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Price.HeaderText = "Price";
-            this.Price.MinimumWidth = 6;
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            // 
-            // Total1
-            // 
-            this.Total1.DataPropertyName = "Total";
-            dataGridViewCellStyle4.Format = "N0";
-            this.Total1.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Total1.HeaderText = "Total";
-            this.Total1.MinimumWidth = 6;
-            this.Total1.Name = "Total1";
-            this.Total1.ReadOnly = true;
             // 
             // FormDT_DichVu
             // 

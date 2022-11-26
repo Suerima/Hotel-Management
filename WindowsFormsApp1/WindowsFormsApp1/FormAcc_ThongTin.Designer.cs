@@ -125,9 +125,9 @@
             this.label4.Location = new System.Drawing.Point(31, 15);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(308, 29);
+            this.label4.Size = new System.Drawing.Size(300, 29);
             this.label4.TabIndex = 7;
-            this.label4.Text = "INFOMATION ACCOUNT";
+            this.label4.Text = "THÔNG TIN TÀI KHOẢN";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // tabControl
@@ -166,9 +166,9 @@
             this.lbChangeLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.lbChangeLogin.Location = new System.Drawing.Point(909, 35);
             this.lbChangeLogin.Name = "lbChangeLogin";
-            this.lbChangeLogin.Size = new System.Drawing.Size(66, 20);
+            this.lbChangeLogin.Size = new System.Drawing.Size(72, 20);
             this.lbChangeLogin.TabIndex = 40;
-            this.lbChangeLogin.Text = "Change";
+            this.lbChangeLogin.Text = "Thay đổi";
             this.lbChangeLogin.Click += new System.EventHandler(this.lbChangeLogin_Click);
             // 
             // label3
@@ -178,9 +178,9 @@
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label3.Location = new System.Drawing.Point(578, 26);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(215, 29);
+            this.label3.Size = new System.Drawing.Size(252, 29);
             this.label3.TabIndex = 46;
-            this.label3.Text = "Login information";
+            this.label3.Text = "Thông tin đăng nhập";
             // 
             // lbChangePersonal
             // 
@@ -190,9 +190,9 @@
             this.lbChangePersonal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.lbChangePersonal.Location = new System.Drawing.Point(400, 35);
             this.lbChangePersonal.Name = "lbChangePersonal";
-            this.lbChangePersonal.Size = new System.Drawing.Size(66, 20);
+            this.lbChangePersonal.Size = new System.Drawing.Size(72, 20);
             this.lbChangePersonal.TabIndex = 27;
-            this.lbChangePersonal.Text = "Change";
+            this.lbChangePersonal.Text = "Thay đổi";
             this.lbChangePersonal.Click += new System.EventHandler(this.lbChangePersonal_Click);
             // 
             // label2
@@ -202,9 +202,9 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label2.Location = new System.Drawing.Point(54, 28);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(254, 29);
+            this.label2.Size = new System.Drawing.Size(220, 29);
             this.label2.TabIndex = 45;
-            this.label2.Text = "Personal information";
+            this.label2.Text = "Thông tin cá nhân";
             // 
             // sPanel2
             // 
@@ -230,7 +230,7 @@
             this.tbPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.tbPassword.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.tbPassword.Location = new System.Drawing.Point(158, 81);
+            this.tbPassword.Location = new System.Drawing.Point(183, 81);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(218, 23);
@@ -242,7 +242,7 @@
             this.lbEmail.AutoSize = true;
             this.lbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lbEmail.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lbEmail.Location = new System.Drawing.Point(153, 146);
+            this.lbEmail.Location = new System.Drawing.Point(178, 146);
             this.lbEmail.Name = "lbEmail";
             this.lbEmail.Size = new System.Drawing.Size(189, 25);
             this.lbEmail.TabIndex = 38;
@@ -253,7 +253,7 @@
             this.lbUsername.AutoSize = true;
             this.lbUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lbUsername.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lbUsername.Location = new System.Drawing.Point(153, 21);
+            this.lbUsername.Location = new System.Drawing.Point(178, 21);
             this.lbUsername.Name = "lbUsername";
             this.lbUsername.Size = new System.Drawing.Size(223, 25);
             this.lbUsername.TabIndex = 36;
@@ -301,9 +301,9 @@
             this.label29.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.label29.Location = new System.Drawing.Point(25, 81);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(98, 25);
+            this.label29.Size = new System.Drawing.Size(93, 25);
             this.label29.TabIndex = 26;
-            this.label29.Text = "Password";
+            this.label29.Text = "Mật khẩu";
             // 
             // label30
             // 
@@ -312,9 +312,9 @@
             this.label30.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.label30.Location = new System.Drawing.Point(25, 21);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(102, 25);
+            this.label30.Size = new System.Drawing.Size(131, 25);
             this.label30.TabIndex = 25;
-            this.label30.Text = "Username";
+            this.label30.Text = "Tên tài khoản";
             // 
             // sPanel1
             // 
@@ -376,9 +376,9 @@
             this.label24.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.label24.Location = new System.Drawing.Point(22, 406);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(89, 25);
+            this.label24.Size = new System.Drawing.Size(85, 25);
             this.label24.TabIndex = 42;
-            this.label24.Text = "Authority";
+            this.label24.Text = "Chức vụ";
             // 
             // lbIDCard
             // 
@@ -513,9 +513,9 @@
             this.label36.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.label36.Location = new System.Drawing.Point(23, 276);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(69, 25);
+            this.label36.Size = new System.Drawing.Size(53, 25);
             this.label36.TabIndex = 30;
-            this.label36.Text = "Phone";
+            this.label36.Text = "SĐT";
             // 
             // label37
             // 
@@ -524,9 +524,9 @@
             this.label37.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.label37.Location = new System.Drawing.Point(22, 341);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(79, 25);
+            this.label37.Size = new System.Drawing.Size(72, 25);
             this.label37.TabIndex = 29;
-            this.label37.Text = "ID Card";
+            this.label37.Text = "CMND";
             // 
             // label38
             // 
@@ -535,9 +535,9 @@
             this.label38.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.label38.Location = new System.Drawing.Point(22, 146);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(83, 25);
+            this.label38.Size = new System.Drawing.Size(99, 25);
             this.label38.TabIndex = 28;
-            this.label38.Text = "Birthday";
+            this.label38.Text = "Ngày sinh";
             // 
             // label39
             // 
@@ -546,9 +546,9 @@
             this.label39.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.label39.Location = new System.Drawing.Point(23, 211);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(85, 25);
+            this.label39.Size = new System.Drawing.Size(71, 25);
             this.label39.TabIndex = 27;
-            this.label39.Text = "Address";
+            this.label39.Text = "Địa chỉ";
             // 
             // label40
             // 
@@ -557,9 +557,9 @@
             this.label40.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.label40.Location = new System.Drawing.Point(23, 81);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(77, 25);
+            this.label40.Size = new System.Drawing.Size(82, 25);
             this.label40.TabIndex = 26;
-            this.label40.Text = "Gender";
+            this.label40.Text = "Giới tính";
             // 
             // label41
             // 
@@ -568,9 +568,9 @@
             this.label41.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.label41.Location = new System.Drawing.Point(23, 21);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(92, 25);
+            this.label41.Size = new System.Drawing.Size(95, 25);
             this.label41.TabIndex = 25;
-            this.label41.Text = "Fullname";
+            this.label41.Text = "Họ và tên";
             // 
             // tabPersonal
             // 

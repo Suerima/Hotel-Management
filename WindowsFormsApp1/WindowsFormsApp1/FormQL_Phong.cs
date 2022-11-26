@@ -1,16 +1,24 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection.Emit;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using System.Xml.Linq;
 using WindowsFormsApp1.BUS;
+using WindowsFormsApp1.DAO;
 using WindowsFormsApp1.DTO;
+using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WindowsFormsApp1
 {
@@ -18,15 +26,21 @@ namespace WindowsFormsApp1
     {
         private bool checkButton = false;
         Color yellow = Color.FromArgb(247, 206, 69);
-
+        string filename = "D:\\QuanLyKhachSan\\WindowsFormsApp1\\WindowsFormsApp1\\Resources\\logo.png";
+        
         private string status;
+        int index;
+        int count;
+        ArrayList alist;
+
         public FormQL_Phong()
         {
             InitializeComponent();
             tabControl.TabPages.Remove(tabPageEdit);
 
             loadData();
-            if (FormLogin.authority == "Cashier")
+
+            if (FormLogin.authority == "Nhân viên")
             {
                 btnAdd.Visible = false;
                 btnDelete.Visible = false;
@@ -53,8 +67,8 @@ namespace WindowsFormsApp1
             tbRoomID.Texts = GetNextRoomID();
             cbType.Text = "Standard";
             cbPerson.Text = "2";
+            cbTypeBed.Text = "Giường đôi";
             tbPrice.Texts = "Price";
-            tbDescription.Texts = "Description";
         }
 
         private void dgvListRoom_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -69,7 +83,7 @@ namespace WindowsFormsApp1
                     cbPerson.Text = r.Cells[2].Value.ToString();
                     tbPrice.Texts = r.Cells[3].Value.ToString();
                     status = r.Cells[4].Value.ToString();
-                    tbDescription.Texts = r.Cells[5].Value.ToString();
+                    tbBed.Texts = r.Cells[5].Value.ToString();
                 }
             }
         }
@@ -79,9 +93,9 @@ namespace WindowsFormsApp1
             string lastID = RoomBUS.Instance.GetLastRoomID();
 
             if (lastID == null)
-                return "Room001";
+                return "P101";
 
-            int nextID = int.Parse(lastID.Remove(0, 4)) + 1; // Ex: BK012 ->  13
+            int nextID = int.Parse(lastID.Remove(0, 1)) + 1; // Ex: BK012 ->  13
 
             string zeroNumber = "";
 
@@ -93,10 +107,10 @@ namespace WindowsFormsApp1
                     {
                         zeroNumber += "0";
                     }
-                    return "Room" + zeroNumber + nextID.ToString();
+                    return "P" + zeroNumber + nextID.ToString();
                 }
             }
-            return "Room" + nextID;
+            return "P" + nextID;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -106,6 +120,14 @@ namespace WindowsFormsApp1
             tabPageEdit.Text = "ADD";
             reset();
             checkButton = true;
+            resetCheckListBox();
+            // Read the file into a byte array
+            pictureBox1.ImageLocation = filename; // Gán image lên picturebox
+            alist = new ArrayList();
+            index = 0;
+            count = 0;
+            lbCountImage.Text = count.ToString();
+
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -120,22 +142,26 @@ namespace WindowsFormsApp1
                 tabControl.TabPages.Add(tabPageEdit);
                 tabPageEdit.Text = "UPDATE";
                 checkButton = false;
+                PopulateListCheckBox(tbRoomID.Texts);
+                loadImageRoom(tbRoomID.Texts);
+
             }
         }
+       
         public void DeleteRoom()
         {
             try
             {
                 if (tbRoomID.Texts == "")
-                    MessageBox.Show("Please select the room you want to delete!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Vui lòng chọn phòng muốn xoá.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
                 {
-                    var result = MessageBox.Show("Are you sure you want to delete this room?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    var result = MessageBox.Show("Bạn có chắc muốn xoá phòng này", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (result == DialogResult.Yes)
                     {
                         RoomBUS.Instance.DeleteRoom(tbRoomID.Texts);
                         loadData();
-                        MessageBox.Show("Delete successfully.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Xoá thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         tbRoomID.Texts = "";
                     }
                 }
@@ -151,35 +177,146 @@ namespace WindowsFormsApp1
             DeleteRoom();
         }
 
+        private string[] convertDetailID(string[] amenities, int length)
+        {
+            string[] r = new string[length];
+
+            for (int i = 0; i < length; i++)
+            {
+                if (String.Compare(amenities[i], "Hai giường đơn") == 0)
+                    r[i] = "DT001";
+                else if (String.Compare(amenities[i], "Giường đôi") == 0)
+                    r[i] = "DT002";
+                else if (String.Compare(amenities[i], "Hướng ra biển") == 0)
+                    r[i] = "DT003";
+                else if (String.Compare(amenities[i], "Hướng ra phố") == 0)
+                    r[i] = "DT004";
+                else if (String.Compare(amenities[i], "Bồn tắm") == 0)
+                    r[i] = "DT005";
+                else if (String.Compare(amenities[i], "Hồ bơi riêng") == 0)
+                    r[i] = "DT006";
+                else if (String.Compare(amenities[i], "Ban công") == 0)
+                    r[i] = "DT007";
+                else if (String.Compare(amenities[i], "Máy pha cafe") == 0)
+                    r[i] = "DT008";
+                else
+                    r[i] = "DT009";
+            }
+            return r;
+        }
+
+        void resetCheckListBox()
+        {
+            for (int i = 0; i < clbAmenities.Items.Count; i++)
+                clbAmenities.SetItemCheckState(i, CheckState.Unchecked);
+        }
+
+        private void PopulateListCheckBox(string roomid)
+        {
+            resetCheckListBox();
+
+            string[] listDetails = new string[8];
+            DetailDAO.Instance.GetDetailsRoom(roomid).CopyTo(listDetails, 0);
+
+            cbTypeBed.Text = listDetails[0];
+
+            int j = 1;
+            for (int i = 0; i < clbAmenities.Items.Count; i++)
+            {
+                if (clbAmenities.Items[i].ToString() == listDetails[j])
+                {
+                    clbAmenities.SetItemCheckState(i, CheckState.Checked);
+                    j++;
+                }    
+            }    
+        }
+
+        private void loadImageRoom(string roomID)
+        {
+            alist = new ArrayList();
+            alist = RoomDAO.Instance.LoadListImages(roomID); pictureBox1.Image.Dispose();
+            pictureBox1.Image = System.Drawing.Image.FromFile(alist[0].ToString());
+            index = 0;
+            lbCountImage.Text =  alist.Count.ToString();
+        }
+
+        private string[] GetListCheckedItem()
+        {
+            string[] lstCheckedItem = new string[8];
+            lstCheckedItem[0] = cbTypeBed.Text;
+            int j = 1;
+            for (int i = 0; i < clbAmenities.Items.Count; i++)
+            {
+                if (clbAmenities.GetItemChecked(i))
+                {
+                    lstCheckedItem[j] = clbAmenities.Items[i].ToString();
+                    j++;
+                }    
+            }
+            return convertDetailID(lstCheckedItem, j);
+        }
+
+        private void btnRight_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (index + 1 < Int32.Parse(lbCountImage.Text))
+                {
+                    pictureBox1.Image = System.Drawing.Image.FromFile(alist[index + 1].ToString());
+                    index +=  1;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnLeft_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (index - 1 >= 0)
+                {
+                    pictureBox1.Image = System.Drawing.Image.FromFile(alist[index - 1].ToString());
+                    index -= 1;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
+                string[] lst = GetListCheckedItem();
 
                 if (!checkPrice(tbPrice.Texts))
                 {
                     MessageBox.Show("Invalid price.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                else if (tbDescription.Texts == "Description")
-                {
-                    MessageBox.Show("Description cannot be left blank.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
                 else
                 {
-                  //  Room room = new Room(tbRoomID.Texts, cbType.Text, int.Parse(cbPerson.Text), int.Parse(tbPrice.Texts), status, tbDescription.Texts);
 
                     if (checkButton == true)
                     {
-                        Room room = new Room(tbRoomID.Texts, cbType.Text, int.Parse(cbPerson.Text), int.Parse(tbPrice.Texts), "Free", tbDescription.Texts);
-
+                        Room room = new Room(tbRoomID.Texts, cbType.Text, cbPerson.Text, int.Parse(tbPrice.Texts), "Phòng trống", "");
                         RoomBUS.Instance.InsertRoom(room);
+                        RoomDAO.Instance.InsertDetailRoom(lst, tbRoomID.Texts);
+                        RoomDAO.Instance.InsertListImageRoom(tbRoomID.Texts, alist, count);
                         MessageBox.Show("Insert successful!.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        Room room = new Room(tbRoomID.Texts, cbType.Text, int.Parse(cbPerson.Text), int.Parse(tbPrice.Texts), status, tbDescription.Texts);
-
+                        Room room = new Room(tbRoomID.Texts, cbType.Text, cbPerson.Text, int.Parse(tbPrice.Texts), status, "");
                         RoomBUS.Instance.UpdateRoom(room);
+                        RoomDAO.Instance.DeleteDetailRoom(tbRoomID.Texts);
+                        RoomDAO.Instance.InsertDetailRoom(lst, tbRoomID.Texts);
                         MessageBox.Show("Update successful!.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
@@ -229,7 +366,19 @@ namespace WindowsFormsApp1
                 }
             }
         }
+        private void cbTypeBed_Enter(object sender, EventArgs e)
+        {
+            tbBed.BorderSize = 2;
+            tbBed.BorderColor = yellow;
+            lbBed.ForeColor = yellow;
+        }
 
+        private void cbTypeBed_Leave(object sender, EventArgs e)
+        {
+            tbBed.BorderSize = 1;
+            tbBed.BorderColor = Color.DimGray;
+            lbBed.ForeColor = Color.DarkGray;
+        }
         private void tbSearch_Enter(object sender, EventArgs e)
         {
             if (tbSearch.Text == "Search")
@@ -267,31 +416,7 @@ namespace WindowsFormsApp1
                 lbPrice.Text = "";
             }
         }
-        private void tbDescription_Enter(object sender, EventArgs e)
-        {
-            tbDescription.BorderSize = 2;
-            tbDescription.BorderColor = yellow;
-            lbDescription.Text = "Description";
-            lbDescription.ForeColor = yellow;
 
-            if (tbDescription.Texts == "Description")
-                tbDescription.Texts = "";
-            tbDescription.ForeColor = Color.WhiteSmoke;
-        }
-
-        private void tbDescription_Leave(object sender, EventArgs e)
-        {
-            tbDescription.BorderSize = 1;
-            tbDescription.BorderColor = Color.DimGray;
-            lbDescription.ForeColor = Color.DarkGray;
-
-            if (tbDescription.Texts == "")
-            {
-                tbDescription.Texts = "Description";
-                tbDescription.ForeColor = Color.DimGray;
-                lbDescription.Text = "";
-            }
-        }
 
         private void cbType_Enter(object sender, EventArgs e)
         {
@@ -318,7 +443,29 @@ namespace WindowsFormsApp1
             tbPerson.BorderColor = Color.DimGray;
             lbPerson.ForeColor = Color.DarkGray;
         }
+
         #endregion
 
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "Image Files(*.jpg; *.bmp; *.wmf; *.png)| *.jpg; *.bmp; *.wmf; *.png"; ;
+            if (dlg.ShowDialog(this) == DialogResult.OK)
+            {
+                if (checkButton == true)
+                {   
+                    alist.Add(dlg.FileName);
+                    pictureBox1.ImageLocation = dlg.FileName;
+                    count += 1;
+                    lbCountImage.Text = count.ToString() ;
+                }
+                else
+                {
+                    RoomDAO.Instance.InsertImageRoom(tbRoomID.Texts, dlg.FileName);
+                    loadImageRoom(tbRoomID.Texts);
+                    MessageBox.Show("Insert successfully");
+                }    
+             }
+        }
     }
 }

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
@@ -38,21 +38,22 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.flpRoom = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnSearch = new ePOSOne.btnProduct.Button_WOC();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.lstTypeRoom = new System.Windows.Forms.CheckedListBox();
+            this.clbTypeRoom = new System.Windows.Forms.CheckedListBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.lstBed = new System.Windows.Forms.CheckedListBox();
+            this.clbBed = new System.Windows.Forms.CheckedListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.lstAmenities = new System.Windows.Forms.CheckedListBox();
+            this.clbAmenities = new System.Windows.Forms.CheckedListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.cbPerson = new NoteWrapper.FlatCombobox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.tabPageDetail = new System.Windows.Forms.TabPage();
             this.label18 = new System.Windows.Forms.Label();
             this.tbSearch = new System.Windows.Forms.TextBox();
@@ -75,13 +76,8 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSearch = new ePOSOne.btnProduct.Button_WOC();
-            this.cbPerson = new NoteWrapper.FlatCombobox();
-            this.dtpFrom = new WindowsFormsApp1.CustomControls.RJDatePicker();
-            this.dtpTo = new WindowsFormsApp1.CustomControls.RJDatePicker();
             this.btnCancel = new ePOSOne.btnProduct.Button_WOC();
             this.btnDelete = new ePOSOne.btnProduct.Button_WOC();
-            this.txtSearch = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageBooking.SuspendLayout();
@@ -92,7 +88,6 @@
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel9.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.tabPageDetail.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListBooking)).BeginInit();
@@ -117,9 +112,9 @@
             this.label4.Location = new System.Drawing.Point(31, 9);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(132, 29);
+            this.label4.Size = new System.Drawing.Size(164, 29);
             this.label4.TabIndex = 7;
-            this.label4.Text = "BOOKING";
+            this.label4.Text = "ĐẶT PHÒNG";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // tabControl
@@ -183,10 +178,40 @@
             this.panel3.Size = new System.Drawing.Size(191, 844);
             this.panel3.TabIndex = 7;
             // 
+            // txtSearch
+            // 
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(9, 725);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(163, 30);
+            this.txtSearch.TabIndex = 10;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.btnSearch.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(166)))), ((int)(((byte)(199)))));
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Location = new System.Drawing.Point(5, 774);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
+            this.btnSearch.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.btnSearch.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
+            this.btnSearch.Size = new System.Drawing.Size(175, 65);
+            this.btnSearch.TabIndex = 9;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.TextColor = System.Drawing.Color.White;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(239)))));
-            this.panel8.Controls.Add(this.lstTypeRoom);
+            this.panel8.Controls.Add(this.clbTypeRoom);
             this.panel8.Controls.Add(this.label7);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 592);
@@ -194,21 +219,22 @@
             this.panel8.Size = new System.Drawing.Size(191, 127);
             this.panel8.TabIndex = 3;
             // 
-            // lstTypeRoom
+            // clbTypeRoom
             // 
-            this.lstTypeRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(239)))));
-            this.lstTypeRoom.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lstTypeRoom.CheckOnClick = true;
-            this.lstTypeRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstTypeRoom.FormattingEnabled = true;
-            this.lstTypeRoom.Items.AddRange(new object[] {
+            this.clbTypeRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(239)))));
+            this.clbTypeRoom.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.clbTypeRoom.CheckOnClick = true;
+            this.clbTypeRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clbTypeRoom.FormattingEnabled = true;
+            this.clbTypeRoom.Items.AddRange(new object[] {
             "Standard",
             "Superior",
             "Deluxe"});
-            this.lstTypeRoom.Location = new System.Drawing.Point(0, 31);
-            this.lstTypeRoom.Name = "lstTypeRoom";
-            this.lstTypeRoom.Size = new System.Drawing.Size(191, 92);
-            this.lstTypeRoom.TabIndex = 5;
+            this.clbTypeRoom.Location = new System.Drawing.Point(0, 31);
+            this.clbTypeRoom.Name = "clbTypeRoom";
+            this.clbTypeRoom.Size = new System.Drawing.Size(191, 92);
+            this.clbTypeRoom.TabIndex = 5;
+            this.clbTypeRoom.SelectedIndexChanged += new System.EventHandler(this.checkedListBox4_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -225,7 +251,7 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(239)))));
-            this.panel6.Controls.Add(this.lstBed);
+            this.panel6.Controls.Add(this.clbBed);
             this.panel6.Controls.Add(this.label3);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 483);
@@ -233,21 +259,21 @@
             this.panel6.Size = new System.Drawing.Size(191, 109);
             this.panel6.TabIndex = 2;
             // 
-            // lstBed
+            // clbBed
             // 
-            this.lstBed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(239)))));
-            this.lstBed.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lstBed.CheckOnClick = true;
-            this.lstBed.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstBed.FormattingEnabled = true;
-            this.lstBed.Items.AddRange(new object[] {
+            this.clbBed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(239)))));
+            this.clbBed.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.clbBed.CheckOnClick = true;
+            this.clbBed.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clbBed.FormattingEnabled = true;
+            this.clbBed.Items.AddRange(new object[] {
             "Hai giường đơn",
             "Giường đôi"});
-            this.lstBed.Location = new System.Drawing.Point(0, 31);
-            this.lstBed.Name = "lstBed";
-            this.lstBed.Size = new System.Drawing.Size(191, 69);
-            this.lstBed.TabIndex = 3;
-            this.lstBed.SelectedIndexChanged += new System.EventHandler(this.checkedListBox3_SelectedIndexChanged);
+            this.clbBed.Location = new System.Drawing.Point(0, 31);
+            this.clbBed.Name = "clbBed";
+            this.clbBed.Size = new System.Drawing.Size(191, 69);
+            this.clbBed.TabIndex = 3;
+            this.clbBed.SelectedIndexChanged += new System.EventHandler(this.checkedListBox3_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -263,7 +289,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(239)))));
-            this.panel5.Controls.Add(this.lstAmenities);
+            this.panel5.Controls.Add(this.clbAmenities);
             this.panel5.Controls.Add(this.label2);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 253);
@@ -271,14 +297,14 @@
             this.panel5.Size = new System.Drawing.Size(191, 230);
             this.panel5.TabIndex = 1;
             // 
-            // lstAmenities
+            // clbAmenities
             // 
-            this.lstAmenities.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(239)))));
-            this.lstAmenities.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lstAmenities.CheckOnClick = true;
-            this.lstAmenities.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstAmenities.FormattingEnabled = true;
-            this.lstAmenities.Items.AddRange(new object[] {
+            this.clbAmenities.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(239)))));
+            this.clbAmenities.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.clbAmenities.CheckOnClick = true;
+            this.clbAmenities.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clbAmenities.FormattingEnabled = true;
+            this.clbAmenities.Items.AddRange(new object[] {
             "Hướng ra biển",
             "Hướng ra phố",
             "Bồn tắm",
@@ -286,10 +312,10 @@
             "Ban công",
             "Máy pha cafe",
             "Hệ thống sưởi"});
-            this.lstAmenities.Location = new System.Drawing.Point(0, 31);
-            this.lstAmenities.Name = "lstAmenities";
-            this.lstAmenities.Size = new System.Drawing.Size(191, 184);
-            this.lstAmenities.TabIndex = 5;
+            this.clbAmenities.Location = new System.Drawing.Point(0, 31);
+            this.clbAmenities.Name = "clbAmenities";
+            this.clbAmenities.Size = new System.Drawing.Size(191, 184);
+            this.clbAmenities.TabIndex = 5;
             // 
             // label2
             // 
@@ -324,6 +350,19 @@
             this.panel9.Size = new System.Drawing.Size(191, 82);
             this.panel9.TabIndex = 4;
             // 
+            // cbPerson
+            // 
+            this.cbPerson.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPerson.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.cbPerson.FormattingEnabled = true;
+            this.cbPerson.Items.AddRange(new object[] {
+            "2",
+            "4"});
+            this.cbPerson.Location = new System.Drawing.Point(4, 28);
+            this.cbPerson.Name = "cbPerson";
+            this.cbPerson.Size = new System.Drawing.Size(181, 30);
+            this.cbPerson.TabIndex = 0;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -337,38 +376,11 @@
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.label5);
-            this.panel7.Controls.Add(this.dtpFrom);
-            this.panel7.Controls.Add(this.dtpTo);
-            this.panel7.Controls.Add(this.label6);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(191, 171);
             this.panel7.TabIndex = 0;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(166)))), ((int)(((byte)(199)))));
-            this.label5.Location = new System.Drawing.Point(7, 82);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(93, 25);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Ngày trả";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(239)))));
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(166)))), ((int)(((byte)(199)))));
-            this.label6.Location = new System.Drawing.Point(7, 21);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(116, 25);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Ngày nhận";
             // 
             // tabPageDetail
             // 
@@ -580,8 +592,8 @@
             this.dgvListBooking.AllowUserToDeleteRows = false;
             this.dgvListBooking.AllowUserToOrderColumns = true;
             this.dgvListBooking.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
-            this.dgvListBooking.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
+            this.dgvListBooking.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvListBooking.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -590,14 +602,14 @@
             this.dgvListBooking.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvListBooking.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvListBooking.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(131)))), ((int)(((byte)(7)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListBooking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(131)))), ((int)(((byte)(7)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListBooking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvListBooking.ColumnHeadersHeight = 30;
             this.dgvListBooking.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvListBooking.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -607,14 +619,14 @@
             this.Column4,
             this.Column2});
             this.dgvListBooking.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListBooking.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListBooking.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvListBooking.EnableHeadersVisualStyles = false;
             this.dgvListBooking.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvListBooking.Location = new System.Drawing.Point(29, 69);
@@ -627,6 +639,7 @@
             this.dgvListBooking.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListBooking.Size = new System.Drawing.Size(979, 731);
             this.dgvListBooking.TabIndex = 21;
+            this.dgvListBooking.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListBooking_CellClick);
             // 
             // Booking_ID
             // 
@@ -670,76 +683,6 @@
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BorderColor = System.Drawing.Color.LightSlateGray;
-            this.btnSearch.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(166)))), ((int)(((byte)(199)))));
-            this.btnSearch.FlatAppearance.BorderSize = 0;
-            this.btnSearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(5, 774);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
-            this.btnSearch.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.btnSearch.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
-            this.btnSearch.Size = new System.Drawing.Size(175, 65);
-            this.btnSearch.TabIndex = 9;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.TextColor = System.Drawing.Color.White;
-            this.btnSearch.UseVisualStyleBackColor = true;
-            // 
-            // cbPerson
-            // 
-            this.cbPerson.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPerson.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.cbPerson.FormattingEnabled = true;
-            this.cbPerson.Items.AddRange(new object[] {
-            "2 Person",
-            "4 Person"});
-            this.cbPerson.Location = new System.Drawing.Point(4, 28);
-            this.cbPerson.Name = "cbPerson";
-            this.cbPerson.Size = new System.Drawing.Size(181, 30);
-            this.cbPerson.TabIndex = 0;
-            // 
-            // dtpFrom
-            // 
-            this.dtpFrom.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.dtpFrom.BorderSize = 0;
-            this.dtpFrom.CustomFormat = "dd/MM/yyyy";
-            this.dtpFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFrom.Location = new System.Drawing.Point(9, 49);
-            this.dtpFrom.MaxDate = new System.DateTime(2022, 12, 31, 0, 0, 0, 0);
-            this.dtpFrom.MinDate = new System.DateTime(2022, 11, 22, 0, 0, 0, 0);
-            this.dtpFrom.MinimumSize = new System.Drawing.Size(4, 20);
-            this.dtpFrom.Name = "dtpFrom";
-            this.dtpFrom.Size = new System.Drawing.Size(163, 30);
-            this.dtpFrom.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(239)))));
-            this.dtpFrom.TabIndex = 5;
-            this.dtpFrom.TextColor = System.Drawing.Color.Black;
-            this.dtpFrom.Value = new System.DateTime(2022, 11, 22, 0, 0, 0, 0);
-            // 
-            // dtpTo
-            // 
-            this.dtpTo.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.dtpTo.BorderSize = 0;
-            this.dtpTo.CustomFormat = "dd/MM/yyyy";
-            this.dtpTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTo.Location = new System.Drawing.Point(12, 110);
-            this.dtpTo.MaxDate = new System.DateTime(2022, 12, 31, 0, 0, 0, 0);
-            this.dtpTo.MinDate = new System.DateTime(2022, 11, 22, 0, 0, 0, 0);
-            this.dtpTo.MinimumSize = new System.Drawing.Size(4, 20);
-            this.dtpTo.Name = "dtpTo";
-            this.dtpTo.Size = new System.Drawing.Size(163, 30);
-            this.dtpTo.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(239)))));
-            this.dtpTo.TabIndex = 9;
-            this.dtpTo.TextColor = System.Drawing.Color.Black;
-            this.dtpTo.Value = new System.DateTime(2022, 11, 22, 0, 0, 0, 0);
             // 
             // btnCancel
             // 
@@ -786,14 +729,7 @@
             this.btnDelete.Text = "Delete";
             this.btnDelete.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.btnDelete.UseVisualStyleBackColor = true;
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(9, 725);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(163, 30);
-            this.txtSearch.TabIndex = 10;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // FormBooking
             // 
@@ -820,8 +756,6 @@
             this.panel4.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
             this.tabPageDetail.ResumeLayout(false);
             this.tabPageDetail.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -866,23 +800,19 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.FlowLayoutPanel flpRoom;
-        private CustomControls.RJDatePicker dtpFrom;
         private ePOSOne.btnProduct.Button_WOC btnSearch;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.CheckedListBox lstBed;
+        private System.Windows.Forms.CheckedListBox clbBed;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.CheckedListBox lstAmenities;
+        private System.Windows.Forms.CheckedListBox clbAmenities;
         private System.Windows.Forms.Label label2;
-        private CustomControls.RJDatePicker dtpTo;
         private System.Windows.Forms.Label label1;
         private NoteWrapper.FlatCombobox cbPerson;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.CheckedListBox lstTypeRoom;
+        private System.Windows.Forms.CheckedListBox clbTypeRoom;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Panel panel7;
     }
 }

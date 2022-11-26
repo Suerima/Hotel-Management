@@ -11,17 +11,17 @@ namespace WindowsFormsApp1.DTO
     {
         private string roomID;
         private string type;
-        private int person;
+        private string person;
         private int price;
         private string status;
         private string description;
 
         public string RoomID { get => roomID; set => roomID = value; }
         public string Type { get => type; set => type = value; }
-        public int Person { get => person; set => person = value; }
         public int Price { get => price; set => price = value; }
         public string Status { get => status; set => status = value; }
         public string Description { get => description; set => description = value; }
+        public string Person { get => person; set => person = value; }
 
         public Room() { }
 
@@ -29,13 +29,13 @@ namespace WindowsFormsApp1.DTO
         {
             this.RoomID = row["RoomID"].ToString();
             this.Type = row["Type"].ToString();
-            this.Person = (int)row["Person"];
+            this.Person = row["Person"].ToString();
             this.Price = (int)row["Price"];
             this.Status = row["Status"].ToString();
             this.Description = row["Description"].ToString();
         }   
 
-        public Room(string roomID, string type, int person, int price, string status, string description)
+        public Room(string roomID, string type, string person, int price, string status, string description)
         {
             RoomID = roomID;
             Type = type;

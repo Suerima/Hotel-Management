@@ -120,7 +120,7 @@ namespace WindowsFormsApp1
 
                 BookingReportBUS.Instance.InsertBookingReport(br);
                 
-                BookingBUS.Instance.UpdateStatusRoom(roomID, "Available");
+                BookingBUS.Instance.UpdateStatusRoom(roomID, "Phòng trống");
 
                 PersonalInfoBUS.Instance.DeletePerson(tbCustomerID.Text);
 

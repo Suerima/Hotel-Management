@@ -22,7 +22,7 @@ namespace WindowsFormsApp1
   //          this.KeyPreview = true;
             InitializeComponent(); 
             tabControl.TabPages.Remove(tabPageEdit);
-           if(FormLogin.authority == "Cashier")
+           if(FormLogin.authority == "Nhân viên")
             {
                 btnAdd.Visible = false;
                 btnDelete.Visible = false;
@@ -40,7 +40,7 @@ namespace WindowsFormsApp1
         void loadData()
         {
             dgvListEmployee.DataSource = EmployeeBUS.Instance.GetEmployee();
-            lbRecord.Text = "Records: " + dgvListEmployee.RowCount.ToString();
+            lbRecord.Text = "Số lượng nhân viên: " + dgvListEmployee.RowCount.ToString();
 
         }
         private void reset()

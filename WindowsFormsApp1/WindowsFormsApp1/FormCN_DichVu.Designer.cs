@@ -97,6 +97,7 @@
             this.Service_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbPriceTemp = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageList.SuspendLayout();
@@ -129,9 +130,9 @@
             this.label4.Location = new System.Drawing.Point(31, 15);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(123, 29);
+            this.label4.Size = new System.Drawing.Size(115, 29);
             this.label4.TabIndex = 7;
-            this.label4.Text = "SERVICE";
+            this.label4.Text = "DỊCH VỤ";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // tabControl
@@ -667,6 +668,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.groupBox1.Controls.Add(this.lbPriceTemp);
             this.groupBox1.Controls.Add(this.nudQuantity);
             this.groupBox1.Controls.Add(this.lbCustomerID);
             this.groupBox1.Controls.Add(this.lbSIC);
@@ -679,11 +681,11 @@
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.groupBox1.Location = new System.Drawing.Point(725, 21);
+            this.groupBox1.Location = new System.Drawing.Point(686, 21);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(323, 231);
+            this.groupBox1.Size = new System.Drawing.Size(365, 255);
             this.groupBox1.TabIndex = 27;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detail";
@@ -691,12 +693,24 @@
             // nudQuantity
             // 
             this.nudQuantity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.nudQuantity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.nudQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.nudQuantity.ForeColor = System.Drawing.SystemColors.MenuBar;
             this.nudQuantity.Location = new System.Drawing.Point(203, 180);
+            this.nudQuantity.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudQuantity.Name = "nudQuantity";
             this.nudQuantity.Size = new System.Drawing.Size(69, 26);
             this.nudQuantity.TabIndex = 44;
+            this.nudQuantity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudQuantity.ValueChanged += new System.EventHandler(this.nudQuantity_ValueChanged);
             // 
             // lbCustomerID
             // 
@@ -819,8 +833,7 @@
             this.dgvListSelectedService.AllowUserToResizeRows = false;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
             this.dgvListSelectedService.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.dgvListSelectedService.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvListSelectedService.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvListSelectedService.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListSelectedService.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
@@ -854,7 +867,7 @@
             this.dgvListSelectedService.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgvListSelectedService.EnableHeadersVisualStyles = false;
             this.dgvListSelectedService.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dgvListSelectedService.Location = new System.Drawing.Point(16, 273);
+            this.dgvListSelectedService.Location = new System.Drawing.Point(16, 86);
             this.dgvListSelectedService.Margin = new System.Windows.Forms.Padding(4);
             this.dgvListSelectedService.Name = "dgvListSelectedService";
             this.dgvListSelectedService.ReadOnly = true;
@@ -862,7 +875,7 @@
             this.dgvListSelectedService.RowHeadersWidth = 51;
             this.dgvListSelectedService.RowTemplate.Height = 35;
             this.dgvListSelectedService.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListSelectedService.Size = new System.Drawing.Size(692, 263);
+            this.dgvListSelectedService.Size = new System.Drawing.Size(649, 616);
             this.dgvListSelectedService.TabIndex = 21;
             this.dgvListSelectedService.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListSelectedService_CellClick);
             // 
@@ -961,7 +974,7 @@
             this.dgvListService.RowHeadersWidth = 51;
             this.dgvListService.RowTemplate.Height = 35;
             this.dgvListService.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListService.Size = new System.Drawing.Size(692, 231);
+            this.dgvListService.Size = new System.Drawing.Size(649, 379);
             this.dgvListService.TabIndex = 20;
             this.dgvListService.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListService_CellClick);
             // 
@@ -969,7 +982,7 @@
             // 
             this.Service_Code.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Service_Code.DataPropertyName = "Service_Code";
-            this.Service_Code.HeaderText = "Service Code";
+            this.Service_Code.HeaderText = "Mã dịch vụ";
             this.Service_Code.MinimumWidth = 6;
             this.Service_Code.Name = "Service_Code";
             this.Service_Code.ReadOnly = true;
@@ -978,7 +991,7 @@
             // 
             this.Service_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Service_Name.DataPropertyName = "Service_Name";
-            this.Service_Name.HeaderText = "Service Name";
+            this.Service_Name.HeaderText = "Tên dịch vụ";
             this.Service_Name.MinimumWidth = 6;
             this.Service_Name.Name = "Service_Name";
             this.Service_Name.ReadOnly = true;
@@ -987,7 +1000,7 @@
             // 
             this.Unit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Unit.DataPropertyName = "Unit";
-            this.Unit.HeaderText = "Unit";
+            this.Unit.HeaderText = "Loại dịch vụ";
             this.Unit.MinimumWidth = 6;
             this.Unit.Name = "Unit";
             this.Unit.ReadOnly = true;
@@ -996,10 +1009,22 @@
             // 
             this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Price.DataPropertyName = "Price";
-            this.Price.HeaderText = "Price";
+            this.Price.HeaderText = "Giá";
             this.Price.MinimumWidth = 6;
             this.Price.Name = "Price";
             this.Price.ReadOnly = true;
+            // 
+            // lbPriceTemp
+            // 
+            this.lbPriceTemp.AutoSize = true;
+            this.lbPriceTemp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPriceTemp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.lbPriceTemp.Location = new System.Drawing.Point(199, 219);
+            this.lbPriceTemp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbPriceTemp.Name = "lbPriceTemp";
+            this.lbPriceTemp.Size = new System.Drawing.Size(18, 20);
+            this.lbPriceTemp.TabIndex = 67;
+            this.lbPriceTemp.Text = "0";
             // 
             // FormCN_DichVu
             // 
@@ -1067,10 +1092,6 @@
         private ePOSOne.btnProduct.Button_WOC btnDelete;
         private ePOSOne.btnProduct.Button_WOC btnSave;
         private ePOSOne.btnProduct.Button_WOC btnChoose;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Service_Code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Service_Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridView dgvListCustomer;
         private ePOSOne.btnProduct.Button_WOC btnCreate;
         private ePOSOne.btnProduct.Button_WOC btnDetail;
@@ -1090,5 +1111,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.NumericUpDown nudQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Service_Code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Service_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.Label lbPriceTemp;
     }
 }

@@ -133,6 +133,7 @@ namespace WindowsFormsApp1
                 {
                     lbServiceCode.Text = r.Cells[0].Value.ToString();
                     lbPrice.Text = r.Cells[3].Value.ToString();
+                    lbPriceTemp.Text = lbPrice.Text;
                 }
             }
         }
@@ -361,5 +362,9 @@ namespace WindowsFormsApp1
         }
         #endregion
 
+        private void nudQuantity_ValueChanged(object sender, EventArgs e)
+        {
+            lbPrice.Text = (Int32.Parse(lbPriceTemp.Text) * Int32.Parse(nudQuantity.Value.ToString())).ToString();
+        }
     }
 }

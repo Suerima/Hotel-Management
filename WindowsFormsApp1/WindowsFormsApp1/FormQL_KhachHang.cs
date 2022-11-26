@@ -28,7 +28,7 @@ namespace WindowsFormsApp1
         void loadData()
         {
             dgvListCustomer.DataSource = CustomerBUS.Instance.GetCustomer();
-            lbRecord.Text = "Records: " + dgvListCustomer.RowCount.ToString();
+            lbRecord.Text = "Số lượng khách: " + dgvListCustomer.RowCount.ToString();
         }
 
         private void reset()
@@ -94,7 +94,7 @@ namespace WindowsFormsApp1
         {
             tabControl.TabPages.Remove(tabPageList);
             tabControl.TabPages.Add(tabPageEdit);
-            tabPageEdit.Text = "ADD";
+            tabPageEdit.Text = "Thêm khách hàng";
             reset();
             checkButton = true;
         }
@@ -109,7 +109,7 @@ namespace WindowsFormsApp1
             {
                 tabControl.TabPages.Remove(tabPageList);
                 tabControl.TabPages.Add(tabPageEdit);
-                tabPageEdit.Text = "UPDATE";
+                tabPageEdit.Text = "Cập nhật thông tin";
                 checkButton = false;
             }
         }
@@ -210,23 +210,22 @@ namespace WindowsFormsApp1
 
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {
-            if (tbSearch.Text != "Search")
+            if (tbSearch.Text != "Tìm kiếm")
             {
-                if (cbSearch.Text == " Fullname")
+                if (cbSearch.Text == " Họ tên")
                 {
                     dgvListCustomer.DataSource = CustomerBUS.Instance.SearchCustomer("Name", tbSearch.Text);
                 }
-                else if (cbSearch.Text == " Phone")
+                else if (cbSearch.Text == " Số điện thoại")
                 {
                     dgvListCustomer.DataSource = CustomerBUS.Instance.SearchCustomer("Phone", tbSearch.Text);
-
                 }
-                else if (cbSearch.Text == " IDCard")
+                else if (cbSearch.Text == " CMND")
                 {
                     dgvListCustomer.DataSource = CustomerBUS.Instance.SearchCustomer("IDCard", tbSearch.Text);
 
                 }
-                else if (cbSearch.Text == " CustomerID")
+                else if (cbSearch.Text == " Mã khách hàng")
                 {
                     dgvListCustomer.DataSource = CustomerBUS.Instance.SearchCustomer("CustomerID", tbSearch.Text);
                 }
@@ -235,14 +234,14 @@ namespace WindowsFormsApp1
 
         private void tbSearch_Enter(object sender, EventArgs e)
         {
-            if (tbSearch.Text == "Search")
+            if (tbSearch.Text == "Tìm kiếm")
                 tbSearch.Text = "";
         }
 
         private void tbSearch_Leave(object sender, EventArgs e)
         {
             if (tbSearch.Text == "")
-                tbSearch.Text = "Search";
+                tbSearch.Text = "Tìm kiếm";
         }
 
 
@@ -377,6 +376,6 @@ namespace WindowsFormsApp1
             tbDob.BorderColor = yellow;
             lbDob.ForeColor = yellow;
         }
-#endregion
+        #endregion
     }
 }

@@ -51,10 +51,10 @@
             this.btnDangXuat = new System.Windows.Forms.Button();
             this.btnAccount = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
-            this.pictureBox = new WindowsFormsApp1.Resources.CustomPictureBox();
             this.lbName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panelChildForm = new System.Windows.Forms.Panel();
+            this.pictureBox = new WindowsFormsApp1.Resources.CustomPictureBox();
             this.panelSideMenu.SuspendLayout();
             this.panelThongKeSubMenu.SuspendLayout();
             this.panelChucNangSubMenu.SuspendLayout();
@@ -107,7 +107,7 @@
             this.btnTk_ThuePhong.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(23)))), ((int)(((byte)(28)))));
             this.btnTk_ThuePhong.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(47)))), ((int)(((byte)(57)))));
             this.btnTk_ThuePhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTk_ThuePhong.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.btnTk_ThuePhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.btnTk_ThuePhong.ForeColor = System.Drawing.Color.LightGray;
             this.btnTk_ThuePhong.Location = new System.Drawing.Point(0, 45);
             this.btnTk_ThuePhong.Margin = new System.Windows.Forms.Padding(4);
@@ -115,7 +115,7 @@
             this.btnTk_ThuePhong.Padding = new System.Windows.Forms.Padding(36, 0, 0, 0);
             this.btnTk_ThuePhong.Size = new System.Drawing.Size(291, 45);
             this.btnTk_ThuePhong.TabIndex = 15;
-            this.btnTk_ThuePhong.Text = "Room";
+            this.btnTk_ThuePhong.Text = "Thuê phòng";
             this.btnTk_ThuePhong.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTk_ThuePhong.UseVisualStyleBackColor = false;
             this.btnTk_ThuePhong.Click += new System.EventHandler(this.btnTk_ThuePhong_Click);
@@ -128,7 +128,7 @@
             this.btnTk_DichVu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(23)))), ((int)(((byte)(28)))));
             this.btnTk_DichVu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(47)))), ((int)(((byte)(57)))));
             this.btnTk_DichVu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTk_DichVu.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.btnTk_DichVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.btnTk_DichVu.ForeColor = System.Drawing.Color.LightGray;
             this.btnTk_DichVu.Location = new System.Drawing.Point(0, 0);
             this.btnTk_DichVu.Margin = new System.Windows.Forms.Padding(4);
@@ -136,7 +136,7 @@
             this.btnTk_DichVu.Padding = new System.Windows.Forms.Padding(36, 0, 0, 0);
             this.btnTk_DichVu.Size = new System.Drawing.Size(291, 45);
             this.btnTk_DichVu.TabIndex = 14;
-            this.btnTk_DichVu.Text = "Service";
+            this.btnTk_DichVu.Text = "Dịch vụ";
             this.btnTk_DichVu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTk_DichVu.UseVisualStyleBackColor = false;
             this.btnTk_DichVu.Click += new System.EventHandler(this.btnTk_DichVu_Click);
@@ -149,7 +149,7 @@
             this.btnThongke.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(13)))), ((int)(((byte)(30)))));
             this.btnThongke.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(18)))), ((int)(((byte)(44)))));
             this.btnThongke.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThongke.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThongke.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThongke.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnThongke.Image = ((System.Drawing.Image)(resources.GetObject("btnThongke.Image")));
             this.btnThongke.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -159,7 +159,7 @@
             this.btnThongke.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnThongke.Size = new System.Drawing.Size(291, 45);
             this.btnThongke.TabIndex = 23;
-            this.btnThongke.Text = "  Reports";
+            this.btnThongke.Text = "  Thống kê";
             this.btnThongke.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnThongke.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnThongke.UseVisualStyleBackColor = false;
@@ -186,7 +186,7 @@
             this.btnCN_DichVu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(23)))), ((int)(((byte)(28)))));
             this.btnCN_DichVu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(47)))), ((int)(((byte)(57)))));
             this.btnCN_DichVu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCN_DichVu.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCN_DichVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.btnCN_DichVu.ForeColor = System.Drawing.Color.LightGray;
             this.btnCN_DichVu.Location = new System.Drawing.Point(0, 90);
             this.btnCN_DichVu.Margin = new System.Windows.Forms.Padding(4);
@@ -194,7 +194,7 @@
             this.btnCN_DichVu.Padding = new System.Windows.Forms.Padding(36, 0, 0, 0);
             this.btnCN_DichVu.Size = new System.Drawing.Size(291, 45);
             this.btnCN_DichVu.TabIndex = 9;
-            this.btnCN_DichVu.Text = "Service";
+            this.btnCN_DichVu.Text = "Dịch vụ";
             this.btnCN_DichVu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCN_DichVu.UseVisualStyleBackColor = false;
             this.btnCN_DichVu.Click += new System.EventHandler(this.btnCN_DichVu_Click);
@@ -207,7 +207,7 @@
             this.btnCN_TraPhong.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(23)))), ((int)(((byte)(28)))));
             this.btnCN_TraPhong.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(47)))), ((int)(((byte)(57)))));
             this.btnCN_TraPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCN_TraPhong.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCN_TraPhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.btnCN_TraPhong.ForeColor = System.Drawing.Color.LightGray;
             this.btnCN_TraPhong.Location = new System.Drawing.Point(0, 45);
             this.btnCN_TraPhong.Margin = new System.Windows.Forms.Padding(4);
@@ -215,7 +215,7 @@
             this.btnCN_TraPhong.Padding = new System.Windows.Forms.Padding(36, 0, 0, 0);
             this.btnCN_TraPhong.Size = new System.Drawing.Size(291, 45);
             this.btnCN_TraPhong.TabIndex = 8;
-            this.btnCN_TraPhong.Text = "Check-out";
+            this.btnCN_TraPhong.Text = "Trả phòng";
             this.btnCN_TraPhong.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCN_TraPhong.UseVisualStyleBackColor = false;
             this.btnCN_TraPhong.Click += new System.EventHandler(this.btnCN_TraPhong_Click);
@@ -228,7 +228,7 @@
             this.btnCN_ThuePhong.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(23)))), ((int)(((byte)(28)))));
             this.btnCN_ThuePhong.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(47)))), ((int)(((byte)(57)))));
             this.btnCN_ThuePhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCN_ThuePhong.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCN_ThuePhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.btnCN_ThuePhong.ForeColor = System.Drawing.Color.LightGray;
             this.btnCN_ThuePhong.Location = new System.Drawing.Point(0, 0);
             this.btnCN_ThuePhong.Margin = new System.Windows.Forms.Padding(4);
@@ -236,7 +236,7 @@
             this.btnCN_ThuePhong.Padding = new System.Windows.Forms.Padding(36, 0, 0, 0);
             this.btnCN_ThuePhong.Size = new System.Drawing.Size(291, 45);
             this.btnCN_ThuePhong.TabIndex = 7;
-            this.btnCN_ThuePhong.Text = "Booking";
+            this.btnCN_ThuePhong.Text = "Đặt phòng";
             this.btnCN_ThuePhong.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCN_ThuePhong.UseVisualStyleBackColor = false;
             this.btnCN_ThuePhong.Click += new System.EventHandler(this.btnCN_ThuePhong_Click);
@@ -249,7 +249,7 @@
             this.btnChucnang.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(13)))), ((int)(((byte)(30)))));
             this.btnChucnang.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(18)))), ((int)(((byte)(44)))));
             this.btnChucnang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChucnang.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChucnang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnChucnang.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnChucnang.Image = ((System.Drawing.Image)(resources.GetObject("btnChucnang.Image")));
             this.btnChucnang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -259,7 +259,7 @@
             this.btnChucnang.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnChucnang.Size = new System.Drawing.Size(291, 45);
             this.btnChucnang.TabIndex = 21;
-            this.btnChucnang.Text = "  Function";
+            this.btnChucnang.Text = "  Chức năng";
             this.btnChucnang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnChucnang.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnChucnang.UseVisualStyleBackColor = false;
@@ -286,7 +286,7 @@
             this.btnQL_Phong.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(23)))), ((int)(((byte)(28)))));
             this.btnQL_Phong.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(47)))), ((int)(((byte)(57)))));
             this.btnQL_Phong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQL_Phong.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQL_Phong.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.btnQL_Phong.ForeColor = System.Drawing.Color.LightGray;
             this.btnQL_Phong.Location = new System.Drawing.Point(0, 90);
             this.btnQL_Phong.Margin = new System.Windows.Forms.Padding(4);
@@ -294,7 +294,7 @@
             this.btnQL_Phong.Padding = new System.Windows.Forms.Padding(36, 0, 0, 0);
             this.btnQL_Phong.Size = new System.Drawing.Size(291, 45);
             this.btnQL_Phong.TabIndex = 5;
-            this.btnQL_Phong.Text = "Rooms";
+            this.btnQL_Phong.Text = "Phòng";
             this.btnQL_Phong.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnQL_Phong.UseVisualStyleBackColor = false;
             this.btnQL_Phong.Click += new System.EventHandler(this.btnQL_Phong_Click);
@@ -307,7 +307,7 @@
             this.btnQL_KhachHang.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(23)))), ((int)(((byte)(28)))));
             this.btnQL_KhachHang.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(47)))), ((int)(((byte)(57)))));
             this.btnQL_KhachHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQL_KhachHang.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQL_KhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.btnQL_KhachHang.ForeColor = System.Drawing.Color.LightGray;
             this.btnQL_KhachHang.Location = new System.Drawing.Point(0, 45);
             this.btnQL_KhachHang.Margin = new System.Windows.Forms.Padding(4);
@@ -315,7 +315,7 @@
             this.btnQL_KhachHang.Padding = new System.Windows.Forms.Padding(36, 0, 0, 0);
             this.btnQL_KhachHang.Size = new System.Drawing.Size(291, 45);
             this.btnQL_KhachHang.TabIndex = 4;
-            this.btnQL_KhachHang.Text = "Customers";
+            this.btnQL_KhachHang.Text = "Khách hàng";
             this.btnQL_KhachHang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnQL_KhachHang.UseVisualStyleBackColor = false;
             this.btnQL_KhachHang.Click += new System.EventHandler(this.btnQL_KhachHang_Click);
@@ -328,7 +328,7 @@
             this.btnQL_NhanVien.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(23)))), ((int)(((byte)(28)))));
             this.btnQL_NhanVien.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(47)))), ((int)(((byte)(57)))));
             this.btnQL_NhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQL_NhanVien.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQL_NhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.btnQL_NhanVien.ForeColor = System.Drawing.Color.LightGray;
             this.btnQL_NhanVien.Location = new System.Drawing.Point(0, 0);
             this.btnQL_NhanVien.Margin = new System.Windows.Forms.Padding(4);
@@ -336,7 +336,7 @@
             this.btnQL_NhanVien.Padding = new System.Windows.Forms.Padding(36, 0, 0, 0);
             this.btnQL_NhanVien.Size = new System.Drawing.Size(291, 45);
             this.btnQL_NhanVien.TabIndex = 3;
-            this.btnQL_NhanVien.Text = "Employees";
+            this.btnQL_NhanVien.Text = "Nhân viên";
             this.btnQL_NhanVien.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnQL_NhanVien.UseVisualStyleBackColor = false;
             this.btnQL_NhanVien.Click += new System.EventHandler(this.btnQL_NhanVien_Click);
@@ -349,7 +349,7 @@
             this.btnQuanly.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(13)))), ((int)(((byte)(30)))));
             this.btnQuanly.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(18)))), ((int)(((byte)(44)))));
             this.btnQuanly.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQuanly.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuanly.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnQuanly.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnQuanly.Image = ((System.Drawing.Image)(resources.GetObject("btnQuanly.Image")));
             this.btnQuanly.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -359,7 +359,7 @@
             this.btnQuanly.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnQuanly.Size = new System.Drawing.Size(291, 45);
             this.btnQuanly.TabIndex = 18;
-            this.btnQuanly.Text = "  Manage";
+            this.btnQuanly.Text = "  Quản lý";
             this.btnQuanly.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnQuanly.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnQuanly.UseVisualStyleBackColor = false;
@@ -383,7 +383,7 @@
             this.btnAcc_Create.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(23)))), ((int)(((byte)(28)))));
             this.btnAcc_Create.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(47)))), ((int)(((byte)(57)))));
             this.btnAcc_Create.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAcc_Create.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAcc_Create.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.btnAcc_Create.ForeColor = System.Drawing.Color.LightGray;
             this.btnAcc_Create.Location = new System.Drawing.Point(0, 45);
             this.btnAcc_Create.Margin = new System.Windows.Forms.Padding(4);
@@ -391,7 +391,7 @@
             this.btnAcc_Create.Padding = new System.Windows.Forms.Padding(36, 0, 0, 0);
             this.btnAcc_Create.Size = new System.Drawing.Size(291, 45);
             this.btnAcc_Create.TabIndex = 5;
-            this.btnAcc_Create.Text = "New Account";
+            this.btnAcc_Create.Text = "Tạo tài khoản";
             this.btnAcc_Create.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAcc_Create.UseVisualStyleBackColor = false;
             this.btnAcc_Create.Click += new System.EventHandler(this.btnAcc_Create_Click);
@@ -404,7 +404,7 @@
             this.btnAcc_Information.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(23)))), ((int)(((byte)(28)))));
             this.btnAcc_Information.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(47)))), ((int)(((byte)(57)))));
             this.btnAcc_Information.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAcc_Information.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAcc_Information.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.btnAcc_Information.ForeColor = System.Drawing.Color.LightGray;
             this.btnAcc_Information.Location = new System.Drawing.Point(0, 0);
             this.btnAcc_Information.Margin = new System.Windows.Forms.Padding(4);
@@ -412,7 +412,7 @@
             this.btnAcc_Information.Padding = new System.Windows.Forms.Padding(36, 0, 0, 0);
             this.btnAcc_Information.Size = new System.Drawing.Size(291, 45);
             this.btnAcc_Information.TabIndex = 4;
-            this.btnAcc_Information.Text = "Information";
+            this.btnAcc_Information.Text = "Thông tin tài khoản";
             this.btnAcc_Information.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAcc_Information.UseVisualStyleBackColor = false;
             this.btnAcc_Information.Click += new System.EventHandler(this.btnAcc_Information_Click);
@@ -437,7 +437,7 @@
             this.btnDangXuat.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(13)))), ((int)(((byte)(30)))));
             this.btnDangXuat.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(18)))), ((int)(((byte)(44)))));
             this.btnDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDangXuat.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDangXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnDangXuat.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnDangXuat.Image = ((System.Drawing.Image)(resources.GetObject("btnDangXuat.Image")));
             this.btnDangXuat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -447,7 +447,7 @@
             this.btnDangXuat.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnDangXuat.Size = new System.Drawing.Size(291, 45);
             this.btnDangXuat.TabIndex = 16;
-            this.btnDangXuat.Text = "  Exit";
+            this.btnDangXuat.Text = " Thoát";
             this.btnDangXuat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDangXuat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDangXuat.UseVisualStyleBackColor = true;
@@ -461,7 +461,7 @@
             this.btnAccount.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(13)))), ((int)(((byte)(30)))));
             this.btnAccount.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(18)))), ((int)(((byte)(44)))));
             this.btnAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAccount.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnAccount.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnAccount.Image = ((System.Drawing.Image)(resources.GetObject("btnAccount.Image")));
             this.btnAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -471,7 +471,7 @@
             this.btnAccount.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnAccount.Size = new System.Drawing.Size(291, 45);
             this.btnAccount.TabIndex = 1;
-            this.btnAccount.Text = "  Account";
+            this.btnAccount.Text = "  Tài khoản";
             this.btnAccount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAccount.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAccount.UseVisualStyleBackColor = false;
@@ -490,34 +490,14 @@
             this.panelLogo.Size = new System.Drawing.Size(291, 192);
             this.panelLogo.TabIndex = 0;
             // 
-            // pictureBox
-            // 
-            this.pictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
-            this.pictureBox.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-            this.pictureBox.BorderColor = System.Drawing.Color.Tomato;
-            this.pictureBox.BorderColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
-            this.pictureBox.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            this.pictureBox.BorderSize = 3;
-            this.pictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox.ErrorImage")));
-            this.pictureBox.GradientAngle = 50F;
-            this.pictureBox.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox.Image")));
-            this.pictureBox.Location = new System.Drawing.Point(90, 14);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(133, 133);
-            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox.TabIndex = 14;
-            this.pictureBox.TabStop = false;
-            this.pictureBox.Click += new System.EventHandler(this.PictureBox_Click);
-            // 
             // lbName
             // 
             this.lbName.AutoSize = true;
-            this.lbName.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbName.ForeColor = System.Drawing.Color.Gainsboro;
             this.lbName.Location = new System.Drawing.Point(119, 149);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(66, 22);
+            this.lbName.Size = new System.Drawing.Size(64, 25);
             this.lbName.TabIndex = 13;
             this.lbName.Text = "Name";
             // 
@@ -544,6 +524,26 @@
             this.panelChildForm.Name = "panelChildForm";
             this.panelChildForm.Size = new System.Drawing.Size(989, 634);
             this.panelChildForm.TabIndex = 3;
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
+            this.pictureBox.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            this.pictureBox.BorderColor = System.Drawing.Color.Tomato;
+            this.pictureBox.BorderColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
+            this.pictureBox.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.pictureBox.BorderSize = 3;
+            this.pictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox.ErrorImage")));
+            this.pictureBox.GradientAngle = 50F;
+            this.pictureBox.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox.Image")));
+            this.pictureBox.Location = new System.Drawing.Point(90, 14);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(133, 133);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox.TabIndex = 14;
+            this.pictureBox.TabStop = false;
+            this.pictureBox.Click += new System.EventHandler(this.PictureBox_Click);
             // 
             // FormMain
             // 

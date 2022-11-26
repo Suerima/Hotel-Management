@@ -30,14 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDetailRoom));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnBooking = new ePOSOne.btnProduct.Button_WOC();
             this.btnLeft = new ePOSOne.btnProduct.Button_WOC();
             this.btnRight = new ePOSOne.btnProduct.Button_WOC();
-            this.sPanel1 = new WindowsFormsApp1.Resources.SPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.sPanel2 = new WindowsFormsApp1.Resources.SPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tbDetail = new System.Windows.Forms.TextBox();
+            this.lbDetails = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.lbPerson = new System.Windows.Forms.Label();
             this.lbBed = new System.Windows.Forms.Label();
             this.lbType = new System.Windows.Forms.Label();
@@ -46,13 +47,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.sPanel2 = new WindowsFormsApp1.Resources.SPanel();
+            this.sPanel1 = new WindowsFormsApp1.Resources.SPanel();
+            this.btnDetail = new ePOSOne.btnProduct.Button_WOC();
+            this.button_WOC1 = new ePOSOne.btnProduct.Button_WOC();
+            this.btnBooking = new ePOSOne.btnProduct.Button_WOC();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            this.sPanel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.sPanel2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.sPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -64,53 +68,8 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(654, 414);
+            this.panel1.Size = new System.Drawing.Size(654, 475);
             this.panel1.TabIndex = 3;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(77, 11);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(497, 391);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.sPanel2);
-            this.panel2.Controls.Add(this.sPanel1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(654, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(495, 414);
-            this.panel2.TabIndex = 4;
-            // 
-            // btnBooking
-            // 
-            this.btnBooking.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBooking.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(214)))), ((int)(((byte)(146)))));
-            this.btnBooking.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(214)))), ((int)(((byte)(146)))));
-            this.btnBooking.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBooking.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnBooking.FlatAppearance.BorderSize = 0;
-            this.btnBooking.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnBooking.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnBooking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBooking.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBooking.Location = new System.Drawing.Point(23, 17);
-            this.btnBooking.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBooking.Name = "btnBooking";
-            this.btnBooking.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnBooking.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(214)))), ((int)(((byte)(146)))));
-            this.btnBooking.OnHoverTextColor = System.Drawing.Color.Gainsboro;
-            this.btnBooking.Size = new System.Drawing.Size(176, 70);
-            this.btnBooking.TabIndex = 12;
-            this.btnBooking.Text = "Book";
-            this.btnBooking.TextColor = System.Drawing.Color.White;
-            this.btnBooking.UseVisualStyleBackColor = true;
-            this.btnBooking.Click += new System.EventHandler(this.btnBooking_Click);
             // 
             // btnLeft
             // 
@@ -156,21 +115,44 @@
             this.btnRight.UseVisualStyleBackColor = false;
             this.btnRight.Click += new System.EventHandler(this.btnRight_Click);
             // 
-            // sPanel1
+            // pictureBox1
             // 
-            this.sPanel1.BackColor = System.Drawing.Color.White;
-            this.sPanel1.BorderColor = System.Drawing.Color.White;
-            this.sPanel1.Controls.Add(this.btnBooking);
-            this.sPanel1.Edge = 20;
-            this.sPanel1.Location = new System.Drawing.Point(0, 315);
-            this.sPanel1.Name = "sPanel1";
-            this.sPanel1.Size = new System.Drawing.Size(495, 108);
-            this.sPanel1.TabIndex = 13;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(77, 11);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(497, 391);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.sPanel2);
+            this.panel2.Controls.Add(this.sPanel1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(654, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(540, 475);
+            this.panel2.TabIndex = 4;
+            // 
+            // sPanel2
+            // 
+            this.sPanel2.BackColor = System.Drawing.Color.White;
+            this.sPanel2.BorderColor = System.Drawing.Color.White;
+            this.sPanel2.Controls.Add(this.groupBox1);
+            this.sPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.sPanel2.Edge = 25;
+            this.sPanel2.Location = new System.Drawing.Point(0, 0);
+            this.sPanel2.Name = "sPanel2";
+            this.sPanel2.Size = new System.Drawing.Size(540, 336);
+            this.sPanel2.TabIndex = 14;
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(239)))));
-            this.groupBox1.Controls.Add(this.tbDetail);
+            this.groupBox1.Controls.Add(this.lbDetails);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.lbPerson);
             this.groupBox1.Controls.Add(this.lbBed);
             this.groupBox1.Controls.Add(this.lbType);
@@ -180,21 +162,38 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(23, 12);
+            this.groupBox1.Location = new System.Drawing.Point(13, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(450, 263);
+            this.groupBox1.Size = new System.Drawing.Size(505, 311);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Đặc điểm";
             // 
-            // tbDetail
+            // lbDetails
             // 
-            this.tbDetail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbDetail.Location = new System.Drawing.Point(149, 126);
-            this.tbDetail.Multiline = true;
-            this.tbDetail.Name = "tbDetail";
-            this.tbDetail.Size = new System.Drawing.Size(280, 120);
-            this.tbDetail.TabIndex = 9;
+            this.lbDetails.AutoSize = true;
+            this.lbDetails.Location = new System.Drawing.Point(145, 129);
+            this.lbDetails.Name = "lbDetails";
+            this.lbDetails.Size = new System.Drawing.Size(0, 20);
+            this.lbDetails.TabIndex = 15;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.label5.Location = new System.Drawing.Point(307, 37);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(132, 22);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Mã khách hàng";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.textBox1.Location = new System.Drawing.Point(311, 61);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(168, 28);
+            this.textBox1.TabIndex = 13;
             // 
             // lbPerson
             // 
@@ -219,9 +218,9 @@
             this.lbType.AutoSize = true;
             this.lbType.Location = new System.Drawing.Point(145, 39);
             this.lbType.Name = "lbType";
-            this.lbType.Size = new System.Drawing.Size(59, 20);
+            this.lbType.Size = new System.Drawing.Size(84, 20);
             this.lbType.TabIndex = 4;
-            this.lbType.Text = "label5";
+            this.lbType.Text = "Standard";
             // 
             // label4
             // 
@@ -272,23 +271,99 @@
             this.label9.TabIndex = 8;
             this.label9.Text = "người";
             // 
-            // sPanel2
+            // sPanel1
             // 
-            this.sPanel2.BackColor = System.Drawing.Color.White;
-            this.sPanel2.BorderColor = System.Drawing.Color.White;
-            this.sPanel2.Controls.Add(this.groupBox1);
-            this.sPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.sPanel2.Edge = 25;
-            this.sPanel2.Location = new System.Drawing.Point(0, 0);
-            this.sPanel2.Name = "sPanel2";
-            this.sPanel2.Size = new System.Drawing.Size(495, 298);
-            this.sPanel2.TabIndex = 14;
+            this.sPanel1.BackColor = System.Drawing.Color.White;
+            this.sPanel1.BorderColor = System.Drawing.Color.White;
+            this.sPanel1.Controls.Add(this.btnDetail);
+            this.sPanel1.Controls.Add(this.button_WOC1);
+            this.sPanel1.Controls.Add(this.btnBooking);
+            this.sPanel1.Edge = 20;
+            this.sPanel1.Location = new System.Drawing.Point(23, 367);
+            this.sPanel1.Name = "sPanel1";
+            this.sPanel1.Size = new System.Drawing.Size(495, 108);
+            this.sPanel1.TabIndex = 13;
+            // 
+            // btnDetail
+            // 
+            this.btnDetail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDetail.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(214)))), ((int)(((byte)(146)))));
+            this.btnDetail.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(214)))), ((int)(((byte)(146)))));
+            this.btnDetail.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDetail.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnDetail.FlatAppearance.BorderSize = 0;
+            this.btnDetail.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnDetail.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnDetail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDetail.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetail.Location = new System.Drawing.Point(23, 16);
+            this.btnDetail.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDetail.Name = "btnDetail";
+            this.btnDetail.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnDetail.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(214)))), ((int)(((byte)(146)))));
+            this.btnDetail.OnHoverTextColor = System.Drawing.Color.Gainsboro;
+            this.btnDetail.Size = new System.Drawing.Size(171, 70);
+            this.btnDetail.TabIndex = 13;
+            this.btnDetail.Text = "Detail";
+            this.btnDetail.TextColor = System.Drawing.Color.White;
+            this.btnDetail.UseVisualStyleBackColor = true;
+            // 
+            // button_WOC1
+            // 
+            this.button_WOC1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_WOC1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(214)))), ((int)(((byte)(146)))));
+            this.button_WOC1.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(214)))), ((int)(((byte)(146)))));
+            this.button_WOC1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_WOC1.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button_WOC1.FlatAppearance.BorderSize = 0;
+            this.button_WOC1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.button_WOC1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button_WOC1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC1.Location = new System.Drawing.Point(276, 16);
+            this.button_WOC1.Margin = new System.Windows.Forms.Padding(4);
+            this.button_WOC1.Name = "button_WOC1";
+            this.button_WOC1.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button_WOC1.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(214)))), ((int)(((byte)(146)))));
+            this.button_WOC1.OnHoverTextColor = System.Drawing.Color.Gainsboro;
+            this.button_WOC1.Size = new System.Drawing.Size(176, 70);
+            this.button_WOC1.TabIndex = 13;
+            this.button_WOC1.Text = "Cancel";
+            this.button_WOC1.TextColor = System.Drawing.Color.White;
+            this.button_WOC1.UseVisualStyleBackColor = true;
+            this.button_WOC1.Click += new System.EventHandler(this.button_WOC1_Click);
+            // 
+            // btnBooking
+            // 
+            this.btnBooking.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBooking.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(214)))), ((int)(((byte)(146)))));
+            this.btnBooking.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(214)))), ((int)(((byte)(146)))));
+            this.btnBooking.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBooking.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnBooking.FlatAppearance.BorderSize = 0;
+            this.btnBooking.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnBooking.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnBooking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBooking.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBooking.Location = new System.Drawing.Point(23, 17);
+            this.btnBooking.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBooking.Name = "btnBooking";
+            this.btnBooking.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnBooking.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(214)))), ((int)(((byte)(146)))));
+            this.btnBooking.OnHoverTextColor = System.Drawing.Color.Gainsboro;
+            this.btnBooking.Size = new System.Drawing.Size(171, 70);
+            this.btnBooking.TabIndex = 12;
+            this.btnBooking.Text = "Book";
+            this.btnBooking.TextColor = System.Drawing.Color.White;
+            this.btnBooking.UseVisualStyleBackColor = true;
+            this.btnBooking.Click += new System.EventHandler(this.btnBooking_Click);
             // 
             // FormDetailRoom
             // 
+            this.AcceptButton = this.btnBooking;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1149, 414);
+            this.ClientSize = new System.Drawing.Size(1194, 475);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -298,10 +373,10 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
-            this.sPanel1.ResumeLayout(false);
+            this.sPanel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.sPanel2.ResumeLayout(false);
+            this.sPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -317,7 +392,6 @@
         private Resources.SPanel sPanel1;
         private Resources.SPanel sPanel2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox tbDetail;
         private System.Windows.Forms.Label lbPerson;
         private System.Windows.Forms.Label lbBed;
         private System.Windows.Forms.Label lbType;
@@ -326,5 +400,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox1;
+        private ePOSOne.btnProduct.Button_WOC button_WOC1;
+        private System.Windows.Forms.Label lbDetails;
+        private ePOSOne.btnProduct.Button_WOC btnDetail;
     }
 }

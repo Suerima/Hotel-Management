@@ -48,13 +48,22 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPageEdit = new System.Windows.Forms.TabPage();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.lbCountImage = new System.Windows.Forms.Label();
+            this.sPanel1 = new WindowsFormsApp1.Resources.SPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnLeft = new ePOSOne.btnProduct.Button_WOC();
+            this.btnRight = new ePOSOne.btnProduct.Button_WOC();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.clbAmenities = new System.Windows.Forms.CheckedListBox();
+            this.lbBed = new System.Windows.Forms.Label();
+            this.cbTypeBed = new NoteWrapper.FlatCombobox();
+            this.tbBed = new WindowsFormsApp1.Resources.RJTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.lbDescription = new System.Windows.Forms.Label();
             this.lbPrice = new System.Windows.Forms.Label();
             this.lbPerson = new System.Windows.Forms.Label();
             this.lbType = new System.Windows.Forms.Label();
             this.tbRoomID = new WindowsFormsApp1.Resources.RJTextBox();
-            this.tbDescription = new WindowsFormsApp1.Resources.RJTextBox();
             this.tbPrice = new WindowsFormsApp1.Resources.RJTextBox();
             this.cbPerson = new NoteWrapper.FlatCombobox();
             this.tbPerson = new WindowsFormsApp1.Resources.RJTextBox();
@@ -68,6 +77,9 @@
             this.tabPageList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListRoom)).BeginInit();
             this.tabPageEdit.SuspendLayout();
+            this.sPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -88,7 +100,7 @@
             this.tabPageList.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageList.Name = "tabPageList";
             this.tabPageList.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageList.Size = new System.Drawing.Size(1065, 548);
+            this.tabPageList.Size = new System.Drawing.Size(1501, 839);
             this.tabPageList.TabIndex = 0;
             this.tabPageList.Text = "LIST";
             // 
@@ -162,7 +174,7 @@
             this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(922, 101);
+            this.btnAdd.Location = new System.Drawing.Point(1349, 101);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
@@ -170,7 +182,7 @@
             this.btnAdd.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
             this.btnAdd.Size = new System.Drawing.Size(124, 41);
             this.btnAdd.TabIndex = 77;
-            this.btnAdd.Text = "Add";
+            this.btnAdd.Text = "Thêm";
             this.btnAdd.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -185,7 +197,7 @@
             this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(922, 199);
+            this.btnDelete.Location = new System.Drawing.Point(1349, 199);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
@@ -193,7 +205,7 @@
             this.btnDelete.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
             this.btnDelete.Size = new System.Drawing.Size(124, 41);
             this.btnDelete.TabIndex = 76;
-            this.btnDelete.Text = "Delete";
+            this.btnDelete.Text = "Xoá";
             this.btnDelete.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -208,7 +220,7 @@
             this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(922, 150);
+            this.btnUpdate.Location = new System.Drawing.Point(1349, 150);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
@@ -216,7 +228,7 @@
             this.btnUpdate.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
             this.btnUpdate.Size = new System.Drawing.Size(124, 41);
             this.btnUpdate.TabIndex = 75;
-            this.btnUpdate.Text = "Change";
+            this.btnUpdate.Text = "Sửa";
             this.btnUpdate.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -274,7 +286,7 @@
             this.dgvListRoom.RowHeadersWidth = 51;
             this.dgvListRoom.RowTemplate.Height = 40;
             this.dgvListRoom.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListRoom.Size = new System.Drawing.Size(883, 460);
+            this.dgvListRoom.Size = new System.Drawing.Size(1302, 747);
             this.dgvListRoom.TabIndex = 1;
             this.dgvListRoom.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListRoom_CellClick);
             // 
@@ -282,7 +294,7 @@
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column1.DataPropertyName = "RoomID";
-            this.Column1.HeaderText = "RoomID";
+            this.Column1.HeaderText = "Mã phòng";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
@@ -291,7 +303,7 @@
             // 
             this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column2.DataPropertyName = "Type";
-            this.Column2.HeaderText = "Type";
+            this.Column2.HeaderText = "Loại phòng";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
@@ -300,7 +312,7 @@
             // 
             this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column3.DataPropertyName = "Person";
-            this.Column3.HeaderText = "Person";
+            this.Column3.HeaderText = "Số người ở";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -309,7 +321,7 @@
             // 
             this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column4.DataPropertyName = "Price";
-            this.Column4.HeaderText = "Price";
+            this.Column4.HeaderText = "Giá";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -318,7 +330,7 @@
             // 
             this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column5.DataPropertyName = "Status";
-            this.Column5.HeaderText = "Status";
+            this.Column5.HeaderText = "Tình trạng";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
@@ -327,7 +339,7 @@
             // 
             this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column6.DataPropertyName = "Description";
-            this.Column6.HeaderText = "Description";
+            this.Column6.HeaderText = "Mô tả";
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
@@ -335,13 +347,20 @@
             // tabPageEdit
             // 
             this.tabPageEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.tabPageEdit.Controls.Add(this.linkLabel1);
+            this.tabPageEdit.Controls.Add(this.lbCountImage);
+            this.tabPageEdit.Controls.Add(this.sPanel1);
+            this.tabPageEdit.Controls.Add(this.btnLeft);
+            this.tabPageEdit.Controls.Add(this.btnRight);
+            this.tabPageEdit.Controls.Add(this.groupBox1);
+            this.tabPageEdit.Controls.Add(this.lbBed);
+            this.tabPageEdit.Controls.Add(this.cbTypeBed);
+            this.tabPageEdit.Controls.Add(this.tbBed);
             this.tabPageEdit.Controls.Add(this.label2);
-            this.tabPageEdit.Controls.Add(this.lbDescription);
             this.tabPageEdit.Controls.Add(this.lbPrice);
             this.tabPageEdit.Controls.Add(this.lbPerson);
             this.tabPageEdit.Controls.Add(this.lbType);
             this.tabPageEdit.Controls.Add(this.tbRoomID);
-            this.tabPageEdit.Controls.Add(this.tbDescription);
             this.tabPageEdit.Controls.Add(this.tbPrice);
             this.tabPageEdit.Controls.Add(this.cbPerson);
             this.tabPageEdit.Controls.Add(this.tbPerson);
@@ -350,41 +369,202 @@
             this.tabPageEdit.Controls.Add(this.btnCancel);
             this.tabPageEdit.Controls.Add(this.btnSave);
             this.tabPageEdit.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.tabPageEdit.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tabPageEdit.Location = new System.Drawing.Point(4, 25);
             this.tabPageEdit.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageEdit.Name = "tabPageEdit";
             this.tabPageEdit.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageEdit.Size = new System.Drawing.Size(1065, 548);
+            this.tabPageEdit.Size = new System.Drawing.Size(1501, 839);
             this.tabPageEdit.TabIndex = 1;
             this.tabPageEdit.Text = "EDIT";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.linkLabel1.Location = new System.Drawing.Point(615, 525);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(123, 23);
+            this.linkLabel1.TabIndex = 173;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Upload image";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // lbCountImage
+            // 
+            this.lbCountImage.AutoSize = true;
+            this.lbCountImage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.lbCountImage.Location = new System.Drawing.Point(551, 160);
+            this.lbCountImage.Name = "lbCountImage";
+            this.lbCountImage.Size = new System.Drawing.Size(0, 23);
+            this.lbCountImage.TabIndex = 172;
+            // 
+            // sPanel1
+            // 
+            this.sPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.sPanel1.BorderColor = System.Drawing.Color.White;
+            this.sPanel1.Controls.Add(this.pictureBox1);
+            this.sPanel1.Edge = 20;
+            this.sPanel1.Location = new System.Drawing.Point(619, 29);
+            this.sPanel1.Name = "sPanel1";
+            this.sPanel1.Size = new System.Drawing.Size(600, 483);
+            this.sPanel1.TabIndex = 171;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(41, 39);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(517, 409);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 168;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnLeft
+            // 
+            this.btnLeft.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(239)))));
+            this.btnLeft.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(239)))));
+            this.btnLeft.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLeft.FlatAppearance.BorderSize = 0;
+            this.btnLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLeft.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLeft.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnLeft.Location = new System.Drawing.Point(524, 232);
+            this.btnLeft.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLeft.Name = "btnLeft";
+            this.btnLeft.OnHoverBorderColor = System.Drawing.Color.Empty;
+            this.btnLeft.OnHoverButtonColor = System.Drawing.Color.Empty;
+            this.btnLeft.OnHoverTextColor = System.Drawing.Color.Empty;
+            this.btnLeft.Size = new System.Drawing.Size(70, 64);
+            this.btnLeft.TabIndex = 170;
+            this.btnLeft.Text = "<";
+            this.btnLeft.TextColor = System.Drawing.Color.DarkSeaGreen;
+            this.btnLeft.UseVisualStyleBackColor = false;
+            this.btnLeft.Click += new System.EventHandler(this.btnLeft_Click);
+            // 
+            // btnRight
+            // 
+            this.btnRight.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(239)))));
+            this.btnRight.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(239)))));
+            this.btnRight.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRight.FlatAppearance.BorderSize = 0;
+            this.btnRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRight.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRight.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnRight.Location = new System.Drawing.Point(1245, 232);
+            this.btnRight.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRight.Name = "btnRight";
+            this.btnRight.OnHoverBorderColor = System.Drawing.Color.Empty;
+            this.btnRight.OnHoverButtonColor = System.Drawing.Color.Empty;
+            this.btnRight.OnHoverTextColor = System.Drawing.Color.Empty;
+            this.btnRight.Size = new System.Drawing.Size(70, 64);
+            this.btnRight.TabIndex = 169;
+            this.btnRight.Text = ">";
+            this.btnRight.TextColor = System.Drawing.Color.DarkSeaGreen;
+            this.btnRight.UseVisualStyleBackColor = false;
+            this.btnRight.Click += new System.EventHandler(this.btnRight_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.clbAmenities);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.groupBox1.Location = new System.Drawing.Point(32, 381);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(388, 227);
+            this.groupBox1.TabIndex = 167;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Tiện nghi";
+            // 
+            // clbAmenities
+            // 
+            this.clbAmenities.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.clbAmenities.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.clbAmenities.CheckOnClick = true;
+            this.clbAmenities.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.clbAmenities.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.clbAmenities.FormattingEnabled = true;
+            this.clbAmenities.Items.AddRange(new object[] {
+            "Hướng ra biển",
+            "Hướng ra phố",
+            "Bồn tắm",
+            "Hồ bơi riêng",
+            "Ban công",
+            "Máy pha cafe",
+            "Hệ thống sưởi"});
+            this.clbAmenities.Location = new System.Drawing.Point(23, 32);
+            this.clbAmenities.Name = "clbAmenities";
+            this.clbAmenities.Size = new System.Drawing.Size(337, 200);
+            this.clbAmenities.TabIndex = 166;
+            // 
+            // lbBed
+            // 
+            this.lbBed.AutoSize = true;
+            this.lbBed.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.lbBed.ForeColor = System.Drawing.Color.DarkGray;
+            this.lbBed.Location = new System.Drawing.Point(41, 301);
+            this.lbBed.Name = "lbBed";
+            this.lbBed.Size = new System.Drawing.Size(32, 16);
+            this.lbBed.TabIndex = 165;
+            this.lbBed.Text = "Bed";
+            // 
+            // cbTypeBed
+            // 
+            this.cbTypeBed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.cbTypeBed.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.cbTypeBed.ButtonColor = System.Drawing.Color.Silver;
+            this.cbTypeBed.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTypeBed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cbTypeBed.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.cbTypeBed.FormattingEnabled = true;
+            this.cbTypeBed.Items.AddRange(new object[] {
+            "Hai giường đơn",
+            "Giường đôi"});
+            this.cbTypeBed.Location = new System.Drawing.Point(46, 320);
+            this.cbTypeBed.Name = "cbTypeBed";
+            this.cbTypeBed.Size = new System.Drawing.Size(360, 33);
+            this.cbTypeBed.TabIndex = 163;
+            this.cbTypeBed.Enter += new System.EventHandler(this.cbTypeBed_Enter);
+            this.cbTypeBed.Leave += new System.EventHandler(this.cbTypeBed_Leave);
+            // 
+            // tbBed
+            // 
+            this.tbBed.BorderColor = System.Drawing.Color.DimGray;
+            this.tbBed.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbBed.BorderRadius = 6;
+            this.tbBed.BorderSize = 1;
+            this.tbBed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbBed.ForeColor = System.Drawing.Color.DarkGray;
+            this.tbBed.Location = new System.Drawing.Point(30, 312);
+            this.tbBed.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tbBed.Multiline = false;
+            this.tbBed.Name = "tbBed";
+            this.tbBed.Padding = new System.Windows.Forms.Padding(15, 11, 15, 11);
+            this.tbBed.PasswordChar = false;
+            this.tbBed.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbBed.PlaceholderText = "";
+            this.tbBed.Size = new System.Drawing.Size(390, 48);
+            this.tbBed.TabIndex = 164;
+            this.tbBed.Texts = "";
+            this.tbBed.UnderlinedStyle = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
             this.label2.ForeColor = System.Drawing.Color.DarkGray;
-            this.label2.Location = new System.Drawing.Point(51, 59);
+            this.label2.Location = new System.Drawing.Point(43, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 16);
             this.label2.TabIndex = 161;
             this.label2.Text = "RoomID";
             // 
-            // lbDescription
-            // 
-            this.lbDescription.AutoSize = true;
-            this.lbDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.lbDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.lbDescription.Location = new System.Drawing.Point(53, 433);
-            this.lbDescription.Name = "lbDescription";
-            this.lbDescription.Size = new System.Drawing.Size(0, 16);
-            this.lbDescription.TabIndex = 159;
-            // 
             // lbPrice
             // 
             this.lbPrice.AutoSize = true;
             this.lbPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.lbPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.lbPrice.Location = new System.Drawing.Point(53, 340);
+            this.lbPrice.ForeColor = System.Drawing.Color.DarkGray;
+            this.lbPrice.Location = new System.Drawing.Point(41, 637);
             this.lbPrice.Name = "lbPrice";
             this.lbPrice.Size = new System.Drawing.Size(0, 16);
             this.lbPrice.TabIndex = 157;
@@ -394,7 +574,7 @@
             this.lbPerson.AutoSize = true;
             this.lbPerson.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
             this.lbPerson.ForeColor = System.Drawing.Color.DarkGray;
-            this.lbPerson.Location = new System.Drawing.Point(51, 243);
+            this.lbPerson.Location = new System.Drawing.Point(43, 213);
             this.lbPerson.Name = "lbPerson";
             this.lbPerson.Size = new System.Drawing.Size(50, 16);
             this.lbPerson.TabIndex = 155;
@@ -405,7 +585,7 @@
             this.lbType.AutoSize = true;
             this.lbType.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
             this.lbType.ForeColor = System.Drawing.Color.DarkGray;
-            this.lbType.Location = new System.Drawing.Point(51, 154);
+            this.lbType.Location = new System.Drawing.Point(43, 124);
             this.lbType.Name = "lbType";
             this.lbType.Size = new System.Drawing.Size(39, 16);
             this.lbType.TabIndex = 152;
@@ -419,7 +599,7 @@
             this.tbRoomID.BorderSize = 1;
             this.tbRoomID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.tbRoomID.ForeColor = System.Drawing.Color.DimGray;
-            this.tbRoomID.Location = new System.Drawing.Point(40, 70);
+            this.tbRoomID.Location = new System.Drawing.Point(32, 29);
             this.tbRoomID.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tbRoomID.Multiline = true;
             this.tbRoomID.Name = "tbRoomID";
@@ -432,29 +612,6 @@
             this.tbRoomID.Texts = "";
             this.tbRoomID.UnderlinedStyle = false;
             // 
-            // tbDescription
-            // 
-            this.tbDescription.BorderColor = System.Drawing.Color.DimGray;
-            this.tbDescription.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.tbDescription.BorderRadius = 6;
-            this.tbDescription.BorderSize = 1;
-            this.tbDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.tbDescription.ForeColor = System.Drawing.Color.DimGray;
-            this.tbDescription.Location = new System.Drawing.Point(42, 444);
-            this.tbDescription.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.tbDescription.Multiline = true;
-            this.tbDescription.Name = "tbDescription";
-            this.tbDescription.Padding = new System.Windows.Forms.Padding(15, 11, 15, 11);
-            this.tbDescription.PasswordChar = false;
-            this.tbDescription.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.tbDescription.PlaceholderText = "";
-            this.tbDescription.Size = new System.Drawing.Size(390, 48);
-            this.tbDescription.TabIndex = 158;
-            this.tbDescription.Texts = "Description";
-            this.tbDescription.UnderlinedStyle = false;
-            this.tbDescription.Enter += new System.EventHandler(this.tbDescription_Enter);
-            this.tbDescription.Leave += new System.EventHandler(this.tbDescription_Leave);
-            // 
             // tbPrice
             // 
             this.tbPrice.BorderColor = System.Drawing.Color.DimGray;
@@ -463,7 +620,7 @@
             this.tbPrice.BorderSize = 1;
             this.tbPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.tbPrice.ForeColor = System.Drawing.Color.DimGray;
-            this.tbPrice.Location = new System.Drawing.Point(42, 351);
+            this.tbPrice.Location = new System.Drawing.Point(32, 647);
             this.tbPrice.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tbPrice.Multiline = true;
             this.tbPrice.Name = "tbPrice";
@@ -490,7 +647,7 @@
             this.cbPerson.Items.AddRange(new object[] {
             "2",
             "4"});
-            this.cbPerson.Location = new System.Drawing.Point(56, 262);
+            this.cbPerson.Location = new System.Drawing.Point(48, 232);
             this.cbPerson.Name = "cbPerson";
             this.cbPerson.Size = new System.Drawing.Size(360, 33);
             this.cbPerson.TabIndex = 153;
@@ -505,7 +662,7 @@
             this.tbPerson.BorderSize = 1;
             this.tbPerson.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.tbPerson.ForeColor = System.Drawing.Color.DarkGray;
-            this.tbPerson.Location = new System.Drawing.Point(40, 254);
+            this.tbPerson.Location = new System.Drawing.Point(32, 224);
             this.tbPerson.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tbPerson.Multiline = false;
             this.tbPerson.Name = "tbPerson";
@@ -531,7 +688,7 @@
             "Standard",
             "Superior",
             "Deluxe"});
-            this.cbType.Location = new System.Drawing.Point(56, 173);
+            this.cbType.Location = new System.Drawing.Point(48, 143);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(360, 33);
             this.cbType.TabIndex = 150;
@@ -546,7 +703,7 @@
             this.tbType.BorderSize = 1;
             this.tbType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.tbType.ForeColor = System.Drawing.Color.DarkGray;
-            this.tbType.Location = new System.Drawing.Point(40, 165);
+            this.tbType.Location = new System.Drawing.Point(32, 135);
             this.tbType.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tbType.Multiline = false;
             this.tbType.Name = "tbType";
@@ -568,7 +725,7 @@
             this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.btnCancel.Location = new System.Drawing.Point(792, 444);
+            this.btnCancel.Location = new System.Drawing.Point(970, 573);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
@@ -590,7 +747,7 @@
             this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.btnSave.Location = new System.Drawing.Point(523, 444);
+            this.btnSave.Location = new System.Drawing.Point(660, 573);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
@@ -612,7 +769,7 @@
             this.tabControl.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1073, 577);
+            this.tabControl.Size = new System.Drawing.Size(1509, 868);
             this.tabControl.TabIndex = 18;
             // 
             // label4
@@ -623,9 +780,9 @@
             this.label4.Location = new System.Drawing.Point(31, 15);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(279, 29);
+            this.label4.Size = new System.Drawing.Size(256, 29);
             this.label4.TabIndex = 7;
-            this.label4.Text = "INFORMATION ROOM";
+            this.label4.Text = "THÔNG TIN PHÒNG";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // panel1
@@ -636,7 +793,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1073, 57);
+            this.panel1.Size = new System.Drawing.Size(1509, 57);
             this.panel1.TabIndex = 17;
             // 
             // FormQL_Phong
@@ -644,7 +801,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
-            this.ClientSize = new System.Drawing.Size(1073, 634);
+            this.ClientSize = new System.Drawing.Size(1509, 925);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -657,6 +814,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvListRoom)).EndInit();
             this.tabPageEdit.ResumeLayout(false);
             this.tabPageEdit.PerformLayout();
+            this.sPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -680,12 +840,6 @@
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Label label9;
         private NoteWrapper.FlatCombobox cbSearch;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.Label lbType;
         private NoteWrapper.FlatCombobox cbType;
         private Resources.RJTextBox tbType;
@@ -694,9 +848,24 @@
         private Resources.RJTextBox tbPerson;
         private System.Windows.Forms.Label lbPrice;
         private Resources.RJTextBox tbPrice;
-        private System.Windows.Forms.Label lbDescription;
-        private Resources.RJTextBox tbDescription;
         private System.Windows.Forms.Label label2;
         private Resources.RJTextBox tbRoomID;
+        private System.Windows.Forms.Label lbBed;
+        private NoteWrapper.FlatCombobox cbTypeBed;
+        private Resources.RJTextBox tbBed;
+        private System.Windows.Forms.CheckedListBox clbAmenities;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private Resources.SPanel sPanel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private ePOSOne.btnProduct.Button_WOC btnLeft;
+        private ePOSOne.btnProduct.Button_WOC btnRight;
+        private System.Windows.Forms.Label lbCountImage;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

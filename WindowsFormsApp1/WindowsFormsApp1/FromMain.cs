@@ -35,7 +35,7 @@ namespace WindowsFormsApp1
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 35);
             panelSideMenu.Controls.Add(leftBorderBtn);
-            if (FormLogin.authority == "Cashier")
+            if (FormLogin.authority == "Nhân viên")
             {
                 btnAcc_Create.Visible = false;
                 panelAccountSubMenu.Size = new Size(291, 45);

@@ -15,12 +15,17 @@ namespace WindowsFormsApp1
         public ListRoom()
         {
             InitializeComponent();
+            if (lbStatus.Text == "Phòng đang thuê")
+                panelBot.BackColor = Color.FromArgb(138, 182, 205);
+            else if (lbStatus.Text == "Phòng trống")
+                panelBot.BackColor = Color.FromArgb(112, 214, 146);
         }
 
         private string idRoom;
         private string price;
         private string status;
         private Image image;
+        private Color color;
 
         public string IdRoom
         {
@@ -52,10 +57,30 @@ namespace WindowsFormsApp1
             }
         }
 
+        public Color Color
+        {
+            get => color;
+            set
+            {
+                color = value;  panelBot.BackColor = value;
+            } 
+        }
+
         public void pictureBox1_Click(object sender, EventArgs e)
         {
-            FormDetailRoom f = new FormDetailRoom(this.IdRoom);
-            f.ShowDialog();
+            if (lbStatus.Text == "Phòng trống")
+            {
+
+                FormDetailRoom f = new FormDetailRoom(this.IdRoom, true);
+                f.ShowDialog();
+            }
+            else
+            {
+                FormDetailRoom f = new FormDetailRoom(this.IdRoom, false);
+                f.ShowDialog();
+            }                
         }
+
+
     }
 }

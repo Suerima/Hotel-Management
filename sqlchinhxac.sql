@@ -10,22 +10,22 @@ GO
 
 CREATE TABLE PersonalInfor
 (
-	PersonID varchar(50) PRIMARY KEY,
+	PersonID varchar(20) PRIMARY KEY,
 	Name nvarchar(50) not null,
-	Gender nvarchar(50) not null,
+	Gender nvarchar(5) not null,
 	Dob date not null,
-	Address nvarchar(50) not null,
-	Phone varchar(50) not null,
-	IDCard varchar(50) not null,
+	Address nvarchar(100) not null,
+	Phone varchar(15) not null,
+	IDCard varchar(15) not null,
 )
 GO
 
 CREATE TABLE Account
 (
-	Username varchar(50) PRIMARY KEY,
-	Password varchar(50) not null,
-	Email varchar(50) not null,
-	Authority VARCHAR(50) not null,
+	Username varchar(20) PRIMARY KEY,
+	Password nvarchar(15) not null,
+	Email nvarchar(50) not null,
+	Authority nvarchar(50) not null,
 	Avatar IMAGE,
 	CONSTRAINT FK_Account FOREIGN KEY (Username) REFERENCES PersonalInfor(PersonID) ON DELETE CASCADE
 )	
@@ -33,23 +33,23 @@ GO
 
 CREATE TABLE Customer
 (
-	CustomerID varchar(50) PRIMARY KEY,
+	CustomerID varchar(20) PRIMARY KEY,
 	CONSTRAINT FK_Customer FOREIGN KEY(CustomerID) REFERENCES PersonalInfor(PersonID) ON DELETE CASCADE
 )
 GO
 
 CREATE TABLE Employee
 (
-	EmployeeID varchar(50) PRIMARY KEY,
+	EmployeeID varchar(20) PRIMARY KEY,
 	Status NVARCHAR(50) NOT NULL,
 	CONSTRAINT FK_Employee FOREIGN KEY(EmployeeID) REFERENCES PersonalInfor(PersonID) ON DELETE CASCADE)
 GO
 
 CREATE TABLE Room
 (
-	RoomID varchar(50) PRIMARY KEY,
+	RoomID varchar(20) PRIMARY KEY,
 	Type nvarchar(50) not null,
-	Person int not null,
+	Person varchar(2) not null,
 	Price int not null,
 	Status nvarchar(50) not null,
 	Description nvarchar(50),
@@ -59,7 +59,7 @@ GO
 
 CREATE TABLE Service
 (
-	Service_Code varchar(50) PRIMARY KEY,
+	Service_Code varchar(20) PRIMARY KEY,
 	Service_Name nvarchar(50) not null,
 	Unit nvarchar(50) not null,
 	Price int not null,
@@ -68,10 +68,10 @@ GO
 
 CREATE TABLE ServiceInvoice
 (
-	Service_Invoice_Code varchar(50) PRIMARY KEY,
-	CustomerID varchar(50) FOREIGN KEY REFERENCES Customer(CustomerID) ON DELETE CASCADE,
-	ManagerID varchar(50) FOREIGN KEY REFERENCES Account(Username),
-	EmployeeID varchar(50) FOREIGN KEY REFERENCES Employee(EmployeeID),
+	Service_Invoice_Code varchar(20) PRIMARY KEY,
+	CustomerID varchar(20) FOREIGN KEY REFERENCES Customer(CustomerID) ON DELETE CASCADE,
+	ManagerID varchar(20) FOREIGN KEY REFERENCES Account(Username),
+	EmployeeID varchar(20) FOREIGN KEY REFERENCES Employee(EmployeeID),
 	Date_Created date not null,
 	Total int not null,
 	Status nvarchar(50) not null,
@@ -80,10 +80,10 @@ GO
 
 CREATE TABLE Booking
 (
-	BookingID varchar(50) PRIMARY KEY,
-	ManagerID varchar(50) FOREIGN KEY REFERENCES Account(Username),
-	CustomerID varchar(50) FOREIGN KEY REFERENCES Customer(CustomerID) ON DELETE CASCADE,
-	RoomID varchar(50) FOREIGN KEY REFERENCES Room(RoomID),
+	BookingID varchar(20) PRIMARY KEY,
+	ManagerID varchar(20) FOREIGN KEY REFERENCES Account(Username),
+	CustomerID varchar(20) FOREIGN KEY REFERENCES Customer(CustomerID) ON DELETE CASCADE,
+	RoomID varchar(20) FOREIGN KEY REFERENCES Room(RoomID),
 	Arrival date not null,
 )
 GO
@@ -91,8 +91,8 @@ GO
 CREATE TABLE SelectedService
 (	
 	No INT,
-	Service_Invoice_Code varchar(50) FOREIGN KEY REFERENCES ServiceInvoice(Service_Invoice_Code) ON DELETE CASCADE,
-	Service_Code varchar(50) FOREIGN KEY REFERENCES Service(Service_Code),
+	Service_Invoice_Code varchar(20) FOREIGN KEY REFERENCES ServiceInvoice(Service_Invoice_Code) ON DELETE CASCADE,
+	Service_Code varchar(20) FOREIGN KEY REFERENCES Service(Service_Code),
 	Quantity int not null, 
 )
 GO
@@ -100,17 +100,18 @@ GO
 
 CREATE TABLE BookingReport
 (
-	RoomID NVARCHAR(50),
-	Type NVARCHAR(50),
+	RoomID VARCHAR(20),
+	Type NVARCHAR(20),
 	Date_Create date,
 	Date_Pay date,
 	Total int
 )
 GO
+
 CREATE TABLE ServiceReport
 (
 	Service_Name nvarchar(50),
-	ManagerID nvarchar(50),
+	ManagerID varchar(20),
 	Date_Create date,
 	Quantity int,
 	Price int,
@@ -118,6 +119,25 @@ CREATE TABLE ServiceReport
 )
 GO
 
+
+CREATE TABLE Detail
+(
+	DetailID varchar(20) Primary Key,
+	Detail nvarchar(100),
+)
+go
+create Table DetailRoom
+(
+	DetailID varchar(20) FOREIGN KEY REFERENCES Detail(DetailID),
+	RoomID  varchar(20) FOREIGN KEY REFERENCES Room(RoomID) ON DELETE CASCADE,
+)
+go
+CREATE TABLE Images
+(
+	RoomID varchar(20) FOREIGN KEY REFERENCES Room(RoomID) ON DELETE CASCADE,
+	Path varchar(255),
+)
+go
 ----------------INSERT---------------
 
 ------- ROOM -------
@@ -134,16 +154,24 @@ INSERT INTO Room VALUES('Room050', 'Deluxe', 4, 500000, 'Available', '1 TV, 2 Be
 GO
 
 ------- SERVICE -------
-INSERT INTO Service VALUES ('DV001', N'Saigon Beer', N'Can', 50000)
-INSERT INTO Service VALUES ('DV002', N'Wash Clothes', N'Times', 50000)
-INSERT INTO Service VALUES ('DV003', N'Breakfast', N'Times', 75000)
-INSERT INTO Service VALUES ('DV004', N'Massage', N'Hour', 500000)
-INSERT INTO Service VALUES ('DV005', N'Water', N'Bottle', 50000)
+INSERT INTO Service VALUES ('DV001', N'Saigon Beer', N'Nước uống', 30000)
+INSERT INTO Service VALUES ('DV002', N'Coca', N'Nước uống', 25000)
+INSERT INTO Service VALUES ('DV003', N'Pepsi', N'Nước uống', 25000)
+INSERT INTO Service VALUES ('DV004', N'Trà xanh', N'Nước uống', 200000)
+INSERT INTO Service VALUES ('DV005', N'Nước suối', N'Nước uống', 10000)
+
+INSERT INTO Service VALUES ('DV006', N'Spa', N'Sức khoẻ', 100000)
+INSERT INTO Service VALUES ('DV007', N'Gym', N'Sức khoẻ', 100000)
+
+INSERT INTO Service VALUES ('DV008', N'Bar', N'Giải trí', 100000)
+
+
+
 GO
 
 ---- GET ACCOUNT ----DONE
 CREATE PROC USP_Get_Account
-(@Username varchar(50))
+(@Username varchar(20))
 AS 
 BEGIN
 	 SELECT Account.*, PersonalInfor.*
@@ -154,7 +182,7 @@ GO
 
 ---- GET PASSWORD ----DONE
 CREATE PROC USP_Get_Password
-(@Username VARCHAR(50))
+(@Username VARCHAR(20))
 AS
 BEGIN
 	SELECT Password
@@ -176,7 +204,7 @@ GO
 
 ----  LOGIN ----DONE
 CREATE PROCEDURE USP_Login_Account
-(@Username varchar(50), @Password varchar(50))
+(@Username varchar(20), @Password varchar(15))
 AS 
 BEGIN
      SELECT * FROM dbo.Account
@@ -187,7 +215,7 @@ GO
 ---- FORGOT  ----DONE
 CREATE PROCEDURE USP_Forgot_Account
 (@Email varchar(50), 
-@Username  VARCHAR(50))
+@Username  VARCHAR(20))
 AS 
 BEGIN
      SELECT * FROM Account 
@@ -197,16 +225,16 @@ GO
 
 ---- INSERT	 ----DONE
 CREATE PROC USP_Insert_Account
-(@PersonalID VARCHAR(50),
+(@PersonalID VARCHAR(20),
 @Name NVARCHAR(50),
-@Gender NVARCHAR(50),
+@Gender NVARCHAR(5),
 @Dob DATE,
-@Address NVARCHAR(50),
-@Phone VARCHAR(50),
-@IDCard VARCHAR(50),
-@Password VARCHAR(50), 
-@Email VARCHAR(50), 
-@Authority VARCHAR(50),
+@Address NVARCHAR(100),
+@Phone VARCHAR(15),
+@IDCard VARCHAR(15),
+@Password VARCHAR(20), 
+@Email NVARCHAR(50), 
+@Authority NVARCHAR(50),
 @Avatar Image)
 AS 
 BEGIN
@@ -221,6 +249,20 @@ BEGIN
 	IF (@@TRANCOUNT > 0) COMMIT TRANSACTION
 END
 GO	
+--USP_Insert_Account 'ql01', N'Tốt Nguyễn', 'Nam', '11/09/2002', 'Nha Trang', '0824520365', '225957006', '1', 'lu2002ny@gmail.com', N'Quản lý', '0x00'
+
+
+---- UPDATE IMAGE ---- DONE
+CREATE PROC USP_Update_Image
+(@Username varchar(20),
+@Avatar image)
+AS
+BEGIN
+	UPDATE Account 
+	SET Avatar = @Avatar
+	WHERE Username = @Username
+END
+GO
 
 ---- GET LAST ID EMPLOYEE -- DONE
 CREATE PROC USP_Get_LastEmployeeID
@@ -245,13 +287,13 @@ AS
 BEGIN
 	SELECT EmployeeID 
 	FROM dbo.Employee
-	WHERE Status = 'Free'
+	WHERE Status = N'Đang rảnh'
 END
 GO
 
 ---- SEARCH Employee ---- DONE
 CREATE PROC USP_Search_Employee
-(@nameCol VARCHAR(50), @value VARCHAR(50))
+(@nameCol VARCHAR(50), @value NVARCHAR(50))
 AS
 IF(@nameCol = 'EmployeeID')
 	BEGIN
@@ -263,7 +305,7 @@ ELSE IF(@nameCol = 'Name')
 	BEGIN
 		SELECT PersonalInfor.*, Status 
 		FROM Employee INNER JOIN PersonalInfor ON Employee.EmployeeID = PersonalInfor.PersonID 
-		WHERE Name LIKE '%' + @value + '%' 
+		WHERE Name LIKE N'%' + @value + '%' 
 	END
 ELSE IF(@nameCol = 'IDCard')
 	BEGIN
@@ -281,30 +323,30 @@ GO
 
 ---- INSERT EMPLOYEE ---- DONE
 CREATE PROC USP_Insert_Employee
-@PersonID VARCHAR(50),
+@PersonID VARCHAR(20),
 @Name NVARCHAR(50),
-@Gender NVARCHAR(50),
+@Gender NVARCHAR(5),
 @Dob DATE,
-@Phone VARCHAR(50),
-@Address NVARCHAR(50),
-@IDCard VARCHAR(50)
+@Phone VARCHAR(15),
+@Address NVARCHAR(100),
+@IDCard VARCHAR(15)
 AS
 BEGIN
 	INSERT INTO dbo.PersonalInfor VALUES(@PersonID, @Name, @Gender, @Dob, @Address, @Phone, @IDCard)
-	INSERT INTO dbo.Employee VALUES(@PersonID, 'Free')
+	INSERT INTO dbo.Employee VALUES(@PersonID, N'Đang rảnh')
 END
 GO
 
 ---- UPDATE EMPLOYEE --- DONE
 CREATE PROC USP_Update_Employee
-@PersonID VARCHAR(50),
+(@PersonID VARCHAR(20),
 @Name NVARCHAR(50),
-@Gender NVARCHAR(50),
+@Gender NVARCHAR(5),
 @Dob DATE,
-@Phone VARCHAR(50),
-@Address NVARCHAR(50),
-@IDCard VARCHAR(50),
-@Status NVARCHAR(5)
+@Phone VARCHAR(15),
+@Address NVARCHAR(100),
+@IDCard VARCHAR(15),
+@Status NVARCHAR(50))
 AS
 BEGIN
 	UPDATE PersonalInfor
@@ -319,11 +361,11 @@ GO
 
 ---- UPDATE STATUS EMPLOYEE ---- DONE
 CREATE PROC USP_Update_Status_Employee
-@EmployeeID NVARCHAR(50)
+@EmployeeID NVARCHAR(20)
 AS
 BEGIN
 	UPDATE dbo.Employee
-	SET Status = 'Busy'
+	SET Status = N'Đang bận'
 	WHERE EmployeeID = @EmployeeID
 END
 GO
@@ -367,7 +409,7 @@ END
 GO
 ---- SEARCH CUSTOMER --- DONE
 CREATE PROC USP_Search_Customer
-(@nameCol VARCHAR(50), @value VARCHAR(50))
+(@nameCol VARCHAR(50), @value NVARCHAR(50))
 AS
 IF(@nameCol = 'CustomerID')
 	BEGIN
@@ -379,7 +421,7 @@ ELSE IF(@nameCol = 'Name')
 	BEGIN
 		SELECT PersonalInfor.* 
 		FROM Customer JOIN PersonalInfor ON Customer.CustomerID = PersonalInfor.PersonID
-		WHERE Name LIKE '%' + @value + '%'
+		WHERE Name LIKE N'%' + @value + '%'
 	END
 ELSE IF(@nameCol = 'IDCard')
 	BEGIN
@@ -397,7 +439,7 @@ GO
 
 ---- SEARCH CUSTOMER IN ServiceInvoice CHECK-OUT --- DONE
 CREATE PROC USP_Search_Customer_ServiceInvoice_CheckOut
-@CustomerID VARCHAR(50)
+@CustomerID VARCHAR(20)
 AS
 BEGIN
 	SELECT Service_Invoice_Code, CustomerID,  Date_Created, Total 
@@ -408,7 +450,7 @@ GO
 
 ---- SEARCH CUSTOMER IN BOOKING CHECK-OUT --- DONE
 CREATE PROC USP_Search_Customer_Booking_CheckOut
-@CustomerID VARCHAR(50)
+@CustomerID VARCHAR(20)
 AS
 BEGIN
 	SELECT B.BookingID, B.CustomerID, B.RoomID,  R.Price, B.Arrival
@@ -419,13 +461,13 @@ GO
 
 ---- INSERT CUSTOMER --- DONE
 CREATE PROC USP_Insert_Customer
-(@PersonID VARCHAR(50),
+(@PersonID VARCHAR(20),
 @Name NVARCHAR(50),
-@Gender NVARCHAR(50),
+@Gender NVARCHAR(5),
 @Dob DATE,
-@Address NVARCHAR(50),
-@Phone VARCHAR(50),
-@IDCard VARCHAR(50))
+@Address NVARCHAR(100),
+@Phone VARCHAR(15),
+@IDCard VARCHAR(15))
 AS
 BEGIN
 	INSERT INTO dbo.PersonalInfor VALUES(@PersonID, @Name, @Gender, @Dob, @Address, @Phone, @IDCard)
@@ -435,13 +477,13 @@ GO
 
 ---- UPDATE CUSTOMER --- DONE
 CREATE PROC USP_Update_Customer
-(@PersonID VARCHAR(50),
+(@PersonID VARCHAR(20),
 @Name NVARCHAR(50),
-@Gender NVARCHAR(50),
+@Gender NVARCHAR(5),
 @Dob DATE,
-@Address NVARCHAR(50),
-@Phone VARCHAR(50),
-@IDCard VARCHAR(50))
+@Address NVARCHAR(100),
+@Phone VARCHAR(15),
+@IDCard VARCHAR(15))
 AS
 BEGIN
 	UPDATE PersonalInfor
@@ -452,7 +494,7 @@ GO
 
 ---- DELETE PERSON --- DONE
 CREATE PROC USP_Delete_Person
-(@PersonID VARCHAR(50))
+(@PersonID VARCHAR(20))
 AS
 BEGIN
 	DELETE FROM PersonalInfor
@@ -490,7 +532,7 @@ GO
 
 ---- SEARCH BOOKING --- DONE
 CREATE PROC USP_Search_Booking
-(@BookingID VARCHAR(50))
+(@BookingID VARCHAR(20))
 AS
 BEGIN
 	SELECT * FROM Booking
@@ -500,10 +542,10 @@ GO
 
 ---- INSERT BOOKING --- DONE
 CREATE PROC USP_Insert_Booking
-(@BookingID VARCHAR(50),
-@ManagerID VARCHAR(50),
-@CustomerID VARCHAR(50),
-@RoomID VARCHAR(50),
+(@BookingID VARCHAR(20),
+@ManagerID VARCHAR(20),
+@CustomerID VARCHAR(20),
+@RoomID VARCHAR(20),
 @Arrival DATE)
 AS
 BEGIN
@@ -513,7 +555,7 @@ GO
 
 ---- DELETE BOOKING --- DONE
 CREATE PROC USP_Delete_Booking 
-(@BookingID VARCHAR(50))
+(@BookingID VARCHAR(20))
 AS
 BEGIN
 	DELETE FROM Booking 
@@ -541,13 +583,13 @@ AS
 BEGIN 
 	SELECT RoomID, Type, Person, Price
 	FROM Room
-	WHERE Status = 'Available'
+	WHERE Status = N'Phòng trống'
 END
 GO
 
 ---- SEARCH ROOM --- DONE
 CREATE PROC USP_Search_Room
-(@nameCol VARCHAR(50), @value VARCHAR(50))
+(@nameCol VARCHAR(50), @value NVARCHAR(50))
 AS
 IF(@nameCol LIKE 'RoomID')
 	BEGIN
@@ -557,7 +599,7 @@ IF(@nameCol LIKE 'RoomID')
 ELSE IF(@nameCol LIKE 'Type')
 	BEGIN
 		SELECT * FROM dbo.Room 
-		WHERE Type  LIKE '%' + @value + '%'
+		WHERE Type  LIKE N'%' + @value + '%'
 	END
 ELSE IF(@nameCol LIKE 'Person')
 	BEGIN
@@ -572,15 +614,15 @@ ELSE IF(@nameCol LIKE 'Price')
 ELSE IF(@nameCol = 'Status')
 	BEGIN
 		SELECT * FROM dbo.Room 
-		WHERE Status  LIKE '%' + @value + '%'
+		WHERE Status  LIKE N'%' + @value + '%'
 	END
 GO
 
 ---- INSERT ROOM ---- DONE
 CREATE PROC USP_Insert_Room
-@RoomID VARCHAR(50),
+@RoomID VARCHAR(20),
 @Type NVARCHAR(50),
-@Person INT,
+@Person VARCHAR(2),
 @Price INT,
 @Status NVARCHAR(50),
 @Description NVARCHAR(50)
@@ -589,12 +631,12 @@ BEGIN
 	INSERT INTO dbo.Room VALUES(@RoomID, @Type, @Person, @Price, @Status, @Description)
 END
 GO
-select * from Images
+
 ---- UPDATE ROOM ---- DONE
-CREATE PROC USP_Update_Room
-@RoomID VARCHAR(50),
+ALTER PROC USP_Update_Room
+@RoomID VARCHAR(20),
 @Type NVARCHAR(50),
-@Person INT,
+@Person VARCHAR(2),
 @Price INT,
 @Status NVARCHAR(50),
 @Description NVARCHAR(50)
@@ -608,7 +650,7 @@ GO
 
 ---- DELETE ROOM ---- DONE
 CREATE PROC USP_Delete_Room
-(@RoomID VARCHAR(50))
+(@RoomID VARCHAR(20))
 AS
 BEGIN
 	DELETE FROM dbo.Room
@@ -620,9 +662,10 @@ GO
 CREATE PROC USP_Get_Service
 AS SELECT * FROM Service
 GO
+
 --- GET SELECTED SERVICE --- DONE
 CREATE PROC USP_Get_SelectedService
-(@SIC NVARCHAR(10))
+(@SIC NVARCHAR(20))
 AS
 BEGIN
 	SELECT No ,SS.Service_Code, Quantity, Price, (Price * Quantity) Total
@@ -650,9 +693,9 @@ GO
 
 ---- INSERT SELECTED SERVICE --- DONE
 CREATE PROC USP_Insert_SelectedService
-@No NVARCHAR(50),
-@Service_Invoice_Code NVARCHAR(50),
-@Service_Code NVARCHAR(50),
+@No INT,
+@Service_Invoice_Code NVARCHAR(20),
+@Service_Code NVARCHAR(20),
 @Quantity INT
 AS
 BEGIN
@@ -684,10 +727,10 @@ GO
 
 ---- INSERT SERVICE INVOICE ---- DONE
 CREATE PROC USP_Insert_ServiceInvoice
-(@Service_Invoice_Code NVARCHAR(50),
-@CustomerID VARCHAR(50),
-@ManagerID VARCHAR(50),
-@EmployeeID VARCHAR(50),
+(@Service_Invoice_Code NVARCHAR(20),
+@CustomerID VARCHAR(20),
+@ManagerID VARCHAR(20),
+@EmployeeID VARCHAR(20),
 @DateCreated DATE,
 @Total INT,
 @Status NVARCHAR(50))
@@ -699,11 +742,11 @@ GO
 
 ---- UPDATE SERVICE INVOICE --- DONE
 CREATE PROC USP_Update_ServiceInvoice
-(@SIC NVARCHAR(50), @EmployeeID nvarchar(50))
+(@SIC VARCHAR(20), @EmployeeID varchar(20))
 AS
 BEGIN 
 	UPDATE dbo.ServiceInvoice 
-    SET Total = SS.Total, Status = 'UNPAID' 
+    SET Total = SS.Total, Status = N'Chưa thanh toán' 
     FROM dbo.ServiceInvoice AS SI INNER JOIN(SELECT Service_Invoice_Code, Sum(Price* Quantity) as Total 
 											 FROM dbo.SelectedService, Service
 											 WHERE Service_Invoice_Code = @SIC and Service.Service_Code = SelectedService.Service_Code
@@ -711,7 +754,7 @@ BEGIN
 								  ON SI.Service_Invoice_Code = SS.Service_Invoice_Code
 	BEGIN TRAN 
 	UPDATE dbo.Employee
-	SET Status = 'Busy'
+	SET Status = N'Đang bận'
 	WHERE EmployeeID = @EmployeeID
 
 	DECLARE @Total1 int
@@ -727,7 +770,7 @@ GO
 
 ---- DELETE SERVICE INVOICE --- DONE
 CREATE PROC USP_Delete_ServiceInvoice
-(@SIC NVARCHAR(50))
+(@SIC NVARCHAR(20))
 AS
 BEGIN
 	DECLARE @Total1 int
@@ -745,13 +788,13 @@ AS
 BEGIN
 	SELECT Service_Invoice_Code, CustomerID, Date_Created, Total
     FROM ServiceInvoice  
-    WHERE Status = 'UNPAID'
+    WHERE Status = N'Chưa thanh toán'
 END
 GO
 
 --- INSERT BOOKING REPORT ---- DONE
 CREATE PROC USP_Insert_BookingReport
-(@RoomID NVARCHAR(50),
+(@RoomID NVARCHAR(20),
 @Date_Create date,
 @Date_Pay date,
 @Total int)
@@ -766,7 +809,7 @@ END
 GO
 --- INSERT SERVICE REPORT --- DONE
 CREATE PROC USP_Insert_ServiceReport
-(@SIC NVARCHAR(50))
+(@SIC NVARCHAR(20))
 AS
 BEGIN
 	INSERT INTO ServiceReport
@@ -779,13 +822,13 @@ END
 GO
 ---- UPDATE PERSONALINFO --- DONE
 CREATE PROC USP_Update_PersonalInfo
-(@PersonID VARCHAR(50),
+(@PersonID VARCHAR(20),
 @Name NVARCHAR(50),
-@Gender NVARCHAR(50),
+@Gender NVARCHAR(5),
 @Dob DATE,
-@Address NVARCHAR(50),
-@Phone VARCHAR(50),
-@IDCard VARCHAR(50))
+@Address NVARCHAR(1000),
+@Phone VARCHAR(15),
+@IDCard VARCHAR(15))
 AS
 BEGIN
 	UPDATE PersonalInfor 
@@ -794,21 +837,10 @@ BEGIN
 END
 GO
 
----- UPDATE IMAGE ---- DONE
-CREATE PROC USP_Update_Image
-(@Username Varchar(50),
-@Avatar image)
-AS
-BEGIN
-	UPDATE Account 
-	SET Avatar = @Avatar
-	WHERE Username = @Username
-END
-GO
 ---- UPDATE PASSWORD --- DONE
 CREATE PROC USP_Update_Password
-(@Username VARCHAR(50),
-@Password VARCHAR(50))
+(@Username VARCHAR(20),
+@Password VARCHAR(15))
 AS
 BEGIN
     UPDATE Account 
@@ -819,7 +851,7 @@ GO
 
 -- UPDATE PASSWORD BY EMAIL --- DONE
 CREATE PROC USP_Update_Password_Mail
-(@Password NVARCHAR(50),
+(@Password NVARCHAR(15),
 @Email NVARCHAR(50))
 AS
 BEGIN
@@ -831,8 +863,8 @@ GO
 
 ---- UPDATE ROOM STATUS  --- DONE
 CREATE PROC USP_Update_Status_Room
-(@RoomID VARCHAR(50),
-@Status VARCHAR(50))
+(@RoomID NVARCHAR(20),
+@Status NVARCHAR(50))
 AS
 BEGIN
 	UPDATE Room
@@ -848,13 +880,13 @@ AS
 BEGIN 
 	SELECT  CustomerID, Name, Phone
 	FROM Customer INNER JOIN PersonalInfor ON Customer.CustomerID = PersonalInfor.PersonID
-	WHERE Name LIKE '%' + @Name + '%'
+	WHERE Name LIKE N'%' + @Name + '%'
 END
 GO
 
 --- GET STATUS EMPLOYEE IN SERVICE --- DONE
 CREATE PROC USP_Get_Status_Employee
-@EmployeeID nvarchar(10)
+@EmployeeID nvarchar(15)
 AS
 BEGIN
 	SELECT Status FROM Employee
@@ -884,7 +916,7 @@ END
 GO
 --- GET AUTHORITY --- DONE
 CREATE PROC USP_Get_Authority
-@Username NVARCHAR(50)
+@Username NVARCHAR(20)
 AS
 BEGIN
 	Select Authority
@@ -892,9 +924,10 @@ BEGIN
 	WHERE Username = @Username
 END
 GO
+
 ---- GET CUSTOMERID IN SERVICE
 CREATE PROC USP_Get_CustomerID_Booking
-(@CustomerID NVARCHAR(10))
+(@CustomerID NVARCHAR(15))
 AS
 	SELECT CustomerID FROM (SELECT CustomerID FROM Customer 
 							EXCEPT 
@@ -903,7 +936,7 @@ AS
 GO
 
 CREATE PROC USP_Get_CustomerID 
-@CustomerID NVARCHAR(10)
+@CustomerID NVARCHAR(15)
 AS
 	SELECT CustomerID FROM Booking
 	WHERE CustomerID = @CustomerID
@@ -921,7 +954,7 @@ GO
 
 ---- SEARCH ACCOUNT
 CREATE PROC USP_Search_Account
-(@nameCol VARCHAR(50), @value VARCHAR(50))
+(@nameCol VARCHAR(50), @value NVARCHAR(50))
 AS
 IF(@nameCol = 'Name')
 	BEGIN
@@ -946,58 +979,154 @@ GO
 -----------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------
-EXEC USP_Insert_Account 'ql01', 'Thắng Nguyễn', 'Male', '01/01/2002', 'Ho Chi Minh city', '0824550364', '225955001', '1', 'qt03072002@gmail.com',  'Manager', '0x00'
 --select * from Account
 
-CREATE TABLE Detail
-(
-	DetailID nvarchar(50) Primary Key,
-	Detail nvarchar(100),
-)
-
-CREATE Table DetailRoom
-(
-	DetailID nvarchar(70) FOREIGN KEY REFERENCES Detail(DetailID),
-	RoomID  varchar(15) FOREIGN KEY REFERENCES Room(RoomID),
-)
-
-CREATE TABLE Images
-(
-	RoomID varchar(15) FOREIGN KEY REFERENCES Room(RoomID) ON DELETE CASCADE,
-	Images image,
-	Path varchar(255),
-)
 
 CREATE PROC USP_Insert_Images_Room
-(@RoomID nvarchar(15),
-@Image image,
+(@RoomID varchar(20),
 @Path  VARCHAR (255))
 as
 begin
 		INSERT INTO dbo.Images
-		VALUES(@RoomID, @Image, @Path)
+		VALUES(@RoomID, @Path)
 end
+GO
 
 
-CREATE PROC USP_Get_Path
-@RoomID varchar(15)
+create PROC USP_Get_Path
+@RoomID varchar(20)
+as
+begin
+	select Path from Images
+	WHERE RoomID = @RoomID
+end
+GO
+
+
+create PROC USP_Get_Detail_Room
+(@RoomID varchar(15))
 AS
 BEGIN
-	select Path
-	from Images
-	WHERE RoomID = 'Room101'
-end
+	Select D.*
+	FROM DetailRoom DR INNER JOIN Detail D ON DR.DetailID = D.DetailID
+	WHERE RoomID = @RoomID
+	ORDER BY DetailID
+END
 
-USE QLKS1
+--
 
-SELECT * FROM SelectedService
+
+
+
+create PROC USP_Update_Description_Room
+(@RoomID varchar(15),
+@Bed nvarchar(30))
+AS
+BEGIN
+	UPDATE Room
+	SET Description = @Bed
+	WHERE RoomID = @RoomID
+END
+
+SELECT Room.*
+FROM Room, (SELECT RoomID
+			FROM (SELECT * FROM DetailRoom WHERE DetailID = 'DT001' OR DetailID = 'DT002') AS A
+			GROUP BY RoomID 
+			HAVING COUNT(DetailID) = 3) B
+WHERE Room.RoomID = B.RoomID
+
+INSERT INTO Detail VALUES('DT001', N'Hai giường đơn')
+INSERT INTO Detail VALUES('DT002', N'Giường đôi')
+INSERT INTO Detail VALUES('DT003', N'Hướng ra biển')
+INSERT INTO Detail VALUES('DT004', N'Hướng ra phố')
+INSERT INTO Detail VALUES('DT005', N'Bồn tắm')
+INSERT INTO Detail VALUES('DT006', N'Hồ bơi riêng')
+INSERT INTO Detail VALUES('DT007', N'Ban công')
+INSERT INTO Detail VALUES('DT008', N'Máy pha cafe')
+INSERT INTO Detail VALUES('DT009', N'Hệ thống sưởi')
+
 SELECT * FROM Detail
-select * from Images
+SELECT * FROM DetailRoom
+SELECT * FROM Images
 
-DELETE FROM Images
+INSERT INTO DetailRoom(DetailID, RoomID) VALUES('DT001', 'P101')	
+INSERT INTO DetailRoom(DetailID, RoomID) VALUES('DT003', 'P101')	
+INSERT INTO DetailRoom(DetailID, RoomID) VALUES('DT004', 'P101')	
+INSERT INTO DetailRoom(DetailID, RoomID) VALUES('DT005', 'P101')
 
-UPDATE Detail
-SET Detail = N'1 Giường lớn'
-WHERE DetailID = 'DT010'
+CREATE PROC USP_Insert_DetailRoom
+(@DetailID varchar(20),
+@RoomID varchar(20))
+AS
+BEGIN
+	INSERT INTO DetailRoom VALUES(@DetailID, @RoomID)	
+END
+GO
 
-select * from Account
+INSERT INTO DetailRoom(DetailID, RoomID) VALUES('DT002', 'P102')	
+INSERT INTO DetailRoom(DetailID, RoomID) VALUES('DT003', 'P102')	
+INSERT INTO DetailRoom(DetailID, RoomID) VALUES('DT004', 'P102')	
+INSERT INTO DetailRoom(DetailID, RoomID) VALUES('DT006', 'P102')
+
+SELECT * FROM Account
+SELECT * FROM Room
+UPDATE Account
+SET Authority = N'Quản lý'
+WHERE Username = 'ql01'
+
+CREATE PROC USP_Get_Type_Room
+@RoomID nvarchar(50)
+AS
+BEGIN
+	Select Type
+	From Room
+	where RoomID = @RoomID
+END
+GO
+
+CREATE PROC USP_Get_Person_Room
+@RoomID varchar(20)
+AS
+BEGIN
+	Select Person
+	From Room
+	where RoomID = @RoomID
+END
+GO
+
+
+USP_Get_Person_Room 'P101'
+select * from Detail
+select * from DetailRoom
+select * from Room
+
+
+SELECT Room.* 
+FROM Room, (SELECT RoomID FROM (SELECT * FROM DetailRoom WHERE DetailID = 'DT005') AS A
+			GROUP BY RoomID
+            HAVING COUNT(DetailID) = 1) B 
+WHERE Room.RoomID = B.RoomID AND (Type = 'Standard' OR Room.Type = '') AND Room.Person = '2'
+
+SELECT * 
+FROM DetailRoom
+WHERE RoomID = 'P101'
+ORDER BY DetailID
+
+CREATE PROC USP_Delete_DetailRoom 
+@RoomID varchar(20)
+AS
+BEGIN
+	DELETE FROM DetailRoom
+	WHERE RoomID = @RoomID
+END
+GO
+
+
+drop PROC USP_Insert_Path_Room
+(@RoomID VARCHAR(20),
+@Path varchar(255))
+AS
+BEGIN
+	INSERT INTO Images VALUES (@RoomID, @Path)
+END
+GO

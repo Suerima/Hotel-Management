@@ -138,7 +138,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(169)))), ((int)(((byte)(29)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.panel2.Controls.Add(this.label6);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -155,9 +155,9 @@
             this.label6.Location = new System.Drawing.Point(31, 11);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(200, 29);
+            this.label6.Size = new System.Drawing.Size(324, 29);
             this.label6.TabIndex = 7;
-            this.label6.Text = "ROOM RENTAL";
+            this.label6.Text = "THỐNG KÊ THUÊ PHÒNG";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // panel1
