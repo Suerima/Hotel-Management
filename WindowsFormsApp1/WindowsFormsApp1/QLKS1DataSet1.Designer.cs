@@ -20,9 +20,9 @@ namespace WindowsFormsApp1 {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("QLKS1DataSet2")]
+    [global::System.Xml.Serialization.XmlRootAttribute("QLKS1DataSet1")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class QLKS1DataSet2 : global::System.Data.DataSet {
+    public partial class QLKS1DataSet1 : global::System.Data.DataSet {
         
         private ServiceReportDataTable tableServiceReport;
         
@@ -30,7 +30,7 @@ namespace WindowsFormsApp1 {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public QLKS1DataSet2() {
+        public QLKS1DataSet1() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace WindowsFormsApp1 {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected QLKS1DataSet2(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected QLKS1DataSet1(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace WindowsFormsApp1 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            QLKS1DataSet2 cln = ((QLKS1DataSet2)(base.Clone()));
+            QLKS1DataSet1 cln = ((QLKS1DataSet1)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,9 +199,9 @@ namespace WindowsFormsApp1 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "QLKS1DataSet2";
+            this.DataSetName = "QLKS1DataSet1";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/QLKS1DataSet2.xsd";
+            this.Namespace = "http://tempuri.org/QLKS1DataSet1.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableServiceReport = new ServiceReportDataTable();
@@ -225,7 +225,7 @@ namespace WindowsFormsApp1 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            QLKS1DataSet2 ds = new QLKS1DataSet2();
+            QLKS1DataSet1 ds = new QLKS1DataSet1();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -281,7 +281,7 @@ namespace WindowsFormsApp1 {
             
             private global::System.Data.DataColumn columnService_Name;
             
-            private global::System.Data.DataColumn columnManagerID;
+            private global::System.Data.DataColumn columnType;
             
             private global::System.Data.DataColumn columnDate_Create;
             
@@ -334,9 +334,9 @@ namespace WindowsFormsApp1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ManagerIDColumn {
+            public global::System.Data.DataColumn TypeColumn {
                 get {
-                    return this.columnManagerID;
+                    return this.columnType;
                 }
             }
             
@@ -409,11 +409,11 @@ namespace WindowsFormsApp1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ServiceReportRow AddServiceReportRow(string Service_Name, string ManagerID, System.DateTime Date_Create, int Quantity, int Price, int Total) {
+            public ServiceReportRow AddServiceReportRow(string Service_Name, string Type, System.DateTime Date_Create, int Quantity, int Price, int Total) {
                 ServiceReportRow rowServiceReportRow = ((ServiceReportRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Service_Name,
-                        ManagerID,
+                        Type,
                         Date_Create,
                         Quantity,
                         Price,
@@ -441,7 +441,7 @@ namespace WindowsFormsApp1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
                 this.columnService_Name = base.Columns["Service_Name"];
-                this.columnManagerID = base.Columns["ManagerID"];
+                this.columnType = base.Columns["Type"];
                 this.columnDate_Create = base.Columns["Date_Create"];
                 this.columnQuantity = base.Columns["Quantity"];
                 this.columnPrice = base.Columns["Price"];
@@ -453,8 +453,8 @@ namespace WindowsFormsApp1 {
             private void InitClass() {
                 this.columnService_Name = new global::System.Data.DataColumn("Service_Name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnService_Name);
-                this.columnManagerID = new global::System.Data.DataColumn("ManagerID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnManagerID);
+                this.columnType = new global::System.Data.DataColumn("Type", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnType);
                 this.columnDate_Create = new global::System.Data.DataColumn("Date_Create", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDate_Create);
                 this.columnQuantity = new global::System.Data.DataColumn("Quantity", typeof(int), null, global::System.Data.MappingType.Element);
@@ -463,8 +463,8 @@ namespace WindowsFormsApp1 {
                 base.Columns.Add(this.columnPrice);
                 this.columnTotal = new global::System.Data.DataColumn("Total", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotal);
-                this.columnService_Name.MaxLength = 20;
-                this.columnManagerID.MaxLength = 15;
+                this.columnService_Name.MaxLength = 50;
+                this.columnType.MaxLength = 30;
                 this.columnTotal.ReadOnly = true;
             }
             
@@ -533,7 +533,7 @@ namespace WindowsFormsApp1 {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                QLKS1DataSet2 ds = new QLKS1DataSet2();
+                QLKS1DataSet1 ds = new QLKS1DataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -624,17 +624,17 @@ namespace WindowsFormsApp1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string ManagerID {
+            public string Type {
                 get {
                     try {
-                        return ((string)(this[this.tableServiceReport.ManagerIDColumn]));
+                        return ((string)(this[this.tableServiceReport.TypeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ManagerID\' in table \'ServiceReport\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Type\' in table \'ServiceReport\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableServiceReport.ManagerIDColumn] = value;
+                    this[this.tableServiceReport.TypeColumn] = value;
                 }
             }
             
@@ -716,14 +716,14 @@ namespace WindowsFormsApp1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsManagerIDNull() {
-                return this.IsNull(this.tableServiceReport.ManagerIDColumn);
+            public bool IsTypeNull() {
+                return this.IsNull(this.tableServiceReport.TypeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetManagerIDNull() {
-                this[this.tableServiceReport.ManagerIDColumn] = global::System.Convert.DBNull;
+            public void SetTypeNull() {
+                this[this.tableServiceReport.TypeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -810,7 +810,7 @@ namespace WindowsFormsApp1 {
         }
     }
 }
-namespace WindowsFormsApp1.QLKS1DataSet2TableAdapters {
+namespace WindowsFormsApp1.QLKS1DataSet1TableAdapters {
     
     
     /// <summary>
@@ -935,7 +935,7 @@ namespace WindowsFormsApp1.QLKS1DataSet2TableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "ServiceReport";
             tableMapping.ColumnMappings.Add("Service_Name", "Service_Name");
-            tableMapping.ColumnMappings.Add("ManagerID", "ManagerID");
+            tableMapping.ColumnMappings.Add("Type", "Type");
             tableMapping.ColumnMappings.Add("Date_Create", "Date_Create");
             tableMapping.ColumnMappings.Add("Quantity", "Quantity");
             tableMapping.ColumnMappings.Add("Price", "Price");
@@ -943,12 +943,11 @@ namespace WindowsFormsApp1.QLKS1DataSet2TableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[ServiceReport] ([Service_Name], [ManagerID], [Date_Create], [Q" +
-                "uantity], [Price]) VALUES (@Service_Name, @ManagerID, @Date_Create, @Quantity, @" +
-                "Price)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[ServiceReport] ([Service_Name], [Type], [Date_Create], [Quanti" +
+                "ty], [Price]) VALUES (@Service_Name, @Type, @Date_Create, @Quantity, @Price)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Service_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Service_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ManagerID", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ManagerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date_Create", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date_Create", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Quantity", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Price", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -967,8 +966,8 @@ namespace WindowsFormsApp1.QLKS1DataSet2TableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Service_Name, ManagerID, Date_Create, Quantity, Price, Total FROM dbo.Serv" +
-                "iceReport";
+            this._commandCollection[0].CommandText = "SELECT Service_Name, Type, Date_Create, Quantity, Price, Total FROM dbo.ServiceRe" +
+                "port";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -976,7 +975,7 @@ namespace WindowsFormsApp1.QLKS1DataSet2TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(QLKS1DataSet2.ServiceReportDataTable dataTable) {
+        public virtual int Fill(QLKS1DataSet1.ServiceReportDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -989,9 +988,9 @@ namespace WindowsFormsApp1.QLKS1DataSet2TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual QLKS1DataSet2.ServiceReportDataTable GetData() {
+        public virtual QLKS1DataSet1.ServiceReportDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            QLKS1DataSet2.ServiceReportDataTable dataTable = new QLKS1DataSet2.ServiceReportDataTable();
+            QLKS1DataSet1.ServiceReportDataTable dataTable = new QLKS1DataSet1.ServiceReportDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -999,14 +998,14 @@ namespace WindowsFormsApp1.QLKS1DataSet2TableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(QLKS1DataSet2.ServiceReportDataTable dataTable) {
+        public virtual int Update(QLKS1DataSet1.ServiceReportDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(QLKS1DataSet2 dataSet) {
+        public virtual int Update(QLKS1DataSet1 dataSet) {
             return this.Adapter.Update(dataSet, "ServiceReport");
         }
         
@@ -1029,18 +1028,18 @@ namespace WindowsFormsApp1.QLKS1DataSet2TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Service_Name, string ManagerID, global::System.Nullable<global::System.DateTime> Date_Create, global::System.Nullable<int> Quantity, global::System.Nullable<int> Price) {
+        public virtual int Insert(string Service_Name, string Type, global::System.Nullable<global::System.DateTime> Date_Create, global::System.Nullable<int> Quantity, global::System.Nullable<int> Price) {
             if ((Service_Name == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Service_Name));
             }
-            if ((ManagerID == null)) {
+            if ((Type == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(ManagerID));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Type));
             }
             if ((Date_Create.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(Date_Create.Value));
@@ -1168,7 +1167,7 @@ namespace WindowsFormsApp1.QLKS1DataSet2TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateUpdatedRows(QLKS1DataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(QLKS1DataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._serviceReportTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.ServiceReport.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -1187,7 +1186,7 @@ namespace WindowsFormsApp1.QLKS1DataSet2TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateInsertedRows(QLKS1DataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(QLKS1DataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._serviceReportTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.ServiceReport.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -1205,7 +1204,7 @@ namespace WindowsFormsApp1.QLKS1DataSet2TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateDeletedRows(QLKS1DataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(QLKS1DataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._serviceReportTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.ServiceReport.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -1247,7 +1246,7 @@ namespace WindowsFormsApp1.QLKS1DataSet2TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public virtual int UpdateAll(QLKS1DataSet2 dataSet) {
+        public virtual int UpdateAll(QLKS1DataSet1 dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

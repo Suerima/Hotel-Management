@@ -239,6 +239,12 @@
     <Compile Include="FormQL_Phong.Designer.cs">
       <DependentUpon>FormQL_Phong.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormThongBao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormThongBao.Designer.cs">
+      <DependentUpon>FormThongBao.cs</DependentUpon>
+    </Compile>
     <Compile Include="FromMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,10 +273,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLKS1DataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="QLKS1DataSet2.Designer.cs">
+    <Compile Include="QLKS1DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QLKS1DataSet2.xsd</DependentUpon>
+      <DependentUpon>QLKS1DataSet1.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FormAcc_TaoAccount.resx">
       <DependentUpon>FormAcc_TaoAccount.cs</DependentUpon>
@@ -320,6 +326,9 @@
     <EmbeddedResource Include="FormResetPass.resx">
       <DependentUpon>FormResetPass.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormThongBao.resx">
+      <DependentUpon>FormThongBao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FromMain.resx">
       <DependentUpon>FromMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -359,6 +368,17 @@
     <Content Include="Images\hide1.png" />
     <Content Include="Images\jin1.png" />
     <Content Include="Images\view1.png" />
+    <None Include="QLKS1DataSet1.xsc">
+      <DependentUpon>QLKS1DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QLKS1DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLKS1DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLKS1DataSet1.xss">
+      <DependentUpon>QLKS1DataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Resources\Logo.png" />
     <None Include="Resources\DefaultAvatar.jpg" />
     <None Include="QLKS1DataSet.xsc">
@@ -371,17 +391,6 @@
     </None>
     <None Include="QLKS1DataSet.xss">
       <DependentUpon>QLKS1DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="QLKS1DataSet2.xsc">
-      <DependentUpon>QLKS1DataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="QLKS1DataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QLKS1DataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QLKS1DataSet2.xss">
-      <DependentUpon>QLKS1DataSet2.xsd</DependentUpon>
     </None>
     <None Include="Resources\calendarWhite.png" />
     <None Include="Resources\calendarDark.png" />

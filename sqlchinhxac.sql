@@ -111,7 +111,7 @@ GO
 CREATE TABLE ServiceReport
 (
 	Service_Name nvarchar(50),
-	ManagerID varchar(20),
+	Type nvarchar(30),
 	Date_Create date,
 	Quantity int,
 	Price int,
@@ -768,6 +768,10 @@ BEGIN
 END
 GO
 
+SELECT * FROM SelectedService
+SELECT * FROM ServiceInvoice
+
+
 ---- DELETE SERVICE INVOICE --- DONE
 CREATE PROC USP_Delete_ServiceInvoice
 (@SIC NVARCHAR(20))
@@ -808,12 +812,12 @@ BEGIN
 END
 GO
 --- INSERT SERVICE REPORT --- DONE
-CREATE PROC USP_Insert_ServiceReport
+create PROC USP_Insert_ServiceReport
 (@SIC NVARCHAR(20))
 AS
 BEGIN
 	INSERT INTO ServiceReport
-	SELECT * FROM (SELECT S.Service_Name, SI.ManagerID, SI.Date_Created, SS.Quantity, S.Price
+	SELECT * FROM (SELECT S.Service_Name, s.Unit, SI.Date_Created, SS.Quantity, S.Price
 					FROM ((SelectedService SS
 					INNER JOIN ServiceInvoice SI ON SS.Service_Invoice_Code = SI.Service_Invoice_Code )
 					INNER JOIN Service S ON  SS.Service_Code = S.Service_Code)
@@ -914,6 +918,7 @@ BEGIN
 	WHERE Date_Create >= @DateFrom AND Date_Create <= @DateTo
 END
 GO
+
 --- GET AUTHORITY --- DONE
 CREATE PROC USP_Get_Authority
 @Username NVARCHAR(20)
@@ -1121,12 +1126,107 @@ BEGIN
 END
 GO
 
+SELECT * FROM ServiceReport
+SELECT * FROM BookingReport
 
-drop PROC USP_Insert_Path_Room
-(@RoomID VARCHAR(20),
-@Path varchar(255))
+---------
+
+CREATE PROC USP_Chart_Type_Room
+@date DATE
 AS
 BEGIN
-	INSERT INTO Images VALUES (@RoomID, @Path)
+	DECLARE @start_date DATE = DATEFROMPARTS(YEAR(@date), MONTH(@date), '01');
+	DECLARE @end_date DATE = EOMONTH(@date);
+
+	SELECT Type, SUM(Total) AS Total From BookingReport
+	WHERE Date_Pay > @start_date and Date_Pay < @end_date
+	GROUP BY Type
 END
 GO
+
+-- USP_Chart_Type_Room '2022-11-27'
+
+CREATE TABLE BookingChart
+(
+	Month int,
+	Total int,
+)
+GO
+
+CREATE PROC USP_Booking_Chart
+@year int
+AS
+BEGIN
+	DELETE FROM BookingChart
+
+	DECLARE @start_date DATE = DATEFROMPARTS(@year, 01, 01);
+	DECLARE @end_date DATE = DATEFROMPARTS(@year, 12, 31);;
+
+	WHILE @start_date <= @end_date
+	BEGIN 
+		INSERT INTO BookingChart
+		SELECT DATEPART(month, @start_date), Sum(Total) T
+		FROM BookingReport
+		WHERE DATEPART(year, Date_Pay) = @year AND DATEPART(month, Date_Pay) = DATEPART(month, @start_date)
+		SET @start_date = DATEADD(month, 1, @start_date)
+	END
+
+	UPDATE BookingChart
+	SET Total = 0
+	WHERE Total IS NULL
+
+	SELECT * FROM BookingChart
+
+END
+GO
+	
+-- USP_Booking_Chart 2021
+----------------
+CREATE TABLE ServiceChart
+(
+	Month int,
+	Total int,
+)
+GO
+
+CREATE PROC USP_Service_Chart
+@year int
+AS
+BEGIN
+	DELETE FROM ServiceChart
+
+	DECLARE @start_date DATE = DATEFROMPARTS(@year, 01, 01);
+	DECLARE @end_date DATE = DATEFROMPARTS(@year, 12, 31);;
+
+	WHILE @start_date <= @end_date
+	BEGIN 
+		INSERT INTO ServiceChart
+		SELECT DATEPART(month, @start_date), Sum(Total) T
+		FROM ServiceReport
+		WHERE DATEPART(year, Date_Create) = @year AND DATEPART(month, Date_Create) = DATEPART(month, @start_date)
+		SET @start_date = DATEADD(month, 1, @start_date)
+	END
+
+	UPDATE ServiceChart
+	SET Total = 0
+	WHERE Total IS NULL
+
+	SELECT * FROM ServiceChart
+
+END
+GO
+	
+CREATE PROC USP_Chart_Type_Service
+@date DATE
+AS
+BEGIN
+	DECLARE @start_date DATE = DATEFROMPARTS(YEAR(@date), MONTH(@date), '01');
+	DECLARE @end_date DATE = EOMONTH(@date);
+
+	SELECT Type, SUM(Total) AS Total From ServiceReport
+	WHERE Date_Create > @start_date and Date_Create  < @end_date
+	GROUP BY Type
+END
+GO
+
+

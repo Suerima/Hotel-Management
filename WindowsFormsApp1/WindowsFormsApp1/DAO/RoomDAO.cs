@@ -26,6 +26,7 @@ namespace WindowsFormsApp1.DAO
         }
         private RoomDAO() { }
 
+
         public List<Room> LoadRoomList()
         {
             List<Room> roomList = new List<Room>();

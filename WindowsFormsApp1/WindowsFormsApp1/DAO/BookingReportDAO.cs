@@ -36,7 +36,35 @@ namespace WindowsFormsApp1.DAO
                 throw ex;
             }
         }
+        public List<Booking> LoadChart1(int year)
+        {
+            List<Booking> lst = new List<Booking>();
 
+            DataTable data = DataProvider.Instance.ExecuteQuery("USP_Booking_Chart @year", new object[] { year});
+
+            foreach (DataRow item in data.Rows)
+            {
+                Booking bk = new Booking(item);
+                lst.Add(bk);
+            }
+
+            return lst;
+        }
+
+        public List<BookingReport> LoadChart2(DateTime dateTo)
+        {
+            List<BookingReport> lst = new List<BookingReport>();
+
+            DataTable data = DataProvider.Instance.ExecuteQuery("USP_Chart_Type_Room @date", new object[] {dateTo });
+
+            foreach (DataRow item in data.Rows)
+            {
+                BookingReport bk = new BookingReport(item);
+                lst.Add(bk);
+            }
+
+            return lst;
+        }
         public DataTable GetBookingReport(DateTime dateFrom, DateTime dateTo)
         {
             try
@@ -49,5 +77,6 @@ namespace WindowsFormsApp1.DAO
                 throw ex;
             }
         }
+
     }
 }

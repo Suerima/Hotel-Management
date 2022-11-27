@@ -51,10 +51,11 @@
             this.btnDangXuat = new System.Windows.Forms.Button();
             this.btnAccount = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.pictureBox = new WindowsFormsApp1.Resources.CustomPictureBox();
             this.lbName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panelChildForm = new System.Windows.Forms.Panel();
-            this.pictureBox = new WindowsFormsApp1.Resources.CustomPictureBox();
+            this.btnCN_ThemDichVu = new System.Windows.Forms.Button();
             this.panelSideMenu.SuspendLayout();
             this.panelThongKeSubMenu.SuspendLayout();
             this.panelChucNangSubMenu.SuspendLayout();
@@ -93,7 +94,7 @@
             this.panelThongKeSubMenu.Controls.Add(this.btnTk_ThuePhong);
             this.panelThongKeSubMenu.Controls.Add(this.btnTk_DichVu);
             this.panelThongKeSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelThongKeSubMenu.Location = new System.Drawing.Point(0, 749);
+            this.panelThongKeSubMenu.Location = new System.Drawing.Point(0, 794);
             this.panelThongKeSubMenu.Margin = new System.Windows.Forms.Padding(4);
             this.panelThongKeSubMenu.Name = "panelThongKeSubMenu";
             this.panelThongKeSubMenu.Size = new System.Drawing.Size(291, 95);
@@ -153,7 +154,7 @@
             this.btnThongke.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnThongke.Image = ((System.Drawing.Image)(resources.GetObject("btnThongke.Image")));
             this.btnThongke.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThongke.Location = new System.Drawing.Point(0, 704);
+            this.btnThongke.Location = new System.Drawing.Point(0, 749);
             this.btnThongke.Margin = new System.Windows.Forms.Padding(4);
             this.btnThongke.Name = "btnThongke";
             this.btnThongke.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
@@ -168,6 +169,7 @@
             // panelChucNangSubMenu
             // 
             this.panelChucNangSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.panelChucNangSubMenu.Controls.Add(this.btnCN_ThemDichVu);
             this.panelChucNangSubMenu.Controls.Add(this.btnCN_DichVu);
             this.panelChucNangSubMenu.Controls.Add(this.btnCN_TraPhong);
             this.panelChucNangSubMenu.Controls.Add(this.btnCN_ThuePhong);
@@ -175,7 +177,7 @@
             this.panelChucNangSubMenu.Location = new System.Drawing.Point(0, 562);
             this.panelChucNangSubMenu.Margin = new System.Windows.Forms.Padding(4);
             this.panelChucNangSubMenu.Name = "panelChucNangSubMenu";
-            this.panelChucNangSubMenu.Size = new System.Drawing.Size(291, 142);
+            this.panelChucNangSubMenu.Size = new System.Drawing.Size(291, 187);
             this.panelChucNangSubMenu.TabIndex = 20;
             // 
             // btnCN_DichVu
@@ -422,7 +424,7 @@
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label1.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label1.Location = new System.Drawing.Point(0, 823);
+            this.label1.Location = new System.Drawing.Point(0, 868);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(304, 21);
@@ -441,7 +443,7 @@
             this.btnDangXuat.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnDangXuat.Image = ((System.Drawing.Image)(resources.GetObject("btnDangXuat.Image")));
             this.btnDangXuat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDangXuat.Location = new System.Drawing.Point(0, 865);
+            this.btnDangXuat.Location = new System.Drawing.Point(0, 910);
             this.btnDangXuat.Margin = new System.Windows.Forms.Padding(4);
             this.btnDangXuat.Name = "btnDangXuat";
             this.btnDangXuat.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
@@ -490,6 +492,26 @@
             this.panelLogo.Size = new System.Drawing.Size(291, 192);
             this.panelLogo.TabIndex = 0;
             // 
+            // pictureBox
+            // 
+            this.pictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
+            this.pictureBox.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            this.pictureBox.BorderColor = System.Drawing.Color.Tomato;
+            this.pictureBox.BorderColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
+            this.pictureBox.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.pictureBox.BorderSize = 3;
+            this.pictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox.ErrorImage")));
+            this.pictureBox.GradientAngle = 50F;
+            this.pictureBox.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox.Image")));
+            this.pictureBox.Location = new System.Drawing.Point(90, 14);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(133, 133);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox.TabIndex = 14;
+            this.pictureBox.TabStop = false;
+            this.pictureBox.Click += new System.EventHandler(this.PictureBox_Click);
+            // 
             // lbName
             // 
             this.lbName.AutoSize = true;
@@ -525,25 +547,25 @@
             this.panelChildForm.Size = new System.Drawing.Size(989, 634);
             this.panelChildForm.TabIndex = 3;
             // 
-            // pictureBox
+            // btnCN_ThemDichVu
             // 
-            this.pictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
-            this.pictureBox.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-            this.pictureBox.BorderColor = System.Drawing.Color.Tomato;
-            this.pictureBox.BorderColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
-            this.pictureBox.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            this.pictureBox.BorderSize = 3;
-            this.pictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox.ErrorImage")));
-            this.pictureBox.GradientAngle = 50F;
-            this.pictureBox.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox.Image")));
-            this.pictureBox.Location = new System.Drawing.Point(90, 14);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(133, 133);
-            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox.TabIndex = 14;
-            this.pictureBox.TabStop = false;
-            this.pictureBox.Click += new System.EventHandler(this.PictureBox_Click);
+            this.btnCN_ThemDichVu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(48)))), ((int)(((byte)(52)))));
+            this.btnCN_ThemDichVu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCN_ThemDichVu.FlatAppearance.BorderSize = 0;
+            this.btnCN_ThemDichVu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(23)))), ((int)(((byte)(28)))));
+            this.btnCN_ThemDichVu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(47)))), ((int)(((byte)(57)))));
+            this.btnCN_ThemDichVu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCN_ThemDichVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.btnCN_ThemDichVu.ForeColor = System.Drawing.Color.LightGray;
+            this.btnCN_ThemDichVu.Location = new System.Drawing.Point(0, 135);
+            this.btnCN_ThemDichVu.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCN_ThemDichVu.Name = "btnCN_ThemDichVu";
+            this.btnCN_ThemDichVu.Padding = new System.Windows.Forms.Padding(36, 0, 0, 0);
+            this.btnCN_ThemDichVu.Size = new System.Drawing.Size(291, 45);
+            this.btnCN_ThemDichVu.TabIndex = 10;
+            this.btnCN_ThemDichVu.Text = "Thêm dịch vụ";
+            this.btnCN_ThemDichVu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCN_ThemDichVu.UseVisualStyleBackColor = false;
             // 
             // FormMain
             // 
@@ -605,6 +627,7 @@
         private Resources.CustomPictureBox pictureBox;
         private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnCN_ThemDichVu;
     }
 }
 

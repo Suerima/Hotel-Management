@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,11 +16,23 @@ namespace WindowsFormsApp1.DTO
         private DateTime arrival;
         //private string departure;
 
+        private int month;
+        private int total;
+
         public string BookingID { get => bookingID; set => bookingID = value; }
         public string ManagerID { get => managerID; set => managerID = value; }
         public string CustomerID { get => customerID; set => customerID = value; }
         public string RoomID { get => roomID; set => roomID = value; }
         public DateTime Arrival { get => arrival; set => arrival = value; }
+        public int Month { get => month; set => month = value; }
+        public int Total { get => total; set => total = value; }
+
+        public Booking(DataRow row)
+        {
+            this.Month = (int)row["Month"];
+            this.Total = (int)row["Total"]; 
+        }
+
 
         public Booking() { }
         public Booking(string bookingID, string managerID, string customerID, string roomID, DateTime arrival)

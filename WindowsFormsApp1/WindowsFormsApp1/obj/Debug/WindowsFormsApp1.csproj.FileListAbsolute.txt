@@ -274,3 +274,4 @@ D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.F
 D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormBooking.resources
 D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormDetailRoom.resources
 D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ListRoom.resources
+D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormThongBao.resources

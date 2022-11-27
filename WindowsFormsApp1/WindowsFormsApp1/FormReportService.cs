@@ -23,8 +23,8 @@ namespace WindowsFormsApp1
         {
             try
             {
-                DateTime dateF = FormDT_DichVu.Date.dateF;
-                DateTime dateT = FormDT_DichVu.Date.dateT;
+                DateTime dateF = FormDT_DichVu.Date.dateF1;
+                DateTime dateT = FormDT_DichVu.Date.dateT1;
                 // Chế độ xem report
                 reportViewer1.SetDisplayMode(DisplayMode.PrintLayout);
                 reportViewer1.ZoomMode = ZoomMode.Percent;
@@ -33,7 +33,7 @@ namespace WindowsFormsApp1
                 reportViewer1.LocalReport.ReportEmbeddedResource = "WindowsFormsApp1.ReportService.rdlc";
 
                 ReportDataSource reportDataSource = new ReportDataSource();
-                reportDataSource.Name = "DataSet1";
+                reportDataSource.Name = "DataSet2";
                 reportDataSource.Value = ServiceReportBUS.Instance.GetServiceReport(dateF, dateT);
                 reportViewer1.LocalReport.DataSources.Clear();
                 reportViewer1.LocalReport.DataSources.Add(reportDataSource);

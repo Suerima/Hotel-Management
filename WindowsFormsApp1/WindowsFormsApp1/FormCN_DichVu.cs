@@ -164,7 +164,7 @@ namespace WindowsFormsApp1
                 SetButton(true);
                 string dateCreated = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd")).ToString();
 
-                ServiceInvoice SI = new ServiceInvoice(tbServiceInvoiceCode.Text, tbCustomerID.Text, FormLogin.username, cbEmployeeID.Text, dateCreated, 0, "UNPAID");
+                ServiceInvoice SI = new ServiceInvoice(tbServiceInvoiceCode.Text, tbCustomerID.Text, FormLogin.username, cbEmployeeID.Text, dateCreated, 0, "Chưa thanh toán");
                 ServiceInvoiceBUS.Instance.InsertServiceInvoice(SI);
                 //loadListServiceInvoice();
                 loadListSelectedService(tbServiceInvoiceCode.Text);
@@ -234,12 +234,14 @@ namespace WindowsFormsApp1
         private void btnSave_Click(object sender, EventArgs e)
         {
             ServiceInvoiceBUS.Instance.UpdateServiceInvoice(tbServiceInvoiceCode.Text, cbEmployeeID.Text).ToString();
-            if (EmployeeBUS.Instance.GetStatusEmployee(cbEmployeeID.Text) == "Busy")
+            if (EmployeeBUS.Instance.GetStatusEmployee(cbEmployeeID.Text) == "Đang bận")
                 ServiceReportBUS.Instance.InsertServiceReport(lbSIC.Text);
             loadListServiceInvoice();
             loadIDServiceInvoice();
+
             //
             //EmployeeBUS.Instance.UpdateEmployeeStatus(cbEmployeeID.Text);
+
             loadComboBox();
             MessageBox.Show("Saved successfully.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
             tabControl.TabPages.Remove(tabPageDetail);
