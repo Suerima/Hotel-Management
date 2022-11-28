@@ -15,10 +15,10 @@ namespace WindowsFormsApp1
         public ListRoom()
         {
             InitializeComponent();
-            if (lbStatus.Text == "Phòng đang thuê")
-                panelBot.BackColor = Color.FromArgb(138, 182, 205);
-            else if (lbStatus.Text == "Phòng trống")
+            if (lbStatus.Text == "Phòng trống")
                 panelBot.BackColor = Color.FromArgb(112, 214, 146);
+            else 
+                panelBot.BackColor = Color.Red;
         }
 
         private string idRoom;

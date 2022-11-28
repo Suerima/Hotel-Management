@@ -115,5 +115,18 @@ namespace WindowsFormsApp1.DAO
                 throw ex;
             }
         }
+
+        public int UpdateStatusRoomBooking(string roomID, string status)
+        {
+            try
+            {
+                string query = "USP_Update_Status_Room_Booking @RoomID , @Status"; //
+                return DataProvider.Instance.ExecuteNonQuery(query, new object[] { roomID, status });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

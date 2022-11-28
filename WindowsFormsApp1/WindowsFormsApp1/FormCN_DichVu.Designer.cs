@@ -57,7 +57,7 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cbEmployeeID = new NoteWrapper.FlatCombobox();
+            this.cbRoomID = new NoteWrapper.FlatCombobox();
             this.btnDetail = new ePOSOne.btnProduct.Button_WOC();
             this.tbServiceInvoiceCode = new System.Windows.Forms.TextBox();
             this.btnCreate = new ePOSOne.btnProduct.Button_WOC();
@@ -75,6 +75,7 @@
             this.btnDelete = new ePOSOne.btnProduct.Button_WOC();
             this.btnSave = new ePOSOne.btnProduct.Button_WOC();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbPriceTemp = new System.Windows.Forms.Label();
             this.nudQuantity = new System.Windows.Forms.NumericUpDown();
             this.lbCustomerID = new System.Windows.Forms.Label();
             this.lbSIC = new System.Windows.Forms.Label();
@@ -95,9 +96,8 @@
             this.dgvListService = new System.Windows.Forms.DataGridView();
             this.Service_Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Service_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lbPriceTemp = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageList.SuspendLayout();
@@ -159,7 +159,7 @@
             this.tabPageList.Padding = new System.Windows.Forms.Padding(4);
             this.tabPageList.Size = new System.Drawing.Size(1065, 548);
             this.tabPageList.TabIndex = 0;
-            this.tabPageList.Text = "Infomation service";
+            this.tabPageList.Text = "Thông tin";
             // 
             // dgvListCustomer
             // 
@@ -218,7 +218,7 @@
             // 
             this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn5.DataPropertyName = "PersonID";
-            this.dataGridViewTextBoxColumn5.HeaderText = "CustomerID";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Mã khách hàng";
             this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
@@ -227,7 +227,7 @@
             // 
             this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn6.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Fullname";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Tên khách hàng";
             this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
@@ -235,8 +235,8 @@
             // dataGridViewTextBoxColumn10
             // 
             this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "Phone";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Phone";
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "RoomID";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Mã phòng";
             this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
@@ -300,7 +300,7 @@
             // 
             this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Service_Invoice_Code";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Service Invoice Code";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Mã hoá đơn dịch vụ";
             this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
@@ -309,7 +309,7 @@
             // 
             this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn2.DataPropertyName = "CustomerID";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Customer ID";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Mã khách hàng";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
@@ -318,7 +318,7 @@
             // 
             this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn3.DataPropertyName = "ManagerID";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Manager ID";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Mã người quản lý";
             this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -326,8 +326,8 @@
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "EmployeeID";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Employee ID";
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "RoomID";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Mã phòng";
             this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
@@ -336,7 +336,7 @@
             // 
             this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column6.DataPropertyName = "Date_Created";
-            this.Column6.HeaderText = "Date Created";
+            this.Column6.HeaderText = "Ngày tạo";
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
@@ -345,7 +345,7 @@
             // 
             this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column7.DataPropertyName = "Total";
-            this.Column7.HeaderText = "Total";
+            this.Column7.HeaderText = "Tổng tiền";
             this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
@@ -353,7 +353,7 @@
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.cbEmployeeID);
+            this.groupBox2.Controls.Add(this.cbRoomID);
             this.groupBox2.Controls.Add(this.btnDetail);
             this.groupBox2.Controls.Add(this.tbServiceInvoiceCode);
             this.groupBox2.Controls.Add(this.btnCreate);
@@ -373,21 +373,21 @@
             this.groupBox2.Size = new System.Drawing.Size(455, 238);
             this.groupBox2.TabIndex = 37;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Infomation Invoice";
+            this.groupBox2.Text = "Thông tin hoá đơn";
             // 
-            // cbEmployeeID
+            // cbRoomID
             // 
-            this.cbEmployeeID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
-            this.cbEmployeeID.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
-            this.cbEmployeeID.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
-            this.cbEmployeeID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbEmployeeID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.cbEmployeeID.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.cbEmployeeID.FormattingEnabled = true;
-            this.cbEmployeeID.Location = new System.Drawing.Point(279, 99);
-            this.cbEmployeeID.Name = "cbEmployeeID";
-            this.cbEmployeeID.Size = new System.Drawing.Size(96, 28);
-            this.cbEmployeeID.TabIndex = 40;
+            this.cbRoomID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.cbRoomID.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.cbRoomID.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
+            this.cbRoomID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRoomID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.cbRoomID.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.cbRoomID.FormattingEnabled = true;
+            this.cbRoomID.Location = new System.Drawing.Point(279, 99);
+            this.cbRoomID.Name = "cbRoomID";
+            this.cbRoomID.Size = new System.Drawing.Size(96, 28);
+            this.cbRoomID.TabIndex = 40;
             // 
             // btnDetail
             // 
@@ -407,7 +407,7 @@
             this.btnDetail.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
             this.btnDetail.Size = new System.Drawing.Size(143, 44);
             this.btnDetail.TabIndex = 46;
-            this.btnDetail.Text = "Detail";
+            this.btnDetail.Text = "Chi tiết";
             this.btnDetail.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.btnDetail.UseVisualStyleBackColor = true;
             this.btnDetail.Click += new System.EventHandler(this.btnDetail_Click);
@@ -447,7 +447,7 @@
             this.btnCreate.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
             this.btnCreate.Size = new System.Drawing.Size(144, 51);
             this.btnCreate.TabIndex = 45;
-            this.btnCreate.Text = "Create";
+            this.btnCreate.Text = "Tạo";
             this.btnCreate.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.btnCreate.UseVisualStyleBackColor = true;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
@@ -459,9 +459,9 @@
             this.label5.Location = new System.Drawing.Point(37, 102);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 20);
+            this.label5.Size = new System.Drawing.Size(87, 20);
             this.label5.TabIndex = 44;
-            this.label5.Text = "Employee ID";
+            this.label5.Text = "Mã phòng:";
             // 
             // tbCustomerID
             // 
@@ -497,9 +497,9 @@
             this.label2.Location = new System.Drawing.Point(37, 38);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 20);
+            this.label2.Size = new System.Drawing.Size(82, 20);
             this.label2.TabIndex = 40;
-            this.label2.Text = "Search:";
+            this.label2.Text = "Tìm kiếm:";
             // 
             // label1
             // 
@@ -518,7 +518,7 @@
             this.tbSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSearch.ForeColor = System.Drawing.Color.Gray;
-            this.tbSearch.Location = new System.Drawing.Point(119, 38);
+            this.tbSearch.Location = new System.Drawing.Point(127, 38);
             this.tbSearch.Margin = new System.Windows.Forms.Padding(4);
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(304, 19);
@@ -535,9 +535,9 @@
             this.label10.Location = new System.Drawing.Point(37, 126);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(171, 20);
+            this.label10.Size = new System.Drawing.Size(159, 20);
             this.label10.TabIndex = 31;
-            this.label10.Text = "Service Invoice Code:";
+            this.label10.Text = "Mã hoá đơn dịch vụ:";
             // 
             // label11
             // 
@@ -546,9 +546,9 @@
             this.label11.Location = new System.Drawing.Point(37, 78);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(109, 20);
+            this.label11.Size = new System.Drawing.Size(127, 20);
             this.label11.TabIndex = 30;
-            this.label11.Text = "Customer ID:";
+            this.label11.Text = "Mã khách hàng:";
             // 
             // tabPageDetail
             // 
@@ -566,7 +566,7 @@
             this.tabPageDetail.Padding = new System.Windows.Forms.Padding(4);
             this.tabPageDetail.Size = new System.Drawing.Size(1065, 548);
             this.tabPageDetail.TabIndex = 1;
-            this.tabPageDetail.Text = "Detail";
+            this.tabPageDetail.Text = "Chi tiết";
             // 
             // btnChoose
             // 
@@ -587,7 +587,7 @@
             this.btnChoose.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
             this.btnChoose.Size = new System.Drawing.Size(323, 54);
             this.btnChoose.TabIndex = 41;
-            this.btnChoose.Text = "Choose";
+            this.btnChoose.Text = "Chọn";
             this.btnChoose.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.btnChoose.UseVisualStyleBackColor = true;
             this.btnChoose.Click += new System.EventHandler(this.btnChoose_Click);
@@ -611,7 +611,7 @@
             this.btnCancel.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
             this.btnCancel.Size = new System.Drawing.Size(323, 54);
             this.btnCancel.TabIndex = 43;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = "Quay lại";
             this.btnCancel.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -635,7 +635,7 @@
             this.btnDelete.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
             this.btnDelete.Size = new System.Drawing.Size(323, 54);
             this.btnDelete.TabIndex = 42;
-            this.btnDelete.Text = "Delete";
+            this.btnDelete.Text = "Xoá";
             this.btnDelete.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -659,7 +659,7 @@
             this.btnSave.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
             this.btnSave.Size = new System.Drawing.Size(323, 54);
             this.btnSave.TabIndex = 41;
-            this.btnSave.Text = "Save";
+            this.btnSave.Text = "Lưu";
             this.btnSave.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -688,7 +688,19 @@
             this.groupBox1.Size = new System.Drawing.Size(365, 255);
             this.groupBox1.TabIndex = 27;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Detail";
+            this.groupBox1.Text = "Chi tiết";
+            // 
+            // lbPriceTemp
+            // 
+            this.lbPriceTemp.AutoSize = true;
+            this.lbPriceTemp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPriceTemp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.lbPriceTemp.Location = new System.Drawing.Point(120, 219);
+            this.lbPriceTemp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbPriceTemp.Name = "lbPriceTemp";
+            this.lbPriceTemp.Size = new System.Drawing.Size(18, 20);
+            this.lbPriceTemp.TabIndex = 67;
+            this.lbPriceTemp.Text = "0";
             // 
             // nudQuantity
             // 
@@ -743,9 +755,9 @@
             this.label7.Location = new System.Drawing.Point(20, 33);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(194, 24);
+            this.label7.Size = new System.Drawing.Size(183, 24);
             this.label7.TabIndex = 64;
-            this.label7.Text = "Service Invoice Code:";
+            this.label7.Text = "Mã hoá đơn dịch vụ:";
             // 
             // label9
             // 
@@ -764,9 +776,9 @@
             this.label6.Location = new System.Drawing.Point(21, 84);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(118, 24);
+            this.label6.Size = new System.Drawing.Size(145, 24);
             this.label6.TabIndex = 60;
-            this.label6.Text = "Customer ID:";
+            this.label6.Text = "Mã khách hàng:";
             // 
             // lbServiceCode
             // 
@@ -799,9 +811,9 @@
             this.label15.Location = new System.Drawing.Point(21, 145);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(58, 24);
+            this.label15.Size = new System.Drawing.Size(43, 24);
             this.label15.TabIndex = 55;
-            this.label15.Text = "Price:";
+            this.label15.Text = "Giá:";
             // 
             // label16
             // 
@@ -810,9 +822,9 @@
             this.label16.Location = new System.Drawing.Point(21, 176);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(83, 24);
+            this.label16.Size = new System.Drawing.Size(91, 24);
             this.label16.TabIndex = 54;
-            this.label16.Text = "Quantity:";
+            this.label16.Text = "Số lượng:";
             // 
             // label17
             // 
@@ -821,9 +833,9 @@
             this.label17.Location = new System.Drawing.Point(21, 114);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(129, 24);
+            this.label17.Size = new System.Drawing.Size(107, 24);
             this.label17.TabIndex = 53;
-            this.label17.Text = "Service Code:";
+            this.label17.Text = "Mã dịch vụ:";
             // 
             // dgvListSelectedService
             // 
@@ -951,7 +963,7 @@
             this.dgvListService.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Service_Code,
             this.Service_Name,
-            this.Unit,
+            this.Type,
             this.Price});
             this.dgvListService.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -996,14 +1008,14 @@
             this.Service_Name.Name = "Service_Name";
             this.Service_Name.ReadOnly = true;
             // 
-            // Unit
+            // Type
             // 
-            this.Unit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Unit.DataPropertyName = "Unit";
-            this.Unit.HeaderText = "Loại dịch vụ";
-            this.Unit.MinimumWidth = 6;
-            this.Unit.Name = "Unit";
-            this.Unit.ReadOnly = true;
+            this.Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Type.DataPropertyName = "Type";
+            this.Type.HeaderText = "Loại dịch vụ";
+            this.Type.MinimumWidth = 6;
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
             // 
             // Price
             // 
@@ -1013,18 +1025,6 @@
             this.Price.MinimumWidth = 6;
             this.Price.Name = "Price";
             this.Price.ReadOnly = true;
-            // 
-            // lbPriceTemp
-            // 
-            this.lbPriceTemp.AutoSize = true;
-            this.lbPriceTemp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPriceTemp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
-            this.lbPriceTemp.Location = new System.Drawing.Point(199, 219);
-            this.lbPriceTemp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbPriceTemp.Name = "lbPriceTemp";
-            this.lbPriceTemp.Size = new System.Drawing.Size(18, 20);
-            this.lbPriceTemp.TabIndex = 67;
-            this.lbPriceTemp.Text = "0";
             // 
             // FormCN_DichVu
             // 
@@ -1075,7 +1075,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbCustomerID;
         private System.Windows.Forms.TextBox tbServiceInvoiceCode;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dgvListServiceInvoice;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lbSIC;
@@ -1095,26 +1094,27 @@
         private System.Windows.Forms.DataGridView dgvListCustomer;
         private ePOSOne.btnProduct.Button_WOC btnCreate;
         private ePOSOne.btnProduct.Button_WOC btnDetail;
-        private NoteWrapper.FlatCombobox cbEmployeeID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn No;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.NumericUpDown nudQuantity;
+        private System.Windows.Forms.Label lbPriceTemp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private NoteWrapper.FlatCombobox cbRoomID;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Service_Code;
         private System.Windows.Forms.DataGridViewTextBoxColumn Service_Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.Label lbPriceTemp;
     }
 }

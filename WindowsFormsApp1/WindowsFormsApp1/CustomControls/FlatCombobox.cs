@@ -13,6 +13,7 @@ namespace NoteWrapper
     internal class FlatCombobox : ComboBox
     {
         private Color borderColor = Color.Gray;
+
         [DefaultValue(typeof(Color), "Gray")]
         public Color BorderColor
         {
@@ -171,5 +172,12 @@ namespace NoteWrapper
 
         [DllImport("gdi32.dll")]
         private static extern IntPtr CreateRectRgn(int x1, int y1, int x2, int y2);
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            this.ResumeLayout(false);
+
+        }
     }
 }

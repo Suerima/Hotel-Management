@@ -57,5 +57,9 @@ namespace WindowsFormsApp1.BUS
         {
             return BookingDAO.Instance.UpdateStatusRoom(roomID, status);
         }
+        public int UpdateStatusRoomBooking(string roomID, string status)
+        {
+            return BookingDAO.Instance.UpdateStatusRoomBooking(roomID, status);
+        }
     }
 }

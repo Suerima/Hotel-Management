@@ -14,13 +14,11 @@ namespace WindowsFormsApp1.DTO
         private string person;
         private int price;
         private string status;
-        private string description;
 
         public string RoomID { get => roomID; set => roomID = value; }
         public string Type { get => type; set => type = value; }
         public int Price { get => price; set => price = value; }
         public string Status { get => status; set => status = value; }
-        public string Description { get => description; set => description = value; }
         public string Person { get => person; set => person = value; }
 
         public Room() { }
@@ -32,17 +30,15 @@ namespace WindowsFormsApp1.DTO
             this.Person = row["Person"].ToString();
             this.Price = (int)row["Price"];
             this.Status = row["Status"].ToString();
-            this.Description = row["Description"].ToString();
         }   
 
-        public Room(string roomID, string type, string person, int price, string status, string description)
+        public Room(string roomID, string type, string person, int price, string status)
         {
             RoomID = roomID;
             Type = type;
             Person = person;
             Price = price;
             Status = status;
-            Description = description;
         }
     }
 }

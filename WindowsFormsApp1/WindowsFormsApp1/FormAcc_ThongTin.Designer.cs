@@ -156,7 +156,7 @@
             this.tabInfo.Padding = new System.Windows.Forms.Padding(3);
             this.tabInfo.Size = new System.Drawing.Size(981, 548);
             this.tabInfo.TabIndex = 0;
-            this.tabInfo.Text = "Information";
+            this.tabInfo.Text = "Thông tin tài khoản";
             // 
             // lbChangeLogin
             // 
@@ -596,7 +596,7 @@
             this.tabPersonal.Padding = new System.Windows.Forms.Padding(3);
             this.tabPersonal.Size = new System.Drawing.Size(981, 548);
             this.tabPersonal.TabIndex = 1;
-            this.tabPersonal.Text = " Person";
+            this.tabPersonal.Text = "Thông tin cá nhân";
             // 
             // lbGender1
             // 
@@ -604,9 +604,9 @@
             this.lbGender1.ForeColor = System.Drawing.Color.Silver;
             this.lbGender1.Location = new System.Drawing.Point(43, 391);
             this.lbGender1.Name = "lbGender1";
-            this.lbGender1.Size = new System.Drawing.Size(52, 16);
+            this.lbGender1.Size = new System.Drawing.Size(54, 16);
             this.lbGender1.TabIndex = 137;
-            this.lbGender1.Text = "Gender";
+            this.lbGender1.Text = "Giới tính";
             // 
             // cbGender
             // 
@@ -618,8 +618,8 @@
             this.cbGender.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.cbGender.FormattingEnabled = true;
             this.cbGender.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
+            "Nam",
+            "Nữ"});
             this.cbGender.Location = new System.Drawing.Point(47, 409);
             this.cbGender.Name = "cbGender";
             this.cbGender.Size = new System.Drawing.Size(360, 33);
@@ -675,7 +675,7 @@
             this.tbIDCard.PlaceholderText = "";
             this.tbIDCard.Size = new System.Drawing.Size(390, 48);
             this.tbIDCard.TabIndex = 133;
-            this.tbIDCard.Texts = "IDCard";
+            this.tbIDCard.Texts = "CMND";
             this.tbIDCard.UnderlinedStyle = false;
             this.tbIDCard.Enter += new System.EventHandler(this.tbIDCard_Enter);
             this.tbIDCard.Leave += new System.EventHandler(this.tbIDCard_Leave);
@@ -707,7 +707,7 @@
             this.tbPhone.PlaceholderText = "";
             this.tbPhone.Size = new System.Drawing.Size(390, 48);
             this.tbPhone.TabIndex = 131;
-            this.tbPhone.Texts = "Phone";
+            this.tbPhone.Texts = "SĐT";
             this.tbPhone.UnderlinedStyle = false;
             this.tbPhone.Enter += new System.EventHandler(this.tbPhone_Enter);
             this.tbPhone.Leave += new System.EventHandler(this.tbPhone_Leave);
@@ -739,7 +739,7 @@
             this.tbAddress.PlaceholderText = "";
             this.tbAddress.Size = new System.Drawing.Size(390, 48);
             this.tbAddress.TabIndex = 129;
-            this.tbAddress.Texts = "Address";
+            this.tbAddress.Texts = "Địa chỉ";
             this.tbAddress.UnderlinedStyle = false;
             this.tbAddress.Enter += new System.EventHandler(this.tbAddress_Enter);
             this.tbAddress.Leave += new System.EventHandler(this.tbAddress_Leave);
@@ -770,9 +770,9 @@
             this.lbDob1.ForeColor = System.Drawing.Color.Silver;
             this.lbDob1.Location = new System.Drawing.Point(41, 109);
             this.lbDob1.Name = "lbDob1";
-            this.lbDob1.Size = new System.Drawing.Size(56, 16);
+            this.lbDob1.Size = new System.Drawing.Size(67, 16);
             this.lbDob1.TabIndex = 128;
-            this.lbDob1.Text = "Birthday";
+            this.lbDob1.Text = "Ngày sinh";
             // 
             // tbDob
             // 
@@ -822,7 +822,7 @@
             this.tbName.PlaceholderText = "";
             this.tbName.Size = new System.Drawing.Size(390, 48);
             this.tbName.TabIndex = 117;
-            this.tbName.Texts = "Fullname";
+            this.tbName.Texts = "Họ tên";
             this.tbName.UnderlinedStyle = false;
             this.tbName.Enter += new System.EventHandler(this.tbName_Enter);
             this.tbName.Leave += new System.EventHandler(this.tbName_Leave);
@@ -889,7 +889,7 @@
             this.tabLogin.Padding = new System.Windows.Forms.Padding(3);
             this.tabLogin.Size = new System.Drawing.Size(981, 548);
             this.tabLogin.TabIndex = 2;
-            this.tabLogin.Text = "Login";
+            this.tabLogin.Text = "Mật khẩu";
             // 
             // lbConfirm
             // 

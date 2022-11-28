@@ -14,7 +14,6 @@ namespace WindowsFormsApp1.DTO
         private string customerID;
         private string roomID;
         private DateTime arrival;
-        //private string departure;
 
         private int month;
         private int total;
@@ -24,6 +23,7 @@ namespace WindowsFormsApp1.DTO
         public string CustomerID { get => customerID; set => customerID = value; }
         public string RoomID { get => roomID; set => roomID = value; }
         public DateTime Arrival { get => arrival; set => arrival = value; }
+    
         public int Month { get => month; set => month = value; }
         public int Total { get => total; set => total = value; }
 

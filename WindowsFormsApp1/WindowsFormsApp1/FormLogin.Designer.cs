@@ -91,14 +91,14 @@
             // 
             this.tbUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(239)))));
             this.tbUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbUsername.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbUsername.ForeColor = System.Drawing.Color.DimGray;
+            this.tbUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbUsername.ForeColor = System.Drawing.Color.Black;
             this.tbUsername.Location = new System.Drawing.Point(421, 114);
             this.tbUsername.Margin = new System.Windows.Forms.Padding(4);
             this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(493, 25);
+            this.tbUsername.Size = new System.Drawing.Size(493, 23);
             this.tbUsername.TabIndex = 1;
-            this.tbUsername.Text = "Username";
+            this.tbUsername.Text = "Tên tài khoản";
             this.tbUsername.Enter += new System.EventHandler(this.tbUsername_Enter);
             this.tbUsername.Leave += new System.EventHandler(this.tbUsername_Leave);
             // 
@@ -109,22 +109,22 @@
             this.label1.Location = new System.Drawing.Point(576, 32);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(218, 49);
+            this.label1.Size = new System.Drawing.Size(265, 49);
             this.label1.TabIndex = 3;
-            this.label1.Text = "User Login";
+            this.label1.Text = "ĐĂNG NHẬP";
             // 
             // tbPassword
             // 
             this.tbPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(239)))));
             this.tbPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbPassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPassword.ForeColor = System.Drawing.Color.DimGray;
+            this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbPassword.ForeColor = System.Drawing.Color.Black;
             this.tbPassword.Location = new System.Drawing.Point(421, 182);
             this.tbPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(493, 25);
+            this.tbPassword.Size = new System.Drawing.Size(493, 23);
             this.tbPassword.TabIndex = 2;
-            this.tbPassword.Text = "Password";
+            this.tbPassword.Text = "Mật khẩu";
             this.tbPassword.Enter += new System.EventHandler(this.tbPassword_Enter);
             this.tbPassword.Leave += new System.EventHandler(this.tbPassword_Leave);
             // 
@@ -138,10 +138,10 @@
             this.linkForgotPass.Location = new System.Drawing.Point(632, 348);
             this.linkForgotPass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkForgotPass.Name = "linkForgotPass";
-            this.linkForgotPass.Size = new System.Drawing.Size(140, 20);
+            this.linkForgotPass.Size = new System.Drawing.Size(127, 20);
             this.linkForgotPass.TabIndex = 4;
             this.linkForgotPass.TabStop = true;
-            this.linkForgotPass.Text = "Forgot password?";
+            this.linkForgotPass.Text = "Quên mật khẩu?";
             this.linkForgotPass.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkForgotPass_LinkClicked);
             // 
             // btnClose
@@ -211,7 +211,7 @@
             this.btnLogin.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(239)))));
             this.btnLogin.Size = new System.Drawing.Size(542, 55);
             this.btnLogin.TabIndex = 3;
-            this.btnLogin.Text = "Login";
+            this.btnLogin.Text = "Đăng nhập";
             this.btnLogin.TextColor = System.Drawing.Color.White;
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);

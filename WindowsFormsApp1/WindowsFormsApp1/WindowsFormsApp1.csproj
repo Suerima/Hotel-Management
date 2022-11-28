@@ -161,6 +161,12 @@
     <Compile Include="FormBooking.Designer.cs">
       <DependentUpon>FormBooking.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCN_ThemDichVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCN_ThemDichVu.Designer.cs">
+      <DependentUpon>FormCN_ThemDichVu.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDetailRoom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -227,12 +233,6 @@
     <Compile Include="FormQL_KhachHang.Designer.cs">
       <DependentUpon>FormQL_KhachHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormQL_NhanVien.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormQL_NhanVien.Designer.cs">
-      <DependentUpon>FormQL_NhanVien.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormQL_Phong.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -278,6 +278,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLKS1DataSet1.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CustomControls\FlatCombobox.resx">
+      <DependentUpon>FlatCombobox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAcc_TaoAccount.resx">
       <DependentUpon>FormAcc_TaoAccount.cs</DependentUpon>
     </EmbeddedResource>
@@ -289,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormCN_DichVu.resx">
       <DependentUpon>FormCN_DichVu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCN_ThemDichVu.resx">
+      <DependentUpon>FormCN_ThemDichVu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCN_ThuePhong.resx">
       <DependentUpon>FormCN_ThuePhong.cs</DependentUpon>
@@ -310,9 +316,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormQL_KhachHang.resx">
       <DependentUpon>FormQL_KhachHang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormQL_NhanVien.resx">
-      <DependentUpon>FormQL_NhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormQL_Phong.resx">
       <DependentUpon>FormQL_Phong.cs</DependentUpon>

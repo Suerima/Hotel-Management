@@ -41,6 +41,13 @@
             this.btnUpdate = new ePOSOne.btnProduct.Button_WOC();
             this.btnAdd = new ePOSOne.btnProduct.Button_WOC();
             this.dgvListCustomer = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPageEdit = new System.Windows.Forms.TabPage();
             this.lbName = new System.Windows.Forms.Label();
             this.lbAddress = new System.Windows.Forms.Label();
@@ -63,13 +70,6 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPageList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListCustomer)).BeginInit();
             this.tabPageEdit.SuspendLayout();
@@ -96,7 +96,7 @@
             this.tabPageList.Padding = new System.Windows.Forms.Padding(4);
             this.tabPageList.Size = new System.Drawing.Size(1065, 548);
             this.tabPageList.TabIndex = 0;
-            this.tabPageList.Text = "Thông tin";
+            this.tabPageList.Text = "Danh sách khách hàng";
             // 
             // lbRecord
             // 
@@ -105,11 +105,11 @@
             this.lbRecord.AutoSize = true;
             this.lbRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbRecord.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbRecord.Location = new System.Drawing.Point(917, 21);
+            this.lbRecord.Location = new System.Drawing.Point(852, 18);
             this.lbRecord.Name = "lbRecord";
-            this.lbRecord.Size = new System.Drawing.Size(106, 25);
+            this.lbRecord.Size = new System.Drawing.Size(213, 25);
             this.lbRecord.TabIndex = 12;
-            this.lbRecord.Text = "Records: 0";
+            this.lbRecord.Text = "Số lượng khách hàng 0";
             // 
             // cbSearch
             // 
@@ -287,6 +287,69 @@
             this.dgvListCustomer.TabIndex = 1;
             this.dgvListCustomer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListCustomer_CellClick);
             // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.DataPropertyName = "PersonID";
+            this.Column1.HeaderText = "Mã khách hàng";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.DataPropertyName = "Name";
+            this.Column2.HeaderText = "Họ tên";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column4.DataPropertyName = "Gender";
+            this.Column4.HeaderText = "Giới tính";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.DataPropertyName = "Dob";
+            this.Column3.HeaderText = "Ngày sinh";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column7.DataPropertyName = "Address";
+            this.Column7.HeaderText = "Địa chỉ";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column6.DataPropertyName = "Phone";
+            this.Column6.HeaderText = "Số điện thoại";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column5.DataPropertyName = "IDCard";
+            this.Column5.HeaderText = "CMND";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
             // tabPageEdit
             // 
             this.tabPageEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
@@ -363,9 +426,9 @@
             this.lbDob.ForeColor = System.Drawing.Color.DarkGray;
             this.lbDob.Location = new System.Drawing.Point(62, 319);
             this.lbDob.Name = "lbDob";
-            this.lbDob.Size = new System.Drawing.Size(60, 16);
+            this.lbDob.Size = new System.Drawing.Size(67, 16);
             this.lbDob.TabIndex = 134;
-            this.lbDob.Text = "Birthdate";
+            this.lbDob.Text = "Ngày sinh";
             // 
             // lbGender
             // 
@@ -374,9 +437,9 @@
             this.lbGender.ForeColor = System.Drawing.Color.DarkGray;
             this.lbGender.Location = new System.Drawing.Point(62, 223);
             this.lbGender.Name = "lbGender";
-            this.lbGender.Size = new System.Drawing.Size(52, 16);
+            this.lbGender.Size = new System.Drawing.Size(54, 16);
             this.lbGender.TabIndex = 133;
-            this.lbGender.Text = "Gender";
+            this.lbGender.Text = "Giới tính";
             // 
             // tbDob
             // 
@@ -467,7 +530,7 @@
             this.tbAddress.PlaceholderText = "";
             this.tbAddress.Size = new System.Drawing.Size(390, 48);
             this.tbAddress.TabIndex = 5;
-            this.tbAddress.Texts = "Address";
+            this.tbAddress.Texts = "Địa chỉ";
             this.tbAddress.UnderlinedStyle = false;
             this.tbAddress.Enter += new System.EventHandler(this.tbAddress_Enter);
             this.tbAddress.Leave += new System.EventHandler(this.tbAddress_Leave);
@@ -490,7 +553,7 @@
             this.tbPhone.PlaceholderText = "";
             this.tbPhone.Size = new System.Drawing.Size(390, 48);
             this.tbPhone.TabIndex = 7;
-            this.tbPhone.Texts = "Phone";
+            this.tbPhone.Texts = "SĐT";
             this.tbPhone.UnderlinedStyle = false;
             this.tbPhone.Enter += new System.EventHandler(this.tbPhone_Enter);
             this.tbPhone.Leave += new System.EventHandler(this.tbPhone_Leave);
@@ -523,7 +586,7 @@
             this.tbIDCard.PlaceholderText = "";
             this.tbIDCard.Size = new System.Drawing.Size(390, 48);
             this.tbIDCard.TabIndex = 6;
-            this.tbIDCard.Texts = "IDCard";
+            this.tbIDCard.Texts = "CMND";
             this.tbIDCard.UnderlinedStyle = false;
             this.tbIDCard.Enter += new System.EventHandler(this.tbIDCard_Enter);
             this.tbIDCard.Leave += new System.EventHandler(this.tbIDCard_Leave);
@@ -535,9 +598,9 @@
             this.lbCustomerID.ForeColor = System.Drawing.Color.Silver;
             this.lbCustomerID.Location = new System.Drawing.Point(62, 37);
             this.lbCustomerID.Name = "lbCustomerID";
-            this.lbCustomerID.Size = new System.Drawing.Size(77, 16);
+            this.lbCustomerID.Size = new System.Drawing.Size(98, 16);
             this.lbCustomerID.TabIndex = 120;
-            this.lbCustomerID.Text = "CustomerID";
+            this.lbCustomerID.Text = "Mã khách hàng";
             // 
             // tbName
             // 
@@ -557,7 +620,7 @@
             this.tbName.PlaceholderText = "";
             this.tbName.Size = new System.Drawing.Size(390, 48);
             this.tbName.TabIndex = 2;
-            this.tbName.Texts = "Fullname";
+            this.tbName.Texts = "Họ tên";
             this.tbName.UnderlinedStyle = false;
             this.tbName.Enter += new System.EventHandler(this.tbName_Enter);
             this.tbName.Leave += new System.EventHandler(this.tbName_Leave);
@@ -581,7 +644,7 @@
             this.tbCustomerID.PlaceholderText = "";
             this.tbCustomerID.Size = new System.Drawing.Size(390, 48);
             this.tbCustomerID.TabIndex = 1;
-            this.tbCustomerID.Texts = "CustomerID";
+            this.tbCustomerID.Texts = "Mã khách hàng";
             this.tbCustomerID.UnderlinedStyle = false;
             // 
             // btnCancel
@@ -592,7 +655,7 @@
             this.btnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnCancel.Location = new System.Drawing.Point(788, 401);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
@@ -614,7 +677,7 @@
             this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnSave.Location = new System.Drawing.Point(543, 401);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
@@ -623,7 +686,7 @@
             this.btnSave.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
             this.btnSave.Size = new System.Drawing.Size(200, 84);
             this.btnSave.TabIndex = 8;
-            this.btnSave.Text = "Save";
+            this.btnSave.Text = "Lưu";
             this.btnSave.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(169)))), ((int)(((byte)(29)))));
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -663,69 +726,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1073, 57);
             this.panel1.TabIndex = 17;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.DataPropertyName = "PersonID";
-            this.Column1.HeaderText = "Mã khách hàng";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.DataPropertyName = "Name";
-            this.Column2.HeaderText = "Họ tên";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column4.DataPropertyName = "Gender";
-            this.Column4.HeaderText = "Giới tính";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.DataPropertyName = "Dob";
-            this.Column3.HeaderText = "Ngày sinh";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column7.DataPropertyName = "Address";
-            this.Column7.HeaderText = "Địa chỉ";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column6.DataPropertyName = "Phone";
-            this.Column6.HeaderText = "Số điện thoại";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column5.DataPropertyName = "IDCard";
-            this.Column5.HeaderText = "CMND";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
             // 
             // FormQL_KhachHang
             // 

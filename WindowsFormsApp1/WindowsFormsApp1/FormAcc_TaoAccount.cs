@@ -24,8 +24,8 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             loadListAccount();
-            cbGender.Text = "Male";
-            cbAuthority.Text = "Manager";
+            cbGender.Text = "Nam";
+            cbAuthority.Text = "Quản lý";
         }
 
 
@@ -41,6 +41,14 @@ namespace WindowsFormsApp1
         {
             Regex isValidInput = new Regex(@"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
             if (isValidInput.IsMatch(email) && !AccountBUS.Instance.SearchEmail(email))
+                return true;
+            return false;
+        }
+
+        static public bool checkPassword(string password)
+        {
+            Regex isValidInput = new Regex(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$");
+            if (isValidInput.IsMatch(password))
                 return true;
             return false;
         }
@@ -91,30 +99,34 @@ namespace WindowsFormsApp1
                 fs.Read(image, 0, (int)fs.Length);
             }
             
-            if (name == "Fullname" || address == "Address" || phone == "Phone" || idcard == "IDCard" || username == "Username" || email == "Email" || password == "Password" || confirm == "Confirm")
+            if (name == "Họ tên" || address == "Địa chỉ" || phone == "SĐT" || idcard == "CMND" || username == "Tên tài khoản" || email == "Email" || password == "Mật khẩu" || confirm == "Xác nhận mật khẩu")
             {
-                MessageBox.Show("Missing information.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Nhập đây đủ thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else if (!checkName(name))
             {
-            MessageBox.Show("Invalid name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Tên không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             else if (!checkPhone(phone))
             {
-                MessageBox.Show("Invalid phone number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Số điện thoại không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else if (!checkIDCard(idcard))
             {
-                MessageBox.Show("Invalid IDCard.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("CMND không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else if (!checkEmail(email))
             {
-                MessageBox.Show("Not a valid E-mail adrress.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Email không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if(!checkPassword(password))
+            {
+                MessageBox.Show("Mật khẩu phải tổi thiểu 8 kí tự, gồm ít nhất 1 hoa, 1 thường, 1 số và 1 kí tự đặc biệt.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else if (!password.Equals(confirm))
             {
-                MessageBox.Show("Password and Confirm Password does not match.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Xác nhận mật khẩu không khớp với mật khẩu mới.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -123,18 +135,18 @@ namespace WindowsFormsApp1
 
                 if (AccountBUS.Instance.InsertAccount(account, perInfo) > 1)
                 {
-                    MessageBox.Show("Created successfully.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Tạo tài khoản thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     reset();
                     loadListAccount();
                 }
                 else
-                    MessageBox.Show("That userame already exists.", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Tên tài khoản đã tồn tại.", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public void reset()
         {
-            tbxFullname.Texts = "Fullname";
+            tbxFullname.Texts = "Họ tên";
             tbxFullname.ForeColor = Color.DimGray;
             lbFullname.Text = "";
 
@@ -142,27 +154,27 @@ namespace WindowsFormsApp1
             tbxEmail.ForeColor = Color.DimGray;
             lbEmail.Text = "";
 
-            tbxAddress.Texts = "Address";
+            tbxAddress.Texts = "Địa chỉ";
             tbxAddress.ForeColor = Color.DimGray;
             lbAddress.Text = "";
 
-            tbxPhone.Texts = "Phone";
+            tbxPhone.Texts = "SĐT";
             tbxPhone.ForeColor = Color.DimGray;
             lbPhone.Text = "";
 
-            tbxUsername.Texts = "Username";
+            tbxUsername.Texts = "Tên tài khoản";
             tbxUsername.ForeColor = Color.DimGray;
             lbUsername.Text = "";
 
-            tbxIDCard.Texts = "IDCard";
+            tbxIDCard.Texts = "CMND";
             tbxIDCard.ForeColor = Color.DimGray;
             lbIDCard.Text = "";
 
-            tbxPassword.Texts = "Password";
+            tbxPassword.Texts = "Mật khẩu";
             tbxPassword.ForeColor = Color.DimGray;
             lbPassword.Text = "";
 
-            tbxConfirm.Texts = "Confirm";
+            tbxConfirm.Texts = "Xác nhận mật khẩu";
             tbxConfirm.ForeColor = Color.DimGray;
             lbConfirm.Text = "";
         }
@@ -183,10 +195,10 @@ namespace WindowsFormsApp1
         {
             tbxFullname.BorderSize = 2;
             tbxFullname.BorderColor = yellow;
-            lbFullname.Text = "Fullname";
+            lbFullname.Text = "Họ tên";
             lbFullname.ForeColor = yellow;
 
-            if (tbxFullname.Texts == "Fullname")
+            if (tbxFullname.Texts == "Họ tên")
                 tbxFullname.Texts = "";
             tbxFullname.ForeColor = Color.WhiteSmoke;
         }
@@ -199,7 +211,7 @@ namespace WindowsFormsApp1
 
             if (tbxFullname.Texts == "")
             {
-                tbxFullname.Texts = "Fullname";
+                tbxFullname.Texts = "Họ tên";
                 tbxFullname.ForeColor = Color.DimGray;
                 lbFullname.Text = "";
             }
@@ -224,10 +236,10 @@ namespace WindowsFormsApp1
         {
             tbxAddress.BorderSize = 2;
             tbxAddress.BorderColor = yellow;
-            lbAddress.Text = "Address";
+            lbAddress.Text = "Địa chỉ";
             lbAddress.ForeColor = yellow;
 
-            if (tbxAddress.Texts == "Address")
+            if (tbxAddress.Texts == "Địa chỉ")
                 tbxAddress.Texts = "";
             tbxAddress.ForeColor = Color.WhiteSmoke;
 
@@ -241,7 +253,7 @@ namespace WindowsFormsApp1
 
             if (tbxAddress.Texts == "")
             {
-                tbxAddress.Texts = "Address";
+                tbxAddress.Texts = "Địa chỉ";
                 tbxAddress.ForeColor = Color.DimGray;
                 lbAddress.Text = "";
             }
@@ -252,10 +264,10 @@ namespace WindowsFormsApp1
         {
             tbxPhone.BorderSize = 2;
             tbxPhone.BorderColor = yellow;
-            lbPhone.Text = "Phone";
+            lbPhone.Text = "SĐT";
             lbPhone.ForeColor = yellow;
 
-            if (tbxPhone.Texts == "Phone")
+            if (tbxPhone.Texts == "SĐT")
                 tbxPhone.Texts = "";
             tbxPhone.ForeColor = Color.WhiteSmoke;
 
@@ -269,7 +281,7 @@ namespace WindowsFormsApp1
 
             if (tbxPhone.Texts == "")
             {
-                tbxPhone.Texts = "Phone";
+                tbxPhone.Texts = "SĐT";
                 tbxPhone.ForeColor = Color.DimGray;
                 lbPhone.Text = "";
             }
@@ -279,10 +291,10 @@ namespace WindowsFormsApp1
         {
             tbxIDCard.BorderSize = 2;
             tbxIDCard.BorderColor = yellow;
-            lbIDCard.Text = "IDCard";
+            lbIDCard.Text = "CMND";
             lbIDCard.ForeColor = yellow;
 
-            if (tbxIDCard.Texts == "IDCard")
+            if (tbxIDCard.Texts == "CMND")
                 tbxIDCard.Texts = "";
             tbxIDCard.ForeColor = Color.WhiteSmoke;
         }
@@ -294,7 +306,7 @@ namespace WindowsFormsApp1
 
             if (tbxIDCard.Texts == "")
             {
-                tbxIDCard.Texts = "IDCard";
+                tbxIDCard.Texts = "CMND";
                 tbxIDCard.ForeColor = Color.DimGray;
                 lbIDCard.Text = "";
             }
@@ -304,10 +316,10 @@ namespace WindowsFormsApp1
         {
             tbxUsername.BorderSize = 2;
             tbxUsername.BorderColor = yellow;
-            lbUsername.Text = "Username";
+            lbUsername.Text = "Tên tài khoản";
             lbUsername.ForeColor = yellow;
 
-            if (tbxUsername.Texts == "Username")
+            if (tbxUsername.Texts == "Tên tài khoản")
                 tbxUsername.Texts = "";
             tbxUsername.ForeColor = Color.WhiteSmoke;
         }
@@ -320,7 +332,7 @@ namespace WindowsFormsApp1
 
             if (tbxUsername.Texts == "")
             {
-                tbxUsername.Texts = "Username";
+                tbxUsername.Texts = "Tên tài khoản";
                 tbxUsername.ForeColor = Color.DimGray;
                 lbUsername.Text = "";
             }
@@ -356,10 +368,10 @@ namespace WindowsFormsApp1
         {
             tbxPassword.BorderSize = 2;
             tbxPassword.BorderColor = yellow;
-            lbPassword.Text = "Password";
+            lbPassword.Text = "Mật khẩu mới";
             lbPassword.ForeColor = yellow;
 
-            if (tbxPassword.Texts == "Password")
+            if (tbxPassword.Texts == "Mật khẩu mới")
                 tbxPassword.Texts = "";
             tbxPassword.ForeColor = Color.WhiteSmoke;
         }
@@ -372,7 +384,7 @@ namespace WindowsFormsApp1
 
             if (tbxPassword.Texts == "")
             {
-                tbxPassword.Texts = "Password";
+                tbxPassword.Texts = "Mật khẩu mới";
                 tbxPassword.ForeColor = Color.DimGray;
                 lbPassword.Text = "";
             }
@@ -382,10 +394,10 @@ namespace WindowsFormsApp1
         {
             tbxConfirm.BorderSize = 2;
             tbxConfirm.BorderColor = yellow;
-            lbConfirm.Text = "Confirm";
+            lbConfirm.Text = "Xác nhận mật khẩu";
             lbConfirm.ForeColor = yellow;
 
-            if (tbxConfirm.Texts == "Confirm")
+            if (tbxConfirm.Texts == "Xác nhận mật khẩu")
                 tbxConfirm.Texts = "";
             tbxConfirm.ForeColor = Color.WhiteSmoke;
         }
@@ -398,7 +410,7 @@ namespace WindowsFormsApp1
 
             if (tbxConfirm.Texts == "")
             {
-                tbxConfirm.Texts = "Confirm";
+                tbxConfirm.Texts = "Xác nhận mật khẩu";
                 tbxConfirm.ForeColor = Color.DimGray;
                 lbConfirm.Text = "";
             }
@@ -435,18 +447,18 @@ namespace WindowsFormsApp1
 
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {
-            if (tbSearch.Text != "Search")
+            if (tbSearch.Text != "Tìm kiếm")
             {
-                if (cbSearch.Text == " Fullname")
+                if (cbSearch.Text == " Họ tên")
                 {
                     dgvListAccount.DataSource = AccountBUS.Instance.SearchAccount("Name", tbSearch.Text);
                 }
-                else if (cbSearch.Text == " Phone")
+                else if (cbSearch.Text == " SĐT")
                 {
-                    dgvListAccount.DataSource = AccountBUS.Instance.SearchAccount("Phone", tbSearch.Text);
+                    dgvListAccount.DataSource = AccountBUS.Instance.SearchAccount("SĐT", tbSearch.Text);
 
                 }
-                else if (cbSearch.Text == " Authority")
+                else if (cbSearch.Text == " Chức vụ")
                 {
                     dgvListAccount.DataSource = AccountBUS.Instance.SearchAccount("Authority", tbSearch.Text);
                 }
@@ -456,12 +468,12 @@ namespace WindowsFormsApp1
         private void tbSearch_Leave(object sender, EventArgs e)
         {
             if (tbSearch.Text == "")
-                tbSearch.Text = "Search";
+                tbSearch.Text = "Tìm kiếm";
         }
 
         private void tbSearch_Enter(object sender, EventArgs e)
         {
-            if (tbSearch.Text == "Search")
+            if (tbSearch.Text == "Tìm kiếm")
                 tbSearch.Text = "";
         }
 
@@ -470,21 +482,21 @@ namespace WindowsFormsApp1
             try
             {
                 if (lbUser.Text == "")
-                    MessageBox.Show("Please select the account you want to delete!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Please select the account you want to delete!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
                 {
-                    var result = MessageBox.Show("Are you sure you want to delete user " + lbUser.Text +" ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    var result = MessageBox.Show("Are you sure you want to delete user " + lbUser.Text +" ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (result == DialogResult.Yes)
                     {
-                        if (lbAuthori.Text == "Cashier")
+                        if (lbAuthori.Text == "Nhân viên")
                         {
                             PersonalInfoBUS.Instance.DeletePerson(lbUser.Text);
                             loadListAccount();
-                            MessageBox.Show("Delete successfully.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Delete successfully.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             lbUser.Text = "";
                         }
                         else
-                            MessageBox.Show("Can't delete account of Manager.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Can't delete account of Manager.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     }
                 }

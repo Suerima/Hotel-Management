@@ -255,7 +255,6 @@ D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.F
 D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormDT_ThuePhong.resources
 D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormLogin.resources
 D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormQL_KhachHang.resources
-D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormQL_NhanVien.resources
 D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormQL_Phong.resources
 D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormReportBooking.resources
 D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormResetPass.resources
@@ -275,3 +274,5 @@ D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.F
 D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormDetailRoom.resources
 D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ListRoom.resources
 D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormThongBao.resources
+D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormCN_ThemDichVu.resources
+D:\QuanLyKhachSan\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\NoteWrapper.FlatCombobox.resources

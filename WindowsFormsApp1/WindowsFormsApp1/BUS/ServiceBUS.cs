@@ -23,7 +23,18 @@ namespace WindowsFormsApp1.BUS
             private set { instance = value; }
         }
         private ServiceBUS() { }
-    
+
+        public DataTable SearchService(string nameCol, string value)
+        {
+            return ServiceDAO.Instance.SearchService(nameCol, value);
+
+        }
+
+
+        public string GetLastServiceCode()
+        {
+            return ServiceDAO.Instance.GetLastServiceCode();
+        }
         public DataTable GetService()
         {
             return ServiceDAO.Instance.GetService();

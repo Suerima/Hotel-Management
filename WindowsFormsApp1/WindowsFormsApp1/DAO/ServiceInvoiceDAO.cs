@@ -45,6 +45,18 @@ namespace WindowsFormsApp1.DAO
             }
         }
 
+        public string GetTotalServiceInvoice(string roomID)
+        {
+            try
+            {
+                return DataProvider.Instance.ExecuteScalar("USP_Get_Total_ServiceInvoice @RoomID", new object[] {roomID}); //
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public DataTable GetServiceInvoiceInCheckOut()
         {
             try
@@ -61,20 +73,20 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                string query = "USP_Insert_ServiceInvoice @ServiceInvoiceCode , @CustomerID , @MangerID , @EmployeeID , @DateCreate , @Total , @Status"; //
-                return DataProvider.Instance.ExecuteNonQuery(query, new object[] { SI.ServiceInvoiceID, SI.CustomerID, SI.ManagerID, SI.EmployeeID, SI.DateCreated, SI.Total, SI.Status });
+                string query = "USP_Insert_ServiceInvoice @ServiceInvoiceCode , @CustomerID , @MangerID , @RoomID , @DateCreate , @Total , @Status"; //
+                return DataProvider.Instance.ExecuteNonQuery(query, new object[] { SI.ServiceInvoiceID, SI.CustomerID, SI.ManagerID, SI.RoomID , SI.DateCreated, SI.Total, SI.Status });
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-        public int UpdateServiceInvoice(string sic, string employeeID)
+        public int UpdateServiceInvoice(string sic)
         {
             try
             {
-                string query = "USP_Update_ServiceInvoice @SIC , @EmployeeID "; //
-                return DataProvider.Instance.ExecuteNonQuery(query, new object[] { sic, employeeID });
+                string query = "USP_Update_ServiceInvoice @SIC"; //
+                return DataProvider.Instance.ExecuteNonQuery(query, new object[] { sic});
             }
             catch (Exception ex)
             {

@@ -51,7 +51,7 @@ namespace WindowsFormsApp1
         void loadData()
         {
             dgvListRoom.DataSource = RoomBUS.Instance.GetRoom();
-            lbRecord.Text = "Records: " + dgvListRoom.RowCount.ToString();
+            lbRecord.Text = "Số lượng phòng: " + dgvListRoom.RowCount.ToString();
         }
 
         static public bool checkPrice(string price)
@@ -83,7 +83,6 @@ namespace WindowsFormsApp1
                     cbPerson.Text = r.Cells[2].Value.ToString();
                     tbPrice.Texts = r.Cells[3].Value.ToString();
                     status = r.Cells[4].Value.ToString();
-                    tbBed.Texts = r.Cells[5].Value.ToString();
                 }
             }
         }
@@ -117,30 +116,26 @@ namespace WindowsFormsApp1
         {
             tabControl.TabPages.Remove(tabPageList);
             tabControl.TabPages.Add(tabPageEdit);
-            tabPageEdit.Text = "ADD";
+            tabPageEdit.Text = "Thêm phòng";
             reset();
             checkButton = true;
             resetCheckListBox();
-            // Read the file into a byte array
             pictureBox1.ImageLocation = filename; // Gán image lên picturebox
             alist = new ArrayList();
             index = 0;
             count = 0;
             lbCountImage.Text = count.ToString();
-
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (tbRoomID.Texts == "")
-            {
-                MessageBox.Show("Please select the room you want to update!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+                MessageBox.Show("Chọn phòng bạn muốn cập nhật.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
             {
                 tabControl.TabPages.Remove(tabPageList);
                 tabControl.TabPages.Add(tabPageEdit);
-                tabPageEdit.Text = "UPDATE";
+                tabPageEdit.Text = "Cập nhật thông tin phòng";
                 checkButton = false;
                 PopulateListCheckBox(tbRoomID.Texts);
                 loadImageRoom(tbRoomID.Texts);
@@ -153,10 +148,10 @@ namespace WindowsFormsApp1
             try
             {
                 if (tbRoomID.Texts == "")
-                    MessageBox.Show("Vui lòng chọn phòng muốn xoá.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Vui lòng chọn phòng muốn xoá.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
                 {
-                    var result = MessageBox.Show("Bạn có chắc muốn xoá phòng này", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    var result = MessageBox.Show("Bạn có chắc muốn xoá phòng này.", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (result == DialogResult.Yes)
                     {
                         RoomBUS.Instance.DeleteRoom(tbRoomID.Texts);
@@ -297,27 +292,25 @@ namespace WindowsFormsApp1
                 string[] lst = GetListCheckedItem();
 
                 if (!checkPrice(tbPrice.Texts))
-                {
-                    MessageBox.Show("Invalid price.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                    MessageBox.Show("Không được nhập kí tự.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
                 {
 
                     if (checkButton == true)
                     {
-                        Room room = new Room(tbRoomID.Texts, cbType.Text, cbPerson.Text, int.Parse(tbPrice.Texts), "Phòng trống", "");
+                        Room room = new Room(tbRoomID.Texts, cbType.Text, cbPerson.Text, int.Parse(tbPrice.Texts), "Phòng trống");
                         RoomBUS.Instance.InsertRoom(room);
                         RoomDAO.Instance.InsertDetailRoom(lst, tbRoomID.Texts);
                         RoomDAO.Instance.InsertListImageRoom(tbRoomID.Texts, alist, count);
-                        MessageBox.Show("Insert successful!.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Thêm phòng thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        Room room = new Room(tbRoomID.Texts, cbType.Text, cbPerson.Text, int.Parse(tbPrice.Texts), status, "");
+                        Room room = new Room(tbRoomID.Texts, cbType.Text, cbPerson.Text, int.Parse(tbPrice.Texts), status);
                         RoomBUS.Instance.UpdateRoom(room);
                         RoomDAO.Instance.DeleteDetailRoom(tbRoomID.Texts);
                         RoomDAO.Instance.InsertDetailRoom(lst, tbRoomID.Texts);
-                        MessageBox.Show("Update successful!.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Cập nhật phòng thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
                     tabControl.TabPages.Add(tabPageList);
@@ -339,33 +332,57 @@ namespace WindowsFormsApp1
             tbRoomID.Texts = "";
         }
 
-        #region Event
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {
-            if (tbSearch.Text != "Search")
+            if (tbSearch.Text != "Tìm kiếm")
             {
-                if (cbSearch.Text == " RoomID")
+                if (cbSearch.Text == " Mã phòng")
                 {
                     dgvListRoom.DataSource = RoomBUS.Instance.SearchRoom("RoomID", tbSearch.Text);
                 }
-                else if (cbSearch.Text == " Type")
+                else if (cbSearch.Text == " Loại phòng")
                 {
                     dgvListRoom.DataSource = RoomBUS.Instance.SearchRoom("Type", tbSearch.Text);
                 }
-                else if (cbSearch.Text == " Person")
+                else if (cbSearch.Text == " Số người")
                 {
                     dgvListRoom.DataSource = RoomBUS.Instance.SearchRoom("Person", tbSearch.Text);
                 }
-                else if (cbSearch.Text == " Price")
+                else if (cbSearch.Text == " Giá")
                 {
                     dgvListRoom.DataSource = RoomBUS.Instance.SearchRoom("Price", tbSearch.Text);
                 }
-                else if (cbSearch.Text == " Status")
+                else if (cbSearch.Text == " Tình trạng")
                 {
                     dgvListRoom.DataSource = RoomBUS.Instance.SearchRoom("Status", tbSearch.Text);
                 }
             }
         }
+      
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "Image Files(*.jpg; *.bmp; *.wmf; *.png)| *.jpg; *.bmp; *.wmf; *.png"; ;
+            if (dlg.ShowDialog(this) == DialogResult.OK)
+            {
+                if (checkButton == true)
+                {
+                    alist.Add(dlg.FileName);
+                    pictureBox1.ImageLocation = dlg.FileName;
+                    count += 1;
+                    lbCountImage.Text = count.ToString();
+                }
+                else
+                {
+                    RoomDAO.Instance.InsertImageRoom(tbRoomID.Texts, dlg.FileName);
+                    loadImageRoom(tbRoomID.Texts);
+                    MessageBox.Show("Thêm ảnh thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+     
+        #region Event
+
         private void cbTypeBed_Enter(object sender, EventArgs e)
         {
             tbBed.BorderSize = 2;
@@ -381,24 +398,24 @@ namespace WindowsFormsApp1
         }
         private void tbSearch_Enter(object sender, EventArgs e)
         {
-            if (tbSearch.Text == "Search")
+            if (tbSearch.Text == "Tìm kiếm")
                 tbSearch.Text = "";
         }
 
         private void tbSearch_Leave(object sender, EventArgs e)
         {
             if (tbSearch.Text == "")
-                tbSearch.Text = "Search";
+                tbSearch.Text = "Tìm kiếm";
         }
 
         private void tbPrice_Enter(object sender, EventArgs e)
         {
             tbPrice.BorderSize = 2;
             tbPrice.BorderColor = yellow;
-            lbPrice.Text = "Price";
+            lbPrice.Text = "Giá phòng";
             lbPrice.ForeColor = yellow;
 
-            if (tbPrice.Texts == "Price")
+            if (tbPrice.Texts == "Giá phòng")
                 tbPrice.Texts = "";
             tbPrice.ForeColor = Color.WhiteSmoke;
         }
@@ -411,7 +428,7 @@ namespace WindowsFormsApp1
 
             if (tbPrice.Texts == "")
             {
-                tbPrice.Texts = "Price";
+                tbPrice.Texts = "Giá phòng";
                 tbPrice.ForeColor = Color.DimGray;
                 lbPrice.Text = "";
             }
@@ -446,26 +463,5 @@ namespace WindowsFormsApp1
 
         #endregion
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            OpenFileDialog dlg = new OpenFileDialog();
-            dlg.Filter = "Image Files(*.jpg; *.bmp; *.wmf; *.png)| *.jpg; *.bmp; *.wmf; *.png"; ;
-            if (dlg.ShowDialog(this) == DialogResult.OK)
-            {
-                if (checkButton == true)
-                {   
-                    alist.Add(dlg.FileName);
-                    pictureBox1.ImageLocation = dlg.FileName;
-                    count += 1;
-                    lbCountImage.Text = count.ToString() ;
-                }
-                else
-                {
-                    RoomDAO.Instance.InsertImageRoom(tbRoomID.Texts, dlg.FileName);
-                    loadImageRoom(tbRoomID.Texts);
-                    MessageBox.Show("Insert successfully");
-                }    
-             }
-        }
     }
 }

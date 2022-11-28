@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
@@ -74,13 +74,13 @@
             this.label9 = new System.Windows.Forms.Label();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.dgvListAccount = new System.Windows.Forms.DataGridView();
-            this.lbAuthori = new System.Windows.Forms.Label();
-            this.lbUser = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbAuthori = new System.Windows.Forms.Label();
+            this.lbUser = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -239,9 +239,9 @@
             this.lbAuthority.ForeColor = System.Drawing.Color.DarkGray;
             this.lbAuthority.Location = new System.Drawing.Point(556, 32);
             this.lbAuthority.Name = "lbAuthority";
-            this.lbAuthority.Size = new System.Drawing.Size(58, 16);
+            this.lbAuthority.Size = new System.Drawing.Size(54, 16);
             this.lbAuthority.TabIndex = 127;
-            this.lbAuthority.Text = "Authority";
+            this.lbAuthority.Text = "Chức vụ";
             // 
             // dtpDob
             // 
@@ -278,9 +278,9 @@
             this.lbDob.ForeColor = System.Drawing.Color.Silver;
             this.lbDob.Location = new System.Drawing.Point(37, 193);
             this.lbDob.Name = "lbDob";
-            this.lbDob.Size = new System.Drawing.Size(56, 16);
+            this.lbDob.Size = new System.Drawing.Size(67, 16);
             this.lbDob.TabIndex = 125;
-            this.lbDob.Text = "Birthday";
+            this.lbDob.Text = "Ngày sinh";
             // 
             // lbConfirm
             // 
@@ -342,9 +342,9 @@
             this.lbGender.ForeColor = System.Drawing.Color.Silver;
             this.lbGender.Location = new System.Drawing.Point(37, 109);
             this.lbGender.Name = "lbGender";
-            this.lbGender.Size = new System.Drawing.Size(52, 16);
+            this.lbGender.Size = new System.Drawing.Size(54, 16);
             this.lbGender.TabIndex = 117;
-            this.lbGender.Text = "Gender";
+            this.lbGender.Text = "Giới tính";
             // 
             // lbFullname
             // 
@@ -394,7 +394,7 @@
             this.tbxFullname.PlaceholderText = "";
             this.tbxFullname.Size = new System.Drawing.Size(390, 48);
             this.tbxFullname.TabIndex = 1;
-            this.tbxFullname.Texts = "Fullname";
+            this.tbxFullname.Texts = "Họ tên";
             this.tbxFullname.UnderlinedStyle = false;
             this.tbxFullname.Enter += new System.EventHandler(this.tbxFullname_Enter);
             this.tbxFullname.Leave += new System.EventHandler(this.tbxFullname_Leave);
@@ -476,7 +476,7 @@
             this.tbxConfirm.PlaceholderText = "";
             this.tbxConfirm.Size = new System.Drawing.Size(390, 48);
             this.tbxConfirm.TabIndex = 11;
-            this.tbxConfirm.Texts = "Confirm";
+            this.tbxConfirm.Texts = "Xác nhận mật khẩu";
             this.tbxConfirm.UnderlinedStyle = false;
             this.tbxConfirm.Enter += new System.EventHandler(this.tbxConfirm_Enter);
             this.tbxConfirm.Leave += new System.EventHandler(this.tbxConfirm_Leave);
@@ -499,7 +499,7 @@
             this.tbxPassword.PlaceholderText = "";
             this.tbxPassword.Size = new System.Drawing.Size(390, 48);
             this.tbxPassword.TabIndex = 10;
-            this.tbxPassword.Texts = "Password";
+            this.tbxPassword.Texts = "Mật khẩu mới";
             this.tbxPassword.UnderlinedStyle = false;
             this.tbxPassword.Enter += new System.EventHandler(this.tbxPassword_Enter);
             this.tbxPassword.Leave += new System.EventHandler(this.tbxPassword_Leave);
@@ -545,7 +545,7 @@
             this.tbxUsername.PlaceholderText = "";
             this.tbxUsername.Size = new System.Drawing.Size(390, 48);
             this.tbxUsername.TabIndex = 8;
-            this.tbxUsername.Texts = "Username";
+            this.tbxUsername.Texts = "Tên tài khoản";
             this.tbxUsername.UnderlinedStyle = false;
             this.tbxUsername.Enter += new System.EventHandler(this.tbxUsername_Enter);
             this.tbxUsername.Leave += new System.EventHandler(this.tbxUsername_Leave);
@@ -568,7 +568,7 @@
             this.tbxIDCard.PlaceholderText = "";
             this.tbxIDCard.Size = new System.Drawing.Size(390, 48);
             this.tbxIDCard.TabIndex = 6;
-            this.tbxIDCard.Texts = "IDCard";
+            this.tbxIDCard.Texts = "CMND";
             this.tbxIDCard.UnderlinedStyle = false;
             this.tbxIDCard.Enter += new System.EventHandler(this.tbxIDCard_Enter);
             this.tbxIDCard.Leave += new System.EventHandler(this.tbxIDCard_Leave);
@@ -591,7 +591,7 @@
             this.tbxPhone.PlaceholderText = "";
             this.tbxPhone.Size = new System.Drawing.Size(390, 48);
             this.tbxPhone.TabIndex = 5;
-            this.tbxPhone.Texts = "Phone";
+            this.tbxPhone.Texts = "SĐT";
             this.tbxPhone.UnderlinedStyle = false;
             this.tbxPhone.Enter += new System.EventHandler(this.tbxPhone_Enter);
             this.tbxPhone.Leave += new System.EventHandler(this.tbxPhone_Leave);
@@ -614,7 +614,7 @@
             this.tbxAddress.PlaceholderText = "";
             this.tbxAddress.Size = new System.Drawing.Size(390, 48);
             this.tbxAddress.TabIndex = 4;
-            this.tbxAddress.Texts = "Address";
+            this.tbxAddress.Texts = "Địa chỉ";
             this.tbxAddress.UnderlinedStyle = false;
             this.tbxAddress.Enter += new System.EventHandler(this.tbxAddress_Enter);
             this.tbxAddress.Leave += new System.EventHandler(this.tbxAddress_Leave);
@@ -679,7 +679,7 @@
             this.btnSave.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
             this.btnSave.Size = new System.Drawing.Size(183, 65);
             this.btnSave.TabIndex = 12;
-            this.btnSave.Text = "Save";
+            this.btnSave.Text = "Lưu";
             this.btnSave.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -731,16 +731,16 @@
             this.cbSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.cbSearch.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
             this.cbSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSearch.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cbSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.cbSearch.FormattingEnabled = true;
             this.cbSearch.Items.AddRange(new object[] {
-            " Fullname",
-            " Phone",
-            " Authority"});
+            " Họ tên",
+            " SĐT",
+            " Chức vụ"});
             this.cbSearch.Location = new System.Drawing.Point(32, 24);
             this.cbSearch.Name = "cbSearch";
-            this.cbSearch.Size = new System.Drawing.Size(195, 31);
+            this.cbSearch.Size = new System.Drawing.Size(195, 33);
             this.cbSearch.TabIndex = 19;
             // 
             // label9
@@ -766,7 +766,7 @@
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(544, 25);
             this.tbSearch.TabIndex = 17;
-            this.tbSearch.Text = "Search";
+            this.tbSearch.Text = "Tìm kiếm";
             this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             this.tbSearch.Enter += new System.EventHandler(this.tbSearch_Enter);
             this.tbSearch.Leave += new System.EventHandler(this.tbSearch_Leave);
@@ -777,8 +777,8 @@
             this.dgvListAccount.AllowUserToDeleteRows = false;
             this.dgvListAccount.AllowUserToOrderColumns = true;
             this.dgvListAccount.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
-            this.dgvListAccount.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
+            this.dgvListAccount.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvListAccount.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -787,14 +787,14 @@
             this.dgvListAccount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvListAccount.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvListAccount.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(131)))), ((int)(((byte)(7)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListAccount.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(131)))), ((int)(((byte)(7)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListAccount.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvListAccount.ColumnHeadersHeight = 30;
             this.dgvListAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvListAccount.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -804,14 +804,14 @@
             this.Column4,
             this.Column7});
             this.dgvListAccount.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListAccount.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListAccount.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgvListAccount.EnableHeadersVisualStyles = false;
             this.dgvListAccount.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvListAccount.Location = new System.Drawing.Point(32, 93);
@@ -825,26 +825,6 @@
             this.dgvListAccount.Size = new System.Drawing.Size(916, 427);
             this.dgvListAccount.TabIndex = 2;
             this.dgvListAccount.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListAccount_CellClick);
-            // 
-            // lbAuthori
-            // 
-            this.lbAuthori.AutoSize = true;
-            this.lbAuthori.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
-            this.lbAuthori.Location = new System.Drawing.Point(929, 49);
-            this.lbAuthori.Name = "lbAuthori";
-            this.lbAuthori.Size = new System.Drawing.Size(44, 16);
-            this.lbAuthori.TabIndex = 21;
-            this.lbAuthori.Text = "label1";
-            // 
-            // lbUser
-            // 
-            this.lbUser.AutoSize = true;
-            this.lbUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
-            this.lbUser.Location = new System.Drawing.Point(929, 25);
-            this.lbUser.Name = "lbUser";
-            this.lbUser.Size = new System.Drawing.Size(44, 16);
-            this.lbUser.TabIndex = 20;
-            this.lbUser.Text = "label1";
             // 
             // Column1
             // 
@@ -891,6 +871,26 @@
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             this.Column7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // lbAuthori
+            // 
+            this.lbAuthori.AutoSize = true;
+            this.lbAuthori.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.lbAuthori.Location = new System.Drawing.Point(929, 49);
+            this.lbAuthori.Name = "lbAuthori";
+            this.lbAuthori.Size = new System.Drawing.Size(44, 16);
+            this.lbAuthori.TabIndex = 21;
+            this.lbAuthori.Text = "label1";
+            // 
+            // lbUser
+            // 
+            this.lbUser.AutoSize = true;
+            this.lbUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.lbUser.Location = new System.Drawing.Point(929, 25);
+            this.lbUser.Name = "lbUser";
+            this.lbUser.Size = new System.Drawing.Size(44, 16);
+            this.lbUser.TabIndex = 20;
+            this.lbUser.Text = "label1";
             // 
             // FormAcc_TaoAccount
             // 

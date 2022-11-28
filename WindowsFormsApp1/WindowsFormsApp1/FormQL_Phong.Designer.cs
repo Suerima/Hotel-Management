@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormQL_Phong));
             this.tabPageList = new System.Windows.Forms.TabPage();
             this.cbSearch = new NoteWrapper.FlatCombobox();
@@ -41,12 +41,6 @@
             this.btnDelete = new ePOSOne.btnProduct.Button_WOC();
             this.btnUpdate = new ePOSOne.btnProduct.Button_WOC();
             this.dgvListRoom = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPageEdit = new System.Windows.Forms.TabPage();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.lbCountImage = new System.Windows.Forms.Label();
@@ -74,6 +68,11 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPageList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListRoom)).BeginInit();
             this.tabPageEdit.SuspendLayout();
@@ -102,7 +101,7 @@
             this.tabPageList.Padding = new System.Windows.Forms.Padding(4);
             this.tabPageList.Size = new System.Drawing.Size(1501, 839);
             this.tabPageList.TabIndex = 0;
-            this.tabPageList.Text = "LIST";
+            this.tabPageList.Text = "Danh sách phòng";
             // 
             // cbSearch
             // 
@@ -110,18 +109,18 @@
             this.cbSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.cbSearch.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
             this.cbSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSearch.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cbSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.cbSearch.FormattingEnabled = true;
             this.cbSearch.Items.AddRange(new object[] {
-            " RoomID",
-            " Type",
-            " Person",
-            " Price",
-            " Status"});
+            " Mã phòng",
+            " Loại phòng",
+            " Số người",
+            " Giá",
+            " Tình trạng"});
             this.cbSearch.Location = new System.Drawing.Point(23, 16);
             this.cbSearch.Name = "cbSearch";
-            this.cbSearch.Size = new System.Drawing.Size(195, 31);
+            this.cbSearch.Size = new System.Drawing.Size(195, 33);
             this.cbSearch.TabIndex = 81;
             // 
             // label9
@@ -141,14 +140,14 @@
             // 
             this.tbSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
             this.tbSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbSearch.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.tbSearch.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.tbSearch.Location = new System.Drawing.Point(235, 19);
             this.tbSearch.Margin = new System.Windows.Forms.Padding(4);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(544, 25);
+            this.tbSearch.Size = new System.Drawing.Size(544, 23);
             this.tbSearch.TabIndex = 79;
-            this.tbSearch.Text = "Search";
+            this.tbSearch.Text = "Tìm kiếm";
             this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             this.tbSearch.Enter += new System.EventHandler(this.tbSearch_Enter);
             this.tbSearch.Leave += new System.EventHandler(this.tbSearch_Leave);
@@ -156,11 +155,11 @@
             // lbRecord
             // 
             this.lbRecord.AutoSize = true;
-            this.lbRecord.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.lbRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lbRecord.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.lbRecord.Location = new System.Drawing.Point(920, 24);
             this.lbRecord.Name = "lbRecord";
-            this.lbRecord.Size = new System.Drawing.Size(111, 23);
+            this.lbRecord.Size = new System.Drawing.Size(106, 25);
             this.lbRecord.TabIndex = 78;
             this.lbRecord.Text = "Records: 0";
             // 
@@ -239,8 +238,8 @@
             this.dgvListRoom.AllowUserToDeleteRows = false;
             this.dgvListRoom.AllowUserToOrderColumns = true;
             this.dgvListRoom.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
-            this.dgvListRoom.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
+            this.dgvListRoom.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle34;
             this.dgvListRoom.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -249,14 +248,14 @@
             this.dgvListRoom.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvListRoom.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvListRoom.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(131)))), ((int)(((byte)(7)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListRoom.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(131)))), ((int)(((byte)(7)))));
+            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListRoom.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle35;
             this.dgvListRoom.ColumnHeadersHeight = 30;
             this.dgvListRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvListRoom.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -264,18 +263,17 @@
             this.Column2,
             this.Column3,
             this.Column4,
-            this.Column5,
-            this.Column6});
+            this.Column5});
             this.dgvListRoom.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle3.Format = "N0";
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListRoom.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle36.Format = "N0";
+            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListRoom.DefaultCellStyle = dataGridViewCellStyle36;
             this.dgvListRoom.EnableHeadersVisualStyles = false;
             this.dgvListRoom.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvListRoom.Location = new System.Drawing.Point(23, 67);
@@ -289,60 +287,6 @@
             this.dgvListRoom.Size = new System.Drawing.Size(1302, 747);
             this.dgvListRoom.TabIndex = 1;
             this.dgvListRoom.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListRoom_CellClick);
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.DataPropertyName = "RoomID";
-            this.Column1.HeaderText = "Mã phòng";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.DataPropertyName = "Type";
-            this.Column2.HeaderText = "Loại phòng";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.DataPropertyName = "Person";
-            this.Column3.HeaderText = "Số người ở";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column4.DataPropertyName = "Price";
-            this.Column4.HeaderText = "Giá";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column5.DataPropertyName = "Status";
-            this.Column5.HeaderText = "Tình trạng";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column6.DataPropertyName = "Description";
-            this.Column6.HeaderText = "Mô tả";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
             // 
             // tabPageEdit
             // 
@@ -384,10 +328,10 @@
             this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.linkLabel1.Location = new System.Drawing.Point(615, 525);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(123, 23);
+            this.linkLabel1.Size = new System.Drawing.Size(89, 23);
             this.linkLabel1.TabIndex = 173;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Upload image";
+            this.linkLabel1.Text = "Thêm ảnh";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // lbCountImage
@@ -504,9 +448,9 @@
             this.lbBed.ForeColor = System.Drawing.Color.DarkGray;
             this.lbBed.Location = new System.Drawing.Point(41, 301);
             this.lbBed.Name = "lbBed";
-            this.lbBed.Size = new System.Drawing.Size(32, 16);
+            this.lbBed.Size = new System.Drawing.Size(77, 16);
             this.lbBed.TabIndex = 165;
-            this.lbBed.Text = "Bed";
+            this.lbBed.Text = "Loại giường";
             // 
             // cbTypeBed
             // 
@@ -555,9 +499,9 @@
             this.label2.ForeColor = System.Drawing.Color.DarkGray;
             this.label2.Location = new System.Drawing.Point(43, 20);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 16);
+            this.label2.Size = new System.Drawing.Size(67, 16);
             this.label2.TabIndex = 161;
-            this.label2.Text = "RoomID";
+            this.label2.Text = "Mã phòng";
             // 
             // lbPrice
             // 
@@ -576,9 +520,9 @@
             this.lbPerson.ForeColor = System.Drawing.Color.DarkGray;
             this.lbPerson.Location = new System.Drawing.Point(43, 213);
             this.lbPerson.Name = "lbPerson";
-            this.lbPerson.Size = new System.Drawing.Size(50, 16);
+            this.lbPerson.Size = new System.Drawing.Size(71, 16);
             this.lbPerson.TabIndex = 155;
-            this.lbPerson.Text = "Person";
+            this.lbPerson.Text = "Số người ở";
             // 
             // lbType
             // 
@@ -587,9 +531,9 @@
             this.lbType.ForeColor = System.Drawing.Color.DarkGray;
             this.lbType.Location = new System.Drawing.Point(43, 124);
             this.lbType.Name = "lbType";
-            this.lbType.Size = new System.Drawing.Size(39, 16);
+            this.lbType.Size = new System.Drawing.Size(74, 16);
             this.lbType.TabIndex = 152;
-            this.lbType.Text = "Type";
+            this.lbType.Text = "Loại phòng";
             // 
             // tbRoomID
             // 
@@ -630,7 +574,7 @@
             this.tbPrice.PlaceholderText = "";
             this.tbPrice.Size = new System.Drawing.Size(390, 48);
             this.tbPrice.TabIndex = 156;
-            this.tbPrice.Texts = "Price";
+            this.tbPrice.Texts = "Giá phòng";
             this.tbPrice.UnderlinedStyle = false;
             this.tbPrice.Enter += new System.EventHandler(this.tbPrice_Enter);
             this.tbPrice.Leave += new System.EventHandler(this.tbPrice_Leave);
@@ -796,6 +740,51 @@
             this.panel1.Size = new System.Drawing.Size(1509, 57);
             this.panel1.TabIndex = 17;
             // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.DataPropertyName = "RoomID";
+            this.Column1.HeaderText = "Mã phòng";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.DataPropertyName = "Type";
+            this.Column2.HeaderText = "Loại phòng";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.DataPropertyName = "Person";
+            this.Column3.HeaderText = "Số người ở";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column4.DataPropertyName = "Price";
+            this.Column4.HeaderText = "Giá";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column5.DataPropertyName = "Status";
+            this.Column5.HeaderText = "Tình trạng";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
             // FormQL_Phong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -854,12 +843,6 @@
         private NoteWrapper.FlatCombobox cbTypeBed;
         private Resources.RJTextBox tbBed;
         private System.Windows.Forms.CheckedListBox clbAmenities;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.GroupBox groupBox1;
         private Resources.SPanel sPanel1;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -867,5 +850,10 @@
         private ePOSOne.btnProduct.Button_WOC btnRight;
         private System.Windows.Forms.Label lbCountImage;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }

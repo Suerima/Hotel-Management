@@ -26,8 +26,8 @@ namespace WindowsFormsApp1
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (tbUsername.Text == "Username" || tbPassword.Text == "Password")
-                MessageBox.Show("Invalid username or password.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            if (tbUsername.Text == "Tên tài khoản" || tbPassword.Text == "Mật khẩu")
+                MessageBox.Show("Tài khoản hoặc mật khẩu không được để trống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
             {
                 if (AccountBUS.Instance.Login(tbUsername.Text, tbPassword.Text))
@@ -41,7 +41,7 @@ namespace WindowsFormsApp1
                 }
                 else
                 {
-                    MessageBox.Show("Your username or passward is incorrect.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Sai tên tài khoản hoặc mật khẩu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -66,10 +66,10 @@ namespace WindowsFormsApp1
 
         private void tbUsername_Enter(object sender, EventArgs e)
         {
-            if (tbUsername.Text == "Username")
+            if (tbUsername.Text == "Tên tài khoản")
             {
                 tbUsername.Text = "";
-                tbUsername.ForeColor = Color.LightGray;
+                tbUsername.ForeColor = Color.Black;
             }
         }
 
@@ -77,17 +77,17 @@ namespace WindowsFormsApp1
         {
             if (tbUsername.Text == "")
             {
-                tbUsername.Text = "Username";
+                tbUsername.Text = "Tên tài khoản";
                 tbUsername.ForeColor = Color.DimGray;
             }
         }
 
         private void tbPassword_Enter(object sender, EventArgs e)
         {
-            if (tbPassword.Text == "Password")
+            if (tbPassword.Text == "Mật khẩu")
             {
                 tbPassword.Text = "";
-                tbPassword.ForeColor = Color.LightGray;
+                tbPassword.ForeColor = Color.Black;
                 tbPassword.UseSystemPasswordChar = true;
             }
         }
@@ -96,7 +96,7 @@ namespace WindowsFormsApp1
         {
             if (tbPassword.Text == "")
             {
-                tbPassword.Text = "Password";
+                tbPassword.Text = "Mật khẩu";
                 tbPassword.ForeColor = Color.DimGray;
                 tbPassword.UseSystemPasswordChar = false;
             }

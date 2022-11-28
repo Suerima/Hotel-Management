@@ -29,8 +29,8 @@ namespace WindowsFormsApp1
 
         void loadComboBox() // done
         {
-            cbEmployeeID.DataSource = EmployeeBUS.Instance.GetEmployeeInService();
-            cbEmployeeID.ValueMember = "EmployeeID";
+            cbRoomID.DataSource = RoomDAO.Instance.GetRoomService(tbCustomerID.Text);
+            cbRoomID.ValueMember = "RoomID";
         }
 
         void loadListCustomer() // done
@@ -90,27 +90,15 @@ namespace WindowsFormsApp1
             btnDelete.Enabled = set;
         }
     
-        private int checkServiceInvoiceCode(string sic)
-        {
-            for (int i = 0; i < dgvListServiceInvoice.Rows.Count; i++)
-                if (dgvListServiceInvoice.Rows[i].Cells[0].Value != null && dgvListServiceInvoice.Rows[i].Cells[0].Value.ToString() == sic)
-                    return i;
-            return -1;
-        }
-
-        private int checkCustomerID(string cusID)
-        {
-            for (int i = 0; i < dgvListCustomer.Rows.Count; i++)
-                if (dgvListCustomer.Rows[i].Cells[0].Value != null && dgvListCustomer.Rows[i].Cells[0].Value.ToString() == cusID)
-                    return i;
-            return -1;
-        }
 
 
         private void dgvListCustomer_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1)
+            {
                 tbCustomerID.Text = dgvListCustomer.Rows[e.RowIndex].Cells[0].Value.ToString();
+                loadComboBox(); GetNextIDServiceInvoice();
+            }
         }
 
         private void dgvListServiceInvoice_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -153,18 +141,18 @@ namespace WindowsFormsApp1
         {
             if (CustomerBUS.Instance.GetCustomerID(tbCustomerID.Text) == null)
             {
-                MessageBox.Show("Invalid CustomerID", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Mã khách hàng không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else if(cbEmployeeID.Text == "")
+            else if(cbRoomID.Text == "")
             {
-                MessageBox.Show("Invalid EmployeeID", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Mã phòng không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 SetButton(true);
                 string dateCreated = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd")).ToString();
 
-                ServiceInvoice SI = new ServiceInvoice(tbServiceInvoiceCode.Text, tbCustomerID.Text, FormLogin.username, cbEmployeeID.Text, dateCreated, 0, "Chưa thanh toán");
+                ServiceInvoice SI = new ServiceInvoice(tbServiceInvoiceCode.Text, tbCustomerID.Text, FormLogin.username, cbRoomID.Text, dateCreated, 0, "Chưa thanh toán");
                 ServiceInvoiceBUS.Instance.InsertServiceInvoice(SI);
                 //loadListServiceInvoice();
                 loadListSelectedService(tbServiceInvoiceCode.Text);
@@ -196,7 +184,7 @@ namespace WindowsFormsApp1
                 SelectedService ss = new SelectedService(no, lbSIC.Text, lbServiceCode.Text, int.Parse(nudQuantity.Text));
                 SelectedServiceBUS.Instance.InsertSelectedService(ss);
                 loadListSelectedService(lbSIC.Text);
-                MessageBox.Show("Inserted Successfully.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Thêm thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch(Exception ex)
             {
@@ -216,12 +204,12 @@ namespace WindowsFormsApp1
         {
             try
             {
-                var result = MessageBox.Show("Are you sure you want to delete this item?", "Notification", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                var result = MessageBox.Show("Bạn có muốn xoá item này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (result == DialogResult.Yes)
                 {
                     SelectedServiceBUS.Instance.DeleteSelectedService(no_seleted);
                     UpdateNo();
-                    MessageBox.Show("Deleted Successfully.", "Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Xoá thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -233,9 +221,8 @@ namespace WindowsFormsApp1
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            ServiceInvoiceBUS.Instance.UpdateServiceInvoice(tbServiceInvoiceCode.Text, cbEmployeeID.Text).ToString();
-            if (EmployeeBUS.Instance.GetStatusEmployee(cbEmployeeID.Text) == "Đang bận")
-                ServiceReportBUS.Instance.InsertServiceReport(lbSIC.Text);
+            ServiceInvoiceBUS.Instance.UpdateServiceInvoice(tbServiceInvoiceCode.Text).ToString();
+            ServiceReportBUS.Instance.InsertServiceReport(lbSIC.Text);
             loadListServiceInvoice();
             loadIDServiceInvoice();
 
@@ -243,7 +230,7 @@ namespace WindowsFormsApp1
             //EmployeeBUS.Instance.UpdateEmployeeStatus(cbEmployeeID.Text);
 
             loadComboBox();
-            MessageBox.Show("Saved successfully.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Lưu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             tabControl.TabPages.Remove(tabPageDetail);
             tabControl.TabPages.Add(tabPageList);
         }
@@ -253,11 +240,7 @@ namespace WindowsFormsApp1
             tabControl.TabPages.Remove(tabPageDetail);
             tabControl.TabPages.Add(tabPageList);
             ServiceInvoiceBUS.Instance.DeleteServiceInvoice(lbSIC.Text);
-            /*            if (db.CheckTotalServiceInvoice(lbSIC.Text) == lbSIC.Text)
-                        {
-                            db.DeleteServiceInvoice(lbSIC.Text);
-                        }
-            */
+
             loadListServiceInvoice();
             loadIDServiceInvoice();
         }
@@ -296,26 +279,26 @@ namespace WindowsFormsApp1
         }
         private void txtEmployeeID_Enter(object sender, EventArgs e)
         {
-            if (cbEmployeeID.Text == "None")
+            if (cbRoomID.Text == "None")
             {
-                cbEmployeeID.Text = "";
-                cbEmployeeID.ForeColor = Color.White;
+                cbRoomID.Text = "";
+                cbRoomID.ForeColor = Color.White;
             }
         }
 
         private void txtEmployeeID_Leave(object sender, EventArgs e)
         {
-            if (cbEmployeeID.Text == "")
+            if (cbRoomID.Text == "")
             {
-                cbEmployeeID.Text = "None";
-                cbEmployeeID.ForeColor = Color.Gray;
+                cbRoomID.Text = "None";
+                cbRoomID.ForeColor = Color.Gray;
             }
         }
         private void txtEmployeeID_TextChanged(object sender, EventArgs e)
         {
-            if (cbEmployeeID.Text != "None")
+            if (cbRoomID.Text != "None")
             {
-                cbEmployeeID.ForeColor = Color.White;
+                cbRoomID.ForeColor = Color.White;
             }
         }
 

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
@@ -38,8 +38,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.flpRoom = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnSearch = new ePOSOne.btnProduct.Button_WOC();
             this.panel8 = new System.Windows.Forms.Panel();
             this.clbTypeRoom = new System.Windows.Forms.CheckedListBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -51,7 +49,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.cbPerson = new NoteWrapper.FlatCombobox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.tabPageDetail = new System.Windows.Forms.TabPage();
@@ -76,6 +73,8 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSearch = new ePOSOne.btnProduct.Button_WOC();
+            this.cbPerson = new NoteWrapper.FlatCombobox();
             this.btnCancel = new ePOSOne.btnProduct.Button_WOC();
             this.btnDelete = new ePOSOne.btnProduct.Button_WOC();
             this.panel1.SuspendLayout();
@@ -140,7 +139,7 @@
             this.tabPageBooking.Padding = new System.Windows.Forms.Padding(4);
             this.tabPageBooking.Size = new System.Drawing.Size(1357, 852);
             this.tabPageBooking.TabIndex = 0;
-            this.tabPageBooking.Text = "INFORMATION  BOOKING";
+            this.tabPageBooking.Text = "Thông tin phòng";
             // 
             // panel2
             // 
@@ -165,7 +164,6 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(239)))));
-            this.panel3.Controls.Add(this.txtSearch);
             this.panel3.Controls.Add(this.btnSearch);
             this.panel3.Controls.Add(this.panel8);
             this.panel3.Controls.Add(this.panel6);
@@ -177,36 +175,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(191, 844);
             this.panel3.TabIndex = 7;
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(9, 725);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(163, 30);
-            this.txtSearch.TabIndex = 10;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BorderColor = System.Drawing.Color.LightSlateGray;
-            this.btnSearch.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(166)))), ((int)(((byte)(199)))));
-            this.btnSearch.FlatAppearance.BorderSize = 0;
-            this.btnSearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(5, 774);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
-            this.btnSearch.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.btnSearch.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
-            this.btnSearch.Size = new System.Drawing.Size(175, 65);
-            this.btnSearch.TabIndex = 9;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.TextColor = System.Drawing.Color.White;
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // panel8
             // 
@@ -350,19 +318,6 @@
             this.panel9.Size = new System.Drawing.Size(191, 82);
             this.panel9.TabIndex = 4;
             // 
-            // cbPerson
-            // 
-            this.cbPerson.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPerson.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.cbPerson.FormattingEnabled = true;
-            this.cbPerson.Items.AddRange(new object[] {
-            "2",
-            "4"});
-            this.cbPerson.Location = new System.Drawing.Point(4, 28);
-            this.cbPerson.Name = "cbPerson";
-            this.cbPerson.Size = new System.Drawing.Size(181, 30);
-            this.cbPerson.TabIndex = 0;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -399,7 +354,7 @@
             this.tabPageDetail.Padding = new System.Windows.Forms.Padding(4);
             this.tabPageDetail.Size = new System.Drawing.Size(1357, 852);
             this.tabPageDetail.TabIndex = 1;
-            this.tabPageDetail.Text = "DETAIL";
+            this.tabPageDetail.Text = "Chi tiết đặt phòng";
             // 
             // label18
             // 
@@ -417,21 +372,24 @@
             // 
             this.tbSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
             this.tbSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbSearch.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.tbSearch.ForeColor = System.Drawing.Color.DarkGray;
             this.tbSearch.Location = new System.Drawing.Point(32, 18);
             this.tbSearch.Margin = new System.Windows.Forms.Padding(4);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(393, 25);
+            this.tbSearch.Size = new System.Drawing.Size(393, 23);
             this.tbSearch.TabIndex = 45;
-            this.tbSearch.Text = "Search";
+            this.tbSearch.Text = "Tìm kiếm";
+            this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
+            this.tbSearch.Enter += new System.EventHandler(this.tbSearch_Enter);
+            this.tbSearch.Leave += new System.EventHandler(this.tbSearch_Leave);
             // 
             // lbNumber
             // 
             this.lbNumber.AutoSize = true;
             this.lbNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.lbNumber.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbNumber.Location = new System.Drawing.Point(585, 21);
+            this.lbNumber.Location = new System.Drawing.Point(698, 21);
             this.lbNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbNumber.Name = "lbNumber";
             this.lbNumber.Size = new System.Drawing.Size(20, 24);
@@ -446,9 +404,9 @@
             this.label13.Location = new System.Drawing.Point(481, 21);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(84, 24);
+            this.label13.Size = new System.Drawing.Size(209, 24);
             this.label13.TabIndex = 43;
-            this.label13.Text = "Number:";
+            this.label13.Text = "Số lượng phòng đã đặt:";
             // 
             // groupBox1
             // 
@@ -493,9 +451,9 @@
             this.label9.Location = new System.Drawing.Point(20, 201);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(88, 24);
+            this.label9.Size = new System.Drawing.Size(101, 24);
             this.label9.TabIndex = 36;
-            this.label9.Text = "Room ID:";
+            this.label9.Text = "Mã phòng:";
             // 
             // label19
             // 
@@ -504,9 +462,9 @@
             this.label19.Location = new System.Drawing.Point(20, 254);
             this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(67, 24);
+            this.label19.Size = new System.Drawing.Size(107, 24);
             this.label19.TabIndex = 34;
-            this.label19.Text = "Arrival:";
+            this.label19.Text = "Ngày nhận:";
             // 
             // lbCustomerID
             // 
@@ -560,9 +518,9 @@
             this.label15.Location = new System.Drawing.Point(20, 97);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(112, 24);
+            this.label15.Size = new System.Drawing.Size(107, 24);
             this.label15.TabIndex = 27;
-            this.label15.Text = "Manager ID:";
+            this.label15.Text = "Mã quản lý:";
             // 
             // label16
             // 
@@ -571,9 +529,9 @@
             this.label16.Location = new System.Drawing.Point(20, 148);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(118, 24);
+            this.label16.Size = new System.Drawing.Size(145, 24);
             this.label16.TabIndex = 26;
-            this.label16.Text = "Customer ID:";
+            this.label16.Text = "Mã khách hàng:";
             // 
             // label17
             // 
@@ -582,9 +540,9 @@
             this.label17.Location = new System.Drawing.Point(20, 46);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(106, 24);
+            this.label17.Size = new System.Drawing.Size(101, 24);
             this.label17.TabIndex = 25;
-            this.label17.Text = "Booking ID:";
+            this.label17.Text = "Mã phòng:";
             // 
             // dgvListBooking
             // 
@@ -592,8 +550,8 @@
             this.dgvListBooking.AllowUserToDeleteRows = false;
             this.dgvListBooking.AllowUserToOrderColumns = true;
             this.dgvListBooking.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
-            this.dgvListBooking.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
+            this.dgvListBooking.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvListBooking.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -602,14 +560,14 @@
             this.dgvListBooking.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvListBooking.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvListBooking.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(131)))), ((int)(((byte)(7)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListBooking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(131)))), ((int)(((byte)(7)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListBooking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvListBooking.ColumnHeadersHeight = 30;
             this.dgvListBooking.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvListBooking.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -619,14 +577,14 @@
             this.Column4,
             this.Column2});
             this.dgvListBooking.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListBooking.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListBooking.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgvListBooking.EnableHeadersVisualStyles = false;
             this.dgvListBooking.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvListBooking.Location = new System.Drawing.Point(29, 69);
@@ -637,7 +595,7 @@
             this.dgvListBooking.RowHeadersWidth = 51;
             this.dgvListBooking.RowTemplate.Height = 35;
             this.dgvListBooking.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListBooking.Size = new System.Drawing.Size(979, 731);
+            this.dgvListBooking.Size = new System.Drawing.Size(962, 731);
             this.dgvListBooking.TabIndex = 21;
             this.dgvListBooking.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListBooking_CellClick);
             // 
@@ -645,7 +603,7 @@
             // 
             this.Booking_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Booking_ID.DataPropertyName = "BookingID";
-            this.Booking_ID.HeaderText = "Booking ID";
+            this.Booking_ID.HeaderText = "Mã phòng";
             this.Booking_ID.MinimumWidth = 6;
             this.Booking_ID.Name = "Booking_ID";
             this.Booking_ID.ReadOnly = true;
@@ -653,7 +611,7 @@
             // Column6
             // 
             this.Column6.DataPropertyName = "ManagerID";
-            this.Column6.HeaderText = "Manager ID";
+            this.Column6.HeaderText = "Mã người quản lý";
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
@@ -661,7 +619,7 @@
             // Column7
             // 
             this.Column7.DataPropertyName = "CustomerID";
-            this.Column7.HeaderText = "Customer ID";
+            this.Column7.HeaderText = "Mã khách hàng";
             this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
@@ -670,7 +628,7 @@
             // 
             this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column4.DataPropertyName = "RoomID";
-            this.Column4.HeaderText = "Room ID";
+            this.Column4.HeaderText = "Mã phòng";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -679,10 +637,45 @@
             // 
             this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column2.DataPropertyName = "Arrival";
-            this.Column2.HeaderText = "Arrival";
+            this.Column2.HeaderText = "Ngày nhận phòng";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.btnSearch.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(166)))), ((int)(((byte)(199)))));
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Location = new System.Drawing.Point(5, 774);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
+            this.btnSearch.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.btnSearch.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
+            this.btnSearch.Size = new System.Drawing.Size(175, 65);
+            this.btnSearch.TabIndex = 9;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.TextColor = System.Drawing.Color.White;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // cbPerson
+            // 
+            this.cbPerson.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPerson.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.cbPerson.FormattingEnabled = true;
+            this.cbPerson.Items.AddRange(new object[] {
+            "2",
+            "4"});
+            this.cbPerson.Location = new System.Drawing.Point(4, 28);
+            this.cbPerson.Name = "cbPerson";
+            this.cbPerson.Size = new System.Drawing.Size(181, 30);
+            this.cbPerson.TabIndex = 0;
             // 
             // btnCancel
             // 
@@ -746,7 +739,6 @@
             this.tabPageBooking.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -788,11 +780,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.DataGridView dgvListBooking;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Booking_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private ePOSOne.btnProduct.Button_WOC btnCancel;
         private ePOSOne.btnProduct.Button_WOC btnDelete;
         private System.Windows.Forms.Panel panel3;
@@ -812,7 +799,11 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.CheckedListBox clbTypeRoom;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Booking_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }

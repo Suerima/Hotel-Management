@@ -39,16 +39,16 @@ namespace WindowsFormsApp1.BUS
         {
             return ServiceInvoiceDAO.Instance.GetServiceInvoiceInCheckOut();
         }
+
         public int InsertServiceInvoice(ServiceInvoice SI)
         {
-
             return ServiceInvoiceDAO.Instance.InsertServiceInvoice(SI);
         }
 
-        public int UpdateServiceInvoice(string sic, string employeeID)
+        public int UpdateServiceInvoice(string sic)
         {
 
-            return ServiceInvoiceDAO.Instance.UpdateServiceInvoice(sic, employeeID);
+            return ServiceInvoiceDAO.Instance.UpdateServiceInvoice(sic);
         }
         public int DeleteServiceInvoice(string sic)
         {

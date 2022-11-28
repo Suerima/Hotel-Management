@@ -69,14 +69,14 @@ namespace WindowsFormsApp1.BUS
                 throw ex;
             }
         }
-        public DataTable SearchCustomerInServiceInvoiceCheckOut(string customerID)
+        public DataTable SearchRoomInServiceInvoiceCheckOut(string roomID)
         {
-            return CustomerDAO.Instance.SearchCustomerInServiceInvoiceCheckOut(customerID);
+            return CustomerDAO.Instance.SearchRoomInServiceInvoiceCheckOut(roomID);
         }
 
-        public DataTable SearchCustomerInBookingCheckOut(string customerID)
+        public DataTable SearchRoomInBookingCheckOut(string roomID)
         {
-            return CustomerDAO.Instance.SearchCustomerInBookingCheckOut(customerID);
+            return CustomerDAO.Instance.SearchRoomInBookingCheckOut(roomID);
         }
 
         public int InsertCustomer(PersonalInfo person)

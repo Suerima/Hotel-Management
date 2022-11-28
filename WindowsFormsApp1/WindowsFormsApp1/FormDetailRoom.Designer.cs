@@ -38,7 +38,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lbDetails = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbCustomerID = new System.Windows.Forms.TextBox();
             this.lbPerson = new System.Windows.Forms.Label();
             this.lbBed = new System.Windows.Forms.Label();
             this.lbType = new System.Windows.Forms.Label();
@@ -118,7 +118,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(77, 11);
+            this.pictureBox1.Location = new System.Drawing.Point(77, 39);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(497, 391);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -152,7 +152,7 @@
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(239)))));
             this.groupBox1.Controls.Add(this.lbDetails);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.tbCustomerID);
             this.groupBox1.Controls.Add(this.lbPerson);
             this.groupBox1.Controls.Add(this.lbBed);
             this.groupBox1.Controls.Add(this.lbType);
@@ -181,19 +181,19 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.label5.Location = new System.Drawing.Point(307, 37);
+            this.label5.Location = new System.Drawing.Point(307, 39);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(132, 22);
+            this.label5.Size = new System.Drawing.Size(143, 22);
             this.label5.TabIndex = 14;
-            this.label5.Text = "Mã khách hàng";
+            this.label5.Text = "- Mã khách hàng";
             // 
-            // textBox1
+            // tbCustomerID
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.textBox1.Location = new System.Drawing.Point(311, 61);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(168, 28);
-            this.textBox1.TabIndex = 13;
+            this.tbCustomerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.tbCustomerID.Location = new System.Drawing.Point(311, 61);
+            this.tbCustomerID.Name = "tbCustomerID";
+            this.tbCustomerID.Size = new System.Drawing.Size(168, 28);
+            this.tbCustomerID.TabIndex = 13;
             // 
             // lbPerson
             // 
@@ -307,6 +307,7 @@
             this.btnDetail.Text = "Detail";
             this.btnDetail.TextColor = System.Drawing.Color.White;
             this.btnDetail.UseVisualStyleBackColor = true;
+            this.btnDetail.Click += new System.EventHandler(this.btnDetail_Click);
             // 
             // button_WOC1
             // 
@@ -401,7 +402,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbCustomerID;
         private ePOSOne.btnProduct.Button_WOC button_WOC1;
         private System.Windows.Forms.Label lbDetails;
         private ePOSOne.btnProduct.Button_WOC btnDetail;

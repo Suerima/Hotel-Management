@@ -80,17 +80,17 @@ namespace WindowsFormsApp1
 
 
                 if (!FormAcc_TaoAccount.checkName(name))
-                    MessageBox.Show("Invalid name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Tên không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else if (!FormAcc_TaoAccount.checkPhone(phone))
-                    MessageBox.Show("Invalid phone number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("SĐT không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else if (!FormAcc_TaoAccount.checkIDCard(idcard))
-                    MessageBox.Show("Invalid IDCard.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("CMND không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
                 {   //Convert.ToDateTime(tbDob.Text)
                     PersonalInfo perinfo = new PersonalInfo(FormLogin.username, name, gender, dob, address, phone, idcard);
                     PersonalInfoBUS.Instance.UpdatePersonalInfo(perinfo);
                     loadData();
-                    MessageBox.Show("Update successfully!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     SwapTabPage(tabPersonal, tabInfo);
                 }
             }
@@ -240,20 +240,20 @@ namespace WindowsFormsApp1
                 
                 if (!currentPass.Equals(password))
                 {
-                    MessageBox.Show("Current password is incorrect", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Mật khẩu hiện tại không chính xác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else if (!newPass.Equals(confirmPass))
                 {
-                    MessageBox.Show("Confirm password do not match.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Mật khẩu xác nhận không khớp.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else if(AccountBUS.Instance.ChangePassword(username, newPass) > 0) 
                 {
-                    MessageBox.Show("Password changed successfully!.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Thay đổi mật khẩu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     SwapTabPage(tabLogin, tabInfo);
                 }
                 else
                 {
-                    MessageBox.Show("The change password operation failed.", "Error ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Thay đổi mật khẩu thất bại.", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch(Exception ex)
@@ -279,10 +279,10 @@ namespace WindowsFormsApp1
         {
             tbName.BorderSize = 2;
             tbName.BorderColor = yellow;
-            lbName1.Text = "Fullname";
+            lbName1.Text = "Họ tên";
             lbName1.ForeColor = yellow;
 
-            if (tbName.Texts == "Fullname")
+            if (tbName.Texts == "Họ tên")
                 tbName.Texts = "";
             tbName.ForeColor = Color.WhiteSmoke;
         }
@@ -295,7 +295,7 @@ namespace WindowsFormsApp1
 
             if (tbName.Texts == "")
             {
-                tbName.Texts = "Fullname";
+                tbName.Texts = "Họ tên";
                 tbName.ForeColor = Color.DimGray;
                 lbName1.Text = "";
             }
@@ -317,10 +317,10 @@ namespace WindowsFormsApp1
         {
             tbAddress.BorderSize = 2;
             tbAddress.BorderColor = yellow;
-            lbAddress1.Text = "Address";
+            lbAddress1.Text = "Địa chỉ";
             lbAddress1.ForeColor = yellow;
 
-            if (tbAddress.Texts == "Address")
+            if (tbAddress.Texts == "Địa chỉ")
                 tbAddress.Texts = "";
             tbAddress.ForeColor = Color.WhiteSmoke;
         }
@@ -332,7 +332,7 @@ namespace WindowsFormsApp1
 
             if (tbAddress.Texts == "")
             {
-                tbAddress.Texts = "Address";
+                tbAddress.Texts = "Địa chỉ";
                 tbAddress.ForeColor = Color.DimGray;
                 lbAddress1.Text = "";
             }
@@ -342,10 +342,10 @@ namespace WindowsFormsApp1
         {
             tbPhone.BorderSize = 2;
             tbPhone.BorderColor = yellow;
-            lbPhone1.Text = "Phone";
+            lbPhone1.Text = "SĐT";
             lbPhone1.ForeColor = yellow;
 
-            if (tbPhone.Texts == "Phone")
+            if (tbPhone.Texts == "SĐT")
                 tbPhone.Texts = "";
             tbPhone.ForeColor = Color.WhiteSmoke;
         }
@@ -358,7 +358,7 @@ namespace WindowsFormsApp1
 
             if (tbPhone.Texts == "")
             {
-                tbPhone.Texts = "Phone";
+                tbPhone.Texts = "SĐT";
                 tbPhone.ForeColor = Color.DimGray;
                 lbPhone1.Text = "";
             }
@@ -368,10 +368,10 @@ namespace WindowsFormsApp1
         {
             tbIDCard.BorderSize = 2;
             tbIDCard.BorderColor = yellow;
-            lbIDCard1.Text = "IDCard";
+            lbIDCard1.Text = "CMND";
             lbIDCard1.ForeColor = yellow;
 
-            if (tbIDCard.Texts == "IDCard")
+            if (tbIDCard.Texts == "CMND")
                 tbIDCard.Texts = "";
             tbIDCard.ForeColor = Color.WhiteSmoke;
         }
@@ -384,7 +384,7 @@ namespace WindowsFormsApp1
 
             if (tbIDCard.Texts == "")
             {
-                tbIDCard.Texts = "IDCard";
+                tbIDCard.Texts = "CMND";
                 tbIDCard.ForeColor = Color.DimGray;
                 lbIDCard1.Text = "";
             }

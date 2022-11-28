@@ -62,16 +62,16 @@
             this.Total1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbMonth = new NoteWrapper.FlatCombobox();
+            this.label9 = new System.Windows.Forms.Label();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
+            this.cbYear = new NoteWrapper.FlatCombobox();
             this.label8 = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.cbYear = new NoteWrapper.FlatCombobox();
-            this.cbMonth = new NoteWrapper.FlatCombobox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListBooking)).BeginInit();
@@ -90,7 +90,7 @@
             this.btnSeen.Name = "btnSeen";
             this.btnSeen.Size = new System.Drawing.Size(100, 28);
             this.btnSeen.TabIndex = 4;
-            this.btnSeen.Text = "Seen";
+            this.btnSeen.Text = "Xem";
             this.btnSeen.UseVisualStyleBackColor = false;
             this.btnSeen.Click += new System.EventHandler(this.btnSeen_Click);
             // 
@@ -144,7 +144,7 @@
             // 
             this.txtTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTotal.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.txtTotal.Location = new System.Drawing.Point(115, 10);
+            this.txtTotal.Location = new System.Drawing.Point(74, 15);
             this.txtTotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(273, 22);
@@ -193,19 +193,19 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(1430, 81);
+            this.label4.Location = new System.Drawing.Point(1373, 78);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 25);
+            this.label4.Size = new System.Drawing.Size(156, 25);
             this.label4.TabIndex = 80;
-            this.label4.Text = "Numbers:";
+            this.label4.Text = "Số lượng phòng:";
             // 
             // lbNumbers
             // 
             this.lbNumbers.AutoSize = true;
             this.lbNumbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.lbNumbers.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lbNumbers.Location = new System.Drawing.Point(1535, 81);
+            this.lbNumbers.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lbNumbers.Location = new System.Drawing.Point(1537, 82);
             this.lbNumbers.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbNumbers.Name = "lbNumbers";
             this.lbNumbers.Size = new System.Drawing.Size(20, 24);
@@ -216,7 +216,7 @@
             // 
             this.btnReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnReport.BackColor = System.Drawing.Color.DarkGray;
-            this.btnReport.Location = new System.Drawing.Point(433, 10);
+            this.btnReport.Location = new System.Drawing.Point(355, 9);
             this.btnReport.Margin = new System.Windows.Forms.Padding(4);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(100, 28);
@@ -330,12 +330,12 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(30, 12);
+            this.label3.Location = new System.Drawing.Point(23, 12);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 25);
+            this.label3.Size = new System.Drawing.Size(58, 25);
             this.label3.TabIndex = 94;
-            this.label3.Text = "Total";
+            this.label3.Text = "Tổng";
             // 
             // panel4
             // 
@@ -348,6 +348,55 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(789, 403);
             this.panel4.TabIndex = 96;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(20, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(74, 16);
+            this.label5.TabIndex = 102;
+            this.label5.Text = "Chọn tháng";
+            // 
+            // cbMonth
+            // 
+            this.cbMonth.BorderColor = System.Drawing.SystemColors.Window;
+            this.cbMonth.ButtonColor = System.Drawing.Color.DarkRed;
+            this.cbMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMonth.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.cbMonth.FormattingEnabled = true;
+            this.cbMonth.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
+            this.cbMonth.Location = new System.Drawing.Point(23, 15);
+            this.cbMonth.Name = "cbMonth";
+            this.cbMonth.Size = new System.Drawing.Size(750, 26);
+            this.cbMonth.TabIndex = 98;
+            this.cbMonth.SelectedIndexChanged += new System.EventHandler(this.cbMonth_SelectedIndexChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label9.Location = new System.Drawing.Point(20, 40);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(568, 16);
+            this.label9.TabIndex = 101;
+            this.label9.Text = "⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺" +
+    "⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺" +
+    "⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺";
             // 
             // chart2
             // 
@@ -387,32 +436,10 @@
             this.panel5.Controls.Add(this.label3);
             this.panel5.Controls.Add(this.txtTotal);
             this.panel5.Controls.Add(this.btnReport);
-            this.panel5.Location = new System.Drawing.Point(817, 69);
+            this.panel5.Location = new System.Drawing.Point(816, 65);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(548, 42);
+            this.panel5.Size = new System.Drawing.Size(535, 52);
             this.panel5.TabIndex = 97;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label9.Location = new System.Drawing.Point(20, 40);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(568, 16);
-            this.label9.TabIndex = 101;
-            this.label9.Text = "⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺" +
-    "⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺" +
-    "⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(20, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 16);
-            this.label5.TabIndex = 102;
-            this.label5.Text = "Chọn tháng";
             // 
             // panel3
             // 
@@ -434,6 +461,24 @@
             this.label7.Size = new System.Drawing.Size(67, 16);
             this.label7.TabIndex = 102;
             this.label7.Text = "Chọn năm";
+            // 
+            // cbYear
+            // 
+            this.cbYear.BorderColor = System.Drawing.SystemColors.Window;
+            this.cbYear.ButtonColor = System.Drawing.Color.DarkRed;
+            this.cbYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbYear.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.cbYear.FormattingEnabled = true;
+            this.cbYear.Items.AddRange(new object[] {
+            "2021",
+            "2022",
+            "2023"});
+            this.cbYear.Location = new System.Drawing.Point(23, 15);
+            this.cbYear.Name = "cbYear";
+            this.cbYear.Size = new System.Drawing.Size(750, 26);
+            this.cbYear.TabIndex = 98;
+            this.cbYear.SelectedIndexChanged += new System.EventHandler(this.cbYear_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -471,51 +516,6 @@
             title2.Name = "Title1";
             title2.Text = "DOANH THU THUÊ PHÒNG TRONG NĂM                                     . ";
             this.chart1.Titles.Add(title2);
-            // 
-            // cbYear
-            // 
-            this.cbYear.BorderColor = System.Drawing.SystemColors.Window;
-            this.cbYear.ButtonColor = System.Drawing.Color.DarkRed;
-            this.cbYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbYear.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.cbYear.FormattingEnabled = true;
-            this.cbYear.Items.AddRange(new object[] {
-            "2021",
-            "2022",
-            "2023"});
-            this.cbYear.Location = new System.Drawing.Point(23, 15);
-            this.cbYear.Name = "cbYear";
-            this.cbYear.Size = new System.Drawing.Size(750, 26);
-            this.cbYear.TabIndex = 98;
-            this.cbYear.SelectedIndexChanged += new System.EventHandler(this.cbYear_SelectedIndexChanged);
-            // 
-            // cbMonth
-            // 
-            this.cbMonth.BorderColor = System.Drawing.SystemColors.Window;
-            this.cbMonth.ButtonColor = System.Drawing.Color.DarkRed;
-            this.cbMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbMonth.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.cbMonth.FormattingEnabled = true;
-            this.cbMonth.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12"});
-            this.cbMonth.Location = new System.Drawing.Point(23, 15);
-            this.cbMonth.Name = "cbMonth";
-            this.cbMonth.Size = new System.Drawing.Size(750, 26);
-            this.cbMonth.TabIndex = 98;
-            this.cbMonth.SelectedIndexChanged += new System.EventHandler(this.cbMonth_SelectedIndexChanged);
             // 
             // FormDT_ThuePhong
             // 

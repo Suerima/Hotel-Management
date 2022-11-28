@@ -97,12 +97,12 @@ namespace WindowsFormsApp1.DAO
             }
         }
 
-        public DataTable SearchCustomerInServiceInvoiceCheckOut(string customerID)
+        public DataTable SearchRoomInServiceInvoiceCheckOut(string roomID)
         {
             try
             {
-                string query = "USP_Search_Customer_ServiceInvoice_CheckOut @CustomerID";//
-                return DataProvider.Instance.ExecuteQuery(query, new object[] {customerID});
+                string query = "USP_Search_Room_ServiceInvoice_CheckOut @CustomerID";//
+                return DataProvider.Instance.ExecuteQuery(query, new object[] { roomID });
             }
             catch (Exception ex)
             {
@@ -110,12 +110,12 @@ namespace WindowsFormsApp1.DAO
             }
         }
 
-        public DataTable SearchCustomerInBookingCheckOut(string customerID) 
+        public DataTable SearchRoomInBookingCheckOut(string roomID) 
         {
             try
             {
-                string query = "USP_Search_Customer_Booking_CheckOut @CustomerID";//
-                return DataProvider.Instance.ExecuteQuery(query, new object[] { customerID });
+                string query = "USP_Search_Room_Booking_CheckOut @RoomID";//
+                return DataProvider.Instance.ExecuteQuery(query, new object[] { roomID });
             }
             catch (Exception ex)
             {

@@ -33,7 +33,7 @@ namespace WindowsFormsApp1
             if (!bookCheck)
             {
                 btnBooking.Visible = false;
-                btnDetail.Visible = true;
+                btnDetail.Visible = false;
             }
             else
             {
@@ -123,15 +123,15 @@ namespace WindowsFormsApp1
             try
             {
 
-                    string bookingid = GetNextBookingID();
-                    DateTime arrival = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd"));
+                string bookingid = GetNextBookingID();
+             
+                DateTime arrival = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd"));
 
-                    Booking booking = new Booking(bookingid, FormLogin.username, textBox1.Text, roomID, arrival);
-
-                    BookingBUS.Instance.InsertBooking(booking);
-                    BookingBUS.Instance.UpdateStatusRoom(roomID, "Phòng đang thuê");
-                    MessageBox.Show("Đặt phòng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                Booking booking = new Booking(bookingid, FormLogin.username, tbCustomerID.Text, roomID, arrival);
+                BookingBUS.Instance.InsertBooking(booking);
+                BookingBUS.Instance.UpdateStatusRoomBooking(roomID, "Phòng đang thuê");
+                MessageBox.Show("Đặt phòng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
   
             }
             catch (Exception ex)
@@ -143,6 +143,11 @@ namespace WindowsFormsApp1
         private void button_WOC1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnDetail_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

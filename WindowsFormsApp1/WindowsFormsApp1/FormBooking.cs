@@ -234,8 +234,6 @@ namespace WindowsFormsApp1
                     {
                         BookingBUS.Instance.UpdateStatusRoom(lbRoomID.Text, "Phòng trống");
 
-                        BookingBUS.Instance.DeleteBooking(lbBookingID.Text);
-
                         loadListBooking();
 
                         MessageBox.Show("Xóa thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -266,6 +264,30 @@ namespace WindowsFormsApp1
                     lbArrival.Text = amenitiesive.ToString("yyyy-MM-dd");
                 }
             }
+        }
+
+        private void tbSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (tbSearch.Text != "Tìm kiếm")
+                dgvListBooking.DataSource = BookingBUS.Instance.SearchBooking(tbSearch.Text);
+        }
+
+        private void tbSearch_Leave(object sender, EventArgs e)
+        {
+            if (tbSearch.Text == "")
+            {
+                tbSearch.Text = "Tìm kiếm";
+                tbSearch.ForeColor = Color.DarkGray;
+            }
+        }
+
+        private void tbSearch_Enter(object sender, EventArgs e)
+        {
+                if (tbSearch.Text == "Tìm kiếm")
+                {
+                    tbSearch.Text = "";
+                    tbSearch.ForeColor = Color.White;
+                }
         }
     }
 }

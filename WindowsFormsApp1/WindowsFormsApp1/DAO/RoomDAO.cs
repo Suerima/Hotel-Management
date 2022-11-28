@@ -80,6 +80,18 @@ namespace WindowsFormsApp1.DAO
 
             return alist;
         }
+
+        public DataTable GetRoomService(string customerid)
+        {
+            try
+            {
+                return DataProvider.Instance.ExecuteQuery("USP_Get_Room_Service @CustomerID", new object[] {customerid}); //
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public string GetPersonRoom(string roomid)
         {
             try
@@ -217,8 +229,8 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                string query = "USP_Insert_Room @RoomID , @Type , @Person , @Price , @Status , @Description"; //
-                return DataProvider.Instance.ExecuteNonQuery(query, new object[] {room.RoomID, room.Type, room.Person, room.Price, room.Status, room.Description});
+                string query = "USP_Insert_Room @RoomID , @Type , @Person , @Price , @Status "; //
+                return DataProvider.Instance.ExecuteNonQuery(query, new object[] {room.RoomID, room.Type, room.Person, room.Price, room.Status});
             }
             catch (Exception ex)
             {
@@ -230,8 +242,8 @@ namespace WindowsFormsApp1.DAO
         {
             try
             {
-                string query = "USP_Update_Room @RoomID , @Type , @Person , @Price , @Status , @Description"; //
-                return DataProvider.Instance.ExecuteNonQuery(query, new object[] { room.RoomID, room.Type, room.Person, room.Price, room.Status, room.Description });
+                string query = "USP_Update_Room @RoomID , @Type , @Person , @Price , @Status"; //
+                return DataProvider.Instance.ExecuteNonQuery(query, new object[] { room.RoomID, room.Type, room.Person, room.Price, room.Status});
             }
             catch (Exception ex)
             {

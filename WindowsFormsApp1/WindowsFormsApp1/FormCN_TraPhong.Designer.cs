@@ -45,7 +45,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.tbCustomerID = new System.Windows.Forms.TextBox();
+            this.tbRoomID = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -55,18 +55,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.dgvListServiceInvoice = new System.Windows.Forms.DataGridView();
+            this.dgvListBooking = new System.Windows.Forms.DataGridView();
+            this.btnReset = new ePOSOne.btnProduct.Button_WOC();
+            this.btnPay = new ePOSOne.btnProduct.Button_WOC();
             this.Service_Invoice_Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date_Created = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvListBooking = new System.Windows.Forms.DataGridView();
             this.Booking_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Customer_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pricee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Arrival = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnReset = new ePOSOne.btnProduct.Button_WOC();
-            this.btnPay = new ePOSOne.btnProduct.Button_WOC();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListServiceInvoice)).BeginInit();
@@ -108,7 +108,7 @@
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.tbCustomerID);
+            this.groupBox2.Controls.Add(this.tbRoomID);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
@@ -125,7 +125,7 @@
             this.groupBox2.Size = new System.Drawing.Size(403, 332);
             this.groupBox2.TabIndex = 51;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Infomation Invoice";
+            this.groupBox2.Text = "Thông tin hoá đơn";
             // 
             // lbTotalService
             // 
@@ -178,9 +178,9 @@
             this.label9.Location = new System.Drawing.Point(31, 98);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(62, 20);
+            this.label9.Size = new System.Drawing.Size(143, 20);
             this.label9.TabIndex = 46;
-            this.label9.Text = "Arrival:";
+            this.label9.Text = "Ngày nhận phòng:";
             // 
             // label5
             // 
@@ -201,25 +201,25 @@
             this.label3.Location = new System.Drawing.Point(31, 288);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(138, 20);
+            this.label3.Size = new System.Drawing.Size(92, 20);
             this.label3.TabIndex = 43;
-            this.label3.Text = "Total of all costs:";
+            this.label3.Text = "Tổng cộng:";
             // 
-            // tbCustomerID
+            // tbRoomID
             // 
-            this.tbCustomerID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
-            this.tbCustomerID.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbCustomerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.tbCustomerID.ForeColor = System.Drawing.Color.Yellow;
-            this.tbCustomerID.Location = new System.Drawing.Point(249, 37);
-            this.tbCustomerID.Margin = new System.Windows.Forms.Padding(4);
-            this.tbCustomerID.Name = "tbCustomerID";
-            this.tbCustomerID.Size = new System.Drawing.Size(85, 19);
-            this.tbCustomerID.TabIndex = 40;
-            this.tbCustomerID.Text = "None";
-            this.tbCustomerID.TextChanged += new System.EventHandler(this.tbCustomerID_TextChanged);
-            this.tbCustomerID.Enter += new System.EventHandler(this.tbCustomerID_Enter);
-            this.tbCustomerID.Leave += new System.EventHandler(this.tbCustomerID_Leave);
+            this.tbRoomID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
+            this.tbRoomID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbRoomID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.tbRoomID.ForeColor = System.Drawing.Color.Yellow;
+            this.tbRoomID.Location = new System.Drawing.Point(249, 37);
+            this.tbRoomID.Margin = new System.Windows.Forms.Padding(4);
+            this.tbRoomID.Name = "tbRoomID";
+            this.tbRoomID.Size = new System.Drawing.Size(85, 19);
+            this.tbRoomID.TabIndex = 40;
+            this.tbRoomID.Text = "None";
+            this.tbRoomID.TextChanged += new System.EventHandler(this.tbRoomID_TextChanged);
+            this.tbRoomID.Enter += new System.EventHandler(this.tbCustomerID_Enter);
+            this.tbRoomID.Leave += new System.EventHandler(this.tbCustomerID_Leave);
             // 
             // label8
             // 
@@ -264,9 +264,9 @@
             this.label2.Location = new System.Drawing.Point(31, 231);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(138, 20);
+            this.label2.Size = new System.Drawing.Size(141, 20);
             this.label2.TabIndex = 37;
-            this.label2.Text = "Total service fee:";
+            this.label2.Text = "Tổng tiền dịch vụ:";
             // 
             // lbTotalCost
             // 
@@ -286,9 +286,9 @@
             this.label10.Location = new System.Drawing.Point(31, 37);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(109, 20);
+            this.label10.Size = new System.Drawing.Size(87, 20);
             this.label10.TabIndex = 31;
-            this.label10.Text = "Customer ID:";
+            this.label10.Text = "Mã phòng:";
             // 
             // label1
             // 
@@ -297,9 +297,9 @@
             this.label1.Location = new System.Drawing.Point(31, 132);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 20);
+            this.label1.Size = new System.Drawing.Size(127, 20);
             this.label1.TabIndex = 32;
-            this.label1.Text = "Departure:";
+            this.label1.Text = "Ngày trả phòng:";
             // 
             // label11
             // 
@@ -308,9 +308,9 @@
             this.label11.Location = new System.Drawing.Point(31, 186);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(128, 20);
+            this.label11.Size = new System.Drawing.Size(170, 20);
             this.label11.TabIndex = 30;
-            this.label11.Text = "Total room rent:";
+            this.label11.Text = "Tổng tiền thuê phòng:";
             // 
             // dgvListServiceInvoice
             // 
@@ -365,42 +365,6 @@
             this.dgvListServiceInvoice.TabIndex = 49;
             this.dgvListServiceInvoice.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListServiceInvoice_CellClick);
             // 
-            // Service_Invoice_Code
-            // 
-            this.Service_Invoice_Code.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Service_Invoice_Code.DataPropertyName = "Service_Invoice_Code";
-            this.Service_Invoice_Code.HeaderText = "Service Invoice Code";
-            this.Service_Invoice_Code.MinimumWidth = 6;
-            this.Service_Invoice_Code.Name = "Service_Invoice_Code";
-            this.Service_Invoice_Code.ReadOnly = true;
-            // 
-            // CustomerID
-            // 
-            this.CustomerID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CustomerID.DataPropertyName = "CustomerID";
-            this.CustomerID.HeaderText = "Customer ID";
-            this.CustomerID.MinimumWidth = 6;
-            this.CustomerID.Name = "CustomerID";
-            this.CustomerID.ReadOnly = true;
-            // 
-            // Date_Created
-            // 
-            this.Date_Created.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Date_Created.DataPropertyName = "Date_Created";
-            this.Date_Created.HeaderText = "Date Created";
-            this.Date_Created.MinimumWidth = 6;
-            this.Date_Created.Name = "Date_Created";
-            this.Date_Created.ReadOnly = true;
-            // 
-            // Total
-            // 
-            this.Total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Total.DataPropertyName = "Total";
-            this.Total.HeaderText = "Total";
-            this.Total.MinimumWidth = 6;
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
-            // 
             // dgvListBooking
             // 
             this.dgvListBooking.AllowUserToAddRows = false;
@@ -454,50 +418,6 @@
             this.dgvListBooking.TabIndex = 52;
             this.dgvListBooking.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListBooking_CellClick);
             // 
-            // Booking_ID
-            // 
-            this.Booking_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Booking_ID.DataPropertyName = "BookingID";
-            this.Booking_ID.HeaderText = "Booking ID";
-            this.Booking_ID.MinimumWidth = 6;
-            this.Booking_ID.Name = "Booking_ID";
-            this.Booking_ID.ReadOnly = true;
-            // 
-            // Customer_ID
-            // 
-            this.Customer_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Customer_ID.DataPropertyName = "CustomerID";
-            this.Customer_ID.HeaderText = "Customer ID";
-            this.Customer_ID.MinimumWidth = 6;
-            this.Customer_ID.Name = "Customer_ID";
-            this.Customer_ID.ReadOnly = true;
-            // 
-            // RoomID
-            // 
-            this.RoomID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.RoomID.DataPropertyName = "RoomID";
-            this.RoomID.HeaderText = "RoomID";
-            this.RoomID.MinimumWidth = 6;
-            this.RoomID.Name = "RoomID";
-            this.RoomID.ReadOnly = true;
-            // 
-            // Pricee
-            // 
-            this.Pricee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Pricee.DataPropertyName = "Price";
-            this.Pricee.HeaderText = "Price";
-            this.Pricee.MinimumWidth = 6;
-            this.Pricee.Name = "Pricee";
-            this.Pricee.ReadOnly = true;
-            // 
-            // Arrival
-            // 
-            this.Arrival.DataPropertyName = "Arrival";
-            this.Arrival.HeaderText = "Arrival";
-            this.Arrival.MinimumWidth = 6;
-            this.Arrival.Name = "Arrival";
-            this.Arrival.ReadOnly = true;
-            // 
             // btnReset
             // 
             this.btnReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -541,16 +461,96 @@
             this.btnPay.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(200)))), ((int)(((byte)(104)))));
             this.btnPay.Size = new System.Drawing.Size(349, 62);
             this.btnPay.TabIndex = 47;
-            this.btnPay.Text = "Pay";
+            this.btnPay.Text = "Thanh Toán";
             this.btnPay.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(206)))), ((int)(((byte)(69)))));
             this.btnPay.UseVisualStyleBackColor = true;
             this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
+            // 
+            // Service_Invoice_Code
+            // 
+            this.Service_Invoice_Code.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Service_Invoice_Code.DataPropertyName = "Service_Invoice_Code";
+            this.Service_Invoice_Code.HeaderText = "Mã hoá đơn dịch vụ";
+            this.Service_Invoice_Code.MinimumWidth = 6;
+            this.Service_Invoice_Code.Name = "Service_Invoice_Code";
+            this.Service_Invoice_Code.ReadOnly = true;
+            // 
+            // CustomerID
+            // 
+            this.CustomerID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CustomerID.DataPropertyName = "RoomID";
+            this.CustomerID.HeaderText = "Mã phòng";
+            this.CustomerID.MinimumWidth = 6;
+            this.CustomerID.Name = "CustomerID";
+            this.CustomerID.ReadOnly = true;
+            // 
+            // Date_Created
+            // 
+            this.Date_Created.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Date_Created.DataPropertyName = "Date_Created";
+            this.Date_Created.HeaderText = "Ngày tạo";
+            this.Date_Created.MinimumWidth = 6;
+            this.Date_Created.Name = "Date_Created";
+            this.Date_Created.ReadOnly = true;
+            // 
+            // Total
+            // 
+            this.Total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Total.DataPropertyName = "Total";
+            this.Total.HeaderText = "Tổng tiền";
+            this.Total.MinimumWidth = 6;
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
+            // 
+            // Booking_ID
+            // 
+            this.Booking_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Booking_ID.DataPropertyName = "BookingID";
+            this.Booking_ID.HeaderText = "Mã đặt phòng";
+            this.Booking_ID.MinimumWidth = 6;
+            this.Booking_ID.Name = "Booking_ID";
+            this.Booking_ID.ReadOnly = true;
+            // 
+            // Customer_ID
+            // 
+            this.Customer_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Customer_ID.DataPropertyName = "CustomerID";
+            this.Customer_ID.HeaderText = "Mã khách hàng";
+            this.Customer_ID.MinimumWidth = 6;
+            this.Customer_ID.Name = "Customer_ID";
+            this.Customer_ID.ReadOnly = true;
+            // 
+            // RoomID
+            // 
+            this.RoomID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.RoomID.DataPropertyName = "RoomID";
+            this.RoomID.HeaderText = "Mã phòng";
+            this.RoomID.MinimumWidth = 6;
+            this.RoomID.Name = "RoomID";
+            this.RoomID.ReadOnly = true;
+            // 
+            // Pricee
+            // 
+            this.Pricee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Pricee.DataPropertyName = "Price";
+            this.Pricee.HeaderText = "Giá";
+            this.Pricee.MinimumWidth = 6;
+            this.Pricee.Name = "Pricee";
+            this.Pricee.ReadOnly = true;
+            // 
+            // Arrival
+            // 
+            this.Arrival.DataPropertyName = "Arrival";
+            this.Arrival.HeaderText = "Ngày nhận";
+            this.Arrival.MinimumWidth = 6;
+            this.Arrival.Name = "Arrival";
+            this.Arrival.ReadOnly = true;
             // 
             // FormCN_TraPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(239)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(23)))), ((int)(((byte)(27)))));
             this.ClientSize = new System.Drawing.Size(1477, 890);
             this.Controls.Add(this.dgvListServiceInvoice);
             this.Controls.Add(this.groupBox2);
@@ -580,7 +580,7 @@
         private ePOSOne.btnProduct.Button_WOC btnPay;
         private ePOSOne.btnProduct.Button_WOC btnReset;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox tbCustomerID;
+        private System.Windows.Forms.TextBox tbRoomID;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -597,11 +597,11 @@
         private System.Windows.Forms.Label lbArrival;
         private System.Windows.Forms.Label lbTotalBooking;
         private System.Windows.Forms.Label lbTotalService;
+        private System.Windows.Forms.DataGridView dgvListBooking;
         private System.Windows.Forms.DataGridViewTextBoxColumn Service_Invoice_Code;
         private System.Windows.Forms.DataGridViewTextBoxColumn CustomerID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date_Created;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
-        private System.Windows.Forms.DataGridView dgvListBooking;
         private System.Windows.Forms.DataGridViewTextBoxColumn Booking_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Customer_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomID;

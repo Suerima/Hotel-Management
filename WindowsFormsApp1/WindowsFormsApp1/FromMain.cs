@@ -145,24 +145,14 @@ namespace WindowsFormsApp1
         private void btnQuanly_Click(object sender, EventArgs e)
         {
             showSubMenu(panelQuanLySubMenu);
-            btnQL_NhanVien.BackColor = dark;
             btnQL_KhachHang.BackColor = dark;
             btnQL_Phong.BackColor = dark;   
             ActivateButton(sender, 0);
         }
 
-        private void btnQL_NhanVien_Click(object sender, EventArgs e)
-        {
-            openChildForm(new FormQL_NhanVien());
-            btnQL_KhachHang.BackColor = dark;
-            btnQL_Phong.BackColor = dark;
-            ActivateButton(sender, btnQuanly.Location.Y + 36);
-        }
-
         private void btnQL_KhachHang_Click(object sender, EventArgs e)
         {
             openChildForm(new FormQL_KhachHang());
-            btnQL_NhanVien.BackColor = dark;
             btnQL_Phong.BackColor = dark;
             ActivateButton(sender, btnQuanly.Location.Y + 36) ;
 
@@ -171,7 +161,6 @@ namespace WindowsFormsApp1
         private void btnQL_Phong_Click(object sender, EventArgs e)
         {
             openChildForm(new FormQL_Phong());
-            btnQL_NhanVien.BackColor = dark;
             btnQL_KhachHang.BackColor = dark;
             ActivateButton(sender, btnQuanly.Location.Y + 36);
 
@@ -184,6 +173,7 @@ namespace WindowsFormsApp1
             btnCN_ThuePhong.BackColor = dark;
             btnCN_TraPhong.BackColor = dark;
             btnCN_DichVu.BackColor = dark;
+            btnCN_ThemDichVu.BackColor = dark;
             ActivateButton(sender, 0);
 
         }
@@ -193,6 +183,7 @@ namespace WindowsFormsApp1
             openChildForm(new FormBooking());
             btnCN_TraPhong.BackColor = dark;
             btnCN_DichVu.BackColor = dark;
+            btnCN_ThemDichVu.BackColor = dark;
             ActivateButton(sender, btnChucnang.Location.Y + 36);
         }
 
@@ -201,6 +192,7 @@ namespace WindowsFormsApp1
             openChildForm(new FormCN_TraPhong());
             btnCN_ThuePhong.BackColor = dark;
             btnCN_DichVu.BackColor = dark;
+            btnCN_ThemDichVu.BackColor = dark;
             ActivateButton(sender, btnChucnang.Location.Y + 36);
         }
 
@@ -209,9 +201,17 @@ namespace WindowsFormsApp1
             openChildForm(new FormCN_DichVu());
             btnCN_ThuePhong.BackColor = dark;
             btnCN_TraPhong.BackColor = dark;
+            btnCN_ThemDichVu.BackColor = dark;
             ActivateButton(sender, btnChucnang.Location.Y + 36);
         }
-
+        private void btnCN_ThemDichVu_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FormCN_ThemDichVu());
+            btnCN_ThuePhong.BackColor = dark;
+            btnCN_TraPhong.BackColor = dark;
+            btnCN_DichVu.BackColor = dark;
+            ActivateButton(sender, btnChucnang.Location.Y + 36);
+        }
         private void btnThongke_Click(object sender, EventArgs e)
         {
             showSubMenu(panelThongKeSubMenu);
@@ -243,10 +243,6 @@ namespace WindowsFormsApp1
         {
             switch (ActivForm.Name)
             {
-                case "FormQL_NhanVien":
-                    if (e.KeyCode == Keys.Delete)
-                        ((FormQL_NhanVien)ActivForm).DeleteEmployee();
-                    break;
                 case "FormQL_KhachHang":
                     if (e.KeyCode == Keys.Delete)
                         ((FormQL_KhachHang)ActivForm).DeleteCustomer();

@@ -28,17 +28,17 @@ namespace WindowsFormsApp1
         void loadData()
         {
             dgvListCustomer.DataSource = CustomerBUS.Instance.GetCustomer();
-            lbRecord.Text = "Số lượng khách: " + dgvListCustomer.RowCount.ToString();
+            lbRecord.Text = "Số lượng khách hàng: " + dgvListCustomer.RowCount.ToString();
         }
 
         private void reset()
         {
             tbCustomerID.Texts = GetNextCustomerID();
-            tbName.Texts = "Fullname";
-            cbGender.Text = "Male";
-            tbIDCard.Texts = "IDCard";
-            tbPhone.Texts = "Phone";
-            tbAddress.Texts = "Address";
+            tbName.Texts = "Họ tên";
+            cbGender.Text = "Name";
+            tbIDCard.Texts = "CMND";
+            tbPhone.Texts = "SĐT";
+            tbAddress.Texts = "Địa chỉ";
         }
 
         private void dgvListCustomer_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -94,7 +94,7 @@ namespace WindowsFormsApp1
         {
             tabControl.TabPages.Remove(tabPageList);
             tabControl.TabPages.Add(tabPageEdit);
-            tabPageEdit.Text = "Thêm khách hàng";
+            tabPageEdit.Text = "Thêm thông tin khách hàng";
             reset();
             checkButton = true;
         }
@@ -103,13 +103,13 @@ namespace WindowsFormsApp1
         {
             if (tbCustomerID.Texts == "")
             {
-                MessageBox.Show("Please select the customer you want to update!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Chọn khách hàng bạn muốn cập nhật thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 tabControl.TabPages.Remove(tabPageList);
                 tabControl.TabPages.Add(tabPageEdit);
-                tabPageEdit.Text = "Cập nhật thông tin";
+                tabPageEdit.Text = "Cập nhật thông tin khách hàng";
                 checkButton = false;
             }
         }
@@ -119,15 +119,15 @@ namespace WindowsFormsApp1
             try
             {
                 if (tbCustomerID.Texts == "")
-                    MessageBox.Show("Please select the customer you want to delete!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Vui lòng chọn khách hàng bạn muốn xoá.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
                 {
-                    var result = MessageBox.Show("Are you sure you want to delete this customer?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    var result = MessageBox.Show("Bạn có chắc muốn xoá khách hàng này.", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (result == DialogResult.Yes)
                     {
                         PersonalInfoBUS.Instance.DeletePerson(tbCustomerID.Texts);
                         loadData();
-                        MessageBox.Show("Delete successfully.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Xoá thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         tbCustomerID.Texts = "";
                     }
                 }
@@ -155,21 +155,21 @@ namespace WindowsFormsApp1
                 string phone = tbPhone.Texts;
                 string idcard = tbIDCard.Texts;
 
-                if (name == "Fullname" || address == "Address" || phone == "Phone" || idcard == "IDCard")
+                if (name == "Họ tên" || address == "Địa chỉ" || phone == "SĐT" || idcard == "CMND")
                 {
-                    MessageBox.Show("Missing information.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Nhập thiếu thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else if (!FormAcc_TaoAccount.checkName(name))
                 {
-                    MessageBox.Show("Invalid name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Tên không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else if (!FormAcc_TaoAccount.checkPhone(phone))
                 {
-                    MessageBox.Show("Invalid phone number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Số điện thoại không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else if (!FormAcc_TaoAccount.checkIDCard(idcard))
                 {
-                    MessageBox.Show("Invalid IDCard.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("CMND không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else 
                 {
@@ -179,12 +179,12 @@ namespace WindowsFormsApp1
                     {
 
                         CustomerBUS.Instance.InsertCustomer(personInfo);
-                        MessageBox.Show("Insert successful.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Thêm khách hàng thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else // false = UPDATE
                     {
                         CustomerBUS.Instance.UpdateCustomer(personInfo);
-                        MessageBox.Show("Update successful.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Cập nhật thông tin khách hàng thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
                     tabControl.TabPages.Add(tabPageList);
@@ -205,9 +205,6 @@ namespace WindowsFormsApp1
             tabControl.TabPages.Add(tabPageList);
             tbCustomerID.Texts = "";
         }
-
-        #region Event
-
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {
             if (tbSearch.Text != "Tìm kiếm")
@@ -231,6 +228,7 @@ namespace WindowsFormsApp1
                 }
             }
         }
+        #region Event
 
         private void tbSearch_Enter(object sender, EventArgs e)
         {
@@ -249,10 +247,10 @@ namespace WindowsFormsApp1
         {
             tbName.BorderSize = 2;
             tbName.BorderColor = yellow;
-            lbName.Text = "Fullname";
+            lbName.Text = "Họ tên";
             lbName.ForeColor = yellow;
 
-            if (tbName.Texts == "Fullname")
+            if (tbName.Texts == "Họ tên")
                 tbName.Texts = "";
             tbName.ForeColor = Color.WhiteSmoke;
         }
@@ -265,7 +263,7 @@ namespace WindowsFormsApp1
 
             if (tbName.Texts == "")
             {
-                tbName.Texts = "Fullname";
+                tbName.Texts = "Họ tên";
                 tbName.ForeColor = Color.DimGray;
                 lbName.Text = "";
             }
@@ -275,10 +273,10 @@ namespace WindowsFormsApp1
         {
             tbAddress.BorderSize = 2;
             tbAddress.BorderColor = yellow;
-            lbAddress.Text = "Address";
+            lbAddress.Text = "Địa chỉ";
             lbAddress.ForeColor = yellow;
 
-            if (tbAddress.Texts == "Address")
+            if (tbAddress.Texts == "Địa chỉ")
                 tbAddress.Texts = "";
             tbAddress.ForeColor = Color.WhiteSmoke;
         }
@@ -291,7 +289,7 @@ namespace WindowsFormsApp1
 
             if (tbAddress.Texts == "")
             {
-                tbAddress.Texts = "Address";
+                tbAddress.Texts = "Địa chỉ";
                 tbAddress.ForeColor = Color.DimGray;
                 lbAddress.Text = "";
             }
@@ -301,10 +299,10 @@ namespace WindowsFormsApp1
         {
             tbIDCard.BorderSize = 2;
             tbIDCard.BorderColor = yellow;
-            lbIDCard.Text = "IDCard";
+            lbIDCard.Text = "CMND";
             lbIDCard.ForeColor = yellow;
 
-            if (tbIDCard.Texts == "IDCard")
+            if (tbIDCard.Texts == "CMND")
                 tbIDCard.Texts = "";
             tbIDCard.ForeColor = Color.WhiteSmoke;
         }
@@ -317,7 +315,7 @@ namespace WindowsFormsApp1
 
             if (tbIDCard.Texts == "")
             {
-                tbIDCard.Texts = "IDCard";
+                tbIDCard.Texts = "CMND";
                 tbIDCard.ForeColor = Color.DimGray;
                 lbIDCard.Text = "";
             }
@@ -327,10 +325,10 @@ namespace WindowsFormsApp1
         {
             tbPhone.BorderSize = 2;
             tbPhone.BorderColor = yellow;
-            lbPhone.Text = "Phone";
+            lbPhone.Text = "SĐT";
             lbPhone.ForeColor = yellow;
 
-            if (tbPhone.Texts == "Phone")
+            if (tbPhone.Texts == "SĐT")
                 tbPhone.Texts = "";
             tbPhone.ForeColor = Color.WhiteSmoke;
         }
@@ -343,7 +341,7 @@ namespace WindowsFormsApp1
 
             if (tbPhone.Texts == "")
             {
-                tbPhone.Texts = "Phone";
+                tbPhone.Texts = "SĐT";
                 tbPhone.ForeColor = Color.DimGray;
                 lbPhone.Text = "";
             }
